@@ -1,9 +1,9 @@
 [
   {
     "question": "Sugar and athletic performance",
-    "must_include_pmids": [10000167649],
+    "must_include_pmids": [10000167649, 41299202, 41191077, 41926079, 10000158192, 10004317414, 10000748853, 10000444142, 39940403],
     "must_exclude_pmids": [10004375236],
-    "notes": "The 2026-04-22 bug case (post centroid-filter version). 'Sugar and oral health' (pmid 10004277354 + 10004002708) was already soft-deleted by the centroid filter on 2026-04-22 PM and its chunks dropped — won't appear. 'Sugar and metabolic health' (pmid 10004375236, openalex) survived with 2 chunks (title + abstract); it's the live test for whether v4 demotes its title chunk or substitutes it with the abstract. 'Is There a Specific Role for Sucrose in Sports and Exercise Performance?' (pmid 10000167649, openalex) is the on-topic paper that should appear in top-3."
+    "notes": "Vocabulary-gap diagnostic. 10000167649 = the broadly-titled 'Specific Role for Sucrose' review (surfaces in v4 baseline). 41299202/41191077/41926079 = carb mouth rinse / glucose-fructose oxidation RCTs (specific vocab, absent from v4 top-50 per debug-sugar-perf.js). 10000158192/10004317414/10000748853/10000444142/39940403 = additional specific-vocab papers from the same diagnostic. must_exclude 10004375236 = 'Sugar and metabolic health' which is keyword-adjacent but off-topic for exercise performance. Recall@K measures how many of the 9 on-topic papers surface."
   },
   {
     "question": "Creatine for strength training",

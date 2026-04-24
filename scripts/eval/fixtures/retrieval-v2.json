@@ -1,0 +1,4998 @@
+[
+  {
+    "question": "performance profiling effectiveness in cognitive behavioral interventions to improve sport performance under pressure situations",
+    "must_include_pmids": [
+      10004195109
+    ],
+    "must_exclude_pmids": [
+      10000834652,
+      10004261373,
+      10000830074
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "pre2000",
+      "target_pmid": 10004195109,
+      "target_title": "The Role of Performance Profiling in Cognitive Behavioral Interventions in Sport",
+      "target_year": 1993,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses the exact specific terms 'performance profiling' and 'cognitive behavioral interventions' from the paper title and abstract, making it an easy difficulty level."
+    }
+  },
+  {
+    "question": "How often should someone exercise to effectively prevent high blood pressure according to recent studies?",
+    "must_include_pmids": [
+      10002077969
+    ],
+    "must_exclude_pmids": [
+      10001422334,
+      10000410842,
+      10003424796
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2010s",
+      "target_pmid": 10002077969,
+      "target_title": "Exercise as Determinant Prevention of High Blood Pressure in Container Crane Operator",
+      "target_year": 2016,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query asks a practical question about exercise frequency for blood pressure prevention, which aligns with the paper's focus on exercise as a determinant in blood pressure control."
+    }
+  },
+  {
+    "question": "How can changes in training intensity and menstrual status affect bone health and stress fracture risk?",
+    "must_include_pmids": [
+      10002078927
+    ],
+    "must_exclude_pmids": [
+      10002093428,
+      17805074,
+      10001453841
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2010s",
+      "target_pmid": 10002078927,
+      "target_title": "Bone health and risk of stress fracture in female endurance athletes",
+      "target_year": 2019,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query asks a practical question about training and menstrual effects on bone health and stress fracture risk, requiring understanding of the paper's discussion on exercise, amenorrhoea, and bone mineral density."
+    }
+  },
+  {
+    "question": "How does motivation affect endurance in elite athletes?",
+    "must_include_pmids": [
+      10002074570
+    ],
+    "must_exclude_pmids": [
+      10002167074,
+      10000823922,
+      10000709628
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002074570,
+      "target_title": "Integrating theories of self-control and motivation to advance endurance performance",
+      "target_year": 2018,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related terms like 'motivation' and 'endurance' but does not replicate the paper's exact title or abstract wording; it targets a specific subgroup (elite athletes) as specified."
+    }
+  },
+  {
+    "question": "Can pelvic floor muscle training reduce involuntary vaginal air leakage in postpartum women?",
+    "must_include_pmids": [
+      41603160
+    ],
+    "must_exclude_pmids": [
+      26067791,
+      10000558070,
+      31526791
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 41603160,
+      "target_title": "Investigation of the effects of Kegel exercises on vaginal flatus among postpartum women: a randomized controlled trial.",
+      "target_year": 2026,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related scientific terms like 'pelvic floor muscle training' and 'involuntary vaginal air leakage' instead of the exact phrases 'Kegel exercises' and 'vaginal flatus', making it a medium difficulty question relevant to postpartum women."
+    }
+  },
+  {
+    "question": "Mediterranean diet exercise effects",
+    "must_include_pmids": [
+      41311800
+    ],
+    "must_exclude_pmids": [
+      10000413151,
+      10001195864,
+      30758261
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 41311800,
+      "target_title": "Effects of a Mediterranean diet and structured exercise intervention on selected anthropometric, cardiovascular, and metabolic variables in physically inactive adults: a randomized controlled trial.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses the same specific vocabulary as the paper title and abstract, making it an easy-level query with direct lexical overlap."
+    }
+  },
+  {
+    "question": "optimal treadmill running intensity duration to increase lower limb muscle activation without excessive fatigue",
+    "must_include_pmids": [
+      10003841010
+    ],
+    "must_exclude_pmids": [
+      10000222322,
+      10003665618,
+      30732537
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2000s",
+      "target_pmid": 10003841010,
+      "target_title": "Effect Of Exercise Intensity On Emg Amplitude During Treadmill Running",
+      "target_year": 2008,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses practical exercise prescription language focusing on intensity and duration for muscle activation, aligning with the paper's investigation of EMG amplitude changes during different treadmill running intensities."
+    }
+  },
+  {
+    "question": "prenatal exercise urinary incontinence late pregnancy postpartum",
+    "must_include_pmids": [
+      39809234
+    ],
+    "must_exclude_pmids": [
+      10000500255,
+      10003399319,
+      30337466
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "keyword",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 39809234,
+      "target_title": "Prenatal Exercise Decreases Urinary Incontinence in Late Pregnancy and 3 Months Postpartum: A Randomized Controlled Trial.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses the exact specific terms from the paper title and abstract related to the intervention, outcome, and time points for a specific population of pregnant women."
+    }
+  },
+  {
+    "question": "maternal mercury exposure cardiometabolic risk children",
+    "must_include_pmids": [
+      41205373
+    ],
+    "must_exclude_pmids": [
+      41264948,
+      10000908871,
+      41437058
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "keyword",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 41205373,
+      "target_title": "Association of pre-and postnatal mercury exposure with cardiometabolic risk factors in children: the role of the telomere length and telomerase reverse transcriptase polymorphisms.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "uses related scientific terms like maternal mercury exposure and cardiometabolic risk but not the exact phrasing from the paper, targeting a specific population (children) with medium length keywords"
+    }
+  },
+  {
+    "question": "can physical activity help prevent bone loss in seniors?",
+    "must_include_pmids": [
+      10003885211
+    ],
+    "must_exclude_pmids": [
+      10002078763,
+      33099029,
+      38683797
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10003885211,
+      "target_title": "Effect of exercise on osteroporosis in old women",
+      "target_year": 2000,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broad, lay terms like 'physical activity' and 'bone loss' instead of specific scientific terms like BMD or osteoporosis, requiring bridging to the paper's detailed findings on exercise effects on bone mineral density in older women."
+    }
+  },
+  {
+    "question": "Are power output measures reliable for female beginners?",
+    "must_include_pmids": [
+      10003859553
+    ],
+    "must_exclude_pmids": [
+      10003840207,
+      10004223816,
+      40148210
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10003859553,
+      "target_title": "Comparison of Different Methods of Determining Power Output in Weightlifting Exercises",
+      "target_year": 2006,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query critically questions the reliability of power output measurements specifically for a subgroup (female beginners), aligning with the skeptical difficulty by challenging the validity of the methods discussed in the paper."
+    }
+  },
+  {
+    "question": "differences in workout intensity views between trainers and players",
+    "must_include_pmids": [
+      10002077591
+    ],
+    "must_exclude_pmids": [
+      10003548060,
+      10003783553,
+      10002140534
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002077591,
+      "target_title": "Comparison of athlete-coach perceptions of internal and external load markers for elite junior tennis training",
+      "target_year": 2014,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses broad, lay terms like 'workout intensity' and 'views' instead of the paper's specific terms such as 'internal and external load markers' or 'RPE,' requiring the system to bridge the vocabulary gap."
+    }
+  },
+  {
+    "question": "resistance training rowing performance",
+    "must_include_pmids": [
+      10004159223
+    ],
+    "must_exclude_pmids": [
+      10003773436,
+      22446667,
+      10000476518
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "pre2000",
+      "target_pmid": 10004159223,
+      "target_title": "The effects of high and low repetition resistance training on the force profile of the rowing stroke",
+      "target_year": 1993,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related scientific terms like 'resistance training' and 'rowing performance' instead of the exact phrase 'force profile of the rowing stroke,' fitting a medium difficulty level."
+    }
+  },
+  {
+    "question": "What are common cardiovascular diseases during pregnancy?",
+    "must_include_pmids": [
+      41300945
+    ],
+    "must_exclude_pmids": [
+      10002122718,
+      10000617407,
+      10000273617
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 41300945,
+      "target_title": "Cardiovascular Disease in Pregnancy: When Two Hearts Beat as One.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses the exact phrase 'cardiovascular diseases' and 'pregnancy' from the paper title, making it an easy-level search."
+    }
+  },
+  {
+    "question": "best PROM care women?",
+    "must_include_pmids": [
+      41837757
+    ],
+    "must_exclude_pmids": [
+      10003396105,
+      40207746,
+      10000548203
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 41837757,
+      "target_title": "The role of crisis management in preventing postpartum infections and enhancing recovery quality in pregnant women with premature rupture of membranes.",
+      "target_year": 2026,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This short applied question asks about optimal management protocols for women with premature rupture of membranes, directly relating to the study's focus on crisis management strategies in this subgroup."
+    }
+  },
+  {
+    "question": "pediatric Cushing disease lipoprotein particles cardiovascular risk",
+    "must_include_pmids": [
+      10002080150
+    ],
+    "must_exclude_pmids": [
+      10000195350,
+      41018050,
+      10000170745
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002080150,
+      "target_title": "Lipoprotein particles in patients with pediatric Cushing disease and possible cardiovascular risks.",
+      "target_year": 2019,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses the exact specific vocabulary found in the paper title and abstract, making it an easy-level query."
+    }
+  },
+  {
+    "question": "Does pelvic floor training aid abdominal muscle separation recovery?",
+    "must_include_pmids": [
+      36219918
+    ],
+    "must_exclude_pmids": [
+      10003400299,
+      19190594,
+      10000558070
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 36219918,
+      "target_title": "Rehabilitation programme including EMG-biofeedback- assisted pelvic floor muscle training for rectus diastasis after childbirth: a randomised controlled trial.",
+      "target_year": 2022,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terms like 'pelvic floor training' and 'abdominal muscle separation' to refer to EMG-biofeedback pelvic floor muscle training and rectus diastasis, matching the medium difficulty requirement."
+    }
+  },
+  {
+    "question": "blood sugar control strategies for middle-aged women",
+    "must_include_pmids": [
+      10002077704
+    ],
+    "must_exclude_pmids": [
+      10003434402,
+      35686720,
+      10003324643
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "keyword",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002077704,
+      "target_title": "The Effect of Exercise and Diet on Insulin Resistance",
+      "target_year": 2018,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broader terms like 'blood sugar control' instead of 'insulin resistance' and specifies a subgroup ('middle-aged women'), requiring the system to connect lay vocabulary with the paper's focus on diet, exercise, and insulin resistance in a specific demographic."
+    }
+  },
+  {
+    "question": "ketogenic diet insulin resistance",
+    "must_include_pmids": [
+      40394635
+    ],
+    "must_exclude_pmids": [
+      10000390694,
+      10000859881,
+      10000860160
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 40394635,
+      "target_title": "Effects of ketogenic diets on polycystic ovary syndrome: a systematic review and meta-analysis.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related scientific terms linked to the paper's focus on ketogenic diets and metabolic outcomes in PCOS, but does not replicate exact phrases from the title or abstract, fitting a medium difficulty level."
+    }
+  },
+  {
+    "question": "estimating oxygen use skiing",
+    "must_include_pmids": [
+      10003844563
+    ],
+    "must_exclude_pmids": [
+      10003977418,
+      10003476951,
+      38918220
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2000s",
+      "target_pmid": 10003844563,
+      "target_title": "Linear Regression Analysis for Prediction of VO2 during Treadmill Roller Skiing Using the V1 Technique",
+      "target_year": 2007,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broad, lay terms instead of technical terms like VO2, treadmill roller skiing, or V1 technique, requiring the system to bridge vocabulary gaps to retrieve the specific study on oxygen consumption prediction during treadmill roller skiing."
+    }
+  },
+  {
+    "question": "is strength training overrated",
+    "must_include_pmids": [
+      10003888253
+    ],
+    "must_exclude_pmids": [
+      10004198814,
+      10000605302,
+      10003532756
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2000s",
+      "target_pmid": 10003888253,
+      "target_title": "Strength Training",
+      "target_year": 2005,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query is skeptical and uses lay vocabulary without directly repeating terms from the paper, challenging the general value of strength training."
+    }
+  },
+  {
+    "question": "online guided exercises to reduce leaking after childbirth",
+    "must_include_pmids": [
+      40495498
+    ],
+    "must_exclude_pmids": [
+      10003394331,
+      10000556801,
+      10000556914
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 40495498,
+      "target_title": "Effective Prevention of Postpartum Stress Urinary Incontinence through Prenatal Pelvic Floor Training Programme Based on the Internet Platform: A Retrospective Study.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "the query uses lay terms like 'leaking after childbirth' and 'online guided exercises' which differ from the paper's clinical terms and focuses on postpartum urinary incontinence prevention through internet-based pelvic floor training"
+    }
+  },
+  {
+    "question": "physics sport activities",
+    "must_include_pmids": [
+      10004184431
+    ],
+    "must_exclude_pmids": [
+      10003856603,
+      10003882684,
+      10003664128
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "pre2000",
+      "target_pmid": 10004184431,
+      "target_title": "The physics of sport activities",
+      "target_year": 1978,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses the exact vocabulary from the paper title, making it an easy-level query."
+    }
+  },
+  {
+    "question": "does psychological support really improve pelvic floor exercise adherence in postpartum women",
+    "must_include_pmids": [
+      35669366
+    ],
+    "must_exclude_pmids": [
+      10000523097,
+      10000499472,
+      10000558070
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "keyword",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 35669366,
+      "target_title": "The Effect of Psychological Support Intervention Based on Structure-Process-Result Three-Dimensional Quality Assessment on Maternal Role Adaptation and Pelvic Floor Rehabilitation Exercise Compliance of Women in Spontaneous Labor.",
+      "target_year": 2022,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query skeptically questions the effectiveness of psychological support on exercise adherence in postpartum women, using a broader and critical framing rather than the specific intervention terms from the paper."
+    }
+  },
+  {
+    "question": "can fitness trackers detect brain injuries?",
+    "must_include_pmids": [
+      41450133
+    ],
+    "must_exclude_pmids": [
+      10000354398,
+      10000670893,
+      10000670677
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 41450133,
+      "target_title": "Monitoring Adolescent Sport-Related Concussion Recovery Using Consumer-Grade Wearables: A Pilot Study.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broad, lay terms like 'fitness trackers' and 'brain injuries' instead of the specific scientific terms 'consumer-grade wearables' and 'sport-related concussion', requiring semantic bridging to the paper's content."
+    }
+  },
+  {
+    "question": "how to measure sprint power in female athletes?",
+    "must_include_pmids": [
+      10004182515
+    ],
+    "must_exclude_pmids": [
+      10000152571,
+      10002022696,
+      10004569953
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "pre2000",
+      "target_pmid": 10004182515,
+      "target_title": "RELATIONSHIP AMONG ANAEROBIC POWER BY WINGATE TEST, EXPLOSIVE POWER AND PERFORMANCE IN JAPANESE ATHELETES",
+      "target_year": 1999,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses practical language about measuring sprint power specifically in female athletes, matching the paper's focus on anaerobic and explosive power tests in male and female Japanese athletes without copying exact technical terms."
+    }
+  },
+  {
+    "question": "how does fitness affect heart stress in frequent flyers?",
+    "must_include_pmids": [
+      10002076466
+    ],
+    "must_exclude_pmids": [
+      28081200,
+      10001423430,
+      10001356962
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002076466,
+      "target_title": "Heart rate and cardiovascular responses to commercial flights: relationships with physical fitness",
+      "target_year": 2016,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broader, lay vocabulary ('heart stress' instead of heart rate variability or cardiac autonomic control) and targets a specific population of frequent flyers, requiring the system to connect the paper's findings on fitness and cardiovascular responses during flights to this phrasing."
+    }
+  },
+  {
+    "question": "optimal duration and timing of pelvic floor muscle training postpartum for improving muscle function",
+    "must_include_pmids": [
+      36397372
+    ],
+    "must_exclude_pmids": [
+      10000558070,
+      10000555123,
+      10002107134
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 36397372,
+      "target_title": "Analysis of the status quo of pelvic floor muscle and the effect of pelvic floor muscle training in second pregnant women.",
+      "target_year": 2022,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query asks a practical question about the duration and timing of pelvic floor muscle training after childbirth, which the paper investigates through repeated measurements at different postpartum times."
+    }
+  },
+  {
+    "question": "what is the best way to warm up before intense cycling?",
+    "must_include_pmids": [
+      10002080965
+    ],
+    "must_exclude_pmids": [
+      10003801127,
+      31914360,
+      10001473399
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002080965,
+      "target_title": "Comparison of two warm-up models for obese and normal-weight adults performing supramaximal cycling exercise.",
+      "target_year": 2018,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broad, lay terms like 'best way to warm up' and 'intense cycling' rather than technical terms like 'supramaximal cycling' or 'warm-up at 50% maximal aerobic power,' requiring bridging to the paper's specific warm-up protocols and performance outcomes."
+    }
+  },
+  {
+    "question": "When should pelvic floor muscle training start in pregnancy?",
+    "must_include_pmids": [
+      37657664
+    ],
+    "must_exclude_pmids": [
+      10003388912,
+      10000523819,
+      19190594
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 37657664,
+      "target_title": "The effect of pelvic floor muscle training and perineal massage in late pregnancy on postpartum pelvic floor function in nulliparas: A randomised controlled clinical trial.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query asks a practical timing question about the initiation of pelvic floor muscle training during pregnancy, directly addressed by the study's intervention starting at 34 weeks gestation."
+    }
+  },
+  {
+    "question": "how can exercises before birth reduce childbirth injuries?",
+    "must_include_pmids": [
+      39202545
+    ],
+    "must_exclude_pmids": [
+      10003394403,
+      10002108345,
+      10002107246
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 39202545,
+      "target_title": "Antenatal Perineal Training for Injuries Prevention: Follow Up after Puerperium.",
+      "target_year": 2024,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses lay terms like 'exercises before birth' and 'childbirth injuries' instead of the paper's technical terms such as 'antenatal perineal training' and 'perineal trauma,' requiring the system to bridge vocabulary gaps."
+    }
+  },
+  {
+    "question": "Does Jakyakgamcho-tang help relieve delayed-onset muscle soreness?",
+    "must_include_pmids": [
+      32085792
+    ],
+    "must_exclude_pmids": [
+      10000372113,
+      10000361296,
+      24139006
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 32085792,
+      "target_title": "Jakyakgamcho-tang in the relief of delayed-onset muscle soreness in healthy adults: study protocol for a randomized, double-blind, placebo-controlled, crossover design clinical trial.",
+      "target_year": 2020,
+      "target_source": "pubmed",
+      "target_rcr": 0.5603365801236145,
+      "sibling_count": 0,
+      "rationale": "This query uses the exact specific vocabulary 'Jakyakgamcho-tang' and 'delayed-onset muscle soreness' from the paper title, making it easy to match."
+    }
+  },
+  {
+    "question": "How does nutrition science address older adults' health?",
+    "must_include_pmids": [
+      38015211
+    ],
+    "must_exclude_pmids": [
+      10000003496,
+      10003407793,
+      10000254171
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 38015211,
+      "target_title": "Advancing nutrition science to meet evolving global health needs.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": 2.6766524020349305,
+      "sibling_count": 0,
+      "rationale": "The query uses the exact terminology 'nutrition science' from the paper title and focuses on an older adult subgroup, matching the easy difficulty and medium length requirement."
+    }
+  },
+  {
+    "question": "Can antioxidant therapy improve vascular health in growth-restricted newborns?",
+    "must_include_pmids": [
+      41231203
+    ],
+    "must_exclude_pmids": [
+      39594542,
+      10004255528,
+      10003343203
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 41231203,
+      "target_title": "Antenatal melatonin for cardiovascular deficits in fetal growth restriction.",
+      "target_year": 2026,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related scientific terms such as 'antioxidant therapy' and 'growth-restricted newborns' instead of directly repeating 'melatonin' and 'fetal growth restriction,' fitting the medium difficulty level and subgroup angle."
+    }
+  },
+  {
+    "question": "how does running form differ in female runners with calf pain?",
+    "must_include_pmids": [
+      10003859551
+    ],
+    "must_exclude_pmids": [
+      10003386646,
+      10004288426,
+      10004375535
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10003859551,
+      "target_title": "Lower Limb Biomechanics and EMG Activity in Runners with Achilles Tendinopathy",
+      "target_year": 2006,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses lay terms like 'running form' and 'calf pain' instead of technical terms like 'lower limb biomechanics' and 'Achilles tendinopathy,' making it a hard query that still targets the study's focus on female runners' biomechanics and muscle activity."
+    }
+  },
+  {
+    "question": "loss of CAMKK2 transferrin receptor in Alzheimer's hippocampus",
+    "must_include_pmids": [
+      41660275
+    ],
+    "must_exclude_pmids": [
+      20164549,
+      21605043,
+      21456025
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 41660275,
+      "target_title": "Loss of CAMKK2 and iron-transport proteins-transferrin and its receptor-in the Alzheimer's disease hippocampus: link to tau pathology.",
+      "target_year": 2026,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses the exact specific terms CAMKK2, transferrin receptor, Alzheimer's, and hippocampus as found in the paper title, making it an easy query."
+    }
+  },
+  {
+    "question": "muscle strength bone density",
+    "must_include_pmids": [
+      10002079781
+    ],
+    "must_exclude_pmids": [
+      10004358937,
+      10000429887,
+      10000008003
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002079781,
+      "target_title": "Associations of muscular strength and cardiorespiratory fitness with bone mineral density in older adults",
+      "target_year": 2019,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related terms 'muscle strength' and 'bone density' that are scientifically connected to the paper's focus on muscular strength and bone mineral density but are not identical lexical matches, making it medium difficulty."
+    }
+  },
+  {
+    "question": "can older men with heart disease benefit from magnesium supplements during exercise?",
+    "must_include_pmids": [
+      10003890337
+    ],
+    "must_exclude_pmids": [
+      10001213553,
+      26069818,
+      10003339218
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10003890337,
+      "target_title": "Oral Magnesium Therapy And Exercise Tolerance, Heart Rate And Myocardial Function In Patients With Cad",
+      "target_year": 2005,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses broader, lay terms like 'older men with heart disease' and 'magnesium supplements during exercise,' requiring the system to connect these to the paper's focus on oral magnesium therapy effects on exercise tolerance and heart function in male CAD patients."
+    }
+  },
+  {
+    "question": "is strength training safe for older adults' heart health",
+    "must_include_pmids": [
+      10003881443
+    ],
+    "must_exclude_pmids": [
+      10000605215,
+      17062657,
+      10002090415
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "statement",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10003881443,
+      "target_title": "Comparison Of Rate-pressure Product Variation During Bench And Leg Press Dynamic Exercise At Different Workloads",
+      "target_year": 2004,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query critically questions the cardiovascular safety of strength training in older adults, aligning with the paper's focus on cardiac overload during resistance exercises in a trained subgroup, but uses broader terms and a different population angle."
+    }
+  },
+  {
+    "question": "Does training the lower back just once a week really improve strength and reduce chronic pain?",
+    "must_include_pmids": [
+      10002085321
+    ],
+    "must_exclude_pmids": [
+      22397454,
+      10003383612,
+      10004549810
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2010s",
+      "target_pmid": 10002085321,
+      "target_title": "One lumbar extension training session per week is sufficient for strength gains and reduction in pain in patients with chronic low back pain ergonomics",
+      "target_year": 2012,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses lay terms like 'lower back' and questions the effectiveness of a low training frequency, reflecting a skeptical stance without lexical overlap from the paper's title or abstract."
+    }
+  },
+  {
+    "question": "Is the improvement in postpartum urinary incontinence from app-based training really due to increased self-confidence?",
+    "must_include_pmids": [
+      38875972
+    ],
+    "must_exclude_pmids": [
+      31526791,
+      10000523639,
+      37227458
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "question",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 38875972,
+      "target_title": "Self-efficacy with Pelvic floor muscle training mediates the effect of an App-based intervention on improving postpartum urinary incontinence severity among pregnant women: A causal mediation analysis from a randomised controlled trial.",
+      "target_year": 2024,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query critically questions whether the mechanism of improved urinary incontinence is actually mediated by self-efficacy, which aligns with the paper's focus on mediation analysis but uses lay terms like 'self-confidence' and questions causality, meeting the skeptical and long question criteria for a general population."
+    }
+  },
+  {
+    "question": "how to design circuit workouts?",
+    "must_include_pmids": [
+      10002074801
+    ],
+    "must_exclude_pmids": [
+      10003970441,
+      10004146906,
+      10004536587
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002074801,
+      "target_title": "Teaching the Resistance Training Class: A Circuit Training Course Design for the Strength and Conditioning Coach",
+      "target_year": 2010,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related but broader terms like 'circuit workouts' and 'design' instead of the exact phrases 'resistance training class' or 'course design' from the paper title, matching a medium difficulty level."
+    }
+  },
+  {
+    "question": "best exercise for senior women's joint mobility?",
+    "must_include_pmids": [
+      10002084428
+    ],
+    "must_exclude_pmids": [
+      10001471635,
+      10000605349,
+      10000961595
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002084428,
+      "target_title": "Effects of different resistance training frequencies on flexibility in older women",
+      "target_year": 2015,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses lay terms like 'joint mobility' and 'senior women' instead of technical terms such as 'flexibility,' 'resistance training,' or 'older women,' requiring the system to bridge vocabulary gaps and match the specific population focus."
+    }
+  },
+  {
+    "question": "student-centered physical education engagement",
+    "must_include_pmids": [
+      10003840739
+    ],
+    "must_exclude_pmids": [
+      10004520526,
+      10003688224,
+      10004124853
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2000s",
+      "target_pmid": 10003840739,
+      "target_title": "Sport Education: physical education for the new millennium?",
+      "target_year": 2005,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related terms such as 'student-centered' and 'engagement' that are conceptually linked to the paper's focus on the Sport Education model's impact on student learning and participation without directly copying the paper's specific vocabulary."
+    }
+  },
+  {
+    "question": "how well can older adults judge their muscle strength?",
+    "must_include_pmids": [
+      10003846654
+    ],
+    "must_exclude_pmids": [
+      37849345,
+      10000216950,
+      10000900292
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10003846654,
+      "target_title": "Reproducibility and estimation of muscular torque in athletes during maximal and submaximal efforts",
+      "target_year": 2007,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broader, lay vocabulary about self-assessment of muscle strength in older adults, which differs lexically from the paper's focus on muscular torque estimation and reproducibility in athletes, requiring semantic bridging."
+    }
+  },
+  {
+    "question": "Does stretching really boost collagen in blood vessels?",
+    "must_include_pmids": [
+      10001286323
+    ],
+    "must_exclude_pmids": [
+      10001286690,
+      34808597,
+      10004375765
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10001286323,
+      "target_title": "Physiological cyclic stretch directs L‐arginine transport and metabolism to collagen synthesis in vascular smooth muscle",
+      "target_year": 2000,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This skeptical question uses broader, lay vocabulary and challenges the core findings about cyclic stretch and collagen synthesis without using the paper's specific terms like 'L-arginine' or 'vascular smooth muscle cells.'"
+    }
+  },
+  {
+    "question": "age and childbirth impact on pelvic floor recovery in women",
+    "must_include_pmids": [
+      40705558
+    ],
+    "must_exclude_pmids": [
+      18605511,
+      10000557749,
+      32492606
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "statement",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 40705558,
+      "target_title": "Effects of Age and Parity on Pelvic Floor Dysfunction and Recovery in the Early Postpartum Period: A Retrospective Cohort Study.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "uses related terms like 'childbirth' and 'pelvic floor recovery' instead of exact phrases from the paper, focusing on a subgroup of women, matching medium difficulty and medium length"
+    }
+  },
+  {
+    "question": "how much krill oil is effective for power training",
+    "must_include_pmids": [
+      34959789
+    ],
+    "must_exclude_pmids": [
+      10000246335,
+      10000299338,
+      35504165
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 34959789,
+      "target_title": "Krill-Oil-Dependent Increases in HS-Omega-3 Index, Plasma Choline and Antioxidant Capacity in Well-Conditioned Power Training Athletes.",
+      "target_year": 2021,
+      "target_source": "pubmed",
+      "target_rcr": 1.4184479648552886,
+      "sibling_count": 0,
+      "rationale": "This query asks a practical dosage question about krill oil in relation to power training, matching the paper's focus on 2.5 g/day supplementation effects."
+    }
+  },
+  {
+    "question": "Does career transition planning really boost elite athletes' performance?",
+    "must_include_pmids": [
+      10002075836
+    ],
+    "must_exclude_pmids": [
+      10000571545,
+      10000570750,
+      10000827282
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002075836,
+      "target_title": "Engagement in sport career transition planning enhances performance",
+      "target_year": 2019,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses skeptical framing to question the effectiveness of career transition planning on performance specifically for elite athletes, aligning with the paper's focus yet challenging the claim."
+    }
+  },
+  {
+    "question": "link between heart rhythm patterns and fitness levels",
+    "must_include_pmids": [
+      10001355600
+    ],
+    "must_exclude_pmids": [
+      10004213228,
+      10000358911,
+      36054204
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10001355600,
+      "target_title": "Heart rate variability in athletes: relationship with central and peripheral performance",
+      "target_year": 2001,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broad lay terms like 'heart rhythm patterns' and 'fitness levels' instead of specific scientific terms like heart rate variability or aerobic capacity, requiring the system to connect general user language to the paper's detailed findings."
+    }
+  },
+  {
+    "question": "interval training myocardial infarction protection enzyme markers",
+    "must_include_pmids": [
+      10002078141
+    ],
+    "must_exclude_pmids": [
+      41676415,
+      10000461415,
+      10000204978
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002078141,
+      "target_title": "The effect of high intensity interval training on cardioprotection against ischemia-reperfusion injury in Wistar rats",
+      "target_year": 2015,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related scientific terms such as 'interval training' and 'enzyme markers' instead of the exact phrases from the paper title or abstract, targeting key concepts like cardioprotection and injury markers at a medium difficulty level."
+    }
+  },
+  {
+    "question": "how stable is heart rate recovery in middle-aged women?",
+    "must_include_pmids": [
+      10002084876
+    ],
+    "must_exclude_pmids": [
+      10000898944,
+      10000357350,
+      19232445
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002084876,
+      "target_title": "Variability in heart rate recovery measurements over 1 year in healthy, middle-aged adults.",
+      "target_year": 2014,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "the query uses lay terms and focuses on stability over time in a specific subgroup, requiring the system to connect this with long-term variability of heart rate recovery measurements in middle-aged adults"
+    }
+  },
+  {
+    "question": "Can quercetin supplementation enhance mitochondrial function and endurance?",
+    "must_include_pmids": [
+      10002083821
+    ],
+    "must_exclude_pmids": [
+      10001449669,
+      10000155674,
+      10002083824
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002083821,
+      "target_title": "Quercetin’s Influence on Exercise Performance and Muscle Mitochondrial Biogenesis",
+      "target_year": 2010,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related scientific concepts like 'mitochondrial function' and 'endurance' rather than directly repeating 'exercise performance' or 'muscle mitochondrial biogenesis' from the paper, fitting a medium difficulty level."
+    }
+  },
+  {
+    "question": "adaptive motor skill feedback female athletes",
+    "must_include_pmids": [
+      10004178657
+    ],
+    "must_exclude_pmids": [
+      10003614504,
+      10000582372,
+      10003784203
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "keyword",
+      "population_angle": "specific",
+      "length": "short",
+      "year_bucket": "pre2000",
+      "target_pmid": 10004178657,
+      "target_title": "Augmented Feedback in Adaptive Motor Skill Training",
+      "target_year": 1978,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related terms like 'adaptive motor skill' and 'feedback' aligned with the paper's focus, while specifying 'female athletes' as a narrow population, differing slightly from the original male college students to create a medium difficulty level."
+    }
+  },
+  {
+    "question": "how often should postpartum women do pelvic floor exercises for back pain?",
+    "must_include_pmids": [
+      36205811
+    ],
+    "must_exclude_pmids": [
+      17618754,
+      10000556384,
+      10000527011
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 36205811,
+      "target_title": "The effect of pelvic floor muscle-strengthening exercises on low back pain: a systematic review and meta-analysis on randomized clinical trials.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query asks a practical question about exercise frequency specifically for postpartum women, matching the paper's focus on pelvic floor muscle exercises and their effect on low back pain in a specific population."
+    }
+  },
+  {
+    "question": "does social media stress female athletes?",
+    "must_include_pmids": [
+      10002076450
+    ],
+    "must_exclude_pmids": [
+      10003876158,
+      10000151260,
+      10000540406
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002076450,
+      "target_title": "Stress and Social Media: Can Using Facebook Impact the Anticipatory Stress Response in Athletes?",
+      "target_year": 2019,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broad terms like 'social media' and 'stress' and refers to 'female athletes' without mentioning specific details like Facebook, cortisol, or anticipatory stress response, requiring the system to connect general concepts to the study's specific findings in female collegiate athletes."
+    }
+  },
+  {
+    "question": "What is the recommended rehabilitation protocol for return to sport after postpartum diastasis of rectus abdominis?",
+    "must_include_pmids": [
+      39826531
+    ],
+    "must_exclude_pmids": [
+      10000522363,
+      10002125338,
+      10003394269
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 39826531,
+      "target_title": "Return to Sport After Partum in Patients With Diastasis of the Rectus Abdominis Muscles: Ultrasound Evaluation and Rehabilitation Protocol.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses exact terminology from the paper title and abstract such as 'rehabilitation protocol', 'return to sport', 'postpartum', and 'diastasis of rectus abdominis', making it an easy-level question directly answerable by the paper."
+    }
+  },
+  {
+    "question": "best age for karate training",
+    "must_include_pmids": [
+      10002085510
+    ],
+    "must_exclude_pmids": [
+      10004168556,
+      10003893901,
+      10004556729
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002085510,
+      "target_title": "Effect of Aging on the Lower Limb Kinematics in Karate Practitioners: Comparing Athletes and Their Senseis",
+      "target_year": 2019,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query asks a practical and general question about the timing of karate training in relation to age, which aligns with the paper's focus on how aging affects karate practitioners' performance."
+    }
+  },
+  {
+    "question": "Are selective cesarean sections truly better for pelvic floor recovery in first-time mothers?",
+    "must_include_pmids": [
+      35249350
+    ],
+    "must_exclude_pmids": [
+      16568215,
+      18949441,
+      17011398
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "statement",
+      "population_angle": "specific",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 35249350,
+      "target_title": "Systematic review and meta-analysis of evaluation of selective cesarean section in postpartum pelvic floor function recovery under perineal ultrasound.",
+      "target_year": 2022,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query critically questions the assumed benefit of selective cesarean section on pelvic floor recovery using lay terms and targets a specific population (first-time mothers), aligning with the skeptical, specific, and long query style."
+    }
+  },
+  {
+    "question": "active cooldown effects on agility male basketball athletes",
+    "must_include_pmids": [
+      10002084902
+    ],
+    "must_exclude_pmids": [
+      10004113626,
+      10004322894,
+      10003460091
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "keyword",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002084902,
+      "target_title": "The acute effects of recovery modalities on performance amongst basketball players",
+      "target_year": 2015,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "the query uses related terms like 'active cooldown' and 'male basketball athletes' instead of the paper's exact phrases, matching a medium difficulty with a specific population and keyword format"
+    }
+  },
+  {
+    "question": "hormonal influences on bone density in female athletes",
+    "must_include_pmids": [
+      10002078441
+    ],
+    "must_exclude_pmids": [
+      10002093442,
+      10003684911,
+      10003816596
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002078441,
+      "target_title": "Bone mineral density and hormonal status in adolescent athletic girls",
+      "target_year": 2012,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related scientific concepts such as hormonal effects and bone density in athletes but does not directly use the exact terms 'bone mineral density' or specific hormones, matching medium difficulty."
+    }
+  },
+  {
+    "question": "nutrients needed during pregnancy",
+    "must_include_pmids": [
+      36780943
+    ],
+    "must_exclude_pmids": [
+      10000521682,
+      12396171,
+      41800739
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 36780943,
+      "target_title": "Dynamic Metabolic Signatures of Choline and Carnitine across Healthy Pregnancy and in Cord Blood: Association with Maternal Dietary Protein.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": 0.24997451024862063,
+      "sibling_count": 0,
+      "rationale": "This query uses broad, lay terms that require linking the paper's specific focus on choline and carnitine metabolism and dietary protein intake during pregnancy to general nutrient needs in pregnancy."
+    }
+  },
+  {
+    "question": "Which pelvic floor exercise improves postpartum women's urinary control better?",
+    "must_include_pmids": [
+      41267066
+    ],
+    "must_exclude_pmids": [
+      26067791,
+      19649552,
+      9449300
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 41267066,
+      "target_title": "Comparison of 90-90 ball and balloon exercise versus Kegel's exercise on pelvic floor muscle strength and quality of life among postpartum women with stress urinary incontinence-a randomized clinical trial protocol.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terms like 'pelvic floor exercise' and 'urinary control' instead of the exact phrases '90-90 ball and balloon exercise' or 'stress urinary incontinence,' matching medium difficulty and subgroup focus on postpartum women."
+    }
+  },
+  {
+    "question": "common health concerns for teenagers in organized sports",
+    "must_include_pmids": [
+      10004189020
+    ],
+    "must_exclude_pmids": [
+      10004142729,
+      10004282758,
+      10004291153
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "pre2000",
+      "target_pmid": 10004189020,
+      "target_title": "The pediatrician and sports medicine",
+      "target_year": 1978,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses broad, lay terms like 'health concerns' and 'teenagers' instead of the paper's specific terms like 'sports-related injuries' and 'pediatrician,' requiring bridging from general youth sports health issues to the pediatric sports medicine focus."
+    }
+  },
+  {
+    "question": "fish oil cholesterol effects",
+    "must_include_pmids": [
+      10004186419
+    ],
+    "must_exclude_pmids": [
+      10004339683,
+      10003719080,
+      10000289541
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "pre2000",
+      "target_pmid": 10004186419,
+      "target_title": "Effect of dietary supplementation with n-3 polyunsaturated fatty acids on physical properties and metabolism of low density lipoprotein in humans.",
+      "target_year": 1992,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses lay terms and broader vocabulary related to the paper's investigation of marine n-3 fatty acids (fish oil) impact on cholesterol-related particles, requiring bridging from informal to scientific concepts."
+    }
+  },
+  {
+    "question": "active stretching effects?",
+    "must_include_pmids": [
+      10002079845
+    ],
+    "must_exclude_pmids": [
+      10000936042,
+      10003619324,
+      10001473766
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002079845,
+      "target_title": "Active Stretching and Eccentric Length-Tension Relationship of Hamstring Muscles",
+      "target_year": 2014,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses the exact phrase 'active stretching' from the paper title and directly asks about its effects, matching the easy difficulty and short length criteria."
+    }
+  },
+  {
+    "question": "curcumin ingestion exercise training endothelial function",
+    "must_include_pmids": [
+      10002077972
+    ],
+    "must_exclude_pmids": [
+      10001237733,
+      10000143388,
+      10000361531
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002077972,
+      "target_title": "Curcumin ingestion and exercise training improve vascular endothelial function in postmenopausal women",
+      "target_year": 2012,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses exact terminology from the paper's title and abstract, making it an easy search with direct lexical overlap."
+    }
+  },
+  {
+    "question": "How do age and fitness affect blood sugar control during exercise for older adults with type 1 diabetes?",
+    "must_include_pmids": [
+      10002077465
+    ],
+    "must_exclude_pmids": [
+      10002069843,
+      10002065248,
+      10003324636
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "long",
+      "year_bucket": "2010s",
+      "target_pmid": 10002077465,
+      "target_title": "Could Age, Sex and Physical Fitness Affect Blood Glucose Responses to Exercise in Type 1 Diabetes?",
+      "target_year": 2018,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broader, lay terms like 'blood sugar control' and 'older adults' instead of technical terms such as 'blood glucose responses' or 'catecholamine responses', requiring the system to bridge vocabulary gaps and focus on a specific subgroup."
+    }
+  },
+  {
+    "question": "antepartum pelvic floor muscle training perineal massage postpartum women",
+    "must_include_pmids": [
+      39318282
+    ],
+    "must_exclude_pmids": [
+      10000558070,
+      10000555123,
+      10002107134
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "keyword",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 39318282,
+      "target_title": "Antepartum pelvic floor muscle training (PFMT) plus perineal massage vs. postpartum PFMT alone: analysis of pelvic floor disorders, Quality of Life and sexual function.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query directly uses specific vocabulary from the title and abstract, focusing on a specific population (postpartum women) with terms that appear verbatim in the paper."
+    }
+  },
+  {
+    "question": "Does proprioceptive stretching reduce muscle soreness after exercise?",
+    "must_include_pmids": [
+      10002072947
+    ],
+    "must_exclude_pmids": [
+      10004282256,
+      10000373007,
+      10000391874
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002072947,
+      "target_title": "The Effects of Two Different Post-Exercise Stretching Modalities on Delayed Onset Muscular Soreness in Adults",
+      "target_year": 2010,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terms like 'proprioceptive stretching' instead of 'proprioceptive neuromuscular facilitation (PNF) stretching' and 'muscle soreness' instead of 'delayed onset muscle soreness (DOMS),' making it medium difficulty with broader but related vocabulary."
+    }
+  },
+  {
+    "question": "how does weightlifting affect heart pumping function",
+    "must_include_pmids": [
+      10002077978
+    ],
+    "must_exclude_pmids": [
+      10000464969,
+      20634749,
+      10000478861
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002077978,
+      "target_title": "Systolic and Diastolic Left Ventricular Mechanics during and after Resistance Exercise",
+      "target_year": 2017,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses lay terms like 'weightlifting' and 'heart pumping function' instead of technical terms such as 'resistance exercise' or 'left ventricular mechanics,' requiring the system to bridge vocabulary and concepts to the paper's focus."
+    }
+  },
+  {
+    "question": "how does exercise affect blood fats?",
+    "must_include_pmids": [
+      10002078547
+    ],
+    "must_exclude_pmids": [
+      10001423004,
+      10001269454,
+      15896087
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002078547,
+      "target_title": "Postprandial lipemic and inflammatory responses to high-fat meals: a review of the roles of acute and chronic exercise",
+      "target_year": 2016,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terms like 'blood fats' instead of 'postprandial lipemia' and 'exercise' but does not use the exact phrase 'postprandial lipemic and inflammatory responses,' making it a medium difficulty question."
+    }
+  },
+  {
+    "question": "How effective is guided pelvic floor rehabilitation with therapist or device support for postpartum bladder and bowel control?",
+    "must_include_pmids": [
+      37980530
+    ],
+    "must_exclude_pmids": [
+      26530172,
+      30855477,
+      10002107134
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 37980530,
+      "target_title": "Pelvic floor muscle training with biofeedback or feedback from a physiotherapist for urinary and anal incontinence after childbirth - a systematic review.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terms like 'guided pelvic floor rehabilitation' and 'therapist or device support' instead of the paper's exact phrases, requiring understanding of similar concepts."
+    }
+  },
+  {
+    "question": "football skill assessment norms?",
+    "must_include_pmids": [
+      10003884718
+    ],
+    "must_exclude_pmids": [
+      10003582611,
+      10003567259,
+      10004291741
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2000s",
+      "target_pmid": 10003884718,
+      "target_title": "The standard scores for some essential skills in football for the freshman students in the college of sport education",
+      "target_year": 2007,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terms like 'football skill assessment' and 'norms' instead of the exact phrases 'standard scores' or 'essential skills,' making it medium difficulty while remaining concise and relevant to the paper's content."
+    }
+  },
+  {
+    "question": "how to strengthen achilles tendon",
+    "must_include_pmids": [
+      10002080697
+    ],
+    "must_exclude_pmids": [
+      10003704032,
+      19857848,
+      10003925095
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002080697,
+      "target_title": "What Maximum Ankle Torque is Appropriate for Training Patients with Non-insertional Achilles Tendinopathy?",
+      "target_year": 2018,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses lay terms and a broad focus on Achilles tendon strengthening, requiring the system to connect it to the paper's specific investigation of torque and eccentric training for Achilles tendinopathy."
+    }
+  },
+  {
+    "question": "hamstring tightness in young volleyball athletes",
+    "must_include_pmids": [
+      10004154405
+    ],
+    "must_exclude_pmids": [
+      10003946040,
+      10004036340,
+      10004515714
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "pre2000",
+      "target_pmid": 10004154405,
+      "target_title": "Hamstring Muscle Flexibility among KONI Volleyball Players of DKI Jakarta Province – A Pilot Study for Sport Injury Prevention.",
+      "target_year": 1970,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses broader and lay vocabulary like 'hamstring tightness' and 'young volleyball athletes,' which does not directly match the paper's specific terms such as 'hamstring muscle flexibility' or 'KONI volleyball players of DKI Jakarta,' requiring the system to bridge the lexical gap."
+    }
+  },
+  {
+    "question": "How does a short-term intensified training phase affect strength gains?",
+    "must_include_pmids": [
+      10003883725
+    ],
+    "must_exclude_pmids": [
+      10000023562,
+      10000007763,
+      10004030729
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10003883725,
+      "target_title": "Incorporating One Week of Planned Overreaching into the Training Program of Weightlifters",
+      "target_year": 2008,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terms like 'intensified training phase' and 'strength gains' instead of the paper's exact phrase 'planned overreaching,' matching medium difficulty."
+    }
+  },
+  {
+    "question": "muscle cell exercise models?",
+    "must_include_pmids": [
+      10002073241
+    ],
+    "must_exclude_pmids": [
+      10002025494,
+      38643471,
+      10000019480
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002073241,
+      "target_title": "In vitro experimental models for examining the skeletal muscle cell biology of exercise:the possibilities, challenges and future developments",
+      "target_year": 2018,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related scientific terms like 'muscle cell' and 'exercise models' to broadly refer to in vitro experimental setups for studying exercise effects on skeletal muscle, matching medium difficulty with some lexical variation from the paper."
+    }
+  },
+  {
+    "question": "pelvic floor exercises postpartum women",
+    "must_include_pmids": [
+      40627306
+    ],
+    "must_exclude_pmids": [
+      17618754,
+      26067791,
+      10000558070
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "statement",
+      "population_angle": "subgroup",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 40627306,
+      "target_title": "How important is the timing and duration of pelvic floor muscle training for preventing postpartum urinary incontinence? a meta-analysis.",
+      "target_year": 2026,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terminology like 'pelvic floor exercises' instead of 'pelvic floor muscle training' and specifies 'postpartum women' to target the subgroup, matching the medium difficulty level with short length."
+    }
+  },
+  {
+    "question": "Can a remote pelvic floor muscle training program reduce symptoms of urinary leakage after childbirth over several months?",
+    "must_include_pmids": [
+      41903443
+    ],
+    "must_exclude_pmids": [
+      26067791,
+      27819905,
+      19190594
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 41903443,
+      "target_title": "The effectiveness of an online exercise program on urinary incontinence of postpartum women: a quasi-experimental study.",
+      "target_year": 2026,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terms such as 'pelvic floor muscle training' and 'urinary leakage' instead of the paper's exact phrases like 'online exercise program' and 'urinary incontinence,' making it medium difficulty with a broader but relevant scope."
+    }
+  },
+  {
+    "question": "core and pelvic floor exercises?",
+    "must_include_pmids": [
+      41247118
+    ],
+    "must_exclude_pmids": [
+      10000555783,
+      10003400184,
+      10000556537
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 41247118,
+      "target_title": "A proposed protocol for combining core stability and pelvic floor muscle training to prevent stress urinary incontinence in pregnant women: a preventive framework.",
+      "target_year": 2026,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related scientific terms 'core' and 'pelvic floor exercises' instead of directly mentioning 'core stability' and 'pelvic floor muscle training,' making it medium difficulty while remaining concise and relevant."
+    }
+  },
+  {
+    "question": "best postpartum return timing female athletes?",
+    "must_include_pmids": [
+      37758322
+    ],
+    "must_exclude_pmids": [
+      10000150956,
+      10000541146,
+      10000523834
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 37758322,
+      "target_title": "Barriers and enablers influencing female athlete return-to-sport postpartum: a scoping review.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query asks a practical question about timing for return-to-sport after childbirth in female athletes, using different wording than the paper but directly matching its focus on postpartum recovery and return-to-sport protocols for female athletes."
+    }
+  },
+  {
+    "question": "perinatal female athlete exercise guidelines sports medicine",
+    "must_include_pmids": [
+      40351226
+    ],
+    "must_exclude_pmids": [
+      41289985,
+      10000180318,
+      10002107312
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "keyword",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 40351226,
+      "target_title": "Advancing Care for Pregnant and Postpartum Athletes: A Call to Action for Athletic Trainers.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terminology like 'perinatal female athlete' and 'exercise guidelines' which aligns with the paper's focus but does not directly replicate the paper's title or abstract wording, making it medium difficulty."
+    }
+  },
+  {
+    "question": "chronic exhaustion overtraining syndrome athletic performance",
+    "must_include_pmids": [
+      10003853116
+    ],
+    "must_exclude_pmids": [
+      9631215,
+      12831711,
+      11286355
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10003853116,
+      "target_title": "The Athlete with Fatigue",
+      "target_year": 2004,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related scientific terms like 'chronic exhaustion' and 'overtraining syndrome' instead of the exact phrase 'fatigue in the athlete,' matching medium difficulty with some lexical variation."
+    }
+  },
+  {
+    "question": "how repeated intense cycling efforts affect jumping ability in female college athletes",
+    "must_include_pmids": [
+      10002080946
+    ],
+    "must_exclude_pmids": [
+      10004121007,
+      10000069841,
+      15085207
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "specific",
+      "length": "long",
+      "year_bucket": "2010s",
+      "target_pmid": 10002080946,
+      "target_title": "The Influence of Fatiguing Exercise on Power Output",
+      "target_year": 2019,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses lay terms like 'repeated intense cycling efforts' and 'jumping ability' instead of the paper's technical terms like 'anaerobic fatigue protocol' and 'vertical jump kinetics', while focusing on female collegiate athletes, matching the specific population and requiring bridging of vocabulary."
+    }
+  },
+  {
+    "question": "Can elite athlete mothers realistically avoid injuries?",
+    "must_include_pmids": [
+      35900698
+    ],
+    "must_exclude_pmids": [
+      10001371568,
+      10004296428,
+      10004183610
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 35900698,
+      "target_title": "We're not Superhuman, We're Human: A Qualitative Description of Elite Athletes' Experiences of Return to Sport After Childbirth.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This skeptical question challenges the feasibility of a safe, injury-free return to sport for elite athlete mothers, using different wording than the paper's themes to test retrieval."
+    }
+  },
+  {
+    "question": "What are the challenges and recommended strategies for coaches and clinicians supporting athletes during pregnancy and postpartum?",
+    "must_include_pmids": [
+      37879857
+    ],
+    "must_exclude_pmids": [
+      10004543198,
+      10002107499,
+      10000554851
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 37879857,
+      "target_title": "Filling the evidence void: exploration of coach and healthcare provider experiences working with pregnant and postpartum elite athletes - a qualitative study.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terms like 'clinicians' and 'strategies' and broader concepts about support in pregnancy/postpartum without directly repeating the paper's exact phrases."
+    }
+  },
+  {
+    "question": "can college women boost heart and muscle health with short intense workouts?",
+    "must_include_pmids": [
+      10002076685
+    ],
+    "must_exclude_pmids": [
+      10003465096,
+      10003476433,
+      10000901181
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002076685,
+      "target_title": "University based HIIT class elicits favorable fitness adaptations",
+      "target_year": 2019,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses lay terms like 'short intense workouts' and 'heart and muscle health' instead of the specific HIIT, cardiovascular fitness, and muscular strength terminology from the paper, requiring bridging to the study's university female subgroup and fitness outcomes."
+    }
+  },
+  {
+    "question": "postpartum abdominal strength exercises",
+    "must_include_pmids": [
+      37286390
+    ],
+    "must_exclude_pmids": [
+      10003394269,
+      10002125347,
+      10001453715
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "keyword",
+      "population_angle": "subgroup",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 37286390,
+      "target_title": "Curl-up exercises improve abdominal muscle strength without worsening inter-recti distance in women with diastasis recti abdominis postpartum: a randomised controlled trial.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related terms like 'postpartum' and 'abdominal strength exercises' instead of the paper's specific terms like 'curl-up' or 'inter-recti distance,' making it medium difficulty and focusing on women as the subgroup."
+    }
+  },
+  {
+    "question": "pelvic floor muscle training duration postpartum",
+    "must_include_pmids": [
+      38221750
+    ],
+    "must_exclude_pmids": [
+      26067791,
+      10000558070,
+      10003388912
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 38221750,
+      "target_title": "Enhancement of Levator Ani Muscle Strength in Postpartum Women: The Impact of Pelvic Floor Muscle Training.",
+      "target_year": 2024,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses practical terms related to the timing and duration of pelvic floor muscle training after childbirth, matching the paper's focus on a 3-month intervention without directly quoting the title or abstract."
+    }
+  },
+  {
+    "question": "Does progesterone help prevent pregnancy complications?",
+    "must_include_pmids": [
+      41219813
+    ],
+    "must_exclude_pmids": [
+      10003395280,
+      34177806,
+      36000704
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 41219813,
+      "target_title": "The effects of progesterone supplementation in pregnancies assessed by doppler ultrasound: a systematic review of maternal and perinatal outcomes.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broader and related terms like 'pregnancy complications' instead of specific outcomes or Doppler indices, matching medium difficulty."
+    }
+  },
+  {
+    "question": "repeated bout effect removal",
+    "must_include_pmids": [
+      10002073841
+    ],
+    "must_exclude_pmids": [
+      10003594971,
+      29790207,
+      24701128
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002073841,
+      "target_title": "Muscle damage and inflammation after eccentric exercise: Can the repeated bout effect be removed?",
+      "target_year": 2015,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses the exact terminology 'repeated bout effect' and 'removal' from the paper title, making it an easy-level query with specific vocabulary."
+    }
+  },
+  {
+    "question": "Does moving lightly between intense efforts help improve repeat performance in winter sports?",
+    "must_include_pmids": [
+      10002085071
+    ],
+    "must_exclude_pmids": [
+      10004167136,
+      20940636,
+      10000208173
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2010s",
+      "target_pmid": 10002085071,
+      "target_title": "Effects of active versus passive recovery in sprint cross-country skiing.",
+      "target_year": 2015,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broad, lay terms like 'moving lightly' and 'repeat performance in winter sports' instead of the paper's specific terms such as 'active recovery' and 'sprint cross-country skiing,' requiring conceptual bridging."
+    }
+  },
+  {
+    "question": "aerobic exercise insulin sensitivity?",
+    "must_include_pmids": [
+      10002076507
+    ],
+    "must_exclude_pmids": [
+      8536147,
+      10001381354,
+      10001378465
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002076507,
+      "target_title": "Insulin sensitivity and plasma glucose response to aerobic exercise in pregnant women at risk for gestational diabetes mellitus",
+      "target_year": 2016,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses exact terms from the paper's title and abstract, making it an easy-level search."
+    }
+  },
+  {
+    "question": "What is the best duration and combination of Kegel exercises and electrical stimulation for postpartum women to restore pelvic floor function?",
+    "must_include_pmids": [
+      36777851
+    ],
+    "must_exclude_pmids": [
+      10000522917,
+      30855477,
+      36167664
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 36777851,
+      "target_title": "Efficacy of Kegel exercises combined with electrical stimulation on the restoration of postpartum pelvic floor muscle function.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query asks a practical question about the timing and protocol of interventions for postpartum women, closely aligning with the study's focus on combining Kegel exercises and electrical stimulation to improve pelvic floor muscle function."
+    }
+  },
+  {
+    "question": "does app-based pelvic floor training really help?",
+    "must_include_pmids": [
+      36000079
+    ],
+    "must_exclude_pmids": [
+      10000557327,
+      26072126,
+      10000557315
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 36000079,
+      "target_title": "App-based pelvic floor muscle training in pregnant and postnatal women: A prospective cohort study exploring factors associated with prevention and improvement of urinary incontinence.",
+      "target_year": 2022,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses skeptical framing and general vocabulary without specific details from the paper, making it critical and medium length while addressing the app-based pelvic floor training topic."
+    }
+  },
+  {
+    "question": "fatigue sleep disturbance",
+    "must_include_pmids": [
+      41654906
+    ],
+    "must_exclude_pmids": [
+      10000152738,
+      10003781578,
+      10000511938
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 41654906,
+      "target_title": "Associated factors and assessment of clinical symptoms including fatigue, insomnia, and gastrointestinal discomfort of chronic fatigue syndrome: a cross-sectional case-control study.",
+      "target_year": 2026,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terms 'fatigue' and 'sleep disturbance' that correspond to fatigue and insomnia in the paper, fitting a medium difficulty level without using exact phrasing from the title or abstract."
+    }
+  },
+  {
+    "question": "diagnostic imaging sports injuries",
+    "must_include_pmids": [
+      10004182267
+    ],
+    "must_exclude_pmids": [
+      10004495648,
+      10003709124,
+      10004365906
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "statement",
+      "population_angle": "specific",
+      "length": "short",
+      "year_bucket": "pre2000",
+      "target_pmid": 10004182267,
+      "target_title": "Imaging of Athletic Injuries",
+      "target_year": 1993,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "uses related scientific terms such as 'diagnostic imaging' and 'sports injuries' without directly copying the paper title, fitting a medium difficulty level with a short statement format"
+    }
+  },
+  {
+    "question": "how can women prevent bladder leakage after childbirth?",
+    "must_include_pmids": [
+      41298630
+    ],
+    "must_exclude_pmids": [
+      10003394331,
+      32827279,
+      12848100
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 41298630,
+      "target_title": "Pelvic floor muscle exercise practice and its determinants among postpartum women in Central Ethiopia: as a strategy for preventing pelvic floor disorders.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses general and lay terms like 'bladder leakage' and 'after childbirth' instead of clinical terms like 'pelvic floor disorders' or 'postpartum pelvic floor muscle exercise,' requiring the system to map broader, non-technical language to the paper's specific focus."
+    }
+  },
+  {
+    "question": "creatine monohydrate loading effects on exercise",
+    "must_include_pmids": [
+      10001234144
+    ],
+    "must_exclude_pmids": [
+      21921817,
+      10000479556,
+      10000015205
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10001234144,
+      "target_title": "EFFECTS OF BRIEF CREATINE MONOHYDRATE LOADING ON RESPONSES TO PROLONGED EXERCISE IN THE HEAT",
+      "target_year": 2002,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses the exact terms 'creatine monohydrate loading' and 'exercise' from the paper title and abstract, making it an easy-level query with medium length and a general population focus."
+    }
+  },
+  {
+    "question": "How can female healthcare workers assess their knowledge and practice of pelvic floor exercises effectively?",
+    "must_include_pmids": [
+      38733777
+    ],
+    "must_exclude_pmids": [
+      12707876,
+      37254928,
+      10003400244
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 38733777,
+      "target_title": "Pelvic floor muscle training patient reported Outcome Measures (PROM) (PFMT-P): Turkish adaptation and its validity and relibiality.",
+      "target_year": 2024,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses lay terms like 'pelvic floor exercises' and 'assess knowledge and practice,' requiring bridging to the paper's focus on a validated PROM tool for pelvic floor muscle training among female healthcare professionals."
+    }
+  },
+  {
+    "question": "best practices for diagnosing and managing common sports injuries in general athletes",
+    "must_include_pmids": [
+      10003852787
+    ],
+    "must_exclude_pmids": [
+      10003722358,
+      10004255981,
+      10003862690
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2000s",
+      "target_pmid": 10003852787,
+      "target_title": "Clinical guide to sports injuries",
+      "target_year": 2006,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query asks for practical guidance on diagnosis and management of sports injuries, directly aligning with the clinical focus of the paper, using applied and general terms without specific jargon."
+    }
+  },
+  {
+    "question": "How should new mothers start postpartum running?",
+    "must_include_pmids": [
+      38191239
+    ],
+    "must_exclude_pmids": [
+      10003681719,
+      10001124886,
+      10000525237
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 38191239,
+      "target_title": "Clinical and exercise professional opinion on designing a postpartum return-to-running training programme: an international Delphi study and consensus statement.",
+      "target_year": 2024,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This applied question asks for practical guidance on initiating running after childbirth specifically for postpartum women, matching the paper's focus on designing postpartum return-to-running programs."
+    }
+  },
+  {
+    "question": "How does breast cancer affect skeletal muscle gene expression related to fatigue and cytokine regulation?",
+    "must_include_pmids": [
+      10002073258
+    ],
+    "must_exclude_pmids": [
+      10001352624,
+      10000018437,
+      10002034033
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2010s",
+      "target_pmid": 10002073258,
+      "target_title": "Dysregulation of metabolic-associated pathways in muscle of breast cancer patients: preclinical evaluation of interleukin-15 targeting fatigue",
+      "target_year": 2018,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related scientific concepts like gene expression, fatigue, and cytokine regulation without directly repeating terms from the title or abstract, making it medium difficulty."
+    }
+  },
+  {
+    "question": "Is combining CO2 laser and Kegel exercises really effective?",
+    "must_include_pmids": [
+      40110007
+    ],
+    "must_exclude_pmids": [
+      10000522917,
+      36777851,
+      10000556852
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 40110007,
+      "target_title": "Effect of lattice CO2 laser combined with Kegel exercise mild moderate stress urinary incontinence and postpartum depression anxiety.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query skeptically questions the effectiveness of the combined treatment approach without using direct terminology from the title or abstract, requiring inference about the study's critical examination of treatment efficacy."
+    }
+  },
+  {
+    "question": "pomegranate juice benefits?",
+    "must_include_pmids": [
+      10002077724
+    ],
+    "must_exclude_pmids": [],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002077724,
+      "target_title": "Consumption of Pomegranate Juice Attenuates Exercise-Induced Oxidative Stress, Blood Pressure and Urinary Cortisol/Cortisone Ratio in Human Adults",
+      "target_year": 2016,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses the exact term 'pomegranate juice' from the paper title and is a simple, short question suitable for a general population, matching the easy difficulty level."
+    }
+  },
+  {
+    "question": "How often should marathon runners use foam rollers?",
+    "must_include_pmids": [
+      10002072805
+    ],
+    "must_exclude_pmids": [
+      10000710953,
+      10004223631,
+      10003779306
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002072805,
+      "target_title": "Pengaruh Latihan Foam Roller Terhadap Penurunan Efek Delayed Onset Muscle Soreness(DOMS) Otot Quadriceps Pada Pelari Marathon  Di  Persatuan Indorunner Surabaya",
+      "target_year": 2016,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query asks a practical question about the frequency of foam roller use to reduce muscle soreness, directly relevant to the paper's findings on marathon runners."
+    }
+  },
+  {
+    "question": "ultrasound image processing improves pelvic floor rehab outcomes",
+    "must_include_pmids": [
+      35495879
+    ],
+    "must_exclude_pmids": [
+      18772276,
+      10003399126,
+      10000557632
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 35495879,
+      "target_title": "Image Enhancement Algorithm-Based Ultrasound on Pelvic Floor Rehabilitation Training in Preventing Postpartum Female Pelvic Floor Dysfunction.",
+      "target_year": 2022,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related concepts like 'ultrasound image processing' and 'pelvic floor rehab outcomes' rather than exact phrases from the title or abstract, matching a medium difficulty level with a general population focus and medium length."
+    }
+  },
+  {
+    "question": "pelvic floor exercises urinary leakage",
+    "must_include_pmids": [
+      40908726
+    ],
+    "must_exclude_pmids": [
+      10000555986,
+      10000555820,
+      10003400170
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 40908726,
+      "target_title": "Effectiveness of pelvic floor muscle training in managing urinary incontinence in pregnant women with and without gestational diabetes mellitus.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related terms like 'pelvic floor exercises' for pelvic floor muscle training and 'urinary leakage' for urinary incontinence, matching the medium difficulty with some lexical variation from the paper."
+    }
+  },
+  {
+    "question": "how to avoid leaking urine after childbirth?",
+    "must_include_pmids": [
+      40821185
+    ],
+    "must_exclude_pmids": [
+      10003394331,
+      12932869,
+      23436034
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 40821185,
+      "target_title": "Effectiveness of Pelvic Floor Muscle Training in Preventing Urinary Incontinence After Vaginal Delivery: A Systematic Review.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses lay vocabulary ('leaking urine' instead of 'urinary incontinence' and 'childbirth' instead of 'vaginal delivery'), making it a hard query that requires bridging to the paper's specific scientific terms."
+    }
+  },
+  {
+    "question": "What are effective strategies to encourage regular exercise in women diagnosed with polycystic ovary syndrome?",
+    "must_include_pmids": [
+      40433068
+    ],
+    "must_exclude_pmids": [
+      10000372091,
+      39445724,
+      10000366791
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 40433068,
+      "target_title": "Barriers and facilitators to exercise participation in women with polycystic ovary syndrome: a qualitative study.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query asks a practical question about promoting exercise adherence in women with PCOS, matching the paper's focus on barriers and facilitators to exercise participation in this subgroup."
+    }
+  },
+  {
+    "question": "intra-abdominal pressure pelvic floor safe exercises",
+    "must_include_pmids": [
+      36316806
+    ],
+    "must_exclude_pmids": [
+      16449116,
+      10003400013,
+      23123811
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 36316806,
+      "target_title": "Intra-abdominal and perineal pressures during abdominal exercises: A cross sectional study in postpartum women.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related terms like 'intra-abdominal pressure' and 'pelvic floor' along with 'safe exercises' which aligns with the paper's focus without directly repeating the paper's exact title or phrases, fitting a medium difficulty level."
+    }
+  },
+  {
+    "question": "exercise motivation physical activity",
+    "must_include_pmids": [
+      10002074416
+    ],
+    "must_exclude_pmids": [
+      10000901850,
+      10000899982,
+      10000900843
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002074416,
+      "target_title": "The Impact of Choice on Exercise Motivation and Physical Activity in College Students",
+      "target_year": 2017,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses the same specific vocabulary as the paper title, focusing on 'exercise motivation' and 'physical activity' for a general population, matching the easy difficulty and short length."
+    }
+  },
+  {
+    "question": "optimal timing and duration for postpartum pelvic floor muscle training to improve levator ani muscle recovery",
+    "must_include_pmids": [
+      35371949
+    ],
+    "must_exclude_pmids": [
+      10002108062,
+      10000016600,
+      38221750
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 35371949,
+      "target_title": "Quantification of 3/4D ultrasound pelvic floor changes induced by postpartum muscle training in patients with levator ani muscle avulsion: a parallel randomized controlled trial.",
+      "target_year": 2022,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query asks a practical question about the timing and duration of pelvic floor muscle training postpartum, which the paper addresses through its randomized controlled trial and follow-up ultrasound assessments."
+    }
+  },
+  {
+    "question": "are postpartum return-to-sport guidelines adequate for elite women",
+    "must_include_pmids": [
+      39082669
+    ],
+    "must_exclude_pmids": [
+      10002124925,
+      31803497,
+      32476582
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "statement",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 39082669,
+      "target_title": "Recommendations for postpartum athletes returning to sport: the past, present, and future.",
+      "target_year": 2024,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query critically questions the sufficiency of existing protocols for postpartum elite female athletes, using related but not identical wording to the paper's focus."
+    }
+  },
+  {
+    "question": "high intensity workouts impact on fat metabolism after meals",
+    "must_include_pmids": [
+      10002077693
+    ],
+    "must_exclude_pmids": [
+      10002006949,
+      8028502,
+      21113312
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002077693,
+      "target_title": "Chronic effects of high-intensity interval training on postprandial lipemia in healthy men",
+      "target_year": 2019,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broader and more lay terms like 'high intensity workouts' and 'fat metabolism after meals' instead of specific scientific terms like 'postprandial lipemia' or 'free fatty acid uptake,' requiring bridging from general to technical concepts."
+    }
+  },
+  {
+    "question": "How do supervised physical activity classes impact maternal and infant health outcomes in pregnant women?",
+    "must_include_pmids": [
+      35457743
+    ],
+    "must_exclude_pmids": [
+      10000524354,
+      10000528528,
+      10000733425
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 35457743,
+      "target_title": "Can Group Exercise Programs Improve Health Outcomes in Pregnant Women? An Updated Systematic Review.",
+      "target_year": 2022,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terms like 'physical activity classes' instead of 'group exercise programs' and specifies 'maternal and infant health outcomes,' matching the medium difficulty and subgroup focus on pregnant women."
+    }
+  },
+  {
+    "question": "aquatic exercise bone density?",
+    "must_include_pmids": [
+      10002079090
+    ],
+    "must_exclude_pmids": [
+      10004226759,
+      10001452892,
+      10001452601
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002079090,
+      "target_title": "A high-intensity jump-based aquatic exercise program improves bone mineral density and functional fitness in postmenopausal women",
+      "target_year": 2018,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses the exact specific terms 'aquatic exercise' and 'bone density' from the paper's title and abstract, making it an easy-level query focused on the subgroup of postmenopausal women."
+    }
+  },
+  {
+    "question": "does negative pressure therapy really aid recovery",
+    "must_include_pmids": [
+      10002084898
+    ],
+    "must_exclude_pmids": [
+      25473823,
+      10000145215,
+      39799842
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002084898,
+      "target_title": "The use of negative pressure wave treatment in athlete recovery",
+      "target_year": 2017,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses skeptical framing and different wording than the paper, questioning the effectiveness of negative pressure therapy rather than stating its use or benefits."
+    }
+  },
+  {
+    "question": "is race training effective for female runners?",
+    "must_include_pmids": [
+      10004165021
+    ],
+    "must_exclude_pmids": [
+      10001122707,
+      10000152571,
+      10004531849
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "short",
+      "year_bucket": "pre2000",
+      "target_pmid": 10004165021,
+      "target_title": "Training for running races",
+      "target_year": 1975,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query critically questions the effectiveness of training for races, using a specific population (female runners) and short wording without directly repeating the paper's terminology."
+    }
+  },
+  {
+    "question": "muscle damage genetics women",
+    "must_include_pmids": [
+      10002073609
+    ],
+    "must_exclude_pmids": [
+      11706288,
+      34899384,
+      10001377571
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002073609,
+      "target_title": "TRIM63 (MuRF-1) gene polymorphism is associated with biomarkers of exercise-induced muscle damage",
+      "target_year": 2018,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related scientific concepts like genetics and muscle damage focusing on women, a subgroup, without directly repeating the paper's exact terms such as TRIM63 or rs2275950, making it medium difficulty and appropriately concise."
+    }
+  },
+  {
+    "question": "best exercise protocol to measure gas exchange threshold",
+    "must_include_pmids": [
+      10003868117
+    ],
+    "must_exclude_pmids": [
+      10001269212,
+      28912658,
+      10000741762
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10003868117,
+      "target_title": "USEFUL EXERCISE PROTOCOL AND METHOD OF EVALUATION FOR DETERMINING GAS EXCHANGE THRESHOLD (VO&lt;SUB&gt;2&lt;/SUB&gt;GET)",
+      "target_year": 2000,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query asks a practical question about the optimal protocol for determining gas exchange threshold, directly matching the paper's focus on comparing different exercise protocols for VO2GET measurement."
+    }
+  },
+  {
+    "question": "how do small temperature changes affect fly cell energy?",
+    "must_include_pmids": [
+      41651154
+    ],
+    "must_exclude_pmids": [
+      31829515,
+      10000722220,
+      10000423442
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 41651154,
+      "target_title": "Effects of cell growth progression and short-term slight temperature changes on mitochondrial physiology of Drosophila melanogaster embryonic cell line.",
+      "target_year": 2026,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broad, lay terms like 'fly cell energy' and 'small temperature changes' instead of scientific terms like 'mitochondrial physiology' or 'Drosophila melanogaster embryonic cell line', requiring conceptual bridging to the paper's detailed findings."
+    }
+  },
+  {
+    "question": "does rubbing muscles speed recovery?",
+    "must_include_pmids": [
+      10002081862
+    ],
+    "must_exclude_pmids": [
+      10002001304,
+      23730395,
+      24139006
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002081862,
+      "target_title": "Post exercise massage: Effects on next day performance following heavy lower body resistance training",
+      "target_year": 2010,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broad, lay terms 'rubbing muscles' and 'speed recovery' which require bridging to the paper's focus on post-exercise massage effects on next-day performance after resistance training."
+    }
+  },
+  {
+    "question": "how does moving more and sitting less affect children's risk for heart and metabolism problems",
+    "must_include_pmids": [
+      10002079934
+    ],
+    "must_exclude_pmids": [
+      38609909,
+      10001121282,
+      32015943
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2010s",
+      "target_pmid": 10002079934,
+      "target_title": "Physical activity and sedentary behaviour in relation to cardiometabolic risk in children: cross-sectional findings from the Physical Activity and Nutrition in Children (PANIC) Study",
+      "target_year": 2014,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses lay terms like 'moving more and sitting less' and 'heart and metabolism problems' instead of technical terms like physical activity, sedentary behaviour, and cardiometabolic risk, making it a hard query requiring conceptual bridging."
+    }
+  },
+  {
+    "question": "How does stopping swimming affect inflammation in male rats?",
+    "must_include_pmids": [
+      10002078706
+    ],
+    "must_exclude_pmids": [
+      41717526,
+      41154214,
+      10000300928
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002078706,
+      "target_title": "The effect of swimming training and detraining on interleukin-17 and interleukin-18 of rats",
+      "target_year": 2017,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query asks a practical question about the timing and effect of stopping swimming training on inflammation markers in a specific population (male rats), matching the paper's focus on swimming training and detraining effects on cytokines."
+    }
+  },
+  {
+    "question": "how often should resistance training be done to reduce inflammation?",
+    "must_include_pmids": [
+      10002078882
+    ],
+    "must_exclude_pmids": [
+      10000148710,
+      38941946,
+      10001408296
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002078882,
+      "target_title": "Effect of Resistance Training on VCAM-1 and Cortisol in HIV+ Men with Chemical Dependence",
+      "target_year": 2012,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query asks a practical question about the frequency of resistance training to affect inflammation, which aligns with the study's examination of 3 times per week training impacting inflammatory markers."
+    }
+  },
+  {
+    "question": "benefits of prenatal core strengthening exercises for reducing postpartum pelvic health issues and improving recovery",
+    "must_include_pmids": [
+      38715506
+    ],
+    "must_exclude_pmids": [
+      10000555783,
+      10000557840,
+      8638461
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 38715506,
+      "target_title": "[Effects of pelvic-abdominal mechanics exercises during pregnancy on improving perinatal pelvic floor function in primiparous women].",
+      "target_year": 2024,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses broader terms like 'prenatal core strengthening' and 'postpartum pelvic health issues' instead of the paper's specific 'pelvic-abdominal mechanics exercises' and 'perinatal pelvic floor function,' requiring bridging of vocabulary."
+    }
+  },
+  {
+    "question": "does prenatal fitness ease childbirth?",
+    "must_include_pmids": [
+      40804818
+    ],
+    "must_exclude_pmids": [
+      10002108345,
+      10002107246,
+      10000607982
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 40804818,
+      "target_title": "Pelvic Floor Adaptation to a Prenatal Exercise Program: Does It Affect Labor Outcomes or Levator Ani Muscle Injury? A Randomized Controlled Trial.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses lay terms and broader concepts ('prenatal fitness' instead of 'prenatal exercise program' and 'ease childbirth' instead of 'labor outcomes'), requiring bridging vocabulary while staying relevant to the paper's topic."
+    }
+  },
+  {
+    "question": "Does hormone therapy really benefit bone health in postmenopausal athletes?",
+    "must_include_pmids": [
+      10002078736
+    ],
+    "must_exclude_pmids": [
+      19574506,
+      10004180713,
+      10000428225
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002078736,
+      "target_title": "Hormone Therapy Reduces Bone Resorption but not Bone Formation in Postmenopausal Athletes",
+      "target_year": 2016,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses skeptical framing with different vocabulary from the paper's title and abstract, focusing on questioning the efficacy of hormone therapy on bone health in a specific subgroup (postmenopausal athletes)."
+    }
+  },
+  {
+    "question": "bone health prevention strategies",
+    "must_include_pmids": [
+      10002079806
+    ],
+    "must_exclude_pmids": [
+      10004332202,
+      10705679,
+      10004009982
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002079806,
+      "target_title": "Promoting exercise in postmenopausal women to decrease osteoporotic fracture risk: The role of nurse practitioners",
+      "target_year": 2018,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses broader and lay terms related to bone health and prevention rather than specific terms like osteoporosis or postmenopausal exercise, requiring the system to bridge vocabulary gaps."
+    }
+  },
+  {
+    "question": "does green tea improve fat burning",
+    "must_include_pmids": [
+      10002079750
+    ],
+    "must_exclude_pmids": [
+      10001070487,
+      10003320847,
+      10000129332
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002079750,
+      "target_title": "Can you enhance exercise-induced fat oxidation with green tea drinking?",
+      "target_year": 2018,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related terms like 'fat burning' instead of 'fat oxidation' and generalizes 'green tea' without directly quoting the paper's specific terminology, fitting a medium difficulty level."
+    }
+  },
+  {
+    "question": "osteoporosis prevention exercise bone density children thalassemia",
+    "must_include_pmids": [
+      10002078249
+    ],
+    "must_exclude_pmids": [
+      10002078414,
+      10000199321,
+      10003316981
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "keyword",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002078249,
+      "target_title": "Osteoporosis Prevention Exercise Effects to Bone Density in Children with Thalassemia",
+      "target_year": 2018,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses the same specific vocabulary as the paper's title and abstract, focusing on osteoporosis prevention exercise and bone density in children with thalassemia, matching an easy difficulty and subgroup population angle."
+    }
+  },
+  {
+    "question": "What challenges do professional athletes face after having children?",
+    "must_include_pmids": [
+      39426848
+    ],
+    "must_exclude_pmids": [
+      10000543025,
+      10002124925,
+      35900698
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 39426848,
+      "target_title": "Exploring pregnancy and postpartum experiences among geographically diverse elite athletes: A qualitative study.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broader, lay vocabulary ('professional athletes,' 'having children') that does not directly overlap with the paper's specialized terms like 'elite runners,' 'postpartum,' or 'mothering athletes,' requiring bridging to the specific study context."
+    }
+  },
+  {
+    "question": "mobile fitness app pelvic floor training?",
+    "must_include_pmids": [
+      39894528
+    ],
+    "must_exclude_pmids": [
+      39159315,
+      10000547678,
+      10000555988
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 39894528,
+      "target_title": "Use of mobile fitness app to improve pelvic floor muscle training in puerperal women with gestational diabetes mellitus: A randomized controlled trial.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query directly uses specific vocabulary from the paper title such as 'mobile fitness app' and 'pelvic floor training,' making it an easy-level query."
+    }
+  },
+  {
+    "question": "best core exercises postpartum",
+    "must_include_pmids": [
+      41794408
+    ],
+    "must_exclude_pmids": [
+      10001453715,
+      10003417794,
+      10000522937
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 41794408,
+      "target_title": "Immediate Effect of Four Exercises on Linea Alba Thickness, Distortion and Inter-Recti Distance in Parous Women.",
+      "target_year": 2026,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "uses related terms like 'core exercises' and 'postpartum' instead of exact phrases like 'abdominal exercises' or 'parous women,' making it a medium difficulty query focused on women."
+    }
+  },
+  {
+    "question": "PFMT timing postpartum?",
+    "must_include_pmids": [
+      37556387
+    ],
+    "must_exclude_pmids": [
+      41257651,
+      10003388912,
+      10000522119
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 37556387,
+      "target_title": "Effect of Pelvic Floor Muscle Training With Smartphone Reminders on Women in the Postpartum Period: A Randomized Controlled Trial.",
+      "target_year": 2024,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query asks a practical, short question about the timing of pelvic floor muscle training specific to postpartum women, matching the paper's focus on PFMT adherence and timing after childbirth."
+    }
+  },
+  {
+    "question": "core stability training improves sexual desire and pelvic floor endurance in postpartum mothers after eight weeks",
+    "must_include_pmids": [
+      37250940
+    ],
+    "must_exclude_pmids": [
+      10000522937,
+      10000558244,
+      10000558070
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 37250940,
+      "target_title": "Effect of Core Stability Training on Postpartum Mother's Sexual Desire.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses the same specific vocabulary from the paper title and abstract, including 'core stability training,' 'sexual desire,' and 'postpartum mothers,' making it an easy-level query."
+    }
+  },
+  {
+    "question": "pelvic floor training pregnant women",
+    "must_include_pmids": [
+      36273227
+    ],
+    "must_exclude_pmids": [
+      10000558288,
+      10003388912,
+      10000144243
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "keyword",
+      "population_angle": "specific",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 36273227,
+      "target_title": "Antenatal preventative pelvic floor muscle exercise intervention led by midwives to reduce postnatal urinary incontinence (APPEAL): protocol for a feasibility and pilot cluster randomised controlled trial.",
+      "target_year": 2022,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terminology 'pelvic floor training' and 'pregnant women' instead of the paper's exact terms 'pelvic floor muscle exercises' and 'antenatal', making it medium difficulty for a specific population."
+    }
+  },
+  {
+    "question": "What are the molecular mechanisms of chondrocyte hypertrophy mediated by physical cues in osteoarthritis?",
+    "must_include_pmids": [
+      41596277
+    ],
+    "must_exclude_pmids": [
+      36552796,
+      42003749,
+      38003658
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 41596277,
+      "target_title": "Molecular Mechanisms of Chondrocyte Hypertrophy Mediated by Physical Cues and Therapeutic Strategies in Osteoarthritis.",
+      "target_year": 2026,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses the exact specific vocabulary from the paper title including key terms like 'molecular mechanisms', 'chondrocyte hypertrophy', 'physical cues', and 'osteoarthritis', making it easy to match the paper."
+    }
+  },
+  {
+    "question": "Does internet combined with pelvic floor training help postpartum urinary incontinence?",
+    "must_include_pmids": [
+      37227458
+    ],
+    "must_exclude_pmids": [
+      10000522744,
+      26067791,
+      10000556574
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 37227458,
+      "target_title": "Effect of Internet combined with pelvic floor muscle training on postpartum urinary incontinence.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses the exact key terms 'internet combined with pelvic floor training' and 'postpartum urinary incontinence' found in the paper title and abstract, making it easy."
+    }
+  },
+  {
+    "question": "best focus instructions for improving drop jump",
+    "must_include_pmids": [
+      41644617
+    ],
+    "must_exclude_pmids": [
+      10000934343,
+      10003959648,
+      10000502212
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 41644617,
+      "target_title": "Differential effects of attentional focus on drop jump performance with implications for primary level coaches.",
+      "target_year": 2026,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This applied query asks about practical coaching instructions to enhance drop jump performance, matching the paper's study on the effects of attentional focus cues on jump metrics."
+    }
+  },
+  {
+    "question": "neuromuscular training augmented feedback ACL injury prevention",
+    "must_include_pmids": [
+      10002079850
+    ],
+    "must_exclude_pmids": [
+      10000457500,
+      10000371619,
+      10000669578
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002079850,
+      "target_title": "THE EFFECTIVENESS OF NEUROMUSCULAR TRAINING WITH AUGMENTED FEEDBACK ON ACL INJURY PREVENTION",
+      "target_year": 2018,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses the exact technical terms from the paper title, making it an easy-level query with specific vocabulary."
+    }
+  },
+  {
+    "question": "best nighttime protein dose for female athletes",
+    "must_include_pmids": [
+      39832504
+    ],
+    "must_exclude_pmids": [
+      25859885,
+      10000058319,
+      10000143064
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "statement",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 39832504,
+      "target_title": "Evening Alpha-Lactalbumin Supplementation Alters Sleep Architecture and Reduces Morning Reaction Time in an Athletically Trained Population With Sleep Difficulties.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This applied query asks about practical protein supplementation timing and dosing specifically for female athletes, matching the paper's focus on evening alpha-lactalbumin supplementation in trained individuals with sleep difficulties."
+    }
+  },
+  {
+    "question": "muscle temperature sprint cycling",
+    "must_include_pmids": [
+      10002081068
+    ],
+    "must_exclude_pmids": [
+      10000150952,
+      22935735,
+      25943658
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002081068,
+      "target_title": "Reducing muscle temperature drop post warm-up improves sprint cycling performance",
+      "target_year": 2012,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses the exact key terms 'muscle temperature' and 'sprint cycling' found in the paper title and abstract, making it an easy-level query."
+    }
+  },
+  {
+    "question": "What are elite athletes' experiences with pregnancy?",
+    "must_include_pmids": [
+      40331794
+    ],
+    "must_exclude_pmids": [
+      41801540,
+      10000186274,
+      10000352359
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 40331794,
+      "target_title": "Experiences and perspectives on pregnancy and motherhood in elite athletes - a qualitative study.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses specific vocabulary from the paper such as 'elite athletes' and 'pregnancy,' matching the easy difficulty requirement."
+    }
+  },
+  {
+    "question": "how does workout intensity affect perceived effort in heat",
+    "must_include_pmids": [
+      10003849783
+    ],
+    "must_exclude_pmids": [
+      10000728812,
+      10001123941,
+      10003751512
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10003849783,
+      "target_title": "Session RPE Following Cycling And Treadmill Exercise With Varying Intensities But Equal Caloric Expenditure",
+      "target_year": 2009,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses broader, lay terminology like 'workout intensity' and 'perceived effort' instead of the paper's specific terms like session RPE and exercise modality, requiring conceptual bridging."
+    }
+  },
+  {
+    "question": "Is vaginal vibration cone therapy effective for postpartum dyspareunia in women?",
+    "must_include_pmids": [
+      39859004
+    ],
+    "must_exclude_pmids": [
+      10000229604,
+      10002127927,
+      21395897
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 39859004,
+      "target_title": "Pelvic Floor Muscle Training vs. Vaginal Vibration Cone Therapy for Postpartum Dyspareunia and Vaginal Laxity.",
+      "target_year": 2024,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses the same specific vocabulary from the paper title and abstract focusing on postpartum dyspareunia and vaginal vibration cone therapy in a specific female population."
+    }
+  },
+  {
+    "question": "best timing to test lactate after hard run",
+    "must_include_pmids": [
+      10003861411
+    ],
+    "must_exclude_pmids": [
+      10000725302,
+      7333732,
+      10003954060
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10003861411,
+      "target_title": "Does Time Of Measurement Effect Peak Blood Lactate Following Maximal Exercise?",
+      "target_year": 2007,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses lay terms like 'hard run' and 'best timing to test lactate' without directly referencing 'maximal exercise' or 'peak blood lactate,' requiring bridging to the paper's focus on timing of lactate measurement after maximal effort in female distance runners."
+    }
+  },
+  {
+    "question": "why are some people faster sprinters",
+    "must_include_pmids": [
+      10003888233
+    ],
+    "must_exclude_pmids": [
+      10004120830,
+      32639382,
+      10004344678
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2000s",
+      "target_pmid": 10003888233,
+      "target_title": "To Analyze the Biological Factors of Deciding the Performance in Sprint Exercise",
+      "target_year": 2002,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broad, non-technical language that requires bridging to concepts like muscle fiber type, metabolic factors, and velocity maintenance discussed in the paper."
+    }
+  },
+  {
+    "question": "psychological readiness injury recovery team sports",
+    "must_include_pmids": [
+      39695836
+    ],
+    "must_exclude_pmids": [
+      10000667050,
+      10004013748,
+      10000797436
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 39695836,
+      "target_title": "Biopsychosocial approach to sports injury: a systematic review and exploration of knowledge structure.",
+      "target_year": 2024,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related but not identical terms from the paper such as 'psychological readiness' and 'injury recovery' instead of 'return to play' and focuses on general sports context, matching the medium difficulty and keyword format."
+    }
+  },
+  {
+    "question": "hormone changes female athletes",
+    "must_include_pmids": [
+      10003894315
+    ],
+    "must_exclude_pmids": [
+      10003812872,
+      10001359751,
+      7604200
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "keyword",
+      "population_angle": "subgroup",
+      "length": "short",
+      "year_bucket": "2000s",
+      "target_pmid": 10003894315,
+      "target_title": "INDUCTION OF LOW T3 SYNDROME IN FEMALE SWIMMERS DURING A COMPETITIVE SEASON",
+      "target_year": 2003,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses broad and lay terms that differ from the specific thyroid hormone terminology in the paper, requiring bridging to the paper's focus on thyroid changes in female swimmers during training."
+    }
+  },
+  {
+    "question": "are common return-to-run drills really safe",
+    "must_include_pmids": [
+      36368150
+    ],
+    "must_exclude_pmids": [
+      10000523572,
+      10003907179,
+      10001372457
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 36368150,
+      "target_title": "External loading of common training drills: Ranking drills to design progressive return-to-run programs.",
+      "target_year": 2022,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses a skeptical framing about the safety of return-to-run drills without using specific terms like 'vertical forces' or 'loading,' requiring critical assessment beyond the paper's exact vocabulary."
+    }
+  },
+  {
+    "question": "exercise impact pelvic floor",
+    "must_include_pmids": [
+      36692525
+    ],
+    "must_exclude_pmids": [
+      10002107477,
+      10000498306,
+      10000498058
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 36692525,
+      "target_title": "Strenuous physical activity, exercise, and pelvic organ prolapse: a narrative scoping review.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related scientific terms 'exercise' and 'pelvic floor' instead of the exact phrase 'pelvic organ prolapse' and focuses broadly on the impact, aligning with a medium difficulty level and a general population angle."
+    }
+  },
+  {
+    "question": "Can gut bacteria from endurance-trained mice truly improve muscle function in female collegiate swimmers?",
+    "must_include_pmids": [
+      10002082544
+    ],
+    "must_exclude_pmids": [
+      10001402089,
+      10000382375,
+      10000743805
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "long",
+      "year_bucket": "2010s",
+      "target_pmid": 10002082544,
+      "target_title": "PHYSIOLOGICAL ADAPTATION ASSOCIATED WITH TRANSFER OF MICROBIOTA FROM EXERCISE-TRAINED MICE INTO GERM-FREE MICE",
+      "target_year": 2018,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query critically questions the applicability of microbiota transfer effects observed in mice to a specific human athletic population, using different vocabulary from the paper."
+    }
+  },
+  {
+    "question": "best timing for doing Kegel exercises",
+    "must_include_pmids": [
+      37074321
+    ],
+    "must_exclude_pmids": [
+      10003390537,
+      10002126605,
+      10003400097
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 37074321,
+      "target_title": "Comparison of self-reported ability to perform Kegel's exercise pre- and post-coital penetration in postpartum women.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query asks a practical question about the optimal timing for performing Kegel exercises, matching the applied difficulty by focusing on when to do the exercises as addressed in the paper."
+    }
+  },
+  {
+    "question": "ketogenic diet inflammation women",
+    "must_include_pmids": [
+      41053819
+    ],
+    "must_exclude_pmids": [
+      10003454438,
+      10003351439,
+      36998951
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "keyword",
+      "population_angle": "subgroup",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 41053819,
+      "target_title": "Breaking the metabolic-inflammatory vicious cycle in polycystic ovary syndrome: a comparative review of ketogenic and high-fat diets.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terms 'ketogenic diet' and 'inflammation' focusing on women, a subgroup, which aligns with the paper's focus on metabolic-inflammatory aspects of PCOS in women, but does not use exact paper phrases like 'polycystic ovary syndrome' or 'metabolic-inflammatory vicious cycle'."
+    }
+  },
+  {
+    "question": "Is whole-body EMS safe for active women during strength training?",
+    "must_include_pmids": [
+      10000013403
+    ],
+    "must_exclude_pmids": [
+      10003332668,
+      10003313313,
+      10000001409
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 10000013403,
+      "target_title": "Acute Effects of Whole-Body Electromyostimulation during a Single Maximal Strength Training Session",
+      "target_year": 2022,
+      "target_source": "openaire",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query asks a practical safety-related question about WB-EMS use in a specific subgroup (active women), matching the paper's focus on acute effects and safety during strength sessions."
+    }
+  },
+  {
+    "question": "female athletes bladder control exercise effectiveness",
+    "must_include_pmids": [
+      40066950
+    ],
+    "must_exclude_pmids": [
+      10000557999,
+      10000556553,
+      10000540266
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "keyword",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 40066950,
+      "target_title": "Pelvic floor muscle training with feedback or biofeedback for urinary incontinence in women.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses lay terms like 'bladder control' and 'female athletes' instead of specific clinical terms like 'urinary incontinence' or 'pelvic floor muscle training,' requiring the system to bridge vocabulary differences while focusing on a narrow population."
+    }
+  },
+  {
+    "question": "how women perceive effort during treadmill exercise",
+    "must_include_pmids": [
+      10003841822
+    ],
+    "must_exclude_pmids": [
+      10004047742,
+      11361295,
+      10004262831
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10003841822,
+      "target_title": "Rpe-Based Zone of Normality for Use in Evaluating Graded Exercise Test Responses in Women",
+      "target_year": 2008,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "this query uses general and lay terms about perceived effort and treadmill exercise without directly referencing RPE, MET, or coronary artery disease, requiring inference from the paper's focus"
+    }
+  },
+  {
+    "question": "excess prenatal minerals effects on baby weight",
+    "must_include_pmids": [
+      41216352
+    ],
+    "must_exclude_pmids": [
+      1955624,
+      10004155508,
+      10003769573
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 41216352,
+      "target_title": "Association between high-dose calcium supplementation during pregnancy and risk of placental disorders and low birth weight in Iranian women.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses broader and lay terms like 'excess prenatal minerals' and 'baby weight' rather than directly mentioning calcium supplementation or placental disorders, requiring semantic bridging to the paper's focus on high-dose calcium and low birth weight."
+    }
+  },
+  {
+    "question": "exercise effects on brain inflammation and disability",
+    "must_include_pmids": [
+      10002078176
+    ],
+    "must_exclude_pmids": [
+      10001407171,
+      41358102,
+      10000249504
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002078176,
+      "target_title": "Impact of exercise on innate immunity in multiple sclerosis progression and symptomatology",
+      "target_year": 2016,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broader terms like 'brain inflammation' and 'disability' instead of specific terms such as 'multiple sclerosis' or 'innate immunity,' requiring bridging between lay and scientific vocabulary."
+    }
+  },
+  {
+    "question": "What is the recommended vitamin D dose to reduce bone loss during acute lung infections?",
+    "must_include_pmids": [
+      37390941
+    ],
+    "must_exclude_pmids": [
+      10003338637,
+      10003338291,
+      33489300
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 37390941,
+      "target_title": "Changes in bone turnover after high-dose vitamin D supplementation during acute pulmonary exacerbation in cystic fibrosis.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": 0.9706844907672016,
+      "sibling_count": 0,
+      "rationale": "This query asks for practical dosing information related to vitamin D supplementation and bone health during acute illness, matching the paper's focus on high-dose vitamin D during pulmonary exacerbations."
+    }
+  },
+  {
+    "question": "which warm-up methods enhance jump height best?",
+    "must_include_pmids": [
+      10002082060
+    ],
+    "must_exclude_pmids": [
+      36457476,
+      10003608717,
+      10000441727
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002082060,
+      "target_title": "Specific warm-up exercise is the best for vertical countermovement jump in young volleyball players",
+      "target_year": 2016,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related concepts like 'warm-up methods' and 'jump height' instead of directly repeating 'specific warm-up exercise' or 'vertical countermovement jump,' fitting a medium difficulty level."
+    }
+  },
+  {
+    "question": "Is bromocriptine really effective for heart recovery?",
+    "must_include_pmids": [
+      41213878
+    ],
+    "must_exclude_pmids": [
+      41780185,
+      10000199509,
+      10000773980
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 41213878,
+      "target_title": "Bromocriptine in peripartum cardiomyopathy: A meta-analysis with trial sequential analysis.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses skeptical language questioning the efficacy of bromocriptine without specific technical terms, requiring the system to connect the critical viewpoint with the paper's meta-analysis findings on treatment outcomes."
+    }
+  },
+  {
+    "question": "postpartum exercise effects on pelvic floor disorders and diastasis recti abdominis in women",
+    "must_include_pmids": [
+      39694630
+    ],
+    "must_exclude_pmids": [
+      10000557500,
+      10003394269,
+      10003399809
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "statement",
+      "population_angle": "subgroup",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 39694630,
+      "target_title": "Impact of postpartum exercise on pelvic floor disorders and diastasis recti abdominis: a systematic review and meta-analysis.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses the same specific vocabulary from the paper title and focuses on the subgroup of women, matching the easy difficulty and long length requirements."
+    }
+  },
+  {
+    "question": "does postpartum yoga really help pelvic recovery women",
+    "must_include_pmids": [
+      39704794
+    ],
+    "must_exclude_pmids": [
+      35126906,
+      10002107474,
+      10000522342
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "keyword",
+      "population_angle": "subgroup",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 39704794,
+      "target_title": "Ultrasound Quantitative Assessment of the Effects of Yoga on Early Postpartum Pelvic Organ Position Recovery.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses lay language and a skeptical tone questioning the effectiveness of yoga for pelvic recovery in postpartum women, without directly repeating terminology from the paper."
+    }
+  },
+  {
+    "question": "natural supplements weight loss",
+    "must_include_pmids": [
+      40845327
+    ],
+    "must_exclude_pmids": [
+      37513229,
+      10002007268,
+      10003349082
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2020s",
+      "target_pmid": 40845327,
+      "target_title": "Characterization of Ginger Polysaccharide and Amelioration of High-Fat-Induced Obesity by Regulating the Energy Intake and Expenditure.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses broad lay terms without direct overlap with the technical terms like 'ginger polysaccharide' or 'energy expenditure' from the paper, requiring knowledge that ginger polysaccharides are natural supplements impacting weight loss."
+    }
+  },
+  {
+    "question": "how often exercise",
+    "must_include_pmids": [
+      10002078158
+    ],
+    "must_exclude_pmids": [
+      10003675246,
+      37110220,
+      10004278666
+    ],
+    "metadata": {
+      "difficulty": "applied",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002078158,
+      "target_title": "Differences in post-exercise inflammatory and glucose regulatory response between sedentary Indigenous Australian and Caucasian men completing a single bout of cycling",
+      "target_year": 2014,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "the query asks a practical question about exercise frequency for glucose regulation, which is directly addressed by the paper's recommendation for daily moderate-intensity exercise, matching the applied difficulty and short length criteria."
+    }
+  },
+  {
+    "question": "what exercises help strengthen muscles that support bladder control",
+    "must_include_pmids": [
+      35248269
+    ],
+    "must_exclude_pmids": [
+      10003399610,
+      10000555193,
+      10003457750
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 35248269,
+      "target_title": "Comparative effects of selected abdominal and lower limb exercises in the recruitment of the pelvic floor muscles: Determining adjuncts to Kegel's exercises.",
+      "target_year": 2022,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses lay terms like 'muscles that support bladder control' instead of 'pelvic floor muscles' and asks about general exercises, requiring bridging from the paper's focus on specific exercises recruiting pelvic floor muscles."
+    }
+  },
+  {
+    "question": "can combining needle therapy with exercise help bladder control?",
+    "must_include_pmids": [
+      40069127
+    ],
+    "must_exclude_pmids": [
+      36138498,
+      10003417381,
+      10003398937
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 40069127,
+      "target_title": "Acupuncture combined with pelvic floor rehabilitation training for postpartum stress urinary incontinence: A systematic review and meta-analysis.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses lay terms like 'needle therapy' for acupuncture and 'bladder control' for urinary incontinence, requiring bridging from broader vocabulary to the paper's specific intervention and condition."
+    }
+  },
+  {
+    "question": "advanced heart monitoring methods for pregnant women",
+    "must_include_pmids": [
+      41274325
+    ],
+    "must_exclude_pmids": [
+      10000202697,
+      35657667,
+      41532376
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 41274325,
+      "target_title": "Efficacy and safety of fetal magnetocardiography for detecting fetal cardiac magnetic signals: A 2-center, single-arm, prospective clinical trial.",
+      "target_year": 2026,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broad and lay terminology ('advanced heart monitoring methods') and a subgroup focus ('pregnant women'), requiring bridging to the specific topic of fetal magnetocardiography effectiveness in pregnant women described in the paper."
+    }
+  },
+  {
+    "question": "does tailored postpartum care improve pelvic muscle recovery?",
+    "must_include_pmids": [
+      39144663
+    ],
+    "must_exclude_pmids": [
+      26282094,
+      10000555123,
+      10002107134
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 39144663,
+      "target_title": "The effect of postpartum nursing guidance on early pelvic floor dysfunction recovery in women of advanced maternal age: a randomized controlled trial.",
+      "target_year": 2024,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related terms like 'tailored postpartum care' and 'pelvic muscle recovery' instead of exact phrases from the paper, matching a medium difficulty level."
+    }
+  },
+  {
+    "question": "how can new mothers reduce bladder leaks?",
+    "must_include_pmids": [
+      39302396
+    ],
+    "must_exclude_pmids": [
+      10003394331,
+      10003394258,
+      22708190
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 39302396,
+      "target_title": "Effect of pelvic floor muscle exercise combined with infrared physiotherapy on postpartum urinary incontinence.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broad, lay terms like 'new mothers' and 'bladder leaks' which require bridging to the specific clinical context of postpartum urinary incontinence and treatment methods studied in the paper."
+    }
+  },
+  {
+    "question": "How does pedaling rate affect exercise responses?",
+    "must_include_pmids": [
+      10004197575
+    ],
+    "must_exclude_pmids": [
+      11560096,
+      10004496626,
+      12496138
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "pre2000",
+      "target_pmid": 10004197575,
+      "target_title": "Effect of pedaling rate on submaximal exercise responses of competitive cyclists",
+      "target_year": 1981,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses the exact phrase 'pedaling rate' and 'exercise responses' from the paper title and abstract, making it an easy-level question directly related to the study's focus."
+    }
+  },
+  {
+    "question": "Does midwife-led antenatal pelvic floor exercise reduce urinary incontinence?",
+    "must_include_pmids": [
+      39832969
+    ],
+    "must_exclude_pmids": [
+      32996139,
+      27272501,
+      10002127177
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 39832969,
+      "target_title": "Antenatal pelvic floor muscle exercise intervention led by midwives in England to reduce postnatal urinary incontinence: APPEAL feasibility and pilot randomised controlled cluster trial.",
+      "target_year": 2025,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses the same specific vocabulary as the paper title and abstract, focusing on midwife-led antenatal pelvic floor muscle exercises and their effect on urinary incontinence, matching the easy difficulty level."
+    }
+  },
+  {
+    "question": "hydroxytyrosol resveratrol post exercise blood flow females",
+    "must_include_pmids": [
+      10002078642
+    ],
+    "must_exclude_pmids": [
+      32134713,
+      10000169289,
+      10003395682
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "keyword",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002078642,
+      "target_title": "Hydroxytyrosol but not resveratrol ingestion induced an acute increment of post exercise blood flow in brachial artery",
+      "target_year": 2016,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses the exact specific vocabulary from the paper title and abstract, focusing on hydroxytyrosol, resveratrol, post exercise blood flow, and specifies females, matching the easy difficulty and specific population angle."
+    }
+  },
+  {
+    "question": "Do pelvic floor muscle exercises reduce genito-pelvic pain?",
+    "must_include_pmids": [
+      35678835
+    ],
+    "must_exclude_pmids": [
+      10000555198,
+      10003394783,
+      10003400118
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 35678835,
+      "target_title": "The effect of pelvic floor muscle exercises applied during pregnancy on genito-pelvic pain level in postpartum period.",
+      "target_year": 2022,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses the exact key terms from the title, such as 'pelvic floor muscle exercises' and 'genito-pelvic pain,' maintaining an easy difficulty level."
+    }
+  },
+  {
+    "question": "muscle soreness impact on endurance performance",
+    "must_include_pmids": [
+      10002073614
+    ],
+    "must_exclude_pmids": [
+      12391441,
+      10000370791,
+      10000370462
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002073614,
+      "target_title": "A reduction in maximal incremental exercise test duration 48 h post down hill run is associated with muscle damage derived exercise induced pain",
+      "target_year": 2017,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses broader terms like 'muscle soreness' and 'endurance performance' instead of the paper's more specific terms such as 'exercise induced muscle damage' and 'maximal incremental exercise test duration,' requiring the retrieval system to bridge the vocabulary gap."
+    }
+  },
+  {
+    "question": "muscle tiredness differences in older adults exercises",
+    "must_include_pmids": [
+      10003843455
+    ],
+    "must_exclude_pmids": [
+      10003407587,
+      10003597884,
+      10000601916
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "statement",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10003843455,
+      "target_title": "Muscle fatigue during concentric and eccentric contractions",
+      "target_year": 2000,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses lay terms like 'muscle tiredness' and 'exercises' and specifies 'older adults,' requiring the system to connect these broader terms to the paper's focus on muscle fatigue during concentric and eccentric contractions in a subgroup."
+    }
+  },
+  {
+    "question": "can protein supplements improve college softball players' strength?",
+    "must_include_pmids": [
+      10004166917
+    ],
+    "must_exclude_pmids": [
+      10000025129,
+      24149229,
+      10000783409
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "pre2000",
+      "target_pmid": 10004166917,
+      "target_title": "The effects on strength and performance of an amino acid supplement, Rebuild II [TM], following strength training in collegiate softball players",
+      "target_year": 1999,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses broader, lay vocabulary like 'protein supplements' instead of 'amino acid supplement' and refers to 'college softball players' instead of the study's specific sample, requiring the system to bridge terminology and population specificity."
+    }
+  },
+  {
+    "question": "resistance training benefits metabolic syndrome",
+    "must_include_pmids": [
+      10002084928
+    ],
+    "must_exclude_pmids": [
+      10003312417,
+      10002066384,
+      10003360279
+    ],
+    "metadata": {
+      "difficulty": "skeptical",
+      "format": "statement",
+      "population_angle": "specific",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002084928,
+      "target_title": "Effects of resistance training protocols on nonlinear analysis of heart rate variability in metabolic syndrome",
+      "target_year": 2018,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses broader and skeptical phrasing about the effectiveness of resistance training in metabolic syndrome, without specific technical terms from the paper, and targets a specific clinical population."
+    }
+  },
+  {
+    "question": "patellar tendon properties male resistance trainers",
+    "must_include_pmids": [
+      10002080710
+    ],
+    "must_exclude_pmids": [
+      10000221631,
+      10004136383,
+      10000429410
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "statement",
+      "population_angle": "specific",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002080710,
+      "target_title": "Tendinous tissue properties after short and long-term functional overload: Differences between controls, 12 weeks and 4 years of resistance training.",
+      "target_year": 2017,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses the same specific vocabulary from the paper title and abstract, focusing on the patellar tendon properties in a specific population (male resistance trainers), matching the easy difficulty and short length requirements."
+    }
+  },
+  {
+    "question": "can plyometric exercises strengthen rabbit leg muscles?",
+    "must_include_pmids": [
+      10001286219
+    ],
+    "must_exclude_pmids": [
+      32597615,
+      10004256113,
+      10004591304
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10001286219,
+      "target_title": "Effects of jump training on passive mechanical stress and stiffness in rabbit skeletal muscle: role of collagen",
+      "target_year": 2003,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses lay terms like 'plyometric exercises' and 'rabbit leg muscles' which require bridging to the scientific terms 'jump training' and 'fast-twitch mixed muscles' in rabbits used in the paper."
+    }
+  },
+  {
+    "question": "Does early pelvic floor rehabilitation after childbirth improve muscle integrity and reduce pelvic opening size in new mothers?",
+    "must_include_pmids": [
+      36418566
+    ],
+    "must_exclude_pmids": [
+      10000558070,
+      10002107134,
+      10000555123
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "long",
+      "year_bucket": "2020s",
+      "target_pmid": 36418566,
+      "target_title": "Postpartum pelvic floor muscle training, levator ani avulsion and levator hiatus area: a randomized trial.",
+      "target_year": 2023,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terms like 'pelvic floor rehabilitation' and 'muscle integrity' instead of exact phrases from the paper, targeting postpartum women specifically."
+    }
+  },
+  {
+    "question": "exercise benefits brain health mental wellness schizophrenia",
+    "must_include_pmids": [
+      10002077837
+    ],
+    "must_exclude_pmids": [
+      10000899058,
+      10000369359,
+      32342467
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002077837,
+      "target_title": "Effects of exercise on physical and mental health, and cognitive and brain functions in schizophrenia: clinical and experimental evidence",
+      "target_year": 2015,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broader, lay terms like 'brain health' and 'mental wellness' instead of the paper's more technical phrasing, requiring semantic bridging to connect it to exercise effects on cognition and mental health in schizophrenia."
+    }
+  },
+  {
+    "question": "neuromuscular adaptations after repeated eccentric exercise",
+    "must_include_pmids": [
+      10002073126
+    ],
+    "must_exclude_pmids": [
+      10000059752,
+      2311590,
+      10000005850
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002073126,
+      "target_title": "Neuromuscular changes and the rapid adaptation following a bout of damaging eccentric exercise",
+      "target_year": 2017,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related terms like 'neuromuscular adaptations' and 'repeated eccentric exercise' instead of exact phrases from the title or abstract, matching the medium difficulty level."
+    }
+  },
+  {
+    "question": "what are effective treatments for new moms leaking urine",
+    "must_include_pmids": [
+      38455997
+    ],
+    "must_exclude_pmids": [
+      10003394331,
+      10003394609,
+      12848100
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 38455997,
+      "target_title": "Comparison of Vaginal Pessaries to Standard Care or Pelvic Floor Muscle Training for Treating Postpartum Urinary Incontinence: a Pragmatic Randomized Controlled Trial.",
+      "target_year": 2024,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses lay terms like 'new moms' and 'leaking urine' instead of clinical terms like 'postpartum urinary incontinence' and requires bridging to treatments compared in the study such as pessaries and pelvic floor training."
+    }
+  },
+  {
+    "question": "muscle power loss aging",
+    "must_include_pmids": [
+      10004190325
+    ],
+    "must_exclude_pmids": [
+      10000132762,
+      10000595330,
+      15711077
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "pre2000",
+      "target_pmid": 10004190325,
+      "target_title": "Gender specificity in the age-related decline of strength: concentric versus eccentric",
+      "target_year": 1998,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses broad, lay terms without direct overlap with the paper's technical terms like 'concentric' or 'eccentric,' requiring bridging between general concepts of muscle decline and specific gender differences in contraction types."
+    }
+  },
+  {
+    "question": "supervised pelvic floor muscle training benefits postpartum recovery",
+    "must_include_pmids": [
+      39768653
+    ],
+    "must_exclude_pmids": [
+      10000558070,
+      10000555123,
+      10002107134
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 39768653,
+      "target_title": "Online vs. Supervised Training in Relieving Urinary Incontinence and Diastasis Recti Abdominis in Early Postpartum.",
+      "target_year": 2024,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related scientific terms like 'pelvic floor muscle training' and 'postpartum recovery' instead of the paper's exact terms like 'urinary incontinence' and 'diastasis recti abdominis,' making it medium difficulty."
+    }
+  },
+  {
+    "question": "forearm blood flow submaximal dynamic handgrip exercise",
+    "must_include_pmids": [
+      10003860780
+    ],
+    "must_exclude_pmids": [
+      10003741061,
+      10003939708,
+      10004080405
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2000s",
+      "target_pmid": 10003860780,
+      "target_title": "Forearm Blood Flow is Similar Between Females and Males During Dynamic Submaximal Handgrip Exercise",
+      "target_year": 2007,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses the exact specific vocabulary from the paper title, making it an easy-level query."
+    }
+  },
+  {
+    "question": "How do postpartum pelvic conditions affect female collegiate swimmers' exercise resumption?",
+    "must_include_pmids": [
+      35224572
+    ],
+    "must_exclude_pmids": [
+      41885727,
+      10000521961,
+      39100934
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "specific",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 35224572,
+      "target_title": "Exercise after pregnancy.",
+      "target_year": 2022,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related scientific terms like postpartum pelvic conditions and exercise resumption, focusing on a specific population, female collegiate swimmers, without directly repeating the paper's title or abstract wording."
+    }
+  },
+  {
+    "question": "How does aerobic capacity influence combined risk factors for heart disease in young people?",
+    "must_include_pmids": [
+      10002079235
+    ],
+    "must_exclude_pmids": [
+      22159955,
+      14679272,
+      40720691
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2010s",
+      "target_pmid": 10002079235,
+      "target_title": "Associations between cardiorespiratory fitness, physical activity and clustered cardiometabolic risk in children and adolescents: the HAPPY study",
+      "target_year": 2012,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terms like 'aerobic capacity' and 'combined risk factors' instead of exact phrases from the paper, making it a medium difficulty question."
+    }
+  },
+  {
+    "question": "How does excess body fat affect hormone levels and metabolism?",
+    "must_include_pmids": [
+      41944337
+    ],
+    "must_exclude_pmids": [
+      39408213,
+      39273337,
+      10000917324
+    ],
+    "metadata": {
+      "difficulty": "hard",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 41944337,
+      "target_title": "Adiposity Measures Derived from Bioelectrical Impedance are Associated with Cardiometabolic Markers in Women with Polycystic Ovary Syndrome.",
+      "target_year": 2026,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses broad, lay terms like 'excess body fat' and 'hormone levels and metabolism,' requiring the system to link these to the paper's focus on bioelectrical impedance adiposity measures and their associations with metabolic and hormonal markers."
+    }
+  },
+  {
+    "question": "anxiety levels before and after sports interventions",
+    "must_include_pmids": [
+      10004201631
+    ],
+    "must_exclude_pmids": [
+      10004264357,
+      10004225070,
+      10000355028
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "statement",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "pre2000",
+      "target_pmid": 10004201631,
+      "target_title": "Athletic Injury Assessment",
+      "target_year": 1986,
+      "target_source": "openalex",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terms like 'anxiety levels' and 'sports interventions' rather than the exact phrases 'state anxiety' or 'pre/post intervention,' matching medium difficulty."
+    }
+  },
+  {
+    "question": "Achilles tendon thickness?",
+    "must_include_pmids": [
+      10002081787
+    ],
+    "must_exclude_pmids": [
+      10000427725,
+      10003658327,
+      10003845511
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "question",
+      "population_angle": "general",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002081787,
+      "target_title": "Changes in Achilles Tendon Thickness Following a 10-Week Heavy Load Eccentric Exercise Program",
+      "target_year": 2018,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses the exact key terms from the paper title, making it an easy-level query with minimal vocabulary variation."
+    }
+  },
+  {
+    "question": "best warm-up for female sprinters?",
+    "must_include_pmids": [
+      10002081677
+    ],
+    "must_exclude_pmids": [
+      10000442016,
+      10000441755,
+      37955929
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "subgroup",
+      "length": "short",
+      "year_bucket": "2010s",
+      "target_pmid": 10002081677,
+      "target_title": "Effect of combinations of passive and active warming on muscle temperature and sprint performance",
+      "target_year": 2013,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses related terms like 'warm-up' and 'sprinters' to target the study's focus on warming strategies and sprint performance in a specific subgroup, avoiding exact phrases from the paper."
+    }
+  },
+  {
+    "question": "How does regular physical activity influence the diversity of gut bacteria and inflammation markers?",
+    "must_include_pmids": [
+      10002082191
+    ],
+    "must_exclude_pmids": [
+      10002052751,
+      10000323021,
+      41692473
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "long",
+      "year_bucket": "2010s",
+      "target_pmid": 10002082191,
+      "target_title": "Does exercise impact gut microbiota composition in men receiving androgen deprivation therapy for prostate cancer? A single-blinded, two-armed randomised controlled trial",
+      "target_year": 2019,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terms like 'physical activity' instead of 'exercise' and 'diversity of gut bacteria' instead of 'gut microbiota composition,' making it medium difficulty with no direct lexical overlap but still scientifically relevant."
+    }
+  },
+  {
+    "question": "tele-rehabilitation Jacobson relaxation chemotherapy pain",
+    "must_include_pmids": [
+      39610824
+    ],
+    "must_exclude_pmids": [
+      41949753,
+      37971805,
+      10000815025
+    ],
+    "metadata": {
+      "difficulty": "easy",
+      "format": "keyword",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2020s",
+      "target_pmid": 39610824,
+      "target_title": "Relaxation training via tele-rehabilitation program in patients with breast cancer receiving chemotherapy during COVID-19.",
+      "target_year": 2024,
+      "target_source": "pubmed",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "This query uses the exact specific terms from the paper title and abstract such as tele-rehabilitation, Jacobson relaxation, chemotherapy, and pain, making it easy for retrieval."
+    }
+  },
+  {
+    "question": "can acceptance and commitment therapy reduce stress hormone levels?",
+    "must_include_pmids": [
+      10002075848
+    ],
+    "must_exclude_pmids": [
+      10000359499,
+      10000835438,
+      10000354604
+    ],
+    "metadata": {
+      "difficulty": "medium",
+      "format": "question",
+      "population_angle": "general",
+      "length": "medium",
+      "year_bucket": "2010s",
+      "target_pmid": 10002075848,
+      "target_title": "Fatigue, Cortisol and ACT: A pre-post study on the effects of workrelated rehabilitation",
+      "target_year": 2013,
+      "target_source": "core",
+      "target_rcr": null,
+      "sibling_count": 0,
+      "rationale": "The query uses related terminology like 'acceptance and commitment therapy' and 'stress hormone levels' instead of directly mentioning cortisol or ACT from the paper, fitting a medium difficulty level."
+    }
+  }
+]

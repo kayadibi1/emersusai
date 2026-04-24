@@ -1,0 +1,43 @@
+{
+  "seed": 42,
+  "target_count": 200,
+  "generated_at": "2026-04-24T07:13:52.992Z",
+  "year_bucket_distribution": {
+    "pre2000": 14,
+    "2010s": 66,
+    "2020s": 94,
+    "2000s": 26
+  },
+  "difficulty_distribution": {
+    "easy": 37,
+    "applied": 28,
+    "medium": 56,
+    "hard": 58,
+    "skeptical": 21
+  },
+  "format_distribution": {
+    "statement": 48,
+    "question": 108,
+    "keyword": 44
+  },
+  "population_distribution": {
+    "general": 124,
+    "subgroup": 41,
+    "specific": 35
+  },
+  "length_distribution": {
+    "long": 33,
+    "medium": 108,
+    "short": 59
+  },
+  "llm_cost_usd": 0.1126,
+  "llm_tokens_in": 233897,
+  "llm_tokens_out": 11918,
+  "rejections": {
+    "no_chunks": 0,
+    "llm_fail": 0,
+    "duplicate_question": 0
+  },
+  "wall_time_sec": 643.1,
+  "final_count": 200
+}
