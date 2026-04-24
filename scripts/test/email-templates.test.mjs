@@ -4,6 +4,7 @@ import { FIXTURES } from "../email-fixtures.js";
 import { renderAuthVerify } from "../../api/lib/email/templates/auth-verify.js";
 import { renderAuthReset } from "../../api/lib/email/templates/auth-reset.js";
 import { renderAuthWelcome } from "../../api/lib/email/templates/auth-welcome.js";
+import { renderAuthPasswordChanged } from "../../api/lib/email/templates/auth-password-changed.js";
 
 test("auth-verify: renders full HTML document", () => {
   const html = renderAuthVerify(FIXTURES["auth-verify"]);
@@ -46,6 +47,16 @@ test("auth-welcome: lists sample prompts and app URL", () => {
     assert.match(html, new RegExp(escRe(p)));
   }
   assert.match(html, /You&#39;re in\./);
+});
+
+test("auth-password-changed: shows device, location, IP + danger callout + reset CTA", () => {
+  const fx = FIXTURES["auth-password-changed"];
+  const html = renderAuthPasswordChanged(fx);
+  assert.match(html, /Chrome on macOS/);
+  assert.match(html, /Brooklyn, NY/);
+  assert.match(html, /24\.186\.xxx\.xxx/);
+  assert.match(html, /rgba\(248,113,113,0\.08\)/);
+  assert.match(html, new RegExp(escRe(fx.resetUrl)));
 });
 
 function escRe(s) {
