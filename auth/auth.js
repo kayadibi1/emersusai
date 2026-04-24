@@ -97,7 +97,7 @@ function signupPanel() {
       <form class="auth-form" data-auth-signup>
         <label class="auth-field">
           <span>Full name</span>
-          <input type="text" name="full_name" autocomplete="name" />
+          <input type="text" name="full_name" autocomplete="name" autocapitalize="words" spellcheck="false" />
         </label>
         <label class="auth-field">
           <span>Email</span>

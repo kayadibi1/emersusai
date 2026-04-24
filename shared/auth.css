@@ -183,6 +183,10 @@ body.auth-body {
   border-color: var(--accent);
   background: var(--accent-soft);
 }
+/* Touch tap-target floor. Measured 358×42 on iPhone 14 — 2 px shy. */
+@media (pointer: coarse) {
+  .oauth-btn { min-height: 44px; }
+}
 .oauth-icon { width: 18px; height: 18px; }
 
 .oauth-divider {
@@ -311,6 +315,10 @@ body.auth-body {
 }
 .auth-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
 .auth-primary:disabled { opacity: 0.6; cursor: progress; transform: none; }
+/* Touch tap-target floor. Measured 358×41 on iPhone 14 — 3 px shy. */
+@media (pointer: coarse) {
+  .auth-primary { min-height: 44px; }
+}
 
 .auth-status {
   margin: 0;
@@ -351,6 +359,16 @@ body.auth-body {
 .auth-panel-foot p { margin: 0; }
 .auth-panel-foot a { color: var(--accent); text-decoration: none; }
 .auth-panel-foot a:hover { text-decoration: underline; }
+/* Touch tap-target: "Forgot password?" is a direct child (standalone
+ * interactive link). "Sign up →" inside <p> with surrounding text is
+ * WCAG-exempt (inline). Scope to the direct-child selector only. */
+@media (pointer: coarse) {
+  .auth-panel-foot > a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
 .auth-success {
   text-align: center;
   padding: 24px 16px;

@@ -13,22 +13,52 @@
 // Output: scripts/perf/audits/<timestamp>/{report.json,*.png}
 //
 // Usage:
-//   node scripts/perf/landing-audit.mjs [origin]   default https://emersus.ai
+//   node scripts/perf/landing-audit.mjs [--profile=landing|auth|app|domain] [origin]
+//   default profile=landing, origin=https://emersus.ai
 
 import { chromium, webkit, firefox, devices } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
 
-const ORIGIN = (process.argv[2] || 'https://emersus.ai').replace(/\/+$/, '');
+const args = process.argv.slice(2);
+const profileArg = args.find(a => a.startsWith('--profile='));
+const PROFILE = profileArg ? profileArg.split('=')[1] : 'landing';
+const ORIGIN = (args.find(a => a.startsWith('http')) || 'https://emersus.ai').replace(/\/+$/, '');
 
-const SURFACES = [
-  { name: 'landing',           path: '/' },
-  { name: 'privacy',           path: '/privacy' },
-  { name: 'terms',             path: '/terms' },
-  { name: 'contact',           path: '/contact' },
-  { name: 'consumer-health',   path: '/consumer-health-data' },
-  { name: 'demo',              path: '/demo' },
-];
+const PROFILES = {
+  landing: [
+    { name: 'landing',           path: '/' },
+    { name: 'privacy',           path: '/privacy' },
+    { name: 'terms',             path: '/terms' },
+    { name: 'contact',           path: '/contact' },
+    { name: 'consumer-health',   path: '/consumer-health-data' },
+    { name: 'demo',              path: '/demo' },
+  ],
+  auth: [
+    { name: 'login',             path: '/auth/login' },
+    { name: 'signup',            path: '/auth/signup' },
+    { name: 'forgot-password',   path: '/auth/forgot-password' },
+    { name: 'callback',          path: '/auth/callback' },
+    { name: 'reset-password',    path: '/auth/reset-password' },
+  ],
+  app: [
+    { name: 'app-dashboard',     path: '/app/' },
+    { name: 'app-library',       path: '/app/library' },
+  ],
+  domain: [
+    { name: 'app-train',         path: '/app/train' },
+    { name: 'app-nutrition',     path: '/app/nutrition' },
+    { name: 'app-profile',       path: '/app/profile' },
+    { name: 'app-progress',      path: '/app/progress' },
+  ],
+};
+
+const SURFACES = PROFILES[PROFILE];
+if (!SURFACES) {
+  console.error(`Unknown profile: ${PROFILE}. Valid: ${Object.keys(PROFILES).join(', ')}`);
+  process.exit(1);
+}
+console.log(`[audit] profile=${PROFILE} origin=${ORIGIN} surfaces=${SURFACES.length}`);
 
 // Cross-product guidance:
 // - Chromium: every viewport, catches layout issues
