@@ -56,6 +56,20 @@ app.post(
   polarWebhookHandler
 );
 
+// ── Resend webhook — MUST be registered BEFORE express.json() ──
+// Svix signature verification hashes the raw request bytes.
+const { resendWebhookExpressHandler } = await import("./api/email/webhook-resend.js");
+app.post(
+  "/api/email/webhook/resend",
+  express.raw({ type: "application/json", limit: "1mb" }),
+  (req, res, next) => {
+    req.rawBody = req.body instanceof Buffer ? req.body.toString("utf8") : String(req.body || "");
+    try { req.body = JSON.parse(req.rawBody); } catch { req.body = null; }
+    next();
+  },
+  resendWebhookExpressHandler,
+);
+
 // ── Body parsing with explicit size limits ──
 app.use(express.json({ limit: "100kb" }));
 app.use(express.urlencoded({ extended: true, limit: "100kb" }));
@@ -119,6 +133,8 @@ const { default: polarPortalHandler } = await import("./api/billing/portal.js");
 const { default: checkEmailHandler } = await import("./api/auth/check-email.js");
 const { default: meRoleHandler } = await import("./api/me/role.js");
 const { default: completeOnboardingHandler } = await import("./api/profile/complete-onboarding.js");
+const { trackClickExpressHandler } = await import("./api/email/track-click.js");
+const { unsubscribeExpressHandler } = await import("./api/email/unsubscribe.js");
 
 // Import auth middleware for recommendation endpoints
 import { requireAuth } from "./api/emersus/auth-middleware.js";
@@ -150,6 +166,11 @@ app.delete("/api/emersus/saved-sources/by-source-id/:source_id", requireAuth, sa
 app.delete("/api/emersus/saved-sources/:id", requireAuth, savedSourcesHandler);
 app.post("/api/billing/polar/checkout", requireAuth, polarCheckoutHandler);
 app.get("/api/billing/polar/portal", requireAuth, polarPortalHandler);
+
+// --- Email infrastructure ---
+app.get("/api/email/track/click",  trackClickExpressHandler);
+app.get("/api/email/unsubscribe",  unsubscribeExpressHandler);
+app.post("/api/email/unsubscribe", unsubscribeExpressHandler);
 app.get("/api/emersus/foods/search", foodsSearchHandler);
 app.post("/api/emersus/foods/search-batch", foodsSearchBatchHandler);
 app.use("/api/emersus/meal-plans", mealPlansRouter);
