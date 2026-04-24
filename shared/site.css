@@ -46,7 +46,9 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
+  /* iOS URL-bar aware; vh kept as fallback for older browsers. */
   min-height: 100vh;
+  min-height: 100dvh;
   font-family: var(--sans);
   color: var(--ink);
   background: var(--bg);
@@ -63,7 +65,7 @@ button { cursor: pointer; }
 
 /* ─── LAYOUT SHELLS ─── */
 
-.site-shell { position: relative; min-height: 100vh; z-index: 1; }
+.site-shell { position: relative; min-height: 100vh; min-height: 100dvh; z-index: 1; }
 
 .container {
   width: min(calc(100% - 2rem), var(--content-width));

@@ -85,6 +85,14 @@ body.landing-body main { position: relative; z-index: 1; }
   letter-spacing: -0.005em; line-height: 1;
   transition: color .14s;
 }
+/* Touch devices get a 44 px min tap area per WCAG 2.5.5. Scoped to
+ * pointer: coarse so mouse-driven desktop keeps the tight nav density. */
+@media (pointer: coarse) {
+  .nav-links a {
+    display: inline-flex; align-items: center;
+    min-height: 44px;
+  }
+}
 .nav-links a:hover { color: var(--ink); }
 .nav-right { justify-self: end; }
 .btn {
@@ -96,6 +104,10 @@ body.landing-body main { position: relative; z-index: 1; }
   transition: all .14s; cursor: pointer;
   background: transparent;
   font-family: var(--font-body);
+}
+/* Touch-only 44 px min height. Desktop density (~32 px) is intentional. */
+@media (pointer: coarse) {
+  .btn { min-height: 44px; }
 }
 .btn:not(.btn-accent):hover { background: var(--accent-soft); border-color: var(--accent-line); }
 .btn-accent {

@@ -5,7 +5,7 @@
 body.progress-body {
   margin: 0; background: var(--bg); color: var(--ink);
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased; min-height: 100vh; overflow-x: hidden;
+  -webkit-font-smoothing: antialiased; min-height: 100vh; min-height: 100dvh; overflow-x: hidden;
 }
 
 .pg-shell {

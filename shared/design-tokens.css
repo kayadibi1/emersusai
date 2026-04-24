@@ -11,6 +11,21 @@
  * that loads this stylesheet also includes a Google Fonts <link> with
  * JetBrains Mono + Space Grotesk 400–700. */
 
+/* ---------- GLOBAL BROWSER NORMALIZE ----------
+ * Cross-browser baselines applied site-wide.
+ *   -webkit-text-size-adjust: Safari auto-resizes body text on rotation
+ *     and sometimes zoom. 100% preserves author-set sizes.
+ *   -webkit-tap-highlight-color: iOS draws a grey flash on every tap by
+ *     default; we style our own :active/:hover states, so clear it.
+ *   text-size-adjust: the unprefixed standard (Firefox). */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+body {
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* ---------- PALETTE: GRAPHITE · JADE (dark, default) ---------- */
 /* Both palette blocks use :root[data-theme=...] instead of [data-theme=...]
  * so specificity is (0,2,0) — beats legacy site.css :root (0,1,0) which is

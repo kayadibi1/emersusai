@@ -10,13 +10,17 @@ body.auth-body {
   color: var(--ink);
   font-family: 'Space Grotesk', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+  /* 100vh includes the iOS URL bar and leaves the page short once it
+   * collapses. 100dvh tracks the visible viewport; keep vh as fallback. */
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .auth-shell {
   display: grid;
   grid-template-columns: 55% 45%;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 /* NOTE: Mobile rule that hides .auth-brand is relocated to the END of
  * this file. Same-specificity cascade requires overrides to come AFTER
@@ -226,7 +230,9 @@ body.auth-body {
   border-radius: 8px;
   padding: 10px 12px;
   font-family: inherit;
-  font-size: 14px;
+  /* iOS Safari auto-zooms any <input> with font-size < 16px on focus.
+   * 16px is the minimum that suppresses that zoom across iOS 15+. */
+  font-size: 16px;
   color: var(--ink);
   outline: none;
   transition: border-color .14s, background .14s;

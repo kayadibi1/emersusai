@@ -16,6 +16,7 @@ body.static-page {
   font-family: 'Space Grotesk', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 /* ========== Top nav ========== */
@@ -252,7 +253,8 @@ body.static-page {
   border-radius: 8px;
   padding: 10px 12px;
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 14px;
+  /* 16px — any smaller triggers iOS Safari's focus auto-zoom. */
+  font-size: 16px;
   color: var(--ink);
   outline: 0;
   letter-spacing: 0;
@@ -364,6 +366,13 @@ body.static-page {
   letter-spacing: -0.005em; line-height: 1;
   transition: color .14s;
 }
+/* Touch tap-target floor per WCAG 2.5.5, scoped so desktop density holds. */
+@media (pointer: coarse) {
+  .nav-wrap .nav-links a {
+    display: inline-flex; align-items: center;
+    min-height: 44px;
+  }
+}
 .nav-wrap .nav-links a:hover { color: var(--ink); }
 .nav-wrap .nav-right {
   justify-self: end;
@@ -378,6 +387,10 @@ body.static-page {
   transition: all .14s; cursor: pointer;
   background: transparent;
   font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+/* Touch-only min height; keeps desktop nav tight. */
+@media (pointer: coarse) {
+  .nav-wrap .btn { min-height: 44px; }
 }
 .nav-wrap .btn:hover { background: var(--accent-soft); border-color: var(--accent-line); }
 .nav-wrap .btn-accent {
