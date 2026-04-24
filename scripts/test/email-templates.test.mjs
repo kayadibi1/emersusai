@@ -10,6 +10,7 @@ import { renderBillingRenewal } from "../../api/lib/email/templates/billing-rene
 import { renderBillingPaymentFailed } from "../../api/lib/email/templates/billing-payment-failed.js";
 import { renderBillingCancellation } from "../../api/lib/email/templates/billing-cancellation.js";
 import { renderLegalTosUpdate } from "../../api/lib/email/templates/legal-tos-update.js";
+import { renderLegalPrivacyUpdate } from "../../api/lib/email/templates/legal-privacy-update.js";
 
 test("auth-verify: renders full HTML document", () => {
   const html = renderAuthVerify(FIXTURES["auth-verify"]);
@@ -109,6 +110,18 @@ test("legal-tos-update: renders info callout, bullet list of changes, effective 
   assert.match(html, /§9 — Updated Delaware jurisdiction language/);
   assert.match(html, /May 15, 2026/);
   assert.match(html, new RegExp(escRe(fx.termsUrl)));
+});
+
+test("legal-privacy-update: renders info callout, changes list, effective date, privacy URL", () => {
+  const fx = FIXTURES["legal-privacy-update"];
+  const html = renderLegalPrivacyUpdate(fx);
+  assert.match(html, /Summary/);
+  for (const change of fx.changes) {
+    const htmlEscaped = change.replace(/'/g, "&#39;");
+    assert.match(html, new RegExp(escRe(htmlEscaped)));
+  }
+  assert.match(html, /May 15, 2026/);
+  assert.match(html, new RegExp(escRe(fx.privacyUrl)));
 });
 
 function escRe(s) {
