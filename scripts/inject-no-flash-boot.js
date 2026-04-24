@@ -44,7 +44,6 @@ const HTML_ENTRIES = [
   "chat/index.html",
   "contact/index.html",
   "consumer-health-data/index.html",
-  "demo/index.html",
   "privacy/index.html",
   "terms/index.html",
   "about/index.html",

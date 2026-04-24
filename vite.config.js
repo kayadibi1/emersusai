@@ -35,7 +35,6 @@ const htmlEntries = [
   "chat/index.html",
   "contact/index.html",
   "consumer-health-data/index.html",
-  "demo/index.html",
   "editorial-policy/index.html",
   "privacy/index.html",
   "pricing/index.html",
