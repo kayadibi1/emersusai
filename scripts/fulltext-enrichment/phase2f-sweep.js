@@ -132,55 +132,77 @@ async function writeResult(row, result, pgClient, chunkLines) {
   }
 }
 
+// Pass 1 targets abstract_only rows first (synthetic PMIDs ≥ 10^10, most have PMCIDs).
+// Pass 2 covers all remaining eligible rows, skipping abstract_only and already-processed.
+const QUERY_PASSES = [
+  {
+    label: 'abstract_only',
+    sql: `SELECT pmid, doi, source_metadata->>'pmcid' as pmcid
+            FROM research_articles
+            WHERE pmid > $1
+              AND has_full_text = false
+              AND doi IS NOT NULL
+              AND content_source = 'abstract_only'
+            ORDER BY pmid LIMIT $2`,
+  },
+  {
+    label: 'others',
+    sql: `SELECT pmid, doi, source_metadata->>'pmcid' as pmcid
+            FROM research_articles
+            WHERE pmid > $1
+              AND has_full_text = false
+              AND doi IS NOT NULL
+              AND content_source != 'abstract_only'
+              AND content_source NOT LIKE 'phase2f%'
+              AND content_source NOT LIKE 'phase2a_notfound%'
+              AND content_source NOT LIKE 'phase2a_drop%'
+              AND content_source NOT LIKE 'phase2a_qreject%'
+            ORDER BY pmid LIMIT $2`,
+  },
+];
+
 async function main() {
   await mkdir(DATA_DIR, { recursive: true });
 
-  let lastPmid = BigInt(process.argv[2] ?? 0);
   let totalProcessed = 0;
   let totalSucceeded = 0;
 
   await withPg(async (pg) => {
-    while (true) {
-      const { rows } = await pg.query(
-        `SELECT pmid, doi, source_metadata->>'pmcid' as pmcid
-          FROM research_articles
-          WHERE pmid > $1
-            AND has_full_text = false
-            AND doi IS NOT NULL
-            AND content_source NOT LIKE 'phase2f%'
-            AND content_source NOT LIKE 'phase2a_notfound%'
-            AND content_source NOT LIKE 'phase2a_drop%'
-            AND content_source NOT LIKE 'phase2a_qreject%'
-          ORDER BY pmid
-          LIMIT $2`,
-        [lastPmid, BATCH_SIZE]
-      );
-      if (!rows.length) break;
+    for (const { label, sql } of QUERY_PASSES) {
+      let lastPmid = BigInt(0);
+      console.log(`[phase2f] === pass: ${label} ===`);
 
-      // Process CONCURRENCY rows in parallel within each chunk
-      for (let i = 0; i < rows.length; i += CONCURRENCY) {
-        const chunk = rows.slice(i, i + CONCURRENCY);
+      while (true) {
+        const { rows } = await pg.query(sql, [lastPmid, BATCH_SIZE]);
+        if (!rows.length) break;
 
-        // Run processRow in parallel, each with its own pg connection
-        const chunkResults = await Promise.all(
-          chunk.map((row) => withPg((pgClient) => processRow(row, pgClient)))
-        );
+        // Process CONCURRENCY rows in parallel within each chunk
+        for (let i = 0; i < rows.length; i += CONCURRENCY) {
+          const chunk = rows.slice(i, i + CONCURRENCY);
 
-        // Write results sequentially to avoid JSONL interleaving
-        const chunkLines = [];
-        for (let j = 0; j < chunk.length; j++) {
-          lastPmid = chunk[j].pmid;
-          totalProcessed++;
-          const succeeded = await writeResult(chunk[j], chunkResults[j], pg, chunkLines);
-          if (succeeded) totalSucceeded++;
+          // Run processRow in parallel, each with its own pg connection
+          const chunkResults = await Promise.all(
+            chunk.map((row) => withPg((pgClient) => processRow(row, pgClient)))
+          );
+
+          // Write results sequentially to avoid JSONL interleaving
+          const chunkLines = [];
+          for (let j = 0; j < chunk.length; j++) {
+            lastPmid = chunk[j].pmid;
+            totalProcessed++;
+            const succeeded = await writeResult(chunk[j], chunkResults[j], pg, chunkLines);
+            if (succeeded) totalSucceeded++;
+          }
+
+          if (chunkLines.length) {
+            await appendFile(CHUNKS_FILE, chunkLines.join('\n') + '\n');
+          }
         }
 
-        if (chunkLines.length) {
-          await appendFile(CHUNKS_FILE, chunkLines.join('\n') + '\n');
-        }
+        console.log(`[phase2f] batch done pass=${label} lastPmid=${lastPmid} processed=${totalProcessed} succeeded=${totalSucceeded}`);
       }
 
-      console.log(`[phase2f] batch done lastPmid=${lastPmid} processed=${totalProcessed} succeeded=${totalSucceeded}`);
+      console.log(`[phase2f] pass complete: ${label} processed=${totalProcessed} succeeded=${totalSucceeded}`);
     }
   });
 
