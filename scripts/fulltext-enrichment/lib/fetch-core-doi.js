@@ -13,9 +13,10 @@ export async function fetchForDoi(doi) {
   await limiter.take();
 
   let resp;
+  let body;
   try {
     resp = await fetch(
-      `${CORE_BASE}/search/works?q=doi:"${encodeURIComponent(doi)}"&limit=1`,
+      `${CORE_BASE}/search/works?q=${encodeURIComponent(`doi:"${doi}"`)}&limit=1`,
       {
         headers: {
           Authorization: `Bearer ${process.env.CORE_API_KEY}`,
@@ -24,11 +25,10 @@ export async function fetchForDoi(doi) {
         signal: AbortSignal.timeout(15_000),
       }
     );
+    if (!resp.ok) return null;
+    body = await resp.json();
   } catch { return null; }
 
-  if (!resp.ok) return null;
-
-  const body = await resp.json();
   const result = body?.results?.[0];
   if (!result) return null;
 

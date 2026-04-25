@@ -41,11 +41,11 @@ test('returns null when CORE has no result', async (t) => {
 });
 
 test('returns null when CORE_API_KEY is not set', async (t) => {
+  const { fetchForDoi } = await import('../../../scripts/fulltext-enrichment/lib/fetch-core-doi.js');
   const originalKey = process.env.CORE_API_KEY;
   delete process.env.CORE_API_KEY;
   t.after(() => { if (originalKey) process.env.CORE_API_KEY = originalKey; });
 
-  const { fetchForDoi } = await import('../../../scripts/fulltext-enrichment/lib/fetch-core-doi.js');
   const result = await fetchForDoi('10.1000/test');
   assert.equal(result, null);
 });
