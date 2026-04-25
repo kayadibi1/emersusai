@@ -27,6 +27,7 @@ import { fetchForDoi as fetchOpenAlex } from './lib/fetch-openalex-oa.js';
 import { fetchForDoi as fetchCrossRef } from './lib/fetch-crossref-links.js';
 import { fetchForDoi as fetchIA } from './lib/fetch-ia-scholar.js';
 import { fetchForDoi as fetchSpringer } from './lib/fetch-springer-oa.js';
+import { fetchForDoi as fetchWiley } from './lib/fetch-wiley-tdm.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, 'data');
@@ -34,14 +35,17 @@ const CHUNKS_FILE = join(DATA_DIR, 'chunks-phase2f.jsonl');
 const BATCH_SIZE = 50;
 const MIN_TEXT_LEN = 1000;
 
-// Strategies in priority order. needsPdf=false means the fn returns text directly.
+// Strategies in priority order.
+// needsPdf=false  → fn returns { text, sections?, source }
+// needsPdf=true   → fn returns { pdfUrl, source } OR { pdfBuffer, source }
 const STRATEGIES = [
   { fn: fetchCore,     needsPdf: false },
   { fn: fetchSpringer, needsPdf: false },
-  { fn: fetchS2,       needsPdf: true },
-  { fn: fetchOpenAlex, needsPdf: true },
-  { fn: fetchCrossRef, needsPdf: true },
-  { fn: fetchIA,       needsPdf: true },
+  { fn: fetchWiley,    needsPdf: true  },
+  { fn: fetchS2,       needsPdf: true  },
+  { fn: fetchOpenAlex, needsPdf: true  },
+  { fn: fetchCrossRef, needsPdf: true  },
+  { fn: fetchIA,       needsPdf: true  },
 ];
 
 async function pdfToChunks(buffer, { pmid, source }) {
@@ -71,20 +75,23 @@ async function processRow(row, pg) {
       return { fullText: result.text, chunks, source: result.source, via: 'direct' };
     }
 
+    // Some strategies (e.g. Wiley TDM) return a buffer directly — skip downloadPdf
     let download;
-    try {
-      download = await downloadPdf(result.pdfUrl, { doi: row.doi });
-    } catch (err) {
-      if (err.code === 'PROXY_BLOCKED') {
-        await pg.query(
-          `UPDATE research_articles
-             SET content_source = 'phase2f_proxy_blocked'
-           WHERE pmid = $1`,
-          [row.pmid]
-        );
-        return null;
+    if (result.pdfBuffer) {
+      download = { buffer: result.pdfBuffer, via: 'direct' };
+    } else {
+      try {
+        download = await downloadPdf(result.pdfUrl, { doi: row.doi });
+      } catch (err) {
+        if (err.code === 'PROXY_BLOCKED') {
+          await pg.query(
+            `UPDATE research_articles SET content_source = 'phase2f_proxy_blocked' WHERE pmid = $1`,
+            [row.pmid]
+          );
+          return null;
+        }
+        continue;
       }
-      continue;
     }
 
     const grobid = await pdfToChunks(download.buffer, {
