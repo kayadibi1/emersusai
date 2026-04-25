@@ -117,5 +117,61 @@
     "query_transform": "picos",
     "index": "v4",
     "rerank": "jina"
+  },
+  {
+    "id": "S17",
+    "label": "HyDE + hybrid v5 (no rerank)",
+    "query_transform": "hyde",
+    "index": "hybrid_v5",
+    "rerank": "none"
+  },
+  {
+    "id": "Z1",
+    "label": "Dense + zerank-2",
+    "query_transform": "none",
+    "index": "v4",
+    "rerank": "zerank"
+  },
+  {
+    "id": "Z2",
+    "label": "HyDE + dense + zerank-2",
+    "query_transform": "hyde",
+    "index": "v4",
+    "rerank": "zerank"
+  },
+  {
+    "id": "B1",
+    "label": "Dense + BGE-reranker-v2-m3 (selfhost)",
+    "query_transform": "none",
+    "index": "v4",
+    "rerank": "selfhost"
+  },
+  {
+    "id": "B2",
+    "label": "HyDE + dense + BGE-reranker-v2-m3 (selfhost)",
+    "query_transform": "hyde",
+    "index": "v4",
+    "rerank": "selfhost"
+  },
+  {
+    "id": "C2",
+    "label": "HyDE + dense + Cohere",
+    "query_transform": "hyde",
+    "index": "v4",
+    "rerank": "cohere"
+  },
+  {
+    "id": "Z1H",
+    "label": "Hybrid v5 (BM25+dense) + zerank-2",
+    "query_transform": "none",
+    "index": "hybrid_v5",
+    "rerank": "zerank"
+  },
+  {
+    "id": "Z2H",
+    "label": "HyDE + hybrid v5 (BM25+dense) + zerank-2",
+    "query_transform": "hyde",
+    "index": "hybrid_v5",
+    "rerank": "zerank"
   }
 ]

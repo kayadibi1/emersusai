@@ -56,6 +56,10 @@ const OPENAI_RATES = {
 const COHERE_RERANK_PER_CALL = 0.002;
 const JINA_RERANK_PER_CALL = 0.001;
 const VOYAGE_RERANK_PER_CALL = 0.0015;
+// zerank-2 is $0.025/1M tokens. 50 docs × ~500 tok = 25K tokens/call → $0.000625
+const ZERANK_RERANK_PER_CALL = 0.000625;
+// Self-hosted: zero marginal API cost
+const SELFHOST_RERANK_PER_CALL = 0;
 
 // ─── CLI ─────────────────────────────────────────────────────────────────────
 
@@ -222,6 +226,46 @@ function fuseMultiQuery(candidateLists, k = RRF_K) {
   return fused.map((c, i) => ({ ...c, rank: i + 1 }));
 }
 
+// ─── DOI lookup (canonical-paper resolution) ─────────────────────────────────
+// pmid-level recall undercounts cross-source duplicates: a paper indexed under
+// pmid A (pubmed) and pmid B (semantic-scholar) with the same DOI is a single
+// canonical paper. The fixture's must_include_pmids may list one but the
+// retrieval can legitimately surface the other. DOI-level recall collapses
+// these so equivalent papers count as hits.
+
+const _pmidDoiCache = new Map();
+
+async function loadPmidToDoi(pmids) {
+  const need = [...new Set(pmids.map(Number).filter(Boolean))]
+    .filter((p) => !_pmidDoiCache.has(p));
+  if (need.length === 0) return;
+  // Batch the IN-list to keep the URL under PostgREST limits.
+  const batch = 500;
+  for (let i = 0; i < need.length; i += batch) {
+    const slice = need.slice(i, i + batch);
+    const { data, error } = await supabaseAdmin
+      .from("research_articles")
+      .select("pmid,doi")
+      .in("pmid", slice);
+    if (error) throw new Error(`loadPmidToDoi: ${error.message}`);
+    for (const row of data || []) {
+      const doi = row.doi ? String(row.doi).toLowerCase().trim() : null;
+      _pmidDoiCache.set(Number(row.pmid), doi || null);
+    }
+    // Mark unresolved pmids as null so we don't re-query them.
+    for (const p of slice) {
+      if (!_pmidDoiCache.has(p)) _pmidDoiCache.set(p, null);
+    }
+  }
+}
+
+function pmidToDoiKey(pmid) {
+  // For pmids without a DOI in research_articles, use the pmid itself as
+  // the canonical key. This preserves pmid-level matching for orphans.
+  const doi = _pmidDoiCache.get(Number(pmid));
+  return doi || `pmid:${pmid}`;
+}
+
 // ─── Per-stack execution ─────────────────────────────────────────────────────
 
 async function runStackOnFixture({ stack, fixture, applyProd = false }) {
@@ -348,6 +392,13 @@ async function runStackOnFixture({ stack, fixture, applyProd = false }) {
   // output (what the matrix has historically reported).
   const measuredRows = applyProd ? prodRanked : final;
   const topPmids = measuredRows.map((r) => Number(r.pmid));
+  // Resolve DOIs for the top-100 returned pmids and the fixture's must lists
+  // so DOI-level recall can collapse cross-source duplicates.
+  await loadPmidToDoi([
+    ...topPmids.slice(0, 100),
+    ...(fixture.must_include_pmids || []),
+    ...(fixture.must_exclude_pmids || []),
+  ]);
   const metrics = measureRecall({ topPmids, fixture });
 
   // 7. Cost estimate.
@@ -384,7 +435,6 @@ function measureRecall({ topPmids, fixture }) {
   const mustInclude = (fixture.must_include_pmids || []).map(Number);
   const mustExclude = (fixture.must_exclude_pmids || []).map(Number);
   const mustIncludeSet = new Set(mustInclude);
-  const mustExcludeSet = new Set(mustExclude);
 
   const top6 = new Set(topPmids.slice(0, 6));
   const top10 = new Set(topPmids.slice(0, 10));
@@ -418,6 +468,40 @@ function measureRecall({ topPmids, fixture }) {
   const exclusions6 = mustExclude.filter((p) => top6.has(p)).length;
   const exclusions10 = mustExclude.filter((p) => top10.has(p)).length;
 
+  // ─── DOI-level recall (collapses cross-source duplicates) ────────────────
+  // Same metrics computed by canonical paper key (DOI when available, pmid
+  // fallback when DOI is missing) so that pmid-X and pmid-Y of the same
+  // DOI count as a single canonical paper. Resolves the false-regression
+  // observed in 2026-04-25 hybrid_v5 eval where v5 surfaced semantic-scholar
+  // pmids of papers the fixture only listed under pubmed pmids.
+  const mustIncludeKeys = mustInclude.map(pmidToDoiKey);
+  const mustExcludeKeys = mustExclude.map(pmidToDoiKey);
+  const mustIncludeKeySet = new Set(mustIncludeKeys);
+  const mustIncludeKeyDedupCount = mustIncludeKeySet.size;
+
+  const top6Keys = new Set(topPmids.slice(0, 6).map(pmidToDoiKey));
+  const top10Keys = new Set(topPmids.slice(0, 10).map(pmidToDoiKey));
+  const top50Keys = new Set(topPmids.slice(0, 50).map(pmidToDoiKey));
+  const top100Keys = new Set(topPmids.slice(0, 100).map(pmidToDoiKey));
+
+  const denomDoi = Math.max(mustIncludeKeyDedupCount, 1);
+  const recall6Doi = [...mustIncludeKeySet].filter((k) => top6Keys.has(k)).length / denomDoi;
+  const recall10Doi = [...mustIncludeKeySet].filter((k) => top10Keys.has(k)).length / denomDoi;
+  const recall50Doi = [...mustIncludeKeySet].filter((k) => top50Keys.has(k)).length / denomDoi;
+  const recall100Doi = [...mustIncludeKeySet].filter((k) => top100Keys.has(k)).length / denomDoi;
+
+  let mrr10Doi = 0;
+  for (let i = 0; i < Math.min(topPmids.length, 10); i += 1) {
+    if (mustIncludeKeySet.has(pmidToDoiKey(topPmids[i]))) {
+      mrr10Doi = 1 / (i + 1);
+      break;
+    }
+  }
+
+  const exclusionKeySet = new Set(mustExcludeKeys);
+  const exclusions6Doi = [...top6Keys].filter((k) => exclusionKeySet.has(k)).length;
+  const exclusions10Doi = [...top10Keys].filter((k) => exclusionKeySet.has(k)).length;
+
   return {
     recall_at_6: recall6,
     recall_at_10: recall10,
@@ -432,6 +516,15 @@ function measureRecall({ topPmids, fixture }) {
     exclusion_violations_at_10: exclusions10,
     must_include_count: mustInclude.length,
     must_exclude_count: mustExclude.length,
+    // DOI-level metrics (canonical-paper recall)
+    recall_at_6_doi: recall6Doi,
+    recall_at_10_doi: recall10Doi,
+    recall_at_50_doi: recall50Doi,
+    recall_at_100_doi: recall100Doi,
+    mrr_at_10_doi: mrr10Doi,
+    exclusion_violations_at_6_doi: exclusions6Doi,
+    exclusion_violations_at_10_doi: exclusions10Doi,
+    must_include_doi_count: mustIncludeKeyDedupCount,
   };
 }
 
@@ -445,9 +538,11 @@ function estimateCost({ transformTokensIn, transformTokensOut, embedTokens, rera
     (transformTokensOut / 1_000_000) * mini.output;
   const embedCost = (embedTokens / 1_000_000) * emb.input;
   let rerankCost = 0;
-  if (rerankBackend === "cohere") rerankCost = rerankCalls * COHERE_RERANK_PER_CALL;
-  else if (rerankBackend === "jina")   rerankCost = rerankCalls * JINA_RERANK_PER_CALL;
-  else if (rerankBackend === "voyage") rerankCost = rerankCalls * VOYAGE_RERANK_PER_CALL;
+  if (rerankBackend === "cohere")        rerankCost = rerankCalls * COHERE_RERANK_PER_CALL;
+  else if (rerankBackend === "jina")     rerankCost = rerankCalls * JINA_RERANK_PER_CALL;
+  else if (rerankBackend === "voyage")   rerankCost = rerankCalls * VOYAGE_RERANK_PER_CALL;
+  else if (rerankBackend === "zerank")   rerankCost = rerankCalls * ZERANK_RERANK_PER_CALL;
+  else if (rerankBackend === "selfhost") rerankCost = rerankCalls * SELFHOST_RERANK_PER_CALL;
   return Number((transformCost + embedCost + rerankCost).toFixed(6));
 }
 
@@ -466,14 +561,13 @@ function aggregatePerStack(rows) {
     const ex = byStack.get(r.stack_id) || {
       stack_id: r.stack_id,
       count: 0,
-      recall_at_10: 0,
-      recall_at_50: 0,
-      recall_at_100: 0,
-      hit_at_10: 0,
-      hit_at_50: 0,
-      hit_at_100: 0,
+      recall_at_10: 0, recall_at_50: 0, recall_at_100: 0,
+      hit_at_10: 0, hit_at_50: 0, hit_at_100: 0,
       mrr_at_10: 0,
       exclusion_violations_at_10: 0,
+      recall_at_10_doi: 0, recall_at_50_doi: 0, recall_at_100_doi: 0,
+      mrr_at_10_doi: 0,
+      exclusion_violations_at_10_doi: 0,
       latency_ms: 0,
       cost_usd: 0,
       errors: 0,
@@ -487,6 +581,11 @@ function aggregatePerStack(rows) {
     ex.hit_at_100 += r.hit_at_100;
     ex.mrr_at_10 += r.mrr_at_10;
     ex.exclusion_violations_at_10 += r.exclusion_violations_at_10;
+    ex.recall_at_10_doi += r.recall_at_10_doi || 0;
+    ex.recall_at_50_doi += r.recall_at_50_doi || 0;
+    ex.recall_at_100_doi += r.recall_at_100_doi || 0;
+    ex.mrr_at_10_doi += r.mrr_at_10_doi || 0;
+    ex.exclusion_violations_at_10_doi += r.exclusion_violations_at_10_doi || 0;
     ex.latency_ms += r.latency_ms;
     ex.cost_usd += r.cost_usd;
     byStack.set(r.stack_id, ex);
@@ -507,6 +606,11 @@ function aggregatePerStack(rows) {
       hit_rate_at_100: Number((safe(ex.hit_at_100) / n).toFixed(3)),
       mean_mrr_at_10: Number((safe(ex.mrr_at_10) / n).toFixed(3)),
       total_exclusion_violations: safe(ex.exclusion_violations_at_10),
+      mean_recall_at_10_doi: Number((safe(ex.recall_at_10_doi) / n).toFixed(3)),
+      mean_recall_at_50_doi: Number((safe(ex.recall_at_50_doi) / n).toFixed(3)),
+      mean_recall_at_100_doi: Number((safe(ex.recall_at_100_doi) / n).toFixed(3)),
+      mean_mrr_at_10_doi: Number((safe(ex.mrr_at_10_doi) / n).toFixed(3)),
+      total_exclusion_violations_doi: safe(ex.exclusion_violations_at_10_doi),
       mean_latency_ms: Math.round(safe(ex.latency_ms) / n),
       total_cost_usd: Number(safe(ex.cost_usd).toFixed(4)),
     });
@@ -632,7 +736,7 @@ async function main() {
       if (result.error) {
         console.log(`  [${cellIdx}/${totalCells}] ${fixture.question.padEnd(55)} ERR: ${result.error}`);
       } else {
-        const tail = `recall@10=${(result.recall_at_10 * 100).toFixed(0)}% recall@100=${(result.recall_at_100 * 100).toFixed(0)}% mrr=${result.mrr_at_10.toFixed(2)} ${result.latency_ms}ms $${result.cost_usd.toFixed(4)}`;
+        const tail = `pmid@10=${(result.recall_at_10 * 100).toFixed(0)}% doi@10=${(result.recall_at_10_doi * 100).toFixed(0)}% doi@100=${(result.recall_at_100_doi * 100).toFixed(0)}% mrr=${result.mrr_at_10_doi.toFixed(2)} ${result.latency_ms}ms $${result.cost_usd.toFixed(4)}`;
         console.log(`  [${cellIdx}/${totalCells}] ${fixture.question.padEnd(55)} ${tail}`);
       }
     }
@@ -665,12 +769,13 @@ async function main() {
   console.log(`# MD:   ${stem}.md`);
   console.log(`# JSON: ${stem}.json`);
 
-  // Print the aggregate ranking.
-  console.log("\n# Aggregate ranking by recall@10:");
-  const sorted = [...agg].sort((a, b) => b.mean_recall_at_10 - a.mean_recall_at_10);
-  for (const a of sorted) {
+  // Print the aggregate ranking — DOI metrics first (canonical-paper recall),
+  // pmid metrics second for back-compat with prior runs.
+  console.log("\n# Aggregate ranking by DOI recall@10 (canonical paper):");
+  const sortedDoi = [...agg].sort((a, b) => b.mean_recall_at_10_doi - a.mean_recall_at_10_doi);
+  for (const a of sortedDoi) {
     console.log(
-      `  ${a.stack_id.padEnd(4)} recall@10=${(a.mean_recall_at_10 * 100).toFixed(1)}% recall@100=${(a.mean_recall_at_100 * 100).toFixed(1)}% hit@10=${(a.hit_rate_at_10 * 100).toFixed(1)}% mrr=${a.mean_mrr_at_10.toFixed(3)} $${a.total_cost_usd.toFixed(4)}`
+      `  ${a.stack_id.padEnd(4)} doi@10=${(a.mean_recall_at_10_doi * 100).toFixed(1)}% doi@100=${(a.mean_recall_at_100_doi * 100).toFixed(1)}% mrr_doi=${a.mean_mrr_at_10_doi.toFixed(3)} | pmid@10=${(a.mean_recall_at_10 * 100).toFixed(1)}% pmid@100=${(a.mean_recall_at_100 * 100).toFixed(1)}% $${a.total_cost_usd.toFixed(4)}`
     );
   }
 }
