@@ -135,11 +135,13 @@ async function main() {
 
         if (result) {
           totalSucceeded++;
+          // Strip invalid UTF-8 bytes before writing to Postgres (Grobid can emit binary garbage)
+          const safeText = Buffer.from(result.fullText, 'utf8').toString('utf8').replace(/�/g, '').replace(/\0/g, '');
           await pg.query(
             `UPDATE research_articles
                 SET full_text = $1, has_full_text = true, content_source = $2
               WHERE pmid = $3`,
-            [result.fullText, result.source, row.pmid]
+            [safeText, result.source, row.pmid]
           );
           const lines = result.chunks.map((c) => JSON.stringify(c)).join('\n') + '\n';
           await appendFile(CHUNKS_FILE, lines);
