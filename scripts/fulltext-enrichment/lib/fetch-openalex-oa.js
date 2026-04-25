@@ -15,7 +15,7 @@ export async function fetchForDoi(doi) {
   let body;
   try {
     resp = await fetch(
-      `${OA_BASE}/works/https://doi.org/${encodeURIComponent(doi)}?select=open_access,primary_location`,
+      `${OA_BASE}/works/https://doi.org/${doi}?select=open_access,primary_location`,
       {
         headers: {
           Accept: 'application/json',
