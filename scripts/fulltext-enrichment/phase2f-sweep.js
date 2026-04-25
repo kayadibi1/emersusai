@@ -132,17 +132,31 @@ async function writeResult(row, result, pgClient, chunkLines) {
   }
 }
 
-// Pass 1 targets abstract_only rows first (synthetic PMIDs ≥ 10^10, most have PMCIDs).
-// Pass 2 covers all remaining eligible rows, skipping abstract_only and already-processed.
+// Passes in priority order:
+//   0. abstract_only WITH pmcid — 212K rows, JATS almost guaranteed, fastest wins
+//   1. abstract_only WITHOUT pmcid — 956K rows, try CORE/OpenAlex/S2
+//   2. all other eligible rows (non-abstract_only sources)
 const QUERY_PASSES = [
   {
-    label: 'abstract_only',
+    label: 'abstract_only_with_pmcid',
     sql: `SELECT pmid, doi, source_metadata->>'pmcid' as pmcid
             FROM research_articles
             WHERE pmid > $1
               AND has_full_text = false
               AND doi IS NOT NULL
               AND content_source = 'abstract_only'
+              AND source_metadata->>'pmcid' IS NOT NULL
+            ORDER BY pmid LIMIT $2`,
+  },
+  {
+    label: 'abstract_only_no_pmcid',
+    sql: `SELECT pmid, doi, source_metadata->>'pmcid' as pmcid
+            FROM research_articles
+            WHERE pmid > $1
+              AND has_full_text = false
+              AND doi IS NOT NULL
+              AND content_source = 'abstract_only'
+              AND source_metadata->>'pmcid' IS NULL
             ORDER BY pmid LIMIT $2`,
   },
   {
