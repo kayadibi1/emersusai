@@ -44,7 +44,8 @@
     "resend": "^4.1.0",
     "stream-json": "^1.8.0",
     "svix": "^1.92.2",
-    "three": "^0.161.0"
+    "three": "^0.161.0",
+    "undici": "^8.1.0"
   },
   "devDependencies": {
     "axe-core": "^4.11.3",

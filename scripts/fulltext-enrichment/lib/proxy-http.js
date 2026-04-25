@@ -1,4 +1,10 @@
 // scripts/fulltext-enrichment/lib/proxy-http.js
+//
+// PROXY_URL formats supported:
+//   http://user:pass@host:port  — standard HTTP CONNECT proxy (mobile/residential)
+//   https://*.workers.dev       — CF Worker relay (GET ?url=<encoded>)
+import { ProxyAgent, fetch as undiciFetch } from 'undici';
+
 const RETRY_STATUSES = new Set([403, 407, 429]);
 
 const DEFAULT_HEADERS = {
@@ -6,16 +12,35 @@ const DEFAULT_HEADERS = {
   'Accept': 'application/pdf,*/*;q=0.9',
 };
 
+function isConnectProxy(url) {
+  try {
+    const u = new URL(url);
+    return (u.protocol === 'http:' || u.protocol === 'https:') && !!u.username;
+  } catch { return false; }
+}
+
 async function attemptFetch(url, { doi, proxyUrl } = {}) {
+  const headers = {
+    ...DEFAULT_HEADERS,
+    ...(doi ? { Referer: `https://doi.org/${doi}` } : {}),
+  };
+
+  if (proxyUrl && isConnectProxy(proxyUrl)) {
+    const dispatcher = new ProxyAgent(proxyUrl);
+    return undiciFetch(url, {
+      headers,
+      signal: AbortSignal.timeout(60_000),
+      redirect: 'follow',
+      dispatcher,
+    });
+  }
+
   const fetchUrl = proxyUrl
     ? `${proxyUrl}?url=${encodeURIComponent(url)}`
     : url;
 
   return fetch(fetchUrl, {
-    headers: {
-      ...DEFAULT_HEADERS,
-      ...(doi ? { Referer: `https://doi.org/${doi}` } : {}),
-    },
+    headers,
     signal: AbortSignal.timeout(60_000),
     redirect: 'follow',
   });

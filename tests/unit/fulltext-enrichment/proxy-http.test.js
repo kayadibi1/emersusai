@@ -67,3 +67,24 @@ test('throws PROXY_BLOCKED when no PROXY_URL and direct returns 403', async (t) 
     (err) => { assert.equal(err.code, 'PROXY_BLOCKED'); return true; }
   );
 });
+
+test('CONNECT proxy format detected via URL with credentials', async (t) => {
+  // isConnectProxy should return true for http://user:pass@host:port
+  const { downloadPdf } = await import('../../../scripts/fulltext-enrichment/lib/proxy-http.js');
+  const originalProxy = process.env.PROXY_URL;
+  // Set a CONNECT-style proxy URL — the undici ProxyAgent path will be taken
+  // We can't fully mock undici.fetch here, but we can verify the format detection
+  // doesn't throw on the URL itself (connection will fail with ECONNREFUSED,
+  // which we catch and rethrow as a different error)
+  process.env.PROXY_URL = 'http://user:pass@127.0.0.1:1'; // nothing listening
+  t.after(() => { process.env.PROXY_URL = originalProxy; });
+
+  t.mock.method(globalThis, 'fetch', makeFetchMock(403)); // direct returns 403
+  // Proxy attempt via undici CONNECT will fail with connection error, not PROXY_BLOCKED
+  // That means it throws something OTHER than PROXY_BLOCKED — proving the code
+  // took the CONNECT path instead of the relay path
+  await assert.rejects(
+    () => downloadPdf('https://example.com/paper.pdf'),
+    (err) => { assert.notEqual(err.code, 'PROXY_BLOCKED'); return true; }
+  );
+});

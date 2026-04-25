@@ -26,6 +26,7 @@ import { fetchForDoi as fetchS2 } from './lib/fetch-s2-pdf.js';
 import { fetchForDoi as fetchOpenAlex } from './lib/fetch-openalex-oa.js';
 import { fetchForDoi as fetchCrossRef } from './lib/fetch-crossref-links.js';
 import { fetchForDoi as fetchIA } from './lib/fetch-ia-scholar.js';
+import { fetchForDoi as fetchSpringer } from './lib/fetch-springer-oa.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, 'data');
@@ -36,6 +37,7 @@ const MIN_TEXT_LEN = 1000;
 // Strategies in priority order. needsPdf=false means the fn returns text directly.
 const STRATEGIES = [
   { fn: fetchCore,     needsPdf: false },
+  { fn: fetchSpringer, needsPdf: false },
   { fn: fetchS2,       needsPdf: true },
   { fn: fetchOpenAlex, needsPdf: true },
   { fn: fetchCrossRef, needsPdf: true },
@@ -64,7 +66,7 @@ async function processRow(row, pg) {
 
     if (!needsPdf) {
       if (!result.text || result.text.length < MIN_TEXT_LEN) continue;
-      const sections = [{ title: null, type: 'body_other', text: result.text }];
+      const sections = result.sections ?? [{ title: null, type: 'body_other', text: result.text }];
       const chunks = buildBodyChunks({ pmid: row.pmid, sections, provenance: result.source });
       return { fullText: result.text, chunks, source: result.source, via: 'direct' };
     }
