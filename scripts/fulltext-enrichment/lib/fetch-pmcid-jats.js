@@ -34,9 +34,13 @@ function splitArticleSet(xml) {
 }
 
 // Extract the numeric PMC ID from a single <article> XML string.
+// NCBI batch responses use pub-id-type="pmcid" with value "PMC3456779",
+// or pub-id-type="pmcaid" with bare numeric "3456779".
 function extractPmcId(articleXml) {
-  const m = articleXml.match(/<article-id[^>]*pub-id-type="pmc"[^>]*>(\d+)<\/article-id>/);
-  return m ? m[1] : null;
+  const bare = articleXml.match(/<article-id[^>]*pub-id-type="pmcaid"[^>]*>(\d+)<\/article-id>/);
+  if (bare) return bare[1];
+  const prefixed = articleXml.match(/<article-id[^>]*pub-id-type="pmcid"[^>]*>PMC(\d+)<\/article-id>/);
+  return prefixed ? prefixed[1] : null;
 }
 
 // Single-article fetch — kept for non-PMCID passes and fallback.
