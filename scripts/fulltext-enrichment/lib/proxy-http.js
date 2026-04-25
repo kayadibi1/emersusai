@@ -3,7 +3,12 @@
 // PROXY_URL formats supported:
 //   http://user:pass@host:port  — standard HTTP CONNECT proxy (mobile/residential)
 //   https://*.workers.dev       — CF Worker relay (GET ?url=<encoded>)
+//
+// Cookie fallback: if COOKIES_FILE is set, tried after proxy failure for
+// publisher domains where institutional access is available.
 import { ProxyAgent, fetch as undiciFetch } from 'undici';
+import { existsSync } from 'node:fs';
+import { loadCookieJar } from './cookie-jar.js';
 
 const RETRY_STATUSES = new Set([403, 407, 429]);
 
@@ -19,10 +24,19 @@ function isConnectProxy(url) {
   } catch { return false; }
 }
 
-async function attemptFetch(url, { doi, proxyUrl } = {}) {
+let _jar = null;
+function getJar() {
+  if (_jar) return _jar;
+  const path = process.env.COOKIES_FILE;
+  if (!path || !existsSync(path)) return null;
+  try { _jar = loadCookieJar(path); return _jar; } catch { return null; }
+}
+
+async function attemptFetch(url, { doi, proxyUrl, cookieHeader } = {}) {
   const headers = {
     ...DEFAULT_HEADERS,
     ...(doi ? { Referer: `https://doi.org/${doi}` } : {}),
+    ...(cookieHeader ? { Cookie: cookieHeader } : {}),
   };
 
   if (proxyUrl && isConnectProxy(proxyUrl)) {
@@ -48,19 +62,30 @@ async function attemptFetch(url, { doi, proxyUrl } = {}) {
 
 export async function downloadPdf(url, { doi } = {}) {
   const proxyUrl = process.env.PROXY_URL;
+
+  // 1. Direct
   let resp = await attemptFetch(url, { doi });
   let via = 'direct';
 
+  // 2. Proxy fallback on block
   if (RETRY_STATUSES.has(resp.status)) {
-    if (!proxyUrl) {
-      const err = new Error(`HTTP ${resp.status} with no PROXY_URL`);
-      err.code = 'PROXY_BLOCKED';
-      throw err;
+    if (proxyUrl) {
+      resp = await attemptFetch(url, { doi, proxyUrl });
+      via = 'proxy';
     }
-    resp = await attemptFetch(url, { doi, proxyUrl });
-    via = 'proxy';
+
+    // 3. Cookie fallback — try institutional access for blocked publisher domains
+    if (!resp.ok || RETRY_STATUSES.has(resp.status)) {
+      const jar = getJar();
+      const cookieHeader = jar?.cookieHeaderFor(url);
+      if (cookieHeader) {
+        resp = await attemptFetch(url, { doi, cookieHeader });
+        via = 'cookies';
+      }
+    }
+
     if (!resp.ok) {
-      const err = new Error(`Proxy returned HTTP ${resp.status}`);
+      const err = new Error(`Blocked: HTTP ${resp.status} on all paths`);
       err.code = 'PROXY_BLOCKED';
       throw err;
     }
