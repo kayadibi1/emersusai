@@ -10,7 +10,7 @@ import pg from 'pg';
 
 const _pool = new pg.Pool({
   connectionString: process.env.SUPABASE_DB_URL || process.env.DATABASE_URL,
-  max: 4,
+  max: 10, // bumped for concurrency
   keepAlive: true,
 });
 async function withPg(fn) {
@@ -21,6 +21,7 @@ import { downloadPdf } from './lib/proxy-http.js';
 import { processPdf } from './lib/grobid-client.js';
 import { parseTeiFullText } from './lib/tei-parser.js';
 import { buildBodyChunks } from './lib/fulltext-chunker.js';
+import { fetchForPmcid } from './lib/fetch-pmcid-jats.js';
 import { fetchForDoi as fetchCore } from './lib/fetch-core-doi.js';
 import { fetchForDoi as fetchS2 } from './lib/fetch-s2-pdf.js';
 import { fetchForDoi as fetchOpenAlex } from './lib/fetch-openalex-oa.js';
@@ -32,13 +33,15 @@ import { fetchForDoi as fetchWiley } from './lib/fetch-wiley-tdm.js';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, 'data');
 const CHUNKS_FILE = join(DATA_DIR, 'chunks-phase2f.jsonl');
-const BATCH_SIZE = 50;
+const BATCH_SIZE = 100;  // larger batches for concurrent processing
+const CONCURRENCY = 5;   // rows processed in parallel
 const MIN_TEXT_LEN = 1000;
 
-// Strategies in priority order.
+// Strategies in priority order. All fns receive (doi, row) — extra args ignored by most.
 // needsPdf=false  → fn returns { text, sections?, source }
 // needsPdf=true   → fn returns { pdfUrl, source } OR { pdfBuffer, source }
 const STRATEGIES = [
+  { fn: fetchForPmcid, needsPdf: false },  // S0: fastest for PMC articles (uses row.pmcid)
   { fn: fetchCore,     needsPdf: false },
   { fn: fetchSpringer, needsPdf: false },
   { fn: fetchWiley,    needsPdf: true  },
@@ -62,10 +65,10 @@ async function pdfToChunks(buffer, { pmid, source }) {
   }
 }
 
-async function processRow(row, pg) {
+async function processRow(row, pgClient) {
   for (const { fn, needsPdf } of STRATEGIES) {
     let result;
-    try { result = await fn(row.doi); } catch { continue; }
+    try { result = await fn(row.doi, row); } catch { continue; }
     if (!result) continue;
 
     if (!needsPdf) {
@@ -75,7 +78,6 @@ async function processRow(row, pg) {
       return { fullText: result.text, chunks, source: result.source, via: 'direct' };
     }
 
-    // Some strategies (e.g. Wiley TDM) return a buffer directly — skip downloadPdf
     let download;
     if (result.pdfBuffer) {
       download = { buffer: result.pdfBuffer, via: 'direct' };
@@ -84,7 +86,7 @@ async function processRow(row, pg) {
         download = await downloadPdf(result.pdfUrl, { doi: row.doi });
       } catch (err) {
         if (err.code === 'PROXY_BLOCKED') {
-          await pg.query(
+          await pgClient.query(
             `UPDATE research_articles SET content_source = 'phase2f_proxy_blocked' WHERE pmid = $1`,
             [row.pmid]
           );
@@ -105,6 +107,31 @@ async function processRow(row, pg) {
   return null;
 }
 
+async function writeResult(row, result, pgClient, chunkLines) {
+  if (result) {
+    const safeText = Buffer.from(result.fullText, 'utf8').toString('utf8').replace(/�/g, '').replace(/\0/g, '');
+    await pgClient.query(
+      `UPDATE research_articles SET full_text = $1, has_full_text = true, content_source = $2 WHERE pmid = $3`,
+      [safeText, result.source, row.pmid]
+    );
+    for (const c of result.chunks) chunkLines.push(JSON.stringify(c));
+    console.log(`[phase2f] OK pmid=${row.pmid} source=${result.source} via=${result.via} chunks=${result.chunks.length}`);
+    return true;
+  } else {
+    const { rows: [cur] } = await pgClient.query(
+      `SELECT content_source FROM research_articles WHERE pmid = $1`, [row.pmid]
+    );
+    if (!cur?.content_source?.startsWith('phase2f_')) {
+      await pgClient.query(
+        `UPDATE research_articles SET content_source = 'phase2f_exhausted' WHERE pmid = $1`,
+        [row.pmid]
+      );
+    }
+    console.log(`[phase2f] EXHAUSTED pmid=${row.pmid}`);
+    return false;
+  }
+}
+
 async function main() {
   await mkdir(DATA_DIR, { recursive: true });
 
@@ -115,7 +142,8 @@ async function main() {
   await withPg(async (pg) => {
     while (true) {
       const { rows } = await pg.query(
-        `SELECT pmid, doi FROM research_articles
+        `SELECT pmid, doi, source_metadata->>'pmcid' as pmcid
+          FROM research_articles
           WHERE pmid > $1
             AND has_full_text = false
             AND doi IS NOT NULL
@@ -129,43 +157,30 @@ async function main() {
       );
       if (!rows.length) break;
 
-      for (const row of rows) {
-        lastPmid = row.pmid;
-        totalProcessed++;
+      // Process CONCURRENCY rows in parallel within each chunk
+      for (let i = 0; i < rows.length; i += CONCURRENCY) {
+        const chunk = rows.slice(i, i + CONCURRENCY);
 
-        const result = await processRow(row, pg);
+        // Run processRow in parallel, each with its own pg connection
+        const chunkResults = await Promise.all(
+          chunk.map((row) => withPg((pgClient) => processRow(row, pgClient)))
+        );
 
-        if (result) {
-          totalSucceeded++;
-          // Strip invalid UTF-8 bytes before writing to Postgres (Grobid can emit binary garbage)
-          const safeText = Buffer.from(result.fullText, 'utf8').toString('utf8').replace(/�/g, '').replace(/\0/g, '');
-          await pg.query(
-            `UPDATE research_articles
-                SET full_text = $1, has_full_text = true, content_source = $2
-              WHERE pmid = $3`,
-            [safeText, result.source, row.pmid]
-          );
-          const lines = result.chunks.map((c) => JSON.stringify(c)).join('\n') + '\n';
-          await appendFile(CHUNKS_FILE, lines);
-          console.log(`[phase2f] OK pmid=${row.pmid} source=${result.source} via=${result.via} chunks=${result.chunks.length}`);
-        } else {
-          // Only mark exhausted if not already tagged by processRow (e.g. proxy_blocked)
-          const { rows: [cur] } = await pg.query(
-            `SELECT content_source FROM research_articles WHERE pmid = $1`, [row.pmid]
-          );
-          if (!cur?.content_source?.startsWith('phase2f_')) {
-            await pg.query(
-              `UPDATE research_articles SET content_source = 'phase2f_exhausted' WHERE pmid = $1`,
-              [row.pmid]
-            );
-          }
-          console.log(`[phase2f] EXHAUSTED pmid=${row.pmid}`);
+        // Write results sequentially to avoid JSONL interleaving
+        const chunkLines = [];
+        for (let j = 0; j < chunk.length; j++) {
+          lastPmid = chunk[j].pmid;
+          totalProcessed++;
+          const succeeded = await writeResult(chunk[j], chunkResults[j], pg, chunkLines);
+          if (succeeded) totalSucceeded++;
         }
 
-        if (totalProcessed % 100 === 0) {
-          console.log(`[phase2f] progress processed=${totalProcessed} succeeded=${totalSucceeded} lastPmid=${lastPmid}`);
+        if (chunkLines.length) {
+          await appendFile(CHUNKS_FILE, chunkLines.join('\n') + '\n');
         }
       }
+
+      console.log(`[phase2f] batch done lastPmid=${lastPmid} processed=${totalProcessed} succeeded=${totalSucceeded}`);
     }
   });
 
