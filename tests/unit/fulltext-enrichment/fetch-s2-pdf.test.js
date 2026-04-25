@@ -1,4 +1,6 @@
 // tests/unit/fulltext-enrichment/fetch-s2-pdf.test.js
+process.env.S2_API_KEY = process.env.S2_API_KEY ?? 'test-key-s2';
+
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
