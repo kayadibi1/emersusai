@@ -1,4 +1,13 @@
 // scripts/fulltext-enrichment/phase2f-sweep.js
+//
+// Usage:
+//   node phase2f-sweep.js [pass0_start_pmid]
+//
+// pass0_start_pmid lets a second parallel instance start mid-way through
+// pass 0 so both halves of the 212K PMCID rows process concurrently.
+// Example (split at midpoint):
+//   node phase2f-sweep.js 0             # instance A: pmid 0 → midpoint
+//   node phase2f-sweep.js 10000106000   # instance B: pmid midpoint → end
 import 'dotenv/config';
 import { mkdir, writeFile, unlink, appendFile } from 'node:fs/promises';
 import { join, dirname } from 'node:path';
@@ -10,7 +19,7 @@ import pg from 'pg';
 
 const _pool = new pg.Pool({
   connectionString: process.env.SUPABASE_DB_URL || process.env.DATABASE_URL,
-  max: 10, // bumped for concurrency
+  max: 10,
   keepAlive: true,
 });
 async function withPg(fn) {
@@ -21,7 +30,7 @@ import { downloadPdf } from './lib/proxy-http.js';
 import { processPdf } from './lib/grobid-client.js';
 import { parseTeiFullText } from './lib/tei-parser.js';
 import { buildBodyChunks } from './lib/fulltext-chunker.js';
-import { fetchForPmcid } from './lib/fetch-pmcid-jats.js';
+import { fetchForPmcid, fetchBatchForPmcids } from './lib/fetch-pmcid-jats.js';
 import { fetchForDoi as fetchCore } from './lib/fetch-core-doi.js';
 import { fetchForDoi as fetchS2 } from './lib/fetch-s2-pdf.js';
 import { fetchForDoi as fetchOpenAlex } from './lib/fetch-openalex-oa.js';
@@ -35,15 +44,13 @@ import { fetchForDoi as fetchUnpaywall } from './lib/fetch-unpaywall.js';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, 'data');
 const CHUNKS_FILE = join(DATA_DIR, 'chunks-phase2f.jsonl');
-const BATCH_SIZE = 100;  // larger batches for concurrent processing
-const CONCURRENCY = 5;   // rows processed in parallel
+const BATCH_SIZE = 100;
+const CONCURRENCY = 5;
+const PMCID_BATCH_SIZE = 20; // articles per NCBI efetch call in pass 0
 const MIN_TEXT_LEN = 1000;
 
-// Strategies in priority order. All fns receive (doi, row) — extra args ignored by most.
-// needsPdf=false  → fn returns { text, sections?, source }
-// needsPdf=true   → fn returns { pdfUrl, source } OR { pdfBuffer, source }
 const STRATEGIES = [
-  { fn: fetchForPmcid, needsPdf: false },  // S0: fastest for PMC articles (uses row.pmcid)
+  { fn: fetchForPmcid, needsPdf: false },
   { fn: fetchCore,     needsPdf: false },
   { fn: fetchSpringer, needsPdf: false },
   { fn: fetchWiley,    needsPdf: true  },
@@ -136,13 +143,62 @@ async function writeResult(row, result, pgClient, chunkLines) {
   }
 }
 
+// Pass 0: batch NCBI efetch — 20 articles per HTTP call instead of 1.
+// Rows not found in batch response are marked exhausted (PMCID strategy is
+// the strongest signal; other sources rarely recover these misses).
+async function runBatchPmcidPass(pg, sql, label, startPmid, totalProcessed, totalSucceeded) {
+  let lastPmid = startPmid;
+  console.log(`[phase2f] === pass: ${label} (batch mode, size=${PMCID_BATCH_SIZE}) start=${startPmid} ===`);
+
+  while (true) {
+    const { rows } = await pg.query(sql, [lastPmid, BATCH_SIZE]);
+    if (!rows.length) break;
+
+    for (let i = 0; i < rows.length; i += PMCID_BATCH_SIZE) {
+      const batch = rows.slice(i, i + PMCID_BATCH_SIZE);
+
+      // One NCBI call for the entire sub-batch
+      const batchMap = await fetchBatchForPmcids(batch);
+
+      const chunkLines = [];
+      await withPg(async (pgClient) => {
+        for (const row of batch) {
+          lastPmid = row.pmid;
+          totalProcessed++;
+
+          const hit = batchMap.get(row.pmid);
+          let rowResult = null;
+          if (hit) {
+            const sections = hit.sections ?? [{ title: null, type: 'body_other', text: hit.text }];
+            const chunks = buildBodyChunks({ pmid: row.pmid, sections, provenance: hit.source });
+            rowResult = { fullText: hit.text, chunks, source: hit.source, via: 'batch' };
+          }
+
+          const succeeded = await writeResult(row, rowResult, pgClient, chunkLines);
+          if (succeeded) totalSucceeded++;
+        }
+      });
+
+      if (chunkLines.length) {
+        await appendFile(CHUNKS_FILE, chunkLines.join('\n') + '\n');
+      }
+    }
+
+    console.log(`[phase2f] batch done pass=${label} lastPmid=${lastPmid} processed=${totalProcessed} succeeded=${totalSucceeded}`);
+  }
+
+  console.log(`[phase2f] pass complete: ${label} processed=${totalProcessed} succeeded=${totalSucceeded}`);
+  return { totalProcessed, totalSucceeded };
+}
+
 // Passes in priority order:
-//   0. abstract_only WITH pmcid — 212K rows, JATS almost guaranteed, fastest wins
-//   1. abstract_only WITHOUT pmcid — 956K rows, try CORE/OpenAlex/S2
-//   2. all other eligible rows (non-abstract_only sources)
+//   0. abstract_only WITH pmcid — batch NCBI efetch, ~20x faster than single-row
+//   1. abstract_only WITHOUT pmcid — individual strategy pipeline
+//   2. all other eligible rows
 const QUERY_PASSES = [
   {
     label: 'abstract_only_with_pmcid',
+    batch: true,
     sql: `SELECT pmid, doi, source_metadata->>'pmcid' as pmcid
             FROM research_articles
             WHERE pmid > $1
@@ -154,6 +210,7 @@ const QUERY_PASSES = [
   },
   {
     label: 'abstract_only_no_pmcid',
+    batch: false,
     sql: `SELECT pmid, doi, source_metadata->>'pmcid' as pmcid
             FROM research_articles
             WHERE pmid > $1
@@ -165,6 +222,7 @@ const QUERY_PASSES = [
   },
   {
     label: 'others',
+    batch: false,
     sql: `SELECT pmid, doi, source_metadata->>'pmcid' as pmcid
             FROM research_articles
             WHERE pmid > $1
@@ -182,28 +240,36 @@ const QUERY_PASSES = [
 async function main() {
   await mkdir(DATA_DIR, { recursive: true });
 
+  // Optional: start pass 0 from a specific pmid (for parallel instances)
+  const pass0Start = BigInt(process.argv[2] ?? 0);
+
   let totalProcessed = 0;
   let totalSucceeded = 0;
 
   await withPg(async (pg) => {
-    for (const { label, sql } of QUERY_PASSES) {
-      let lastPmid = BigInt(0);
+    for (const { label, batch, sql } of QUERY_PASSES) {
+      const startPmid = label === 'abstract_only_with_pmcid' ? pass0Start : BigInt(0);
+
+      if (batch) {
+        ({ totalProcessed, totalSucceeded } = await runBatchPmcidPass(
+          pg, sql, label, startPmid, totalProcessed, totalSucceeded
+        ));
+        continue;
+      }
+
+      let lastPmid = startPmid;
       console.log(`[phase2f] === pass: ${label} ===`);
 
       while (true) {
         const { rows } = await pg.query(sql, [lastPmid, BATCH_SIZE]);
         if (!rows.length) break;
 
-        // Process CONCURRENCY rows in parallel within each chunk
         for (let i = 0; i < rows.length; i += CONCURRENCY) {
           const chunk = rows.slice(i, i + CONCURRENCY);
-
-          // Run processRow in parallel, each with its own pg connection
           const chunkResults = await Promise.all(
             chunk.map((row) => withPg((pgClient) => processRow(row, pgClient)))
           );
 
-          // Write results sequentially to avoid JSONL interleaving
           const chunkLines = [];
           for (let j = 0; j < chunk.length; j++) {
             lastPmid = chunk[j].pmid;
