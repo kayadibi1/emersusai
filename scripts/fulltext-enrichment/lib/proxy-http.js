@@ -6,9 +6,8 @@ const DEFAULT_HEADERS = {
   'Accept': 'application/pdf,*/*;q=0.9',
 };
 
-async function attemptFetch(url, { doi, viaProxy = false } = {}) {
-  const proxyUrl = process.env.PROXY_URL;
-  const fetchUrl = viaProxy && proxyUrl
+async function attemptFetch(url, { doi, proxyUrl } = {}) {
+  const fetchUrl = proxyUrl
     ? `${proxyUrl}?url=${encodeURIComponent(url)}`
     : url;
 
@@ -23,17 +22,17 @@ async function attemptFetch(url, { doi, viaProxy = false } = {}) {
 }
 
 export async function downloadPdf(url, { doi } = {}) {
+  const proxyUrl = process.env.PROXY_URL;
   let resp = await attemptFetch(url, { doi });
   let via = 'direct';
 
   if (RETRY_STATUSES.has(resp.status)) {
-    const proxyUrl = process.env.PROXY_URL;
     if (!proxyUrl) {
       const err = new Error(`HTTP ${resp.status} with no PROXY_URL`);
       err.code = 'PROXY_BLOCKED';
       throw err;
     }
-    resp = await attemptFetch(url, { doi, viaProxy: true });
+    resp = await attemptFetch(url, { doi, proxyUrl });
     via = 'proxy';
     if (!resp.ok) {
       const err = new Error(`Proxy returned HTTP ${resp.status}`);
@@ -46,6 +45,12 @@ export async function downloadPdf(url, { doi } = {}) {
     throw err;
   }
 
+  const cl = parseInt(resp.headers.get('content-length') ?? '0', 10);
+  if (cl > 50 * 1024 * 1024) {
+    const err = new Error(`Response too large: ${cl} bytes`);
+    err.code = 'PDF_TOO_LARGE';
+    throw err;
+  }
   const contentType = resp.headers.get('content-type') ?? 'application/octet-stream';
   const buffer = Buffer.from(await resp.arrayBuffer());
   return { buffer, contentType, via };
