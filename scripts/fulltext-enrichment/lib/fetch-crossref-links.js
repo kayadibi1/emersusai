@@ -3,7 +3,7 @@
 // Returns a PDF URL from the CrossRef link[] array.
 // No API key needed; RPS=50 with polite pool courtesy.
 
-import { RateLimiter } from '../../abstract-enrichment/lib/rate-limiter.js';
+import { RateLimiter } from './rate-limiter.js';
 
 const CR_BASE = 'https://api.crossref.org';
 const limiter = new RateLimiter({ rps: 50 });

@@ -3,7 +3,7 @@
 // Returns a URL to a freely accessible PDF — no text parsing, just the link.
 // API key optional: S2_API_KEY env var. With key, RPS=10; without, RPS=1.
 
-import { RateLimiter } from '../../abstract-enrichment/lib/rate-limiter.js';
+import { RateLimiter } from './rate-limiter.js';
 
 const S2_BASE = 'https://api.semanticscholar.org/graph/v1';
 const limiter = new RateLimiter({ rps: process.env.S2_API_KEY ? 10 : 1 });

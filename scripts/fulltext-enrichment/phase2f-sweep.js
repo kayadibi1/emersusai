@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 import { randomBytes } from 'node:crypto';
 import fs from 'node:fs';
-import { withPg } from '../abstract-enrichment/lib/pg.js';
+import { withPg } from './lib/pg.js';
 import { downloadPdf } from './lib/proxy-http.js';
 import { processPdf } from './lib/grobid-client.js';
 import { parseTeiFullText } from './lib/tei-parser.js';

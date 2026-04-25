@@ -3,7 +3,7 @@
 // Returns a URL to a freely accessible PDF — no text parsing, just the link.
 // No API key needed; 10 RPS polite limit with User-Agent header.
 
-import { RateLimiter } from '../../abstract-enrichment/lib/rate-limiter.js';
+import { RateLimiter } from './rate-limiter.js';
 
 const OA_BASE = 'https://api.openalex.org';
 const limiter = new RateLimiter({ rps: 10 });

@@ -3,7 +3,7 @@
 // Returns a URL to a freely accessible PDF from IA's OA collection.
 // API key not required. Rate limit: 3 RPS (polite).
 
-import { RateLimiter } from '../../abstract-enrichment/lib/rate-limiter.js';
+import { RateLimiter } from './rate-limiter.js';
 
 const IA_BASE = 'https://scholar.archive.org';
 const limiter = new RateLimiter({ rps: 3 });

@@ -3,7 +3,7 @@
 // Returns pre-parsed full text directly — no PDF download, no Grobid needed.
 // API key required: CORE_API_KEY env var.
 
-import { RateLimiter } from '../../abstract-enrichment/lib/rate-limiter.js';
+import { RateLimiter } from './rate-limiter.js';
 
 const CORE_BASE = 'https://api.core.ac.uk/v3';
 const limiter = new RateLimiter({ rps: 10 });
