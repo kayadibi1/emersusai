@@ -49,7 +49,7 @@ async function pdfToChunks(buffer, { pmid, source }) {
 async function processRow(row, pg) {
   for (const { fn, needsPdf } of STRATEGIES) {
     let result;
-    try { result = await fn(row.doi, pg); } catch { continue; }
+    try { result = await fn(row.doi); } catch { continue; }
     if (!result) continue;
 
     if (!needsPdf) {
@@ -122,9 +122,8 @@ async function main() {
               WHERE pmid = $3`,
             [result.fullText, result.source, row.pmid]
           );
-          for (const chunk of result.chunks) {
-            await appendFile(CHUNKS_FILE, JSON.stringify(chunk) + '\n');
-          }
+          const lines = result.chunks.map((c) => JSON.stringify(c)).join('\n') + '\n';
+          await appendFile(CHUNKS_FILE, lines);
           console.log(`[phase2f] OK pmid=${row.pmid} source=${result.source} via=${result.via} chunks=${result.chunks.length}`);
         } else {
           // Only mark exhausted if not already tagged by processRow (e.g. proxy_blocked)
