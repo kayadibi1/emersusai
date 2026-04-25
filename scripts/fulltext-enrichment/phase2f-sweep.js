@@ -6,7 +6,17 @@ import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 import { randomBytes } from 'node:crypto';
 import fs from 'node:fs';
-import { withPg } from './lib/pg.js';
+import pg from 'pg';
+
+const _pool = new pg.Pool({
+  connectionString: process.env.SUPABASE_DB_URL || process.env.DATABASE_URL,
+  max: 4,
+  keepAlive: true,
+});
+async function withPg(fn) {
+  const client = await _pool.connect();
+  try { return await fn(client); } finally { client.release(); }
+}
 import { downloadPdf } from './lib/proxy-http.js';
 import { processPdf } from './lib/grobid-client.js';
 import { parseTeiFullText } from './lib/tei-parser.js';
