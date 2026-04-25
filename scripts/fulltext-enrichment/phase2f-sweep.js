@@ -29,6 +29,8 @@ import { fetchForDoi as fetchCrossRef } from './lib/fetch-crossref-links.js';
 import { fetchForDoi as fetchIA } from './lib/fetch-ia-scholar.js';
 import { fetchForDoi as fetchSpringer } from './lib/fetch-springer-oa.js';
 import { fetchForDoi as fetchWiley } from './lib/fetch-wiley-tdm.js';
+import { fetchForDoi as fetchEuropePmc } from './lib/fetch-europepmc.js';
+import { fetchForDoi as fetchUnpaywall } from './lib/fetch-unpaywall.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DATA_DIR = join(__dirname, 'data');
@@ -47,8 +49,10 @@ const STRATEGIES = [
   { fn: fetchWiley,    needsPdf: true  },
   { fn: fetchS2,       needsPdf: true  },
   { fn: fetchOpenAlex, needsPdf: true  },
-  { fn: fetchCrossRef, needsPdf: true  },
-  { fn: fetchIA,       needsPdf: true  },
+  { fn: fetchCrossRef,  needsPdf: true  },
+  { fn: fetchIA,        needsPdf: true  },
+  { fn: fetchEuropePmc, needsPdf: false },
+  { fn: fetchUnpaywall, needsPdf: true  },
 ];
 
 async function pdfToChunks(buffer, { pmid, source }) {
