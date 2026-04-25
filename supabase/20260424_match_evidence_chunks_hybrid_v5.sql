@@ -81,8 +81,8 @@ BEGIN
       ec.pmid,
       ec.chunk_type,
       ec.content,
-      1 - (ec.embedding <=> query_embedding) AS similarity,
-      ec.embedding <=> query_embedding       AS distance,
+      (1 - (ec.embedding <=> query_embedding))::double precision AS similarity,
+      (ec.embedding <=> query_embedding)::double precision       AS distance,
       ROW_NUMBER() OVER (ORDER BY ec.embedding <=> query_embedding ASC) AS dense_rank
     FROM public.evidence_chunks ec
     WHERE ec.embedding IS NOT NULL
@@ -103,7 +103,7 @@ BEGIN
         to_tsvector('english', ec.content),
         plainto_tsquery('english', query_text),
         32
-      ) AS bm25_score,
+      )::double precision AS bm25_score,
       ROW_NUMBER() OVER (
         ORDER BY ts_rank_cd(
           to_tsvector('english', ec.content),
@@ -130,12 +130,11 @@ BEGIN
       COALESCE(d.pmid, l.pmid)     AS pmid,
       COALESCE(d.chunk_type, l.chunk_type) AS chunk_type,
       COALESCE(d.content, l.content)       AS content,
-      COALESCE(d.similarity, 0.0)  AS similarity,
-      COALESCE(l.bm25_score, 0.0)  AS bm25_score,
-      (CASE WHEN d.id IS NOT NULL THEN 1.0 / (p_rrf_k + d.dense_rank)   ELSE 0.0 END) +
-      (CASE WHEN l.id IS NOT NULL THEN 1.0 / (p_rrf_k + l.lexical_rank) ELSE 0.0 END)
-        AS rrf_score,
-      COALESCE(d.distance, 1.0)    AS distance
+      COALESCE(d.similarity, 0.0)::double precision AS similarity,
+      COALESCE(l.bm25_score, 0.0)::double precision AS bm25_score,
+      ((CASE WHEN d.id IS NOT NULL THEN 1.0 / (p_rrf_k + d.dense_rank)   ELSE 0.0 END) +
+       (CASE WHEN l.id IS NOT NULL THEN 1.0 / (p_rrf_k + l.lexical_rank) ELSE 0.0 END))::double precision AS rrf_score,
+      COALESCE(d.distance, 1.0)::double precision    AS distance
     FROM dense_candidates d
     FULL OUTER JOIN lexical_candidates l ON d.id = l.id
   ),

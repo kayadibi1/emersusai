@@ -7,7 +7,7 @@
  */
 
 import { retrieveDatabaseEvidence as retrieveVectorDatabaseEvidence } from "../retrieveDatabaseEvidence.js";
-import { rankEvidence, dedupeEvidence } from "../rerank.js";
+import { dedupeEvidence } from "../rerank.js";
 import { formatCitationUrl, formatCitationLabel } from "../../../shared/citation-format.js";
 import { normalizeText, normalizeList } from "./sanitize.js";
 import { ShortCircuit } from "./context.js";
@@ -15,15 +15,12 @@ import { formatSources } from "./format-sources.js";
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
-const VECTOR_LIMIT = 6;
+const VECTOR_LIMIT = 8;
 const VECTOR_MATCH_THRESHOLD = 0.4;
-// Bumped from 10 → 25 on 2026-04-24 alongside the Jina rerank integration.
-// A pool of 10 left the cross-encoder with nothing to reorder and capped
-// what the heuristic rankEvidence blend could pick from. 25 is the sweet
-// spot: wide enough for Jina to surface a relevant candidate from ranks
-// 15-25 that cosine-sim missed, narrow enough that per-request cost
-// (both Jina tokens and enrichment SQL) stays trivial.
-const VECTOR_MATCH_COUNT = 25;
+// 40 candidates gives Jina (when on) a wide pool to reorder, and gives
+// dedupeEvidence enough candidates to collapse cross-source duplicates
+// without starving the final VECTOR_LIMIT slice of distinct papers.
+const VECTOR_MATCH_COUNT = 40;
 
 // ─── Helpers (verbatim from workflow.js) ─────────────────────────────────────
 
@@ -111,9 +108,8 @@ export function normalizeVectorEvidenceRow(row) {
     is_title_only_match: row.is_title_only_match === true,
     similarity: clamp(Number(row.similarity || 0), 0, 1),
     database_score: clamp(Number(row.similarity || 0), 0, 1),
-    // Credibility/impact signals from retrieveDatabaseEvidence — flow
-    // into rankEvidence's scoreEvidenceImpact() + get surfaced in the
-    // final evidence object so the UI / confidence score can show them.
+    // Credibility/impact signals from retrieveDatabaseEvidence — surfaced
+    // in the final evidence object for the UI and downstream grading.
     rcr: row.rcr ?? null,
     citation_count: row.citation_count ?? null,
     influential_citation_count: row.influential_citation_count ?? null,
@@ -151,9 +147,7 @@ async function retrieveVectorEvidence(question, { includePreprints = true } = {}
     return {
       available: matches.length > 0,
       method: "vector",
-      evidence: rankEvidence(
-        dedupeEvidence(matches.map(normalizeVectorEvidenceRow))
-      ).slice(0, VECTOR_LIMIT),
+      evidence: dedupeEvidence(matches.map(normalizeVectorEvidenceRow)).slice(0, VECTOR_LIMIT),
       error: null,
     };
   } catch (error) {

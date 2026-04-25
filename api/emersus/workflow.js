@@ -1,5 +1,4 @@
 import { ShortCircuit, createContext } from "./pipeline/context.js";
-import { computeConfidence } from "./pipeline/confidence.js";
 import { sanitize, validateRequest } from "./pipeline/sanitize.js";
 import { safety } from "./pipeline/safety.js";
 import { planRetrieval } from "./pipeline/retrieval-policy.js";
@@ -94,7 +93,6 @@ async function generateRecommendationStream(rawInput, res) {
     if (memResult.status === "rejected") {
       console.warn("[workflow] retrieveMemory failed:", memResult.reason?.message || memResult.reason);
     }
-    ctx.confidence = computeConfidence({ plan: ctx.plan, evidence: ctx.evidence });
     const chainingContext = resolveChainingContext({
       flagEnabled: chainingFlagEnabled,
       messages: ctx.recentMessages || [],
@@ -174,7 +172,6 @@ async function generateRecommendationJSON(rawInput) {
     if (memResult.status === "rejected") {
       console.warn("[workflow] retrieveMemory failed:", memResult.reason?.message || memResult.reason);
     }
-    ctx.confidence = computeConfidence({ plan: ctx.plan, evidence: ctx.evidence });
     const chainingContext = resolveChainingContext({
       flagEnabled: chainingFlagEnabled,
       messages: ctx.recentMessages || [],

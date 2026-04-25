@@ -1,7 +1,7 @@
 import { normalizeThreadState, normalizeRecentMessages, buildThreadMemoryBlock } from "./sanitize.js";
 
 export function groundingEnforcementEnabled() {
-  return String(process.env.GROUNDING_ENFORCEMENT_ENABLED || "").toLowerCase() === "true";
+  return String(process.env.GROUNDING_ENFORCEMENT_ENABLED || "").toLowerCase() !== "false";
 }
 
 // When enabled, the EVIDENCE GROUNDING CONTRACT ships as its own system

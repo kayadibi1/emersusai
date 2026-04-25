@@ -4,14 +4,17 @@ import { generateHydePassage } from "./pipeline/hyde.js";
 import { jinaRerank, isJinaConfigured } from "./pipeline/jina-rerank.js";
 
 /**
- * Group matches by DOI and keep the highest-similarity chunk per DOI.
+ * Group matches by DOI and keep the best-ranked chunk per DOI.
  * Matches without a DOI (preprints without an assigned DOI, etc.) are
  * preserved as-is. Used to dedup cross-source results — e.g., a paper
  * with DOI 10.1/foo indexed by both pubmed and openalex as separate
  * research_articles rows should collapse to one in retrieval.
  *
+ * Tiebreaker: _jina_score when the cross-encoder ran (so the Jina-preferred
+ * variant of a paper wins), falling back to cosine similarity.
+ *
  * Operates on the flat row shape returned by retrieveDatabaseEvidence:
- *   { pmid, source, doi, similarity, title, ... }
+ *   { pmid, source, doi, similarity, _jina_score?, title, ... }
  *
  * @param {Array<object>} rows
  * @returns {Array<object>} deduped rows
@@ -27,7 +30,13 @@ export function dedupByDoi(rows) {
       continue;
     }
     const existing = byDoi.get(doi);
-    if (!existing || (row.similarity ?? 0) > (existing.similarity ?? 0)) {
+    if (!existing) {
+      byDoi.set(doi, row);
+      continue;
+    }
+    const rowScore = row._jina_score ?? row.rrf_score ?? (row.similarity ?? 0);
+    const existingScore = existing._jina_score ?? existing.rrf_score ?? (existing.similarity ?? 0);
+    if (rowScore > existingScore) {
       byDoi.set(doi, row);
     }
   }
@@ -39,8 +48,23 @@ export function dedupByDoi(rows) {
 // normalization across the two retrieval variants (raw query vs HyDE).
 const RRF_K = 60;
 
-// RPC dispatch — same v3/v4 toggle as the pre-HyDE path.
-async function runMatchRpc({ queryEmbedding, matchThreshold, matchCount, includePreprints }) {
+// RPC dispatch. Priority: v5 (hybrid BM25+dense) > v4 (dense+passage-sub) > v3 (dense).
+// v5 requires query_text for the BM25 side; threshold is applied to the cosine
+// lane only (default 0.0 so BM25 can surface papers cosine would reject).
+async function runMatchRpc({ queryEmbedding, queryText, matchThreshold, matchCount, includePreprints }) {
+  const useV5 = String(process.env.RETRIEVAL_USE_V5 || "").toLowerCase() === "true";
+  if (useV5) {
+    const { data, error } = await supabaseAdmin.rpc("match_evidence_chunks_hybrid_v5", {
+      query_embedding: queryEmbedding,
+      query_text: queryText || "",
+      match_threshold: 0.0,
+      match_count: matchCount,
+      p_include_preprints: includePreprints,
+    });
+    if (error) throw new Error(`match_evidence_chunks_hybrid_v5 failed: ${error.message}`);
+    return (data || []).map((row, idx) => ({ ...row, _rank: idx + 1 }));
+  }
+
   const useV4 = String(process.env.RETRIEVAL_USE_V4 || "").toLowerCase() === "true";
   const rpcName = useV4 ? "match_evidence_chunks_v4" : "match_evidence_chunks_v3";
   const { data, error } = await supabaseAdmin.rpc(rpcName, {
@@ -49,11 +73,8 @@ async function runMatchRpc({ queryEmbedding, matchThreshold, matchCount, include
     match_count: matchCount,
     p_include_preprints: includePreprints,
   });
-  if (error) {
-    throw new Error(`Vector search failed (${rpcName}): ${error.message}`);
-  }
-  // Attach rank for downstream RRF. Rank is the position in the RPC's
-  // own ordering (by similarity), not any downstream rerank.
+  if (error) throw new Error(`Vector search failed (${rpcName}): ${error.message}`);
+  // Attach positional rank for downstream RRF (ordered by similarity from the RPC).
   return (data || []).map((row, idx) => ({ ...row, _rank: idx + 1 }));
 }
 
@@ -129,6 +150,8 @@ async function enrichMatches(matches) {
       // "matched=chunk_type, not title-only".
       matched_chunk_type: row.matched_chunk_type ?? row.chunk_type,
       is_title_only_match: row.is_title_only_match === true,
+      rrf_score: row.rrf_score ?? null,
+      bm25_score: row.bm25_score ?? null,
       title: row.article.title,
       doi: row.article.doi,
       pmcid: row.article.pmcid,
@@ -150,23 +173,15 @@ async function enrichMatches(matches) {
 
 async function retrieveSingleQuery({ prompt, matchThreshold, matchCount, includePreprints }) {
   const queryEmbedding = await embedText(prompt);
-  const matches = await runMatchRpc({ queryEmbedding, matchThreshold, matchCount, includePreprints });
+  const matches = await runMatchRpc({ queryEmbedding, queryText: prompt, matchThreshold, matchCount, includePreprints });
   const enriched = await enrichMatches(matches);
-  const useV4 = String(process.env.RETRIEVAL_USE_V4 || "").toLowerCase() === "true";
-  const deduped = useV4 ? enriched : dedupByDoi(enriched);
-  return maybeJinaRerank(prompt, deduped);
+  const reranked = await maybeJinaRerank(prompt, enriched);
+  return dedupByDoi(reranked);
 }
 
-// Optional cross-encoder rerank step applied to the full enriched candidate
-// pool before the downstream heuristic (rankEvidence in api/emersus/rerank.js)
-// sees it. Feature-flagged via CHAT_JINA_RERANK_ENABLED. Jina produces a
-// stronger query-doc relevance signal than cosine similarity; the heuristic
-// blend (freshness/quality/similarity/RCR) then boosts freshness + credibility
-// on top of that reordered pool. Net: better relevance pool going into the
-// final freshness/RCR blend, while preserving all existing UI signals.
-//
-// Non-fatal — jina-rerank.js catches API errors internally and returns the
-// input unchanged, so retrieval never blocks on rerank.
+// Optional cross-encoder rerank step. Feature-flagged via CHAT_JINA_RERANK_ENABLED.
+// Runs after enrichment so Jina sees the full candidate pool.
+// Non-fatal — returns input unchanged on any API error.
 async function maybeJinaRerank(prompt, candidates) {
   const flag = String(process.env.CHAT_JINA_RERANK_ENABLED || "").toLowerCase() === "true";
   if (!flag || !isJinaConfigured() || !Array.isArray(candidates) || candidates.length < 2) {
@@ -206,15 +221,14 @@ async function retrieveWithHyde({ prompt, matchThreshold, matchCount, includePre
   ]);
 
   const [origMatches, hydeMatches] = await Promise.all([
-    runMatchRpc({ queryEmbedding: origEmbedding, matchThreshold, matchCount: expandedCount, includePreprints }),
-    runMatchRpc({ queryEmbedding: hydeEmbedding, matchThreshold, matchCount: expandedCount, includePreprints }),
+    runMatchRpc({ queryEmbedding: origEmbedding, queryText: prompt, matchThreshold, matchCount: expandedCount, includePreprints }),
+    runMatchRpc({ queryEmbedding: hydeEmbedding, queryText: hydePassage, matchThreshold, matchCount: expandedCount, includePreprints }),
   ]);
 
   const fused = rrfMerge([origMatches, hydeMatches]).slice(0, matchCount);
   const enriched = await enrichMatches(fused);
-  const useV4 = String(process.env.RETRIEVAL_USE_V4 || "").toLowerCase() === "true";
-  const deduped = useV4 ? enriched : dedupByDoi(enriched);
-  return maybeJinaRerank(prompt, deduped);
+  const reranked = await maybeJinaRerank(prompt, enriched);
+  return dedupByDoi(reranked);
 }
 
 // Pure candidate fetcher: embeds the prompt, runs the pgvector RPC, joins
