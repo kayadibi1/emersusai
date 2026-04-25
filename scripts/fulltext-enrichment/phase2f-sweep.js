@@ -119,8 +119,10 @@ async function main() {
           WHERE pmid > $1
             AND has_full_text = false
             AND doi IS NOT NULL
-            AND content_source LIKE 'phase2%'
             AND content_source NOT LIKE 'phase2f%'
+            AND content_source NOT LIKE 'phase2a_notfound%'
+            AND content_source NOT LIKE 'phase2a_drop%'
+            AND content_source NOT LIKE 'phase2a_qreject%'
           ORDER BY pmid
           LIMIT $2`,
         [lastPmid, BATCH_SIZE]
