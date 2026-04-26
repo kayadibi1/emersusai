@@ -137,3 +137,44 @@ test("verifyAnchor treats judge errors as FAIL with metadata", async () => {
   assert.equal(r.result, "FAIL");
   assert.match(r.judge_response.error || "", /timeout/);
 });
+
+import { parseAnchorExtractionResponse } from "../../../../../api/emersus/pipeline/claim-modes.js";
+
+test("anchor parser handles well-formed JSON", () => {
+  const r = parseAnchorExtractionResponse('{"anchors":[{"text":"5g/day","kind_hint":"dose","attributed_source_id":2,"source_quote":"5 g per day","scope_used":"chunk"}]}');
+  assert.equal(r.anchors.length, 1);
+  assert.equal(r.anchors[0].kind_hint, "dose");
+  assert.equal(r.anchors[0].scope_used, "chunk");
+});
+
+test("anchor parser tolerates ```json``` fences", () => {
+  const r = parseAnchorExtractionResponse('```json\n{"anchors":[]}\n```');
+  assert.equal(r.error, null);
+  assert.equal(r.anchors.length, 0);
+});
+
+test("anchor parser rejects malformed JSON", () => {
+  const r = parseAnchorExtractionResponse("not json");
+  assert.equal(r.error, "malformed_json");
+});
+
+test("anchor parser drops anchors without text", () => {
+  const r = parseAnchorExtractionResponse('{"anchors":[{"text":"","kind_hint":"dose"},{"text":"5g","kind_hint":"dose","attributed_source_id":1,"source_quote":"5g","scope_used":"chunk"}]}');
+  assert.equal(r.anchors.length, 1);
+});
+
+test("anchor parser nullifies invalid scope_used", () => {
+  const r = parseAnchorExtractionResponse('{"anchors":[{"text":"5g","kind_hint":"dose","attributed_source_id":1,"source_quote":"5g","scope_used":"made_up"}]}');
+  assert.equal(r.anchors[0].scope_used, null);
+});
+
+test("anchor parser coerces unknown kind_hint to 'other'", () => {
+  const r = parseAnchorExtractionResponse('{"anchors":[{"text":"5g","kind_hint":"flux_capacitor","attributed_source_id":1,"source_quote":"5g","scope_used":"chunk"}]}');
+  assert.equal(r.anchors[0].kind_hint, "other");
+});
+
+test("anchor parser nullifies scope_used when source_quote is null", () => {
+  const r = parseAnchorExtractionResponse('{"anchors":[{"text":"12 wk","kind_hint":"duration","attributed_source_id":1,"source_quote":null,"scope_used":"chunk"}]}');
+  assert.equal(r.anchors[0].source_quote, null);
+  assert.equal(r.anchors[0].scope_used, null);
+});

@@ -274,3 +274,134 @@ export async function classifyClaimModes(claims, retrievedSources, { model = "gp
   }
   return out;
 }
+
+// ─── Anchor extraction (Anchor-Verified Citations v1) ───────────────────────────
+
+export const ANCHOR_EXTRACTION_PROMPT_VERSION = "anchor-extraction-v1";
+
+const ANCHOR_EXTRACTION_SYSTEM_PROMPT = [
+  "You extract specifier ANCHORS from a single factual research claim and locate the verbatim quote in cited sources that backs each anchor.",
+  "",
+  "AN ANCHOR is any specifier-like phrase tying a claim to empirical specifics: doses (5g/day), durations (8 weeks), populations (trained men), study designs (RCT, meta-analysis), interventions (creatine monohydrate), comparators (vs placebo), outcomes (1RM bench press), effect sizes (+7%, p<0.05), sample sizes (n=24).",
+  "",
+  "DO NOT extract anchors from generic words: 'improve', 'study', 'research', 'evidence', 'support', 'shown', 'effect'.",
+  "",
+  "FOR EACH ANCHOR you find:",
+  "  - text: the anchor phrase, copied from the claim verbatim",
+  "  - kind_hint: one of {dose, duration, population, intervention, comparator, outcome, effect_size, study_design, sample_size, other}",
+  "  - attributed_source_id: integer — which cited source's content backs this anchor; pick from the list of cited source ids you are given",
+  "  - source_quote: the verbatim phrase from that source's content that backs the anchor (or null if no source backs it)",
+  "  - scope_used: which part of the source you found the quote in: 'chunk', 'full_text', or 'abstract' (or null if source_quote is null)",
+  "",
+  "If a claim has NO specifier anchors (it's a general/synthesis statement like 'creatine improves strength'), return anchors: []. This is fine — synthesis claims don't need anchor verification.",
+  "If you cannot find ANY source quote that backs an anchor, set source_quote: null and scope_used: null. Do not invent quotes.",
+  "",
+  'Output JSON only: {"anchors": [{"text": "...", "kind_hint": "...", "attributed_source_id": N, "source_quote": "..." or null, "scope_used": "chunk|full_text|abstract" or null}, ...]}',
+  "Do not include any prose outside the JSON object.",
+].join("\n");
+
+const VALID_KIND_HINTS = new Set([
+  "dose", "duration", "population", "intervention", "comparator",
+  "outcome", "effect_size", "study_design", "sample_size", "other",
+]);
+
+function formatSourcesForAnchorExtractor(sources) {
+  return sources.map((it, i) => {
+    const sections = [];
+    if (it.chunk) sections.push(`[chunk]\n${it.chunk}`);
+    if (it.abstract) sections.push(`[abstract]\n${it.abstract}`);
+    if (it.full_text) {
+      // Cap at 12K chars to stay under context for gpt-5.4-mini even with multiple
+      // sources. Abstract + chunk are usually <2K combined, so 12K * 4 sources fits.
+      sections.push(`[full_text]\n${String(it.full_text).slice(0, 12000)}`);
+    }
+    return `=== source ${i + 1} (id=${it.id}) ===\n${sections.join("\n\n") || "(no content)"}`;
+  }).join("\n\n");
+}
+
+export function parseAnchorExtractionResponse(raw) {
+  const cleaned = String(raw || "").replace(/```json\s*/gi, "").replace(/```\s*$/g, "").trim();
+  let parsed;
+  try {
+    parsed = JSON.parse(cleaned);
+  } catch {
+    return { anchors: [], error: "malformed_json" };
+  }
+  if (!parsed || !Array.isArray(parsed.anchors)) {
+    return { anchors: [], error: "malformed_json" };
+  }
+  const anchors = parsed.anchors
+    .map((a) => {
+      const text = String(a?.text || "").trim();
+      const kind = VALID_KIND_HINTS.has(a?.kind_hint) ? a.kind_hint : "other";
+      const sid = Number.isInteger(a?.attributed_source_id) ? a.attributed_source_id : null;
+      const sq = a?.source_quote && String(a.source_quote).trim()
+        ? String(a.source_quote).trim()
+        : null;
+      const scope = ["chunk", "full_text", "abstract"].includes(a?.scope_used) ? a.scope_used : null;
+      return {
+        text,
+        kind_hint: kind,
+        attributed_source_id: sid,
+        source_quote: sq,
+        scope_used: sq ? scope : null,
+      };
+    })
+    .filter((a) => a.text);
+  return { anchors, error: null };
+}
+
+/**
+ * Extract anchors for ONE claim against the cited sources.
+ *
+ * @param {Object} claim — { claim_text, cited_ids: [int] }
+ * @param {Array<Object>} sources — [{ id, chunk, abstract, full_text }, ...]
+ *   The shape produced by anchor-source-scope.js.
+ * @param {Object} [opts]
+ * @param {string} [opts.model] — defaults to "gpt-5.4-mini"
+ * @returns {Promise<{anchors: Array, error?: string, error_message?: string, prompt_version: string}>}
+ */
+export async function extractAnchorsForClaim(claim, sources, { model = "gpt-5.4-mini" } = {}) {
+  if (!claim || !claim.claim_text) {
+    return { anchors: [], error: "no_claim", prompt_version: ANCHOR_EXTRACTION_PROMPT_VERSION };
+  }
+  if (!Array.isArray(sources) || sources.length === 0) {
+    return { anchors: [], error: "no_sources", prompt_version: ANCHOR_EXTRACTION_PROMPT_VERSION };
+  }
+  const sourcesBlock = formatSourcesForAnchorExtractor(sources);
+  const userPrompt = [
+    `CLAIM:\n${claim.claim_text}`,
+    `\nCITED SOURCE IDs: ${(claim.cited_ids || []).join(", ") || "(none)"}`,
+    `\nCITED SOURCES:\n${sourcesBlock}`,
+    "\nReturn the JSON object as specified.",
+  ].join("\n");
+
+  let raw;
+  let attempts = 0;
+  let lastErr = null;
+  while (attempts < 2) {
+    try {
+      raw = await callJudge({
+        system: ANCHOR_EXTRACTION_SYSTEM_PROMPT,
+        user: userPrompt,
+        model,
+        maxOutputTokens: 1200,
+      });
+      lastErr = null;
+      break;
+    } catch (err) {
+      lastErr = err;
+      attempts += 1;
+    }
+  }
+  if (lastErr) {
+    return {
+      anchors: [],
+      error: "judge_error",
+      error_message: lastErr.message,
+      prompt_version: ANCHOR_EXTRACTION_PROMPT_VERSION,
+    };
+  }
+  const parsed = parseAnchorExtractionResponse(raw);
+  return { ...parsed, prompt_version: ANCHOR_EXTRACTION_PROMPT_VERSION };
+}
