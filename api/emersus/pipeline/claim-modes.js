@@ -131,3 +131,123 @@ export async function extractAtomicClaims(answerText, { model = "gpt-5.4" } = {}
   const parsed = parseExtractionResponse(raw);
   return { ...parsed, prompt_version: EXTRACTION_PROMPT_VERSION };
 }
+
+export const CLASSIFY_PROMPT_VERSION = "claim-classify-v1";
+
+const CLASSIFY_SYSTEM_PROMPT = [
+  "You evaluate whether each retrieved source supports, contradicts, or is unrelated to a specific factual claim.",
+  "",
+  "For EACH source you receive, return:",
+  "  - direction: 'supports' | 'contradicts' | 'unrelated'",
+  "  - support_score: 0, 1, or 2 (only meaningful when direction='supports')",
+  "      0 = no support",
+  "      1 = partial/qualified — source supports the gist but with narrower scope or weaker effect",
+  "      2 = full direct support — source establishes the claim with the same scope and effect",
+  "  - scope_qualifiers_in_source_missing_from_claim: list of qualifiers (population, dose, duration, study design) that the source restricts the finding to but the claim drops. Empty list when direction != 'supports' or claim already includes all qualifiers.",
+  "",
+  "If a source actively states the OPPOSITE of the claim (e.g., source: 'no significant 1RM improvement', claim: 'improves 1RM'), use direction='contradicts'.",
+  "If a source is on a different topic entirely, use direction='unrelated'.",
+  "",
+  "Output JSON only: {\"per_source\": [{\"source_index\": N, \"direction\": \"...\", \"support_score\": N, \"scope_qualifiers_in_source_missing_from_claim\": [...]}, ...]}",
+  "Do not include any prose outside the JSON object.",
+].join("\n");
+
+function formatSourcesForClassifier(sources) {
+  return sources.map((it, i) => {
+    const text = it.is_title_only_match ? (it.title || "") : `${it.title || ""}\n    ${it.excerpt || "(no excerpt)"}`;
+    const header = [it.publication_year, it.publication_type, it.journal].filter(Boolean).join(" · ");
+    return `[${i + 1}] ${header}\n    ${text}`;
+  }).join("\n\n");
+}
+
+export function parseClassificationResponse(raw, expectedSourceCount) {
+  const cleaned = String(raw || "").replace(/```json\s*/gi, "").replace(/```\s*$/g, "").trim();
+  let parsed;
+  try {
+    parsed = JSON.parse(cleaned);
+  } catch {
+    return { source_scores: [], error: "malformed_json" };
+  }
+  if (!parsed || !Array.isArray(parsed.per_source)) {
+    return { source_scores: [], error: "malformed_json" };
+  }
+  const byIndex = new Map();
+  for (const row of parsed.per_source) {
+    const idx = Number(row?.source_index);
+    if (!Number.isInteger(idx) || idx < 1 || idx > expectedSourceCount) continue;
+    byIndex.set(idx, {
+      source_index: idx,
+      direction: ["supports", "contradicts", "unrelated"].includes(row.direction) ? row.direction : "unrelated",
+      support_score: [0, 1, 2].includes(Number(row.support_score)) ? Number(row.support_score) : 0,
+      qualifiers_missing: Array.isArray(row.scope_qualifiers_in_source_missing_from_claim)
+        ? row.scope_qualifiers_in_source_missing_from_claim.map(String)
+        : [],
+    });
+  }
+  const source_scores = [];
+  for (let i = 1; i <= expectedSourceCount; i += 1) {
+    source_scores.push(byIndex.get(i) || { source_index: i, direction: "unrelated", support_score: 0, qualifiers_missing: [] });
+  }
+  return { source_scores, error: null };
+}
+
+export async function classifyClaimModes(claims, retrievedSources, { model = "gpt-5.4" } = {}) {
+  const sourcesBlock = formatSourcesForClassifier(retrievedSources);
+  const out = [];
+  for (const claim of claims) {
+    const userPrompt = `CLAIM:\n${claim.claim_text}\n\nRETRIEVED SOURCES:\n${sourcesBlock}\n\nReturn the JSON object as specified.`;
+    let raw;
+    let attempts = 0;
+    let lastErr = null;
+    while (attempts < 2) {
+      try {
+        raw = await callJudge({ system: CLASSIFY_SYSTEM_PROMPT, user: userPrompt, model, maxOutputTokens: 1500 });
+        lastErr = null;
+        break;
+      } catch (err) {
+        lastErr = err;
+        attempts += 1;
+      }
+    }
+    if (lastErr) {
+      out.push({
+        claim_text: claim.claim_text,
+        cited_source_ids: claim.cited_ids,
+        source_scores: [],
+        mode: null,
+        qualifier_diff: null,
+        alternate_supporting_sources: [],
+        grading_status: "judge_error",
+        prompt_version: CLASSIFY_PROMPT_VERSION,
+        error_message: lastErr.message,
+      });
+      continue;
+    }
+    const parsed = parseClassificationResponse(raw, retrievedSources.length);
+    if (parsed.error === "malformed_json") {
+      out.push({
+        claim_text: claim.claim_text,
+        cited_source_ids: claim.cited_ids,
+        source_scores: [],
+        mode: null,
+        qualifier_diff: null,
+        alternate_supporting_sources: [],
+        grading_status: "malformed_json",
+        prompt_version: CLASSIFY_PROMPT_VERSION,
+      });
+      continue;
+    }
+    const bucket = assignBucket({ cited_ids: claim.cited_ids, source_scores: parsed.source_scores });
+    out.push({
+      claim_text: claim.claim_text,
+      cited_source_ids: claim.cited_ids,
+      source_scores: parsed.source_scores,
+      mode: bucket.mode,
+      qualifier_diff: bucket.qualifier_diff,
+      alternate_supporting_sources: bucket.alternate_supporting_sources,
+      grading_status: "ok",
+      prompt_version: CLASSIFY_PROMPT_VERSION,
+    });
+  }
+  return out;
+}

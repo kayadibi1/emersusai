@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { assignBucket, parseExtractionResponse } from "../../../../../api/emersus/pipeline/claim-modes.js";
+import { assignBucket, parseExtractionResponse, parseClassificationResponse } from "../../../../../api/emersus/pipeline/claim-modes.js";
 
 test("assignBucket: contradicted cited source -> mode_4", () => {
   const scores = [
@@ -110,4 +110,44 @@ test("parseExtractionResponse: missing claims array -> error", () => {
   const raw = JSON.stringify({ wrong_key: [] });
   const out = parseExtractionResponse(raw);
   assert.equal(out.error, "malformed_json");
+});
+
+test("parseClassificationResponse: well-formed", () => {
+  const raw = JSON.stringify({
+    per_source: [
+      { source_index: 1, direction: "supports", support_score: 2, scope_qualifiers_in_source_missing_from_claim: [] },
+      { source_index: 2, direction: "unrelated", support_score: 0, scope_qualifiers_in_source_missing_from_claim: [] },
+    ],
+  });
+  const out = parseClassificationResponse(raw, 2);
+  assert.equal(out.source_scores.length, 2);
+  assert.equal(out.source_scores[0].direction, "supports");
+  assert.deepEqual(out.source_scores[0].qualifiers_missing, []);
+});
+
+test("parseClassificationResponse: maps qualifier field name", () => {
+  const raw = JSON.stringify({
+    per_source: [
+      { source_index: 1, direction: "supports", support_score: 2, scope_qualifiers_in_source_missing_from_claim: ["trained men", "8 weeks"] },
+    ],
+  });
+  const out = parseClassificationResponse(raw, 1);
+  assert.deepEqual(out.source_scores[0].qualifiers_missing, ["trained men", "8 weeks"]);
+});
+
+test("parseClassificationResponse: malformed -> error", () => {
+  const out = parseClassificationResponse("not json", 1);
+  assert.equal(out.error, "malformed_json");
+});
+
+test("parseClassificationResponse: pads missing source_index entries", () => {
+  const raw = JSON.stringify({
+    per_source: [
+      { source_index: 1, direction: "supports", support_score: 2, scope_qualifiers_in_source_missing_from_claim: [] },
+    ],
+  });
+  const out = parseClassificationResponse(raw, 2);
+  assert.equal(out.source_scores.length, 2);
+  assert.equal(out.source_scores[1].direction, "unrelated");
+  assert.equal(out.source_scores[1].support_score, 0);
 });
