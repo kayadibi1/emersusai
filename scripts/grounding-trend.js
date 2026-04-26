@@ -69,10 +69,51 @@ async function loadAllGraded() {
   return data || [];
 }
 
+async function loadClaimModesSince(isoSince) {
+  const { data, error } = await supabaseAdmin.from("chat_claim_modes")
+    .select("mode, grading_status, judge_prompt_version, created_at")
+    .gte("created_at", isoSince)
+    .eq("grading_status", "ok");
+  if (error) throw new Error(error.message);
+  return data || [];
+}
+
+function aggregateClaimModes(rows) {
+  const counts = {
+    correct: 0,
+    mode_1_misattribution: 0,
+    mode_2_overgen: 0,
+    mode_3_fabrication: 0,
+    mode_4_contradicted: 0,
+    no_marker: 0,
+  };
+  for (const r of rows) {
+    if (counts[r.mode] !== undefined) counts[r.mode] += 1;
+  }
+  const total = Object.values(counts).reduce((a, b) => a + b, 0);
+  const pct = (k) => total ? Number(((100 * counts[k]) / total).toFixed(2)) : 0;
+  return {
+    total_claims: total,
+    counts,
+    pct: {
+      correct: pct("correct"),
+      mode_1_misattribution: pct("mode_1_misattribution"),
+      mode_2_overgen: pct("mode_2_overgen"),
+      mode_3_fabrication: pct("mode_3_fabrication"),
+      mode_4_contradicted: pct("mode_4_contradicted"),
+      no_marker: pct("no_marker"),
+    },
+    // headline fabrication-or-contradiction rate (the prevention-relevant metric)
+    fabrication_or_contradiction_pct: total
+      ? Number((100 * (counts.mode_3_fabrication + counts.mode_4_contradicted) / total).toFixed(2))
+      : 0,
+  };
+}
+
 async function main() {
   if (!supabaseAdmin) { console.error("missing supabaseAdmin"); process.exit(1); }
 
-  const [week1, week2, all] = await Promise.all([
+  const [week1, week2, all, modesWeek1, modesAll] = await Promise.all([
     loadGradedSince(sinceIso(7 * 24)),
     (async () => {
       // last week's comparison window: graded between 14 and 7 days ago
@@ -85,6 +126,14 @@ async function main() {
       return data || [];
     })(),
     loadAllGraded(),
+    loadClaimModesSince(sinceIso(7 * 24)),
+    (async () => {
+      const { data, error } = await supabaseAdmin.from("chat_claim_modes")
+        .select("mode, grading_status, judge_prompt_version, created_at")
+        .eq("grading_status", "ok");
+      if (error) throw new Error(error.message);
+      return data || [];
+    })(),
   ]);
 
   const current = aggregateFidelity(week1);
@@ -98,6 +147,9 @@ async function main() {
     ? Number((current.support_rate - previous.support_rate).toFixed(3))
     : null;
 
+  const claimModes7d = aggregateClaimModes(modesWeek1);
+  const claimModesAllTime = aggregateClaimModes(modesAll);
+
   const summary = {
     window: {
       current_7d: { graded_prompts: week1.length, fidelity: current, paraphrase: currentParaphrase },
@@ -106,6 +158,10 @@ async function main() {
     },
     support_rate_wow_delta: delta,
     alert: delta !== null && delta <= -0.1 ? "SUPPORT RATE DOWN >=10pp WoW — investigate" : null,
+    claim_modes: {
+      current_7d: claimModes7d,
+      all_time: claimModesAllTime,
+    },
   };
 
   console.log(JSON.stringify(summary, null, 2));

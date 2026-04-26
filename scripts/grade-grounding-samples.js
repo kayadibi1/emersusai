@@ -12,6 +12,7 @@
 import "dotenv/config";
 
 import { supabaseAdmin } from "../api/lib/clients.js";
+import { extractAtomicClaims, classifyClaimModes, EXTRACTION_PROMPT_VERSION, CLASSIFY_PROMPT_VERSION } from "../api/emersus/pipeline/claim-modes.js";
 
 const JUDGE_MODEL = process.env.GROUNDING_JUDGE_MODEL || "gpt-5.4";
 const EMBEDDING_MODEL = process.env.GROUNDING_EMBEDDING_MODEL || "text-embedding-3-small";
@@ -199,7 +200,58 @@ async function main() {
     const grader_result = { fidelity, paraphrase, graded_by: { judge_model: JUDGE_MODEL, embedding_model: EMBEDDING_MODEL }, graded_at: new Date().toISOString() };
     const { error: updateErr } = await supabaseAdmin.from("chat_grounding_samples").update({ graded_at: new Date().toISOString(), grader_result }).eq("id", row.id);
     if (updateErr) console.error(`row ${row.id} update failed:`, updateErr.message);
-    else console.log(`  row ${row.id}: fidelity=${JSON.stringify(fidelity.summary)} paraphrase.mean=${paraphrase.summary.mean_sim}`);
+
+    // Per-claim mode classification → chat_claim_modes
+    let claimModeRows = [];
+    let modeCountSummary = "skipped (no sources)";
+    try {
+      if (sources.length > 0) {
+        const extracted = await extractAtomicClaims(row.answer);
+        if (extracted.error) {
+          claimModeRows = [{
+            sample_id: row.id,
+            claim_text: "(extraction failed)",
+            cited_source_ids: [],
+            source_scores_json: [],
+            mode: null,
+            qualifier_diff_json: null,
+            alternate_supporting_sources: null,
+            judge_model: JUDGE_MODEL,
+            judge_prompt_version: `${EXTRACTION_PROMPT_VERSION},${CLASSIFY_PROMPT_VERSION}`,
+            grading_status: extracted.error,
+          }];
+          modeCountSummary = `extract_error=${extracted.error}`;
+        } else {
+          const classified = await classifyClaimModes(extracted.claims, sources);
+          claimModeRows = classified.map((cm) => ({
+            sample_id: row.id,
+            claim_text: cm.claim_text,
+            cited_source_ids: cm.cited_source_ids,
+            source_scores_json: cm.source_scores,
+            mode: cm.mode,
+            qualifier_diff_json: cm.qualifier_diff,
+            alternate_supporting_sources: cm.alternate_supporting_sources,
+            judge_model: JUDGE_MODEL,
+            judge_prompt_version: `${EXTRACTION_PROMPT_VERSION},${CLASSIFY_PROMPT_VERSION}`,
+            grading_status: cm.grading_status,
+          }));
+          const counts = {};
+          for (const cm of classified) counts[cm.mode || cm.grading_status] = (counts[cm.mode || cm.grading_status] || 0) + 1;
+          modeCountSummary = JSON.stringify(counts);
+        }
+
+        if (claimModeRows.length) {
+          const { error: insertErr } = await supabaseAdmin.from("chat_claim_modes").insert(claimModeRows);
+          if (insertErr && !String(insertErr.message || "").includes("duplicate key")) {
+            console.warn(`  row ${row.id}: chat_claim_modes insert error: ${insertErr.message}`);
+          }
+        }
+      }
+    } catch (err) {
+      console.warn(`  row ${row.id}: claim-modes pipeline error: ${err.message}`);
+    }
+
+    console.log(`  row ${row.id}: fidelity=${JSON.stringify(fidelity.summary)} paraphrase.mean=${paraphrase.summary.mean_sim} modes=${modeCountSummary}`);
   }
   console.log("[grade] complete.");
 }
