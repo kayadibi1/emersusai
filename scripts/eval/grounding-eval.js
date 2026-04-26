@@ -24,6 +24,7 @@ import { fileURLToPath } from "node:url";
 
 import { buildMessages } from "../../api/emersus/pipeline/prompt.js";
 import { buildRequestBody } from "../../api/emersus/pipeline/synthesize.js";
+import { extractAtomicClaims, classifyClaimModes } from "../../api/emersus/pipeline/claim-modes.js";
 import {
   formatEvidenceForModel,
   normalizeVectorEvidenceRow,
@@ -102,6 +103,7 @@ function parseArgs(argv) {
     judge: "on",
     fidelity: "off",
     paraphrase: "off",
+    claimModes: "on",
     outDir: RESULTS_DIR,
     label: null,
     resume: null,
@@ -113,6 +115,7 @@ function parseArgs(argv) {
     else if (key === "--judge") args.judge = value;
     else if (key === "--fidelity") args.fidelity = value;
     else if (key === "--paraphrase") args.paraphrase = value;
+    else if (key === "--claim-modes") args.claimModes = value;
     else if (key === "--out-dir") args.outDir = path.resolve(process.cwd(), value);
     else if (key === "--label") args.label = value;
     else if (key === "--resume") args.resume = value || "auto";
@@ -658,6 +661,34 @@ function buildSummary(results) {
         threshold: PARAPHRASE_LOW_THRESHOLD,
       };
     })(),
+    claim_modes: (() => {
+      const rs = results.filter((r) => r.claim_modes && r.claim_modes.answer_mode_counts);
+      if (!rs.length) return null;
+      const agg = {};
+      for (const r of rs) {
+        for (const [k, v] of Object.entries(r.claim_modes.answer_mode_counts)) {
+          agg[k] = (agg[k] || 0) + v;
+        }
+      }
+      const total = Object.values(agg).reduce((a, b) => a + b, 0);
+      const okTotal = (agg.correct || 0) + (agg.mode_1_misattribution || 0) + (agg.mode_2_overgen || 0) + (agg.mode_3_fabrication || 0) + (agg.mode_4_contradicted || 0) + (agg.no_marker || 0);
+      const pct = (k) => okTotal ? Number(((100 * (agg[k] || 0)) / okTotal).toFixed(2)) : 0;
+      return {
+        graded_prompts: rs.length,
+        total_claims: total,
+        ok_claims: okTotal,
+        per_mode_counts: agg,
+        per_mode_pct_of_ok: {
+          correct: pct("correct"),
+          mode_1_misattribution: pct("mode_1_misattribution"),
+          mode_2_overgen: pct("mode_2_overgen"),
+          mode_3_fabrication: pct("mode_3_fabrication"),
+          mode_4_contradicted: pct("mode_4_contradicted"),
+          no_marker: pct("no_marker"),
+        },
+        judge_error_rate: total ? Number(((100 * ((agg.judge_error || 0) + (agg.malformed_json || 0))) / total).toFixed(2)) : 0,
+      };
+    })(),
   };
 }
 
@@ -719,6 +750,23 @@ function buildMarkdown({ summary, results, generatedAt, model, label }) {
     JSON.stringify(summary, null, 2),
     "```",
     "",
+    summary.claim_modes ? [
+      "## Per-claim mode rates",
+      "",
+      `Total claims graded: ${summary.claim_modes.total_claims} (across ${summary.claim_modes.graded_prompts} prompts)`,
+      `Successfully classified: ${summary.claim_modes.ok_claims}`,
+      `Judge error rate: ${summary.claim_modes.judge_error_rate}%`,
+      "",
+      "Mode | Count | % of OK claims",
+      "--- | ---: | ---:",
+      `correct | ${summary.claim_modes.per_mode_counts.correct || 0} | ${summary.claim_modes.per_mode_pct_of_ok.correct}%`,
+      `mode_1_misattribution | ${summary.claim_modes.per_mode_counts.mode_1_misattribution || 0} | ${summary.claim_modes.per_mode_pct_of_ok.mode_1_misattribution}%`,
+      `mode_2_overgen | ${summary.claim_modes.per_mode_counts.mode_2_overgen || 0} | ${summary.claim_modes.per_mode_pct_of_ok.mode_2_overgen}%`,
+      `mode_3_fabrication | ${summary.claim_modes.per_mode_counts.mode_3_fabrication || 0} | ${summary.claim_modes.per_mode_pct_of_ok.mode_3_fabrication}%`,
+      `mode_4_contradicted | ${summary.claim_modes.per_mode_counts.mode_4_contradicted || 0} | ${summary.claim_modes.per_mode_pct_of_ok.mode_4_contradicted}%`,
+      `no_marker | ${summary.claim_modes.per_mode_counts.no_marker || 0} | ${summary.claim_modes.per_mode_pct_of_ok.no_marker}%`,
+      "",
+    ].join("\n") : null,
     "## Per-prompt index",
     "",
     "index | category | question | evidence | emersus_status | cited_frac | bare_#s | emersus_#s | judge_bare | judge_emersus",
@@ -782,6 +830,7 @@ async function main() {
   console.log(`[eval] judge=${args.judge === "on" ? JUDGE_MODEL : "disabled"}`);
   console.log(`[eval] fidelity=${args.fidelity === "on" ? JUDGE_MODEL : "disabled"}`);
   console.log(`[eval] paraphrase=${args.paraphrase === "on" ? EMBEDDING_MODEL : "disabled"}`);
+  console.log(`[eval] claim_modes=${args.claimModes !== "off" ? "enabled" : "disabled"}`);
   console.log(`[eval] prompts=${prompts.length} (of ${fixture.length} available)`);
   console.log(`[eval] grounding_enforcement=${groundingEnforced}`);
   console.log(`[eval] out=${args.outDir}`);
@@ -828,11 +877,30 @@ async function main() {
       paraphrase: args.paraphrase === "on" && !emersus.error && evidence.length > 0
         ? paraphraseGrade({ answer: emersus.text, evidence })
         : Promise.resolve(null),
+      claimModes: args.claimModes !== "off" && !emersus.error && evidence.length > 0
+        ? extractAtomicClaims(emersus.text).then(async (extracted) => {
+            if (extracted.error) {
+              return { extracted, classified: [], answer_mode_counts: { judge_error: 1 } };
+            }
+            const classified = await classifyClaimModes(extracted.claims, evidence);
+            const counts = {
+              correct: 0, mode_1_misattribution: 0, mode_2_overgen: 0,
+              mode_3_fabrication: 0, mode_4_contradicted: 0, no_marker: 0,
+              judge_error: 0, malformed_json: 0,
+            };
+            for (const cm of classified) {
+              if (cm.grading_status === "ok" && cm.mode in counts) counts[cm.mode] += 1;
+              else counts[cm.grading_status] = (counts[cm.grading_status] || 0) + 1;
+            }
+            return { extracted, classified, answer_mode_counts: counts };
+          })
+        : Promise.resolve(null),
     };
-    const [judgeResults, fidelityResult, paraphraseResult] = await Promise.all([
+    const [judgeResults, fidelityResult, paraphraseResult, claimModesResult] = await Promise.all([
       graderTasks.judge,
       graderTasks.fidelity,
       graderTasks.paraphrase,
+      graderTasks.claimModes,
     ]);
 
     results.push({
@@ -872,6 +940,7 @@ async function main() {
       judge: judgeResults,
       fidelity: fidelityResult,
       paraphrase: paraphraseResult,
+      claim_modes: claimModesResult,
     });
 
     // Incremental snapshot so a crash doesn't lose progress. After
