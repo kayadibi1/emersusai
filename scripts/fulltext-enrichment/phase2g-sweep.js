@@ -69,6 +69,11 @@ function logSummary() {
 }
 
 async function pdfToChunks(buffer, { pmid, source }) {
+  // Reject non-PDF buffers before they hit Grobid (HTML-disguised-as-PDF
+  // takes 5-10s for Grobid to fail on with BAD_INPUT_DATA).
+  if (!buffer || buffer.length < 4 || !buffer.slice(0, 4).toString().startsWith('%PDF')) {
+    return null;
+  }
   const tmpPath = join(tmpdir(), `phase2g-${randomBytes(8).toString('hex')}.pdf`);
   try {
     await writeFile(tmpPath, buffer);

@@ -38,5 +38,10 @@ export async function fetchForDoi(doi) {
   const pdfUrl = body?.primary_location?.pdf_url ?? body?.open_access?.oa_url ?? null;
   if (!pdfUrl) return null;
 
+  // OpenAlex sometimes returns the DOI URL itself as pdf_url — that's a
+  // redirect to the publisher landing page, never a real PDF. Reject early
+  // so we don't waste a download + Grobid round-trip on a guaranteed miss.
+  if (/^https?:\/\/(dx\.)?doi\.org\//i.test(pdfUrl)) return null;
+
   return { text: null, pdfUrl, source: 'phase2f_openalex' };
 }

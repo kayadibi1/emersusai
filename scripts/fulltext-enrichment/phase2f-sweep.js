@@ -112,6 +112,12 @@ function logSummary() {
 }
 
 async function pdfToChunks(buffer, { pmid, source }) {
+  // Reject non-PDF buffers before they hit Grobid. Many "pdfUrls" from
+  // openalex/crossref turn out to be anti-bot HTML landing pages disguised
+  // with .pdf extensions; Grobid takes 5-10s to fail on those (BAD_INPUT_DATA).
+  if (!buffer || buffer.length < 4 || !buffer.slice(0, 4).toString().startsWith('%PDF')) {
+    return null;
+  }
   const tmpPath = join(tmpdir(), `phase2f-${randomBytes(8).toString('hex')}.pdf`);
   try {
     await writeFile(tmpPath, buffer);
