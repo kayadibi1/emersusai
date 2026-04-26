@@ -50,7 +50,12 @@ function runDeploy() {
   // truncates SSE streams; bump via:
   //   pm2 restart emersus-api --kill-timeout 30000 --update-env
   exec(
-    "cd /home/emersus/app && git pull origin main && npm install --no-audit --no-fund && npm run build && pm2 restart emersus-api --kill-timeout 30000 --update-env",
+    // npm ci (not npm install): strict, never mutates package-lock.json.
+    // Was npm install, which rewrote platform-specific optionalDeps markers
+    // every deploy → next git pull aborted with "local changes would be
+    // overwritten by merge". Lockfile stores all platform variants; npm ci
+    // picks the right one without touching the file.
+    "cd /home/emersus/app && git pull origin main && npm ci --no-audit --no-fund && npm run build && pm2 restart emersus-api --kill-timeout 30000 --update-env",
     { timeout: DEPLOY_TIMEOUT_MS },
     (err, stdout, stderr) => {
       if (err) {
