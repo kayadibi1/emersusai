@@ -3,25 +3,31 @@
 // Returns a PDF URL from the CrossRef link[] array.
 // No API key needed; RPS=50 with polite pool courtesy.
 
-import { RateLimiter } from './rate-limiter.js';
+import { getRateLimiter } from './rate-limiter-redis.js';
+import { fetchWithRetry } from './fetch-retry.js';
 
 const CR_BASE = 'https://api.crossref.org';
-const limiter = new RateLimiter({ rps: 50 });
+const limiter = getRateLimiter('crossref', { rps: 50 });
 
 export async function fetchForDoi(doi) {
   await limiter.take();
 
   let resp;
-  let body;
   try {
-    resp = await fetch(
+    resp = await fetchWithRetry(
       `${CR_BASE}/works/${encodeURIComponent(doi)}?mailto=info@emersus.ai`,
-      { headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(10_000) }
+      { headers: { Accept: 'application/json' }, signal: AbortSignal.timeout(10_000) },
+      { label: `crossref:${doi}`, maxRetries: 3, baseMs: 1000 }
     );
-    if (resp.status === 404) return null;
-    if (!resp.ok) return null;
-    body = await resp.json();
-  } catch { return null; }
+  } catch (err) {
+    if (err.transient) throw err;
+    return null;
+  }
+  if (resp.status === 404) return null;
+  if (!resp.ok) return null;
+
+  let body;
+  try { body = await resp.json(); } catch { return null; }
 
   const links = body?.message?.link ?? [];
 

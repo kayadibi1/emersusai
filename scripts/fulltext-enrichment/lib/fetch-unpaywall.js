@@ -3,11 +3,15 @@
 // Unpaywall API — finds legal OA copies: preprints, author manuscripts,
 // repository deposits, and publisher OA versions missed by other sources.
 // Free for research. Set UNPAYWALL_EMAIL in env (any valid address).
-// Soft limit: ~100k req/day. We run at 10 RPS.
-import { RateLimiter } from './rate-limiter.js';
+// Soft limit: ~100k req/day at 10 RPS. Cluster-shared bucket via Redis.
+//
+// Throttle handling: 429/5xx are retried with exponential backoff. Throws on
+// max retries so the caller can avoid marking the row exhausted.
+import { getRateLimiter } from './rate-limiter-redis.js';
+import { fetchWithRetry } from './fetch-retry.js';
 
 const UW_BASE = 'https://api.unpaywall.org/v2';
-const limiter = new RateLimiter({ rps: 10 });
+const limiter = getRateLimiter('unpaywall', { rps: 10 });
 
 export async function fetchForDoi(doi) {
   const email = process.env.UNPAYWALL_EMAIL;
@@ -15,24 +19,30 @@ export async function fetchForDoi(doi) {
 
   await limiter.take();
 
-  let data;
+  let resp;
   try {
-    const resp = await fetch(
+    resp = await fetchWithRetry(
       `${UW_BASE}/${encodeURIComponent(doi)}?email=${encodeURIComponent(email)}`,
       {
         headers: { Accept: 'application/json' },
         signal: AbortSignal.timeout(15_000),
-      }
+      },
+      { label: `unpaywall:${doi}`, maxRetries: 3, baseMs: 1500 }
     );
-    if (resp.status === 404 || resp.status === 400) return null;
-    if (resp.status === 429) return null;
-    if (!resp.ok) return null;
-    data = await resp.json();
-  } catch { return null; }
+  } catch (err) {
+    if (err.transient) throw err;
+    return null;
+  }
+
+  if (resp.status === 404 || resp.status === 400) return null;
+  if (!resp.ok) return null;
+
+  let data;
+  try { data = await resp.json(); } catch { return null; }
 
   if (!data || !data.is_oa) return null;
 
-  // Walk all OA locations in order — prefer PDF links
+  // Walk OA locations in order — prefer PDF links
   const locations = data.oa_locations ?? [];
   for (const loc of locations) {
     if (loc.url_for_pdf) {

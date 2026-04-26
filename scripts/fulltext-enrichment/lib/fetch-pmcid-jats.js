@@ -7,11 +7,12 @@
 // Two entry points:
 //   fetchForPmcid(doi, row)       — single article (fallback / non-PMCID passes)
 //   fetchBatchForPmcids(rows)     — up to 20 articles per HTTP call (pass 0 main path)
-import { RateLimiter } from './rate-limiter.js';
+import { getRateLimiter } from './rate-limiter-redis.js';
+import { fetchWithRetry } from './fetch-retry.js';
 import { parseJatsFullText } from './jats-parser.js';
 
 const NCBI_BASE = 'https://eutils.ncbi.nlm.nih.gov/entrez/eutils';
-const limiter = new RateLimiter({ rps: process.env.NCBI_API_KEY ? 10 : 3 });
+const limiter = getRateLimiter('ncbi', { rps: process.env.NCBI_API_KEY ? 10 : 3 });
 
 function toNumericPmcid(raw) {
   const s = String(raw).replace(/^PMC/i, '').trim();
@@ -57,14 +58,17 @@ export async function fetchForPmcid(doi, row) {
     });
     if (process.env.NCBI_API_KEY) params.set('api_key', process.env.NCBI_API_KEY);
 
-    const resp = await fetch(`${NCBI_BASE}/efetch.fcgi?${params}`, {
+    const resp = await fetchWithRetry(`${NCBI_BASE}/efetch.fcgi?${params}`, {
       headers: { Accept: 'application/xml, text/xml, */*' },
       signal: AbortSignal.timeout(20_000),
-    });
+    }, { label: `ncbi-pmc:${numericId}`, maxRetries: 3, baseMs: 1500 });
     if (resp.status === 404 || resp.status === 400) return null;
     if (!resp.ok) return null;
     xml = await resp.text();
-  } catch { return null; }
+  } catch (err) {
+    if (err.transient) throw err;
+    return null;
+  }
 
   if (!xml || xml.length < 200) return null;
   if (xml.includes('<ERROR>') || xml.includes('No documents found')) return null;
@@ -99,13 +103,16 @@ export async function fetchBatchForPmcids(rows) {
     });
     if (process.env.NCBI_API_KEY) params.set('api_key', process.env.NCBI_API_KEY);
 
-    const resp = await fetch(`${NCBI_BASE}/efetch.fcgi?${params}`, {
+    const resp = await fetchWithRetry(`${NCBI_BASE}/efetch.fcgi?${params}`, {
       headers: { Accept: 'application/xml, text/xml, */*' },
       signal: AbortSignal.timeout(60_000),
-    });
+    }, { label: `ncbi-pmc-batch:${idMap.size}`, maxRetries: 3, baseMs: 2000 });
     if (!resp.ok) return new Map();
     xml = await resp.text();
-  } catch { return new Map(); }
+  } catch (err) {
+    if (err.transient) throw err;
+    return new Map();
+  }
 
   if (!xml || xml.length < 200) return new Map();
 
