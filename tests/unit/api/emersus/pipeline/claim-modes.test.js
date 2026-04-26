@@ -1,7 +1,7 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
 
-import { assignBucket } from "../../../../../api/emersus/pipeline/claim-modes.js";
+import { assignBucket, parseExtractionResponse } from "../../../../../api/emersus/pipeline/claim-modes.js";
 
 test("assignBucket: contradicted cited source -> mode_4", () => {
   const scores = [
@@ -80,4 +80,34 @@ test("assignBucket: multi-cite [1,2] one contradicts -> mode_4", () => {
   ];
   const result = assignBucket({ cited_ids: [1, 2], source_scores: scores });
   assert.equal(result.mode, "mode_4_contradicted");
+});
+
+test("parseExtractionResponse: well-formed JSON", () => {
+  const raw = JSON.stringify({
+    claims: [
+      { claim_text: "Creatine improves 1RM by 5%", cited_ids: [3] },
+      { claim_text: "Creatine reduces fatigue", cited_ids: [3, 7] },
+    ],
+  });
+  const out = parseExtractionResponse(raw);
+  assert.equal(out.claims.length, 2);
+  assert.deepEqual(out.claims[0].cited_ids, [3]);
+});
+
+test("parseExtractionResponse: strips markdown code fences", () => {
+  const raw = "```json\n" + JSON.stringify({ claims: [{ claim_text: "x", cited_ids: [1] }] }) + "\n```";
+  const out = parseExtractionResponse(raw);
+  assert.equal(out.claims.length, 1);
+});
+
+test("parseExtractionResponse: malformed -> error", () => {
+  const out = parseExtractionResponse("not json at all");
+  assert.equal(out.error, "malformed_json");
+  assert.deepEqual(out.claims, []);
+});
+
+test("parseExtractionResponse: missing claims array -> error", () => {
+  const raw = JSON.stringify({ wrong_key: [] });
+  const out = parseExtractionResponse(raw);
+  assert.equal(out.error, "malformed_json");
 });
