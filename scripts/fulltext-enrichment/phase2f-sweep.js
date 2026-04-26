@@ -84,8 +84,13 @@ const STRATEGIES = [
 // against significant PDF download + Grobid time on publisher-gated URLs
 // that mostly return anti-bot HTML. Net: ~8% loss of recoveries for ~25%
 // throughput gain.
+// CORE dropped 2026-04-26: empirical run showed 9.1% hit rate but 1640
+// transients on 6384 attempts — its 10-RPS Redis bucket was perpetually
+// saturated, blocking the whole row's processing. Without CORE, openalex
+// (78.6%) and s2 (77.0%) each cover most of the OA-URL space; the CORE
+// hits we're losing are ~9% × overlap-with-others, so net loss is small
+// while wall-clock per row drops substantially.
 const STRATEGIES_PASS1 = [
-  { name: 'core',     fn: fetchCore,     needsPdf: false },
   { name: 's2',       fn: fetchS2,       needsPdf: true  },
   { name: 'openalex', fn: fetchOpenAlex, needsPdf: true  },
 ];
