@@ -118,14 +118,36 @@ async function uploadFile(filePath, displayName) {
   });
   if (!start.ok) throw new Error(`upload-start http_${start.status}: ${await start.text()}`);
   const uploadUrl = start.headers.get("x-goog-upload-url");
-  const up = await fetch(uploadUrl, {
+
+  // Fire-and-forget. As of 2026-04-26 the upload-finalize response is being
+  // dropped/truncated somewhere between Gemini and us (timeout with 0 bytes
+  // received, both via Node fetch and curl, both from laptop and Hetzner box).
+  // The upload itself completes server-side — we confirm by polling the Files
+  // API for a file with our unique displayName.
+  await fetch(uploadUrl, {
     method: "POST",
     headers: { "X-Goog-Upload-Offset": "0", "X-Goog-Upload-Command": "upload, finalize" },
     body: bytes,
-  });
-  const j = await up.json();
-  if (!up.ok || !j.file?.name) throw new Error(`upload-finalize http_${up.status}: ${JSON.stringify(j).slice(0, 300)}`);
-  return j.file.name;
+    signal: AbortSignal.timeout(20_000),
+  }).catch(() => {});
+
+  // Poll Files API for the file with this displayName (created within the last
+  // few minutes). 6 polls × 5s = 30s max wait.
+  await new Promise((r) => setTimeout(r, 5_000));
+  for (let attempt = 0; attempt < 6; attempt++) {
+    try {
+      const r = await fetch("https://generativelanguage.googleapis.com/v1beta/files?pageSize=50", {
+        headers: { "x-goog-api-key": KEY },
+      });
+      if (r.ok) {
+        const j = await r.json();
+        const found = (j.files || []).find((f) => f.displayName === displayName);
+        if (found && found.state === "ACTIVE") return found.name;
+      }
+    } catch {}
+    await new Promise((r) => setTimeout(r, 5_000));
+  }
+  throw new Error(`upload-confirm: no ACTIVE file with displayName=${displayName} after 30s polling`);
 }
 
 const TERMINAL_STATES = new Set(["BATCH_STATE_SUCCEEDED", "BATCH_STATE_FAILED", "BATCH_STATE_CANCELLED", "BATCH_STATE_EXPIRED"]);
