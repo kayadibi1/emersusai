@@ -56,7 +56,12 @@ const DATA_DIR = join(__dirname, 'data');
 const CHUNKS_FILE = join(DATA_DIR, 'chunks-phase2f.jsonl');
 const METRICS_FILE = join(DATA_DIR, 'phase2f-strategy-metrics.jsonl');
 const BATCH_SIZE = 500;
-const CONCURRENCY = 20;
+// CONCURRENCY = 10 (was 20) — Grobid is the bottleneck. With 16 cores and
+// PDFs averaging 5-15s of CPU, sustainable Grobid throughput is ~3 PDFs/s.
+// CONCURRENCY 20 was queueing 8-15 PDFs simultaneously, thrashing Grobid
+// and increasing per-row latency. 10 keeps the in-flight set under Grobid's
+// capacity and reduces wall time.
+const CONCURRENCY = 10;
 const PMCID_BATCH_SIZE = 20; // articles per NCBI efetch call in pass 0
 const MIN_TEXT_LEN = 1000;
 const UNPAYWALL_BASE = 'https://api.unpaywall.org/v2';
@@ -74,18 +79,15 @@ const STRATEGIES = [
   { name: 'unpaywall',fn: fetchUnpaywall, needsPdf: true  },
 ];
 
-// Pass 1 (no PMCID): the original CORE-only narrowing was based on a circular
-// measurement — CORE 429s were silently marking rows phase2f_exhausted, so
-// the other strategies never got a real attempt. The 2026-04-26 audit on 100
-// random exhausted rows showed s2 41%, openalex 43%, crossref 33% hit rates
-// (against ~10% for CORE in the same window — heavily rate-limited). Adding
-// the three OpenAccess-URL providers; PDF strategies still cost more than
-// text-direct so the order matters (text-direct CORE first).
+// Pass 1 (no PMCID): keeping core (text-direct), s2 (arXiv preprints), and
+// openalex (mixed). Dropped crossref — observed real-recovery rate of ~2%
+// against significant PDF download + Grobid time on publisher-gated URLs
+// that mostly return anti-bot HTML. Net: ~8% loss of recoveries for ~25%
+// throughput gain.
 const STRATEGIES_PASS1 = [
   { name: 'core',     fn: fetchCore,     needsPdf: false },
   { name: 's2',       fn: fetchS2,       needsPdf: true  },
   { name: 'openalex', fn: fetchOpenAlex, needsPdf: true  },
-  { name: 'crossref', fn: fetchCrossRef, needsPdf: true  },
 ];
 
 // Per-strategy outcome counters for periodic stderr summary.
