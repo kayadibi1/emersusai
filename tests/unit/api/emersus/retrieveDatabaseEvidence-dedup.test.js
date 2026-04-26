@@ -61,3 +61,31 @@ test("dedupByDoi handles missing similarity as 0", () => {
   // The one with similarity 0.01 wins over the undefined (treated as 0)
   assert.equal(result[0].source, "openalex");
 });
+
+test("dedupByDoi tiebreaker uses _zerank_score when both rows have it", () => {
+  // In practice when zerank runs, every surviving candidate carries a
+  // _zerank_score (the rerank pool is a top-N slice, not a partial set).
+  // The tiebreaker is the highest-available signal per row; for the
+  // common case both rows are in the same signal class.
+  const rows = [
+    { pmid: 1, source: "pubmed",   doi: "10.1/y", similarity: 0.95, _zerank_score: 0.20 },
+    { pmid: 2, source: "openalex", doi: "10.1/y", similarity: 0.50, _zerank_score: 0.85 },
+  ];
+  const result = dedupByDoi(rows);
+  assert.equal(result.length, 1);
+  assert.equal(result[0].source, "openalex", "higher _zerank_score wins (despite lower similarity)");
+});
+
+test("dedupByDoi: _zerank_score takes precedence over _jina_score on the same row", () => {
+  // When a row carries both scores, _zerank_score is the one the
+  // tiebreaker compares against the other row's score.
+  const rows = [
+    // pubmed: zerank 0.85, jina 0.10 → effective score 0.85
+    { pmid: 1, source: "pubmed",   doi: "10.1/z", _zerank_score: 0.85, _jina_score: 0.10 },
+    // openalex: jina only (0.95) → effective score 0.95
+    { pmid: 2, source: "openalex", doi: "10.1/z", _jina_score: 0.95 },
+  ];
+  const result = dedupByDoi(rows);
+  assert.equal(result.length, 1);
+  assert.equal(result[0].source, "openalex", "openalex's 0.95 jina beats pubmed's 0.85 zerank");
+});

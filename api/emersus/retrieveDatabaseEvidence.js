@@ -2,6 +2,7 @@ import { supabaseAdmin } from "../lib/clients.js";
 import { embedText } from "./embeddings.js";
 import { generateHydePassage } from "./pipeline/hyde.js";
 import { jinaRerank, isJinaConfigured } from "./pipeline/jina-rerank.js";
+import { zerankRerank, isZerankConfigured } from "./pipeline/zerank-rerank.js";
 
 /**
  * Group matches by DOI and keep the best-ranked chunk per DOI.
@@ -10,11 +11,11 @@ import { jinaRerank, isJinaConfigured } from "./pipeline/jina-rerank.js";
  * with DOI 10.1/foo indexed by both pubmed and openalex as separate
  * research_articles rows should collapse to one in retrieval.
  *
- * Tiebreaker: _jina_score when the cross-encoder ran (so the Jina-preferred
- * variant of a paper wins), falling back to cosine similarity.
+ * Tiebreaker: _zerank_score > _jina_score > rrf_score > similarity, so the
+ * cross-encoder-preferred variant of a paper wins when a reranker ran.
  *
  * Operates on the flat row shape returned by retrieveDatabaseEvidence:
- *   { pmid, source, doi, similarity, _jina_score?, title, ... }
+ *   { pmid, source, doi, similarity, _zerank_score?, _jina_score?, title, ... }
  *
  * @param {Array<object>} rows
  * @returns {Array<object>} deduped rows
@@ -34,8 +35,8 @@ export function dedupByDoi(rows) {
       byDoi.set(doi, row);
       continue;
     }
-    const rowScore = row._jina_score ?? row.rrf_score ?? (row.similarity ?? 0);
-    const existingScore = existing._jina_score ?? existing.rrf_score ?? (existing.similarity ?? 0);
+    const rowScore = row._zerank_score ?? row._jina_score ?? row.rrf_score ?? (row.similarity ?? 0);
+    const existingScore = existing._zerank_score ?? existing._jina_score ?? existing.rrf_score ?? (existing.similarity ?? 0);
     if (rowScore > existingScore) {
       byDoi.set(doi, row);
     }
@@ -175,30 +176,51 @@ async function retrieveSingleQuery({ prompt, matchThreshold, matchCount, include
   const queryEmbedding = await embedText(prompt);
   const matches = await runMatchRpc({ queryEmbedding, queryText: prompt, matchThreshold, matchCount, includePreprints });
   const enriched = await enrichMatches(matches);
-  const reranked = await maybeJinaRerank(prompt, enriched);
+  const reranked = await maybeRerank(prompt, enriched);
   return dedupByDoi(reranked);
 }
 
-// Optional cross-encoder rerank step. Feature-flagged via CHAT_JINA_RERANK_ENABLED.
-// Runs after enrichment so Jina sees the full candidate pool.
+// Optional cross-encoder rerank step. Two backends, mutually exclusive
+// (zerank wins when both flags are on, since the 2026-04-25 shootout
+// found zerank-2 the only stat-sig winner at +10pp doi@10).
+// Runs after enrichment so the reranker sees the full candidate pool.
 // Non-fatal — returns input unchanged on any API error.
-async function maybeJinaRerank(prompt, candidates) {
-  const flag = String(process.env.CHAT_JINA_RERANK_ENABLED || "").toLowerCase() === "true";
-  if (!flag || !isJinaConfigured() || !Array.isArray(candidates) || candidates.length < 2) {
-    return candidates;
+async function maybeRerank(prompt, candidates) {
+  if (!Array.isArray(candidates) || candidates.length < 2) return candidates;
+
+  const zerankFlag = String(process.env.CHAT_ZERANK_RERANK_ENABLED || "").toLowerCase() === "true";
+  if (zerankFlag && isZerankConfigured()) {
+    try {
+      const reranked = await zerankRerank({
+        query: prompt,
+        candidates,
+        topN: candidates.length,
+        contentField: "chunk_text",
+      });
+      return Array.isArray(reranked) && reranked.length > 0 ? reranked : candidates;
+    } catch (err) {
+      console.warn(`[retrieval] zerank rerank failed (${err.message}); falling back to non-reranked candidates.`);
+      return candidates;
+    }
   }
-  try {
-    const reranked = await jinaRerank({
-      query: prompt,
-      candidates,
-      topN: candidates.length,
-      contentField: "chunk_text",
-    });
-    return Array.isArray(reranked) && reranked.length > 0 ? reranked : candidates;
-  } catch (err) {
-    console.warn(`[retrieval] Jina rerank failed (${err.message}); falling back to non-reranked candidates.`);
-    return candidates;
+
+  const jinaFlag = String(process.env.CHAT_JINA_RERANK_ENABLED || "").toLowerCase() === "true";
+  if (jinaFlag && isJinaConfigured()) {
+    try {
+      const reranked = await jinaRerank({
+        query: prompt,
+        candidates,
+        topN: candidates.length,
+        contentField: "chunk_text",
+      });
+      return Array.isArray(reranked) && reranked.length > 0 ? reranked : candidates;
+    } catch (err) {
+      console.warn(`[retrieval] Jina rerank failed (${err.message}); falling back to non-reranked candidates.`);
+      return candidates;
+    }
   }
+
+  return candidates;
 }
 
 // HyDE-augmented retrieval: generate a hypothetical passage, retrieve
@@ -227,7 +249,7 @@ async function retrieveWithHyde({ prompt, matchThreshold, matchCount, includePre
 
   const fused = rrfMerge([origMatches, hydeMatches]).slice(0, matchCount);
   const enriched = await enrichMatches(fused);
-  const reranked = await maybeJinaRerank(prompt, enriched);
+  const reranked = await maybeRerank(prompt, enriched);
   return dedupByDoi(reranked);
 }
 
