@@ -74,11 +74,18 @@ const STRATEGIES = [
   { name: 'unpaywall',fn: fetchUnpaywall, needsPdf: true  },
 ];
 
-// Pass 1 (no PMCID): empirically only CORE produces hits (138/187K total
-// non-pmcid hits across the whole sweep). Drop the other 9 to avoid
-// waiting on their slow Promise.all tails.
+// Pass 1 (no PMCID): the original CORE-only narrowing was based on a circular
+// measurement — CORE 429s were silently marking rows phase2f_exhausted, so
+// the other strategies never got a real attempt. The 2026-04-26 audit on 100
+// random exhausted rows showed s2 41%, openalex 43%, crossref 33% hit rates
+// (against ~10% for CORE in the same window — heavily rate-limited). Adding
+// the three OpenAccess-URL providers; PDF strategies still cost more than
+// text-direct so the order matters (text-direct CORE first).
 const STRATEGIES_PASS1 = [
-  { name: 'core', fn: fetchCore, needsPdf: false },
+  { name: 'core',     fn: fetchCore,     needsPdf: false },
+  { name: 's2',       fn: fetchS2,       needsPdf: true  },
+  { name: 'openalex', fn: fetchOpenAlex, needsPdf: true  },
+  { name: 'crossref', fn: fetchCrossRef, needsPdf: true  },
 ];
 
 // Per-strategy outcome counters for periodic stderr summary.
