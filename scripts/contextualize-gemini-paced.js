@@ -119,21 +119,38 @@ async function uploadFile(filePath, displayName) {
   if (!start.ok) throw new Error(`upload-start http_${start.status}: ${await start.text()}`);
   const uploadUrl = start.headers.get("x-goog-upload-url");
 
-  // Fire-and-forget. As of 2026-04-26 the upload-finalize response is being
-  // dropped/truncated somewhere between Gemini and us (timeout with 0 bytes
-  // received, both via Node fetch and curl, both from laptop and Hetzner box).
-  // The upload itself completes server-side — we confirm by polling the Files
-  // API for a file with our unique displayName.
-  await fetch(uploadUrl, {
-    method: "POST",
-    headers: { "X-Goog-Upload-Offset": "0", "X-Goog-Upload-Command": "upload, finalize" },
-    body: bytes,
-    signal: AbortSignal.timeout(20_000),
-  }).catch(() => {});
+  // Step 2 via curl, NOT Node fetch.
+  // Tested 2026-04-26: Node's undici fetch hangs on this resumable-upload POST
+  // for 3 MB JSONL bodies (likely sends Transfer-Encoding: chunked which the
+  // resumable-upload endpoint doesn't handle). Curl with a known Content-Length
+  // pushes the same 3 MB body in ~3s with HTTP 200. So we shell out for the
+  // single problematic step.
+  const result = await new Promise((resolve) => {
+    const child = spawn("curl", [
+      "-sS",
+      "--max-time", "180",
+      "-X", "POST",
+      uploadUrl,
+      "-H", "X-Goog-Upload-Offset: 0",
+      "-H", "X-Goog-Upload-Command: upload, finalize",
+      "--data-binary", "@" + filePath,
+    ], { stdio: ["ignore", "pipe", "pipe"] });
+    let out = "", err = "";
+    child.stdout.on("data", (d) => { out += d; });
+    child.stderr.on("data", (d) => { err += d; });
+    child.on("close", (code) => resolve({ code, out, err }));
+  });
 
-  // Poll Files API for the file with this displayName (created within the last
-  // few minutes). 6 polls × 5s = 30s max wait.
-  await new Promise((r) => setTimeout(r, 5_000));
+  if (result.code === 0 && result.out) {
+    try {
+      const j = JSON.parse(result.out);
+      if (j.file?.name) return j.file.name;
+    } catch {}
+  }
+
+  // Fallback: even if curl exit was non-zero or response unparseable, the file
+  // may have landed server-side. Poll Files API by displayName as a last resort.
+  await new Promise((r) => setTimeout(r, 3_000));
   for (let attempt = 0; attempt < 6; attempt++) {
     try {
       const r = await fetch("https://generativelanguage.googleapis.com/v1beta/files?pageSize=50", {
@@ -147,7 +164,7 @@ async function uploadFile(filePath, displayName) {
     } catch {}
     await new Promise((r) => setTimeout(r, 5_000));
   }
-  throw new Error(`upload-confirm: no ACTIVE file with displayName=${displayName} after 30s polling`);
+  throw new Error(`upload-confirm: curl exit=${result.code} body[:200]=${result.out.slice(0, 200)} err[:200]=${result.err.slice(0, 200)}`);
 }
 
 const TERMINAL_STATES = new Set(["BATCH_STATE_SUCCEEDED", "BATCH_STATE_FAILED", "BATCH_STATE_CANCELLED", "BATCH_STATE_EXPIRED"]);
