@@ -506,9 +506,14 @@ async function main() {
         const { rows } = await pg.query(sql, [lastPmid, BATCH_SIZE]);
         if (!rows.length) break;
 
-        // Pass 1 (no PMCID): bulk-prefilter via Unpaywall is_oa to skip closed-access rows,
-        // and trim strategies to CORE only (empirically the only one that hits).
-        const prefilter = isPass1 ? await bulkUnpaywallPrefilter(rows) : null;
+        // Pass 1 (no PMCID): prefilter disabled 2026-04-26 — bulkUnpaywallPrefilter
+        // was Promise.all-ing 500 Unpaywall calls per batch, sharing a Redis bucket
+        // with phase2g's lib/fetch-unpaywall.js, causing the loop to hang for
+        // hours after Tier-1-style contention. The prefilter was an optimization
+        // (skip non-OA rows fast); without it we just call s2/openalex on every
+        // row and they self-rate-limit. Net cost: maybe 20% more API calls; net
+        // gain: progress doesn't deadlock.
+        const prefilter = null;
         const strategies = isPass1 ? STRATEGIES_PASS1 : STRATEGIES;
 
         for (let i = 0; i < rows.length; i += CONCURRENCY) {
