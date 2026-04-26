@@ -18,7 +18,7 @@
 //   node scripts/eval/anchor-verifier-bench.js --mode=verify --sourceFile=results/anchor-bench-source-XXX.json
 //   node scripts/eval/anchor-verifier-bench.js --mode=report --verifiedFile=results/anchor-bench-XXX.json
 
-import "../../api/lib/load-env.js";
+import "dotenv/config";
 import fs from "node:fs/promises";
 import path from "node:path";
 import {
@@ -151,40 +151,32 @@ async function runOne(fixture) {
 
 // ─── Phase: verification ─────────────────────────────────────────────────────
 
-async function verifyPhase({ sourceFile, runId }) {
-  const sourceData = JSON.parse(await fs.readFile(sourceFile, "utf8"));
-  const samples = sourceData.samples || [];
-  console.log(`[anchor-bench/verify] verifying ${samples.length} chats from ${sourceFile}`);
+async function verifyOneChat(sample, resolver) {
+  if (sample.error || !sample.answer_text) {
+    return { ...sample, claims: [], verify_skipped: "no_answer" };
+  }
+  try {
+    const ext = await extractAtomicClaims(sample.answer_text);
+    const claims = ext.claims || [];
+    const sourcesForChat = sample.sources || [];
 
-  const resolver = buildSourceScopeResolver();
-  const verified = [];
-  let done = 0;
-  const startedAt = Date.now();
+    // Resolve scope per cited source (cached within the resolver per-pmid).
+    const scopeBySourceId = new Map();
+    await Promise.all(sourcesForChat.map(async (s) => {
+      if (!s.pmid) return;
+      const scope = await resolver.resolve({
+        pmid: s.pmid,
+        fallbackChunk: s.excerpt || "",
+      });
+      scopeBySourceId.set(s.index, scope);
+    }));
 
-  for (const sample of samples) {
-    if (sample.error || !sample.answer_text) {
-      verified.push({ ...sample, claims: [], verify_skipped: "no_answer" });
-      done += 1;
-      continue;
-    }
-    try {
-      const ext = await extractAtomicClaims(sample.answer_text);
-      const claims = ext.claims || [];
-      const sourcesForChat = sample.sources || [];
-
-      // Resolve scope per cited source (cached within this sample).
-      const scopeBySourceId = new Map();
-      for (const s of sourcesForChat) {
-        if (!s.pmid) continue;
-        const scope = await resolver.resolve({
-          pmid: s.pmid,
-          fallbackChunk: s.excerpt || "",
-        });
-        scopeBySourceId.set(s.index, scope);
-      }
-
-      const claimRecords = [];
-      for (const claim of claims) {
+    // Per-claim work (anchor extraction + classification) runs in parallel
+    // PER CHAT — claims are independent. Anchors within a claim are verified
+    // in parallel too (each is a fast substring check; only judge fallback
+    // costs an LLM call).
+    const [claimRecords, modeRecords] = await Promise.all([
+      Promise.all(claims.map(async (claim) => {
         const sourcesWithScope = sourcesForChat
           .filter((s) => (claim.cited_ids || []).includes(s.index))
           .map((s) => ({
@@ -194,35 +186,31 @@ async function verifyPhase({ sourceFile, runId }) {
             full_text: scopeBySourceId.get(s.index)?.full_text,
           }));
         if (sourcesWithScope.length === 0) {
-          claimRecords.push({
+          return {
             claim_text: claim.claim_text,
             cited_ids: claim.cited_ids,
             anchors: [],
             anchor_extraction_error: "no_cited_sources",
-          });
-          continue;
+          };
         }
         const anchorExt = await extractAnchorsForClaim(claim, sourcesWithScope);
-        const anchorRecords = [];
-        for (const anchor of anchorExt.anchors || []) {
+        const anchorRecords = await Promise.all((anchorExt.anchors || []).map(async (anchor) => {
           const scope = scopeBySourceId.get(anchor.attributed_source_id) || {
             chunk: "",
             full_text: null,
             abstract: null,
           };
           const v = await verifyAnchor(anchor, scope);
-          anchorRecords.push({ ...anchor, ...v });
-        }
-        claimRecords.push({
+          return { ...anchor, ...v };
+        }));
+        return {
           claim_text: claim.claim_text,
           cited_ids: claim.cited_ids,
           anchors: anchorRecords,
           anchor_extraction_error: anchorExt.error || null,
-        });
-      }
-
-      // Cross-check with existing claim-modes mode classification (mode_1/2/3).
-      const modeRecords = await classifyClaimModes(
+        };
+      })),
+      classifyClaimModes(
         claims,
         sourcesForChat.map((s) => ({
           title: s.title,
@@ -232,25 +220,56 @@ async function verifyPhase({ sourceFile, runId }) {
           journal: s.journal,
           is_title_only_match: false,
         })),
-      );
-      const modeByText = new Map(modeRecords.map((m) => [m.claim_text, m]));
-      for (const cr of claimRecords) {
-        const mr = modeByText.get(cr.claim_text);
-        cr.existing_mode = mr?.mode || null;
-        cr.existing_qualifier_diff = mr?.qualifier_diff || null;
-      }
+      ),
+    ]);
 
-      verified.push({ ...sample, claims: claimRecords });
-    } catch (err) {
-      console.warn(`[anchor-bench/verify] chat error: ${err.message}`);
-      verified.push({ ...sample, claims: [], verify_error: err.message });
+    const modeByText = new Map(modeRecords.map((m) => [m.claim_text, m]));
+    for (const cr of claimRecords) {
+      const mr = modeByText.get(cr.claim_text);
+      cr.existing_mode = mr?.mode || null;
+      cr.existing_qualifier_diff = mr?.qualifier_diff || null;
     }
-    done += 1;
-    if (done % 5 === 0 || done === samples.length) {
-      const elapsed = ((Date.now() - startedAt) / 1000).toFixed(0);
-      console.log(`[anchor-bench/verify] ${done}/${samples.length} (${elapsed}s elapsed)`);
-    }
+    return { ...sample, claims: claimRecords };
+  } catch (err) {
+    console.warn(`[anchor-bench/verify] chat error: ${err.message}`);
+    return { ...sample, claims: [], verify_error: err.message };
   }
+}
+
+async function verifyPhase({ sourceFile, runId, concurrency = 4 }) {
+  const sourceData = JSON.parse(await fs.readFile(sourceFile, "utf8"));
+  const samples = sourceData.samples || [];
+  console.log(`[anchor-bench/verify] verifying ${samples.length} chats from ${sourceFile} (concurrency=${concurrency})`);
+
+  const resolver = buildSourceScopeResolver();
+  const verified = new Array(samples.length);
+  const startedAt = Date.now();
+  let cursor = 0;
+  let inFlight = 0;
+  let done = 0;
+
+  await new Promise((resolve) => {
+    function pump() {
+      if (cursor >= samples.length && inFlight === 0) return resolve();
+      while (inFlight < concurrency && cursor < samples.length) {
+        const idx = cursor++;
+        inFlight += 1;
+        verifyOneChat(samples[idx], resolver)
+          .then((rec) => { verified[idx] = rec; })
+          .catch((err) => { verified[idx] = { ...samples[idx], claims: [], verify_error: err.message }; })
+          .finally(() => {
+            inFlight -= 1;
+            done += 1;
+            if (done % 10 === 0 || done === samples.length) {
+              const elapsed = ((Date.now() - startedAt) / 1000).toFixed(0);
+              console.log(`[anchor-bench/verify] ${done}/${samples.length} (${elapsed}s elapsed)`);
+            }
+            pump();
+          });
+      }
+    }
+    pump();
+  });
 
   await fs.mkdir(RESULTS_DIR, { recursive: true });
   const verifiedPath = path.join(RESULTS_DIR, `anchor-bench-${runId}.json`);
@@ -304,6 +323,7 @@ async function main() {
     args.verifiedFile = await verifyPhase({
       sourceFile: args.sourceFile,
       runId,
+      concurrency: args.concurrency,
     });
   }
   if (args.mode === "report" || args.mode === "all") {
