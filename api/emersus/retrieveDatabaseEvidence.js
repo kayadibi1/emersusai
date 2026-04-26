@@ -82,7 +82,81 @@ export function dedupByDoi(rows) {
     const existing = byTitle.get(key);
     byTitle.set(key, existing ? pickHigherScore(existing, row) : row);
   }
-  return [...byTitle.values(), ...unkeyed];
+
+  // Pass 3: prefix-collapse within (journal, year) — catches rows where
+  // one ingestion source captured a truncated title (e.g. openalex
+  // sometimes ingests "A BRIEF REVIEW" as the full title when it's
+  // really a section heading; the openaire row for the same paper has
+  // the proper "A Brief Review: Factors Affecting..."). Collapse only
+  // when the short title is a strict prefix of the longer one and the
+  // short title is ≥8 chars normalized — protects against false merges
+  // of generic short titles like "Editorial" / "Errata" that happen to
+  // start the same way as a longer paper.
+  const candidates = [...byTitle.values(), ...unkeyed];
+  return collapseByJournalYearPrefix(candidates);
+}
+
+function collapseByJournalYearPrefix(rows) {
+  if (rows.length < 2) return rows;
+  const buckets = new Map();
+  const skipped = [];
+  for (const row of rows) {
+    const journal = row?.journal ? String(row.journal).toLowerCase().trim() : null;
+    const year = row?.publication_year;
+    if (!journal || !year) {
+      skipped.push(row);
+      continue;
+    }
+    const key = `${journal}|${year}`;
+    const arr = buckets.get(key) || [];
+    arr.push(row);
+    buckets.set(key, arr);
+  }
+
+  const survivors = [];
+  for (const arr of buckets.values()) {
+    if (arr.length === 1) {
+      survivors.push(arr[0]);
+      continue;
+    }
+    // Sort by normalized-title length descending so we compare each row
+    // against all longer-titled rows in the same bucket.
+    const sorted = arr
+      .map((r) => ({ row: r, norm: normalizeTitlePrefixForm(r.title) }))
+      .sort((a, b) => b.norm.length - a.norm.length);
+    const kept = [];
+    for (const cand of sorted) {
+      // Require ≥12 chars AND ≥3 words on the candidate prefix — protects
+      // single-word generic titles ("Editorial", "Errata", "Comment") from
+      // false-merging into longer papers in the same journal+year.
+      const wordCount = cand.norm ? cand.norm.split(/\s+/).filter(Boolean).length : 0;
+      if (cand.norm.length < 12 || wordCount < 3) { kept.push(cand); continue; }
+      const dupOf = kept.find((k) => k.norm.length > cand.norm.length && k.norm.startsWith(cand.norm + " "));
+      if (!dupOf) {
+        kept.push(cand);
+        continue;
+      }
+      // cand is a truncated version of dupOf — keep whichever has the
+      // higher score, but rebrand with the longer title's row identity.
+      const winner = pickHigherScore(dupOf.row, cand.row);
+      if (winner === cand.row) {
+        // swap: keep the better-scored row but with the longer title's metadata where it differs
+        const idx = kept.indexOf(dupOf);
+        kept[idx] = { row: { ...cand.row, title: dupOf.row.title }, norm: dupOf.norm };
+      }
+    }
+    for (const k of kept) survivors.push(k.row);
+  }
+  return [...survivors, ...skipped];
+}
+
+function normalizeTitlePrefixForm(title) {
+  if (!title) return "";
+  return String(title)
+    .toLowerCase()
+    .replace(/[^\p{Letter}\p{Number}\s]+/gu, "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 // Reciprocal Rank Fusion constant. k=60 is Cormack et al. SIGIR 2009

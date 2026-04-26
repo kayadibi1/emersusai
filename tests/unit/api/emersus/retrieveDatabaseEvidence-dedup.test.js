@@ -110,6 +110,30 @@ test("dedupByDoi does not collapse different papers with similar short titles", 
   assert.equal(result.length, 2, "short titles should not falsely merge");
 });
 
+test("dedupByDoi prefix-collapses truncated titles in the same journal+year", () => {
+  // Real-world Willardson 2006: openalex truncated the title to
+  // "A BRIEF REVIEW" while openaire captured the full title. Different
+  // DOIs, same journal, same year → prefix-collapse should merge them.
+  const rows = [
+    { pmid: 10000013662, source: "openaire", doi: "10.1519/r-17995.1",                title: "A Brief Review: Factors Affecting the Length of the Rest Interval", journal: "The Journal of Strength and Conditioning Research", publication_year: 2006, similarity: 0.74 },
+    { pmid: 10003940089, source: "openalex", doi: "10.1519/00124278-200611000-00040", title: "A BRIEF REVIEW",                                                  journal: "The Journal of Strength and Conditioning Research", publication_year: 2006, similarity: 0.71 },
+  ];
+  const result = dedupByDoi(rows);
+  assert.equal(result.length, 1, "truncated openalex title should collapse into the openaire row");
+  assert.match(result[0].title, /Factors Affecting/, "the longer title is the one kept");
+});
+
+test("dedupByDoi prefix-collapse does NOT merge generic short titles", () => {
+  // "Editorial" is < 8 chars normalized → exempt from prefix collapse
+  // even when a longer paper from the same journal+year starts with it.
+  const rows = [
+    { pmid: 1, source: "pubmed",   doi: "10.1/a", title: "Editorial",                                  journal: "Cell", publication_year: 2020 },
+    { pmid: 2, source: "pubmed",   doi: "10.1/b", title: "Editorial board changes for the new decade", journal: "Cell", publication_year: 2020 },
+  ];
+  const result = dedupByDoi(rows);
+  assert.equal(result.length, 2, "short generic title 'Editorial' should not be merged into the longer paper");
+});
+
 test("dedupByDoi: _zerank_score takes precedence over _jina_score on the same row", () => {
   // When a row carries both scores, _zerank_score is the one the
   // tiebreaker compares against the other row's score.
