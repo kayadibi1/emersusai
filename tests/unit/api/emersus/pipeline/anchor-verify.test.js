@@ -98,3 +98,42 @@ test("verifyAnchor FAIL when not found anywhere and no judge configured", async 
   assert.equal(r.result, "FAIL");
   assert.equal(r.scope_actually_matched, null);
 });
+
+test("verifyAnchor PASS_JUDGED when substring fails but judge passes", async () => {
+  const mockJudge = async () => ({
+    passes: true,
+    scope_used: "full_text",
+    raw_response: "Yes, source states '6.8% improvement' which '7%' rounds to.",
+    matched_quote: "6.8% improvement",
+  });
+  const r = await verifyAnchor(
+    { text: "7%", source_quote: "7%", attributed_source_id: 1 },
+    { chunk: "no number here", full_text: "creatine improved 1RM by 6.8%", abstract: "" },
+    { judge: mockJudge },
+  );
+  assert.equal(r.result, "PASS_JUDGED");
+  assert.equal(r.scope_actually_matched, "full_text");
+  assert.ok(r.judge_response.matched_quote);
+});
+
+test("verifyAnchor FAIL when both substring and judge fail", async () => {
+  const mockJudge = async () => ({ passes: false, raw_response: "No, source does not state this." });
+  const r = await verifyAnchor(
+    { text: "12 wk", source_quote: "12 weeks", attributed_source_id: 1 },
+    { chunk: "8 weeks duration", full_text: null, abstract: null },
+    { judge: mockJudge },
+  );
+  assert.equal(r.result, "FAIL");
+  assert.equal(r.judge_response.passes, false);
+});
+
+test("verifyAnchor treats judge errors as FAIL with metadata", async () => {
+  const mockJudge = async () => { throw new Error("judge timeout"); };
+  const r = await verifyAnchor(
+    { text: "7%", source_quote: "7%", attributed_source_id: 1 },
+    { chunk: "no number", full_text: null, abstract: null },
+    { judge: mockJudge },
+  );
+  assert.equal(r.result, "FAIL");
+  assert.match(r.judge_response.error || "", /timeout/);
+});

@@ -95,3 +95,75 @@ export async function verifyAnchor(anchor, scope, opts = {}) {
   }
   return { result: "FAIL", scope_actually_matched: null, judge_response: judgeResult };
 }
+
+const JUDGE_SYSTEM_PROMPT = [
+  "You verify whether a SOURCE text explicitly supports a specific ANCHOR phrase from a research claim.",
+  "",
+  'Return JSON only: {"passes": true|false, "matched_quote": "..." or null, "scope_used": "chunk"|"full_text"|"abstract"|null, "reasoning": "..."}.',
+  "",
+  "passes=true ONLY if the SOURCE explicitly states the anchor's content. Light paraphrase is OK; semantic equivalence with same numeric / population / duration is OK.",
+  "passes=false if SOURCE does not state the anchor, or only states something more general / different scope / different numbers.",
+  "",
+  "If passes=true, set matched_quote to the verbatim phrase from the source that backs the anchor and scope_used to which section it came from.",
+].join("\n");
+
+/**
+ * Production judge — gpt-5.4-mini single call. Used as the default fallback
+ * when no judge is explicitly passed via opts.
+ */
+export async function runJudgeOpenAI({ anchor, scope, model = "gpt-5.4-mini" }) {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) throw new Error("Missing OPENAI_API_KEY");
+
+  const sourceSections = ["chunk", "full_text", "abstract"]
+    .map((k) => (scope?.[k] ? `[${k}]\n${scope[k]}` : null))
+    .filter(Boolean)
+    .join("\n\n---\n\n");
+
+  const user = [
+    `ANCHOR phrase: ${anchor.text}`,
+    `EXTRACTOR'S CLAIMED QUOTE: ${anchor.source_quote || "(none)"}`,
+    "",
+    "SOURCE (multiple scopes):",
+    sourceSections || "(empty)",
+    "",
+    "Return JSON only.",
+  ].join("\n");
+
+  const res = await fetch("https://api.openai.com/v1/responses", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+    body: JSON.stringify({
+      model,
+      input: [
+        { role: "system", content: JUDGE_SYSTEM_PROMPT },
+        { role: "user", content: user },
+      ],
+      max_output_tokens: 300,
+    }),
+  });
+  const json = await res.json().catch(() => null);
+  if (!res.ok) {
+    throw new Error(`Judge ${res.status}: ${JSON.stringify(json).slice(0, 200)}`);
+  }
+  const text = json?.output_text || (json?.output || [])
+    .flatMap((o) => (o.content || []).filter((c) => c.type === "output_text").map((c) => c.text))
+    .join("\n");
+
+  let parsed;
+  try {
+    const cleaned = String(text || "").replace(/```json\s*/gi, "").replace(/```\s*$/g, "").trim();
+    parsed = JSON.parse(cleaned);
+  } catch {
+    return { passes: false, error: "judge_malformed_json", raw_response: text };
+  }
+  return {
+    passes: parsed.passes === true,
+    matched_quote: parsed.matched_quote || null,
+    scope_used: parsed.scope_used || null,
+    reasoning: parsed.reasoning || null,
+    raw_response: text,
+  };
+}
+
+__setDefaultJudge(runJudgeOpenAI);
