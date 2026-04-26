@@ -9,7 +9,9 @@
 import "dotenv/config";
 import fs from "node:fs";
 import path from "node:path";
-import { spawn } from "node:child_process";
+import { spawn, execFile } from "node:child_process";
+import { promisify } from "node:util";
+const execFileAsync = promisify(execFile);
 import {
   PROMPT_VERSION,
   INPUT_PRICE_PER_MILLION_USD,
@@ -125,8 +127,11 @@ async function uploadFile(filePath, displayName) {
   // resumable-upload endpoint doesn't handle). Curl with a known Content-Length
   // pushes the same 3 MB body in ~3s with HTTP 200. So we shell out for the
   // single problematic step.
-  const result = await new Promise((resolve) => {
-    const child = spawn("curl", [
+  let curlOut = "";
+  let curlErr = "";
+  let curlCode = -1;
+  try {
+    const r = await execFileAsync("curl", [
       "-sS",
       "--max-time", "180",
       "-X", "POST",
@@ -134,19 +139,23 @@ async function uploadFile(filePath, displayName) {
       "-H", "X-Goog-Upload-Offset: 0",
       "-H", "X-Goog-Upload-Command: upload, finalize",
       "--data-binary", "@" + filePath,
-    ], { stdio: ["ignore", "pipe", "pipe"] });
-    let out = "", err = "";
-    child.stdout.on("data", (d) => { out += d; });
-    child.stderr.on("data", (d) => { err += d; });
-    child.on("close", (code) => resolve({ code, out, err }));
-  });
+    ], { maxBuffer: 10 * 1024 * 1024, encoding: "utf8" });
+    curlOut = r.stdout;
+    curlErr = r.stderr;
+    curlCode = 0;
+  } catch (err) {
+    curlCode = err.code ?? -1;
+    curlOut = err.stdout || "";
+    curlErr = err.stderr || err.message || "";
+  }
 
-  if (result.code === 0 && result.out) {
+  if (curlCode === 0 && curlOut) {
     try {
-      const j = JSON.parse(result.out);
+      const j = JSON.parse(curlOut);
       if (j.file?.name) return j.file.name;
     } catch {}
   }
+  console.warn(`[uploadFile] curl exit=${curlCode} out_len=${curlOut.length} err_len=${curlErr.length} out_head=${JSON.stringify(curlOut.slice(0, 80))} err_head=${JSON.stringify(curlErr.slice(0, 80))}`);
 
   // Fallback: even if curl exit was non-zero or response unparseable, the file
   // may have landed server-side. Poll Files API by displayName as a last resort.
@@ -164,7 +173,7 @@ async function uploadFile(filePath, displayName) {
     } catch {}
     await new Promise((r) => setTimeout(r, 5_000));
   }
-  throw new Error(`upload-confirm: curl exit=${result.code} body[:200]=${result.out.slice(0, 200)} err[:200]=${result.err.slice(0, 200)}`);
+  throw new Error(`upload-confirm: curl exit=${curlCode} out_len=${curlOut.length} err_len=${curlErr.length} body[:200]=${curlOut.slice(0, 200)} err[:200]=${curlErr.slice(0, 200)}`);
 }
 
 const TERMINAL_STATES = new Set(["BATCH_STATE_SUCCEEDED", "BATCH_STATE_FAILED", "BATCH_STATE_CANCELLED", "BATCH_STATE_EXPIRED"]);
