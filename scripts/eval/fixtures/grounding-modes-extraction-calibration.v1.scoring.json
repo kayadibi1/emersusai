@@ -1,0 +1,686 @@
+{
+  "generated_at": "2026-04-26T19:40:52.505Z",
+  "totals": {
+    "tp": 57,
+    "fp": 23,
+    "fn": 20
+  },
+  "micro_precision": 0.7125,
+  "micro_recall": 0.7402597402597403,
+  "micro_f1": 0.7261146496815287,
+  "gate": false,
+  "perAnswer": [
+    {
+      "index": 83,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": 0,
+      "recall": 0,
+      "f1": 0,
+      "matches": [],
+      "predicted_count": 0,
+      "gold_count": 0
+    },
+    {
+      "index": 84,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": 0,
+      "recall": 0,
+      "f1": 0,
+      "matches": [],
+      "predicted_count": 0,
+      "gold_count": 0
+    },
+    {
+      "index": 13,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "matches": [
+        {
+          "predicted": "Resistance exercise can acutely change testosterone.",
+          "gold": "Resistance exercise can acutely change testosterone.",
+          "jaccard": 1
+        },
+        {
+          "predicted": "Testosterone is relevant to training adaptations.",
+          "gold": "Testosterone is relevant to training adaptations.",
+          "jaccard": 1
+        }
+      ],
+      "predicted_count": 2,
+      "gold_count": 2
+    },
+    {
+      "index": 66,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "matches": [
+        {
+          "predicted": "150 minutes per week of moderate-intensity cardio, or 75 minutes per week of vigorous-intensity cardio, is tied to cardiovascular benefit.",
+          "gold": "150 minutes per week of moderate-intensity cardio or 75 minutes per week of vigorous-intensity cardio is the minimum dose tied to cardiovascular benefit.",
+          "jaccard": 0.8421052631578947
+        }
+      ],
+      "predicted_count": 1,
+      "gold_count": 1
+    },
+    {
+      "index": 98,
+      "tp": 4,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1,
+      "recall": 0.8,
+      "f1": 0.888888888888889,
+      "matches": [
+        {
+          "predicted": "GH secretion is tightly linked to sleep, and physiological GH is secreted during slow-wave sleep.",
+          "gold": "Physiological GH is secreted during slow-wave sleep.",
+          "jaccard": 0.6153846153846154
+        },
+        {
+          "predicted": "Sleep, awakenings, and IGF-I modulate the GH secretory response.",
+          "gold": "Sleep, awakenings, and IGF-I modulate the GH secretory response.",
+          "jaccard": 1
+        },
+        {
+          "predicted": "Fragmented or shortened sleep can alter the normal GH pulse pattern.",
+          "gold": "Fragmented or shortened sleep can alter the normal GH pulse pattern.",
+          "jaccard": 1
+        },
+        {
+          "predicted": "Sleep deprivation changes exercise-induced GH release.",
+          "gold": "Sleep deprivation changes exercise-induced GH release.",
+          "jaccard": 1
+        }
+      ],
+      "predicted_count": 4,
+      "gold_count": 5
+    },
+    {
+      "index": 12,
+      "tp": 1,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "matches": [
+        {
+          "predicted": "Sleep is relevant to testosterone biology, and many “testosterone boosters” lack strong evidence overall.",
+          "gold": "Many testosterone boosters lack strong evidence overall.",
+          "jaccard": 0.5384615384615384
+        }
+      ],
+      "predicted_count": 1,
+      "gold_count": 2
+    },
+    {
+      "index": 59,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "matches": [
+        {
+          "predicted": "Sleep restriction is associated with higher injury risk in athletes, especially when reduced sleep coincides with higher training load and fatigue.",
+          "gold": "Sleep restriction is associated with higher injury risk in athletes, especially when combined with high training load and fatigue.",
+          "jaccard": 0.8
+        }
+      ],
+      "predicted_count": 1,
+      "gold_count": 1
+    },
+    {
+      "index": 91,
+      "tp": 5,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.8333333333333334,
+      "recall": 1,
+      "f1": 0.9090909090909091,
+      "matches": [
+        {
+          "predicted": "A resistance training session acutely increases mTOR signaling in skeletal muscle.",
+          "gold": "A resistance training session acutely increases mTOR signaling in skeletal muscle.",
+          "jaccard": 1
+        },
+        {
+          "predicted": "The rise in mTOR signaling after a resistance training session is part of the molecular response linked to hypertrophic adaptation.",
+          "gold": "The post-resistance-training mTOR rise is part of the molecular response linked to hypertrophic adaptation.",
+          "jaccard": 0.7
+        },
+        {
+          "predicted": "Chronic resistance training alters how strongly mTOR signaling responds to a bout of exercise.",
+          "gold": "Chronic resistance training and detraining alter how strongly mTOR signaling responds to a bout of exercise.",
+          "jaccard": 0.7647058823529411
+        },
+        {
+          "predicted": "Amino acids regulate mTOR in this context.",
+          "gold": "Amino acids regulate mTOR in this context.",
+          "jaccard": 1
+        },
+        {
+          "predicted": "The post-lift mTOR signaling response is influenced by both the training stimulus and nutritional state.",
+          "gold": "The post-lift signaling response is influenced by both the training stimulus and nutritional state.",
+          "jaccard": 0.9333333333333333
+        }
+      ],
+      "predicted_count": 6,
+      "gold_count": 5
+    },
+    {
+      "index": 97,
+      "tp": 2,
+      "fp": 3,
+      "fn": 1,
+      "precision": 0.4,
+      "recall": 0.6666666666666666,
+      "f1": 0.5,
+      "matches": [
+        {
+          "predicted": "Beta-alanine is a carnosine substrate used as an ergogenic aid in sport.",
+          "gold": "Beta-alanine is a carnosine substrate used as an ergogenic aid in sport.",
+          "jaccard": 1
+        },
+        {
+          "predicted": "Beta-alanine is most relevant for repeated high-intensity work or sustained hard efforts where hydrogen ion accumulation becomes a limiter, rather than for every kind of exercise.",
+          "gold": "Beta-alanine is most relevant for repeated high-intensity work or sustained efforts where hydrogen-ion accumulation is a limiter.",
+          "jaccard": 0.7037037037037037
+        }
+      ],
+      "predicted_count": 5,
+      "gold_count": 3
+    },
+    {
+      "index": 5,
+      "tp": 2,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.6666666666666666,
+      "recall": 0.6666666666666666,
+      "f1": 0.6666666666666666,
+      "matches": [
+        {
+          "predicted": "In winter, gym goers often have lower vitamin D status, especially if they train indoors.",
+          "gold": "Gym-goers in winter often have lower vitamin D status, especially if they train indoors.",
+          "jaccard": 1
+        },
+        {
+          "predicted": "Low vitamin D is associated with worse muscle performance in athletes.",
+          "gold": "Low vitamin D is associated with worse muscle performance and higher stress-fracture risk in athletes.",
+          "jaccard": 0.6875
+        }
+      ],
+      "predicted_count": 3,
+      "gold_count": 3
+    },
+    {
+      "index": 68,
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.6666666666666666,
+      "recall": 1,
+      "f1": 0.8,
+      "matches": [
+        {
+          "predicted": "A very low-volume sprint-cycling protocol did not improve cardiovascular fitness over 6 weeks in physically active young adults.",
+          "gold": "A low-volume sprint-cycling protocol did not improve cardiovascular fitness over 6 weeks in physically active young adults.",
+          "jaccard": 0.95
+        },
+        {
+          "predicted": "Sprint interval training improved aerobic performance.",
+          "gold": "Sprint interval training improved aerobic performance but not maximal cardiac output.",
+          "jaccard": 0.5454545454545454
+        }
+      ],
+      "predicted_count": 3,
+      "gold_count": 2
+    },
+    {
+      "index": 7,
+      "tp": 2,
+      "fp": 1,
+      "fn": 0,
+      "precision": 0.6666666666666666,
+      "recall": 1,
+      "f1": 0.8,
+      "matches": [
+        {
+          "predicted": "Tart cherry juice has been studied in a daily dose pattern taken around the hard training window for recovery.",
+          "gold": "Tart cherry juice studies use a daily dose taken around the hard training window.",
+          "jaccard": 0.5714285714285714
+        },
+        {
+          "predicted": "Tart cherry juice is used to aid recovery after strenuous exercise.",
+          "gold": "Tart cherry juice can aid recovery after strenuous exercise.",
+          "jaccard": 0.6666666666666666
+        }
+      ],
+      "predicted_count": 3,
+      "gold_count": 2
+    },
+    {
+      "index": 60,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "matches": [
+        {
+          "predicted": "VO2 max is used to assess physical capacity in recreationally active people.",
+          "gold": "VO2 max is used to assess physical capacity in recreationally active people.",
+          "jaccard": 1
+        },
+        {
+          "predicted": "VO2 max can be estimated in some settings.",
+          "gold": "VO2 max can be estimated in some settings.",
+          "jaccard": 1
+        }
+      ],
+      "predicted_count": 2,
+      "gold_count": 2
+    },
+    {
+      "index": 28,
+      "tp": 2,
+      "fp": 2,
+      "fn": 0,
+      "precision": 0.5,
+      "recall": 1,
+      "f1": 0.6666666666666666,
+      "matches": [
+        {
+          "predicted": "Eccentric training is at least as effective as other modalities for increasing muscle cross-sectional area.",
+          "gold": "Eccentric training is at least as effective as other modalities for increasing muscle cross-sectional area.",
+          "jaccard": 1
+        },
+        {
+          "predicted": "Eccentric training has a more consistent edge for strength, power, and stretch-shortening-cycle performance.",
+          "gold": "Eccentric training has a more consistent advantage for strength, power, and stretch-shortening-cycle performance.",
+          "jaccard": 0.875
+        }
+      ],
+      "predicted_count": 4,
+      "gold_count": 2
+    },
+    {
+      "index": 48,
+      "tp": 0,
+      "fp": 0,
+      "fn": 0,
+      "precision": 0,
+      "recall": 0,
+      "f1": 0,
+      "matches": [],
+      "predicted_count": 0,
+      "gold_count": 0
+    },
+    {
+      "index": 74,
+      "tp": 1,
+      "fp": 2,
+      "fn": 2,
+      "precision": 0.3333333333333333,
+      "recall": 0.3333333333333333,
+      "f1": 0.3333333333333333,
+      "matches": [
+        {
+          "predicted": "Strength training is associated with lower all-cause mortality.",
+          "gold": "Strength training is associated with lower all-cause and cardiovascular mortality.",
+          "jaccard": 0.8181818181818182
+        }
+      ],
+      "predicted_count": 3,
+      "gold_count": 3
+    },
+    {
+      "index": 94,
+      "tp": 2,
+      "fp": 0,
+      "fn": 2,
+      "precision": 1,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "matches": [
+        {
+          "predicted": "Zone 2 training can improve lactate-threshold-related performance mainly by shifting the power or pace you can sustain at a given blood lactate level upward, especially when a lot of training is done below about 2 mM blood lactate.",
+          "gold": "Zone 2 training shifts the power or pace sustainable at a given blood lactate level upward, especially when most training is below approximately 2 mM blood lactate.",
+          "jaccard": 0.5135135135135135
+        },
+        {
+          "predicted": "Excessive time spent near threshold may be counterproductive.",
+          "gold": "Excessive time spent near threshold may be counterproductive for lactate-threshold adaptation.",
+          "jaccard": 0.7272727272727273
+        }
+      ],
+      "predicted_count": 2,
+      "gold_count": 4
+    },
+    {
+      "index": 6,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "matches": [
+        {
+          "predicted": "Taurine improved endurance overall.",
+          "gold": "A meta-analysis found taurine improved endurance overall.",
+          "jaccard": 0.5
+        },
+        {
+          "predicted": "Dose did not significantly moderate the effect of taurine on endurance.",
+          "gold": "Dose did not significantly moderate taurine's effect on endurance in the meta-analysis.",
+          "jaccard": 0.6666666666666666
+        },
+        {
+          "predicted": "1 g of taurine taken acutely before or after exercise can decrease lactate levels.",
+          "gold": "1 g taurine taken acutely before or after exercise can decrease lactate levels.",
+          "jaccard": 0.9285714285714286
+        }
+      ],
+      "predicted_count": 3,
+      "gold_count": 3
+    },
+    {
+      "index": 71,
+      "tp": 2,
+      "fp": 2,
+      "fn": 1,
+      "precision": 0.5,
+      "recall": 0.6666666666666666,
+      "f1": 0.5714285714285715,
+      "matches": [
+        {
+          "predicted": "Lifting can lower resting blood pressure.",
+          "gold": "Lifting can lower resting blood pressure.",
+          "jaccard": 1
+        },
+        {
+          "predicted": "Exercise training in general has been shown to lower systolic and diastolic blood pressure by at least about 10/5 mmHg in many controlled studies.",
+          "gold": "Exercise training generally lowers systolic and diastolic blood pressure by at least about 10/5 mmHg in controlled studies.",
+          "jaccard": 0.6538461538461539
+        }
+      ],
+      "predicted_count": 4,
+      "gold_count": 3
+    },
+    {
+      "index": 54,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "matches": [
+        {
+          "predicted": "Sleep loss is associated with lower testosterone.",
+          "gold": "Sleep loss is associated with lower testosterone.",
+          "jaccard": 1
+        },
+        {
+          "predicted": "Sleep debt can decrease testosterone alongside growth hormone and IGF-1.",
+          "gold": "Sleep debt can decrease testosterone alongside growth hormone and IGF-1.",
+          "jaccard": 1
+        },
+        {
+          "predicted": "24 hours of sleep loss impairs weightlifting performance in national-caliber male collegiate weightlifters.",
+          "gold": "24 hours of sleep loss impairs weightlifting performance in national-caliber male collegiate weightlifters.",
+          "jaccard": 1
+        }
+      ],
+      "predicted_count": 3,
+      "gold_count": 3
+    },
+    {
+      "index": 73,
+      "tp": 2,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "matches": [
+        {
+          "predicted": "Endurance training can increase mitochondrial content/density.",
+          "gold": "Endurance training can increase mitochondrial content/density.",
+          "jaccard": 1
+        },
+        {
+          "predicted": "The field is not settled on whether volume or intensity is the bigger driver of mitochondrial adaptations.",
+          "gold": "The field is not settled on whether volume or intensity is the bigger driver of mitochondrial adaptations.",
+          "jaccard": 1
+        }
+      ],
+      "predicted_count": 2,
+      "gold_count": 2
+    },
+    {
+      "index": 90,
+      "tp": 1,
+      "fp": 2,
+      "fn": 2,
+      "precision": 0.3333333333333333,
+      "recall": 0.3333333333333333,
+      "f1": 0.3333333333333333,
+      "matches": [
+        {
+          "predicted": "Creatine supplementation is associated with increases in muscle size.",
+          "gold": "Creatine is associated with increases in muscle size and, in some studies, changes in muscle fiber characteristics.",
+          "jaccard": 0.5333333333333333
+        }
+      ],
+      "predicted_count": 3,
+      "gold_count": 3
+    },
+    {
+      "index": 20,
+      "tp": 3,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "matches": [
+        {
+          "predicted": "For hypertrophy, at least 2 hard sessions per muscle group per week is supported rather than once weekly.",
+          "gold": "At least 2 hard sessions per muscle group per week is supported over once-weekly training.",
+          "jaccard": 0.6842105263157895
+        },
+        {
+          "predicted": "Training volume matters for hypertrophy.",
+          "gold": "Training volume matters for hypertrophy.",
+          "jaccard": 1
+        },
+        {
+          "predicted": "Multiple-set training generally outperforms single-set training.",
+          "gold": "Multiple-set training generally outperforms single-set training for hypertrophy.",
+          "jaccard": 0.75
+        }
+      ],
+      "predicted_count": 3,
+      "gold_count": 3
+    },
+    {
+      "index": 14,
+      "tp": 3,
+      "fp": 3,
+      "fn": 3,
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1": 0.5,
+      "matches": [
+        {
+          "predicted": "Citrulline more reliably raises blood arginine levels than arginine.",
+          "gold": "Citrulline more reliably raises blood arginine levels than arginine.",
+          "jaccard": 1
+        },
+        {
+          "predicted": "Citrulline has human data showing increased plasma arginine in trained men.",
+          "gold": "Citrulline has human data showing increased plasma arginine and some performance benefits in trained men.",
+          "jaccard": 0.7333333333333333
+        },
+        {
+          "predicted": "Citrulline has a supplementation advantage over arginine because of reduced first-pass metabolism.",
+          "gold": "Citrulline has a supplementation advantage over arginine due to reduced first-pass metabolism and more efficient conversion to arginine.",
+          "jaccard": 0.5789473684210527
+        }
+      ],
+      "predicted_count": 6,
+      "gold_count": 6
+    },
+    {
+      "index": 45,
+      "tp": 1,
+      "fp": 2,
+      "fn": 1,
+      "precision": 0.3333333333333333,
+      "recall": 0.5,
+      "f1": 0.4,
+      "matches": [
+        {
+          "predicted": "Active recovery generally produces better recovery outcomes than passive recovery after strenuous exercise or between exercise bouts.",
+          "gold": "Active recovery results in better recovery outcomes than passive recovery after strenuous exercise or between bouts.",
+          "jaccard": 0.75
+        }
+      ],
+      "predicted_count": 3,
+      "gold_count": 2
+    },
+    {
+      "index": 47,
+      "tp": 1,
+      "fp": 1,
+      "fn": 1,
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1": 0.5,
+      "matches": [
+        {
+          "predicted": "A 48-hour window can be enough for recovery of some biochemical and performance measures after CrossFit-style workouts.",
+          "gold": "A 48-hour window can be enough for recovery of some biochemical and performance measures after CrossFit-style workouts.",
+          "jaccard": 1
+        }
+      ],
+      "predicted_count": 2,
+      "gold_count": 2
+    },
+    {
+      "index": 19,
+      "tp": 3,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1,
+      "recall": 0.75,
+      "f1": 0.8571428571428571,
+      "matches": [
+        {
+          "predicted": "A 2024 meta-analysis found NAC significantly reduced muscle soreness and post-exercise lactate, but the effect sizes were small.",
+          "gold": "A 2024 meta-analysis found NAC significantly reduced muscle soreness and post-exercise lactate, with small effect sizes.",
+          "jaccard": 0.8095238095238095
+        },
+        {
+          "predicted": "In well-trained cyclists, NAC did not improve repeated intense endurance performance or short-term recovery after a hard effort.",
+          "gold": "NAC did not improve repeated intense endurance performance or short-term recovery in well-trained cyclists.",
+          "jaccard": 0.8
+        },
+        {
+          "predicted": "In a muscle-damage model, NAC influenced immune responses after eccentric exercise.",
+          "gold": "NAC influenced immune responses after eccentric exercise in a muscle-damage model.",
+          "jaccard": 1
+        }
+      ],
+      "predicted_count": 3,
+      "gold_count": 4
+    },
+    {
+      "index": 77,
+      "tp": 4,
+      "fp": 0,
+      "fn": 1,
+      "precision": 1,
+      "recall": 0.8,
+      "f1": 0.888888888888889,
+      "matches": [
+        {
+          "predicted": "A single workout can acutely increase or decrease blood glucose depending on fasting state, exercise intensity, and timing, while repeated exercise may improve fasting glucose regulation over time.",
+          "gold": "A single workout can acutely raise or lower blood glucose depending on fasting state, exercise intensity, and timing.",
+          "jaccard": 0.5925925925925926
+        },
+        {
+          "predicted": "Fasted exercise can raise glucose from pre- to post-exercise in healthy adults on average.",
+          "gold": "Fasted exercise can raise glucose from pre- to post-exercise in healthy adults on average.",
+          "jaccard": 1
+        },
+        {
+          "predicted": "Fasted exercise changes insulin and free fatty acids in healthy adults.",
+          "gold": "Fasted exercise also changes insulin and free fatty acid levels.",
+          "jaccard": 0.5
+        },
+        {
+          "predicted": "When exercise is done regularly in the fasted state, some longer-term metabolic adaptations may be more favorable in some situations, but not all.",
+          "gold": "Regular fasted-state exercise may produce more favorable longer-term metabolic adaptations in some situations.",
+          "jaccard": 0.5416666666666666
+        }
+      ],
+      "predicted_count": 4,
+      "gold_count": 5
+    },
+    {
+      "index": 89,
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "precision": 1,
+      "recall": 1,
+      "f1": 1,
+      "matches": [
+        {
+          "predicted": "Therapeutic exercise is supported for rotator cuff problems.",
+          "gold": "Therapeutic exercise is supported for rotator cuff problems.",
+          "jaccard": 1
+        }
+      ],
+      "predicted_count": 1,
+      "gold_count": 1
+    },
+    {
+      "index": 86,
+      "tp": 1,
+      "fp": 2,
+      "fn": 2,
+      "precision": 0.3333333333333333,
+      "recall": 0.3333333333333333,
+      "f1": 0.3333333333333333,
+      "matches": [
+        {
+          "predicted": "Masters athletes are a distinct group.",
+          "gold": "Masters athletes are a distinct group.",
+          "jaccard": 1
+        }
+      ],
+      "predicted_count": 3,
+      "gold_count": 3
+    }
+  ]
+}

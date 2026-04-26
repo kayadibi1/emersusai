@@ -1,0 +1,262 @@
+{
+  "generated_at": "2026-04-26",
+  "labeler": "claude-opus-4-7 (in-conversation, no human review)",
+  "caveat": "Calibration set produced by the labeling assistant rather than human-reviewed. Resulting Pass A score should be interpreted as a consistency check (production gpt-5.4 vs claude-opus-4-7) not a human-ground-truth accuracy measurement.",
+  "source_eval_file": "scripts/eval/results/grounding-eval-full-100-v2-2026-04-23T20-23-35-074Z.json",
+  "prelabels": [
+    {
+      "index": 83,
+      "question": "Cutting for 12 weeks — what supplements are worth taking?",
+      "sidar_final_claims": []
+    },
+    {
+      "index": 84,
+      "question": "My squat is way behind my deadlift. How do I fix the imbalance?",
+      "sidar_final_claims": []
+    },
+    {
+      "index": 13,
+      "question": "Does tribulus raise testosterone in resistance-trained men?",
+      "sidar_final_claims": [
+        { "claim_text": "Resistance exercise can acutely change testosterone.", "cited_ids": [1, 3, 4] },
+        { "claim_text": "Testosterone is relevant to training adaptations.", "cited_ids": [1, 3, 4] }
+      ]
+    },
+    {
+      "index": 66,
+      "question": "What's the minimum dose of cardio for cardiovascular benefits?",
+      "sidar_final_claims": [
+        { "claim_text": "150 minutes per week of moderate-intensity cardio or 75 minutes per week of vigorous-intensity cardio is the minimum dose tied to cardiovascular benefit.", "cited_ids": [2] }
+      ]
+    },
+    {
+      "index": 98,
+      "question": "How does sleep affect growth hormone release?",
+      "sidar_final_claims": [
+        { "claim_text": "Sleep is a major driver of growth hormone release.", "cited_ids": [2, 3] },
+        { "claim_text": "Physiological GH is secreted during slow-wave sleep.", "cited_ids": [2, 3] },
+        { "claim_text": "Sleep, awakenings, and IGF-I modulate the GH secretory response.", "cited_ids": [5] },
+        { "claim_text": "Fragmented or shortened sleep can alter the normal GH pulse pattern.", "cited_ids": [5] },
+        { "claim_text": "Sleep deprivation changes exercise-induced GH release.", "cited_ids": [4, 6] }
+      ]
+    },
+    {
+      "index": 12,
+      "question": "Does ZMA improve sleep or testosterone?",
+      "sidar_final_claims": [
+        { "claim_text": "Sleep is relevant to testosterone biology.", "cited_ids": [1, 3] },
+        { "claim_text": "Many testosterone boosters lack strong evidence overall.", "cited_ids": [1, 3] }
+      ]
+    },
+    {
+      "index": 59,
+      "question": "Does sleep restriction increase injury risk in training?",
+      "sidar_final_claims": [
+        { "claim_text": "Sleep restriction is associated with higher injury risk in athletes, especially when combined with high training load and fatigue.", "cited_ids": [1, 2, 3] }
+      ]
+    },
+    {
+      "index": 91,
+      "question": "How does mTOR signaling respond to a resistance training session?",
+      "sidar_final_claims": [
+        { "claim_text": "A resistance training session acutely increases mTOR signaling in skeletal muscle.", "cited_ids": [2, 6] },
+        { "claim_text": "The post-resistance-training mTOR rise is part of the molecular response linked to hypertrophic adaptation.", "cited_ids": [2, 6] },
+        { "claim_text": "Chronic resistance training and detraining alter how strongly mTOR signaling responds to a bout of exercise.", "cited_ids": [3] },
+        { "claim_text": "Amino acids regulate mTOR in this context.", "cited_ids": [4] },
+        { "claim_text": "The post-lift signaling response is influenced by both the training stimulus and nutritional state.", "cited_ids": [4] }
+      ]
+    },
+    {
+      "index": 97,
+      "question": "What's the mechanism behind beta-alanine's ergogenic effect?",
+      "sidar_final_claims": [
+        { "claim_text": "Beta-alanine increases intramuscular carnosine, raising muscle buffering capacity and helping delay fatigue during acidosis-driving efforts.", "cited_ids": [2] },
+        { "claim_text": "Beta-alanine is a carnosine substrate used as an ergogenic aid in sport.", "cited_ids": [1] },
+        { "claim_text": "Beta-alanine is most relevant for repeated high-intensity work or sustained efforts where hydrogen-ion accumulation is a limiter.", "cited_ids": [2] }
+      ]
+    },
+    {
+      "index": 5,
+      "question": "How much vitamin D should a gym goer take in winter?",
+      "sidar_final_claims": [
+        { "claim_text": "Gym-goers in winter often have lower vitamin D status, especially if they train indoors.", "cited_ids": [1, 3] },
+        { "claim_text": "Low vitamin D is associated with worse muscle performance and higher stress-fracture risk in athletes.", "cited_ids": [1, 3] },
+        { "claim_text": "Monitoring 25(OH)D in winter and supplementing to correct low status is supported.", "cited_ids": [4, 6] }
+      ]
+    },
+    {
+      "index": 68,
+      "question": "Is sprint training enough for cardiovascular fitness?",
+      "sidar_final_claims": [
+        { "claim_text": "A low-volume sprint-cycling protocol did not improve cardiovascular fitness over 6 weeks in physically active young adults.", "cited_ids": [1] },
+        { "claim_text": "Sprint interval training improved aerobic performance but not maximal cardiac output.", "cited_ids": [2] }
+      ]
+    },
+    {
+      "index": 7,
+      "question": "How much tart cherry juice after leg day?",
+      "sidar_final_claims": [
+        { "claim_text": "Tart cherry juice studies use a daily dose taken around the hard training window.", "cited_ids": [1, 5, 6] },
+        { "claim_text": "Tart cherry juice can aid recovery after strenuous exercise.", "cited_ids": [1, 4] }
+      ]
+    },
+    {
+      "index": 60,
+      "question": "What VO2 max does a recreational lifter need?",
+      "sidar_final_claims": [
+        { "claim_text": "VO2 max is used to assess physical capacity in recreationally active people.", "cited_ids": [1, 2] },
+        { "claim_text": "VO2 max can be estimated in some settings.", "cited_ids": [1, 2] }
+      ]
+    },
+    {
+      "index": 28,
+      "question": "Is eccentric-focused training better for hypertrophy than concentric?",
+      "sidar_final_claims": [
+        { "claim_text": "Eccentric training is at least as effective as other modalities for increasing muscle cross-sectional area.", "cited_ids": [1] },
+        { "claim_text": "Eccentric training has a more consistent advantage for strength, power, and stretch-shortening-cycle performance.", "cited_ids": [1] }
+      ]
+    },
+    {
+      "index": 48,
+      "question": "Do compression garments help after hard training?",
+      "sidar_final_claims": []
+    },
+    {
+      "index": 74,
+      "question": "Is strength training better than cardio for long-term mortality?",
+      "sidar_final_claims": [
+        { "claim_text": "Strength training is associated with lower all-cause and cardiovascular mortality.", "cited_ids": [1, 4] },
+        { "claim_text": "Mortality outcomes are best when cardiorespiratory fitness and strength training are combined.", "cited_ids": [1, 4] },
+        { "claim_text": "The mortality signal is strongest when fitness and strength are combined.", "cited_ids": [4] }
+      ]
+    },
+    {
+      "index": 94,
+      "question": "How does lactate threshold adapt with zone 2 training?",
+      "sidar_final_claims": [
+        { "claim_text": "Zone 2 training shifts the power or pace sustainable at a given blood lactate level upward, especially when most training is below approximately 2 mM blood lactate.", "cited_ids": [6] },
+        { "claim_text": "More work at low lactate helps the power-output-to-lactate relationship.", "cited_ids": [6] },
+        { "claim_text": "Excessive time spent near threshold may be counterproductive for lactate-threshold adaptation.", "cited_ids": [6] },
+        { "claim_text": "There is no single consensus definition of zone 2 among experts.", "cited_ids": [1] }
+      ]
+    },
+    {
+      "index": 6,
+      "question": "Taurine dose for cardio endurance — is 1 g enough?",
+      "sidar_final_claims": [
+        { "claim_text": "A meta-analysis found taurine improved endurance overall.", "cited_ids": [4] },
+        { "claim_text": "Dose did not significantly moderate taurine's effect on endurance in the meta-analysis.", "cited_ids": [4] },
+        { "claim_text": "1 g taurine taken acutely before or after exercise can decrease lactate levels.", "cited_ids": [3] }
+      ]
+    },
+    {
+      "index": 71,
+      "question": "How much does lifting lower blood pressure?",
+      "sidar_final_claims": [
+        { "claim_text": "Lifting can lower resting blood pressure.", "cited_ids": [5, 6] },
+        { "claim_text": "The size of the blood pressure drop from lifting is variable and depends on the person and training dose.", "cited_ids": [5, 6] },
+        { "claim_text": "Exercise training generally lowers systolic and diastolic blood pressure by at least about 10/5 mmHg in controlled studies.", "cited_ids": [6] }
+      ]
+    },
+    {
+      "index": 54,
+      "question": "How does sleep affect testosterone in lifters?",
+      "sidar_final_claims": [
+        { "claim_text": "Sleep loss is associated with lower testosterone.", "cited_ids": [1, 3, 5] },
+        { "claim_text": "Sleep debt can decrease testosterone alongside growth hormone and IGF-1.", "cited_ids": [1, 3, 5] },
+        { "claim_text": "24 hours of sleep loss impairs weightlifting performance in national-caliber male collegiate weightlifters.", "cited_ids": [2, 6] }
+      ]
+    },
+    {
+      "index": 73,
+      "question": "Does zone 2 training improve mitochondrial density?",
+      "sidar_final_claims": [
+        { "claim_text": "Endurance training can increase mitochondrial content/density.", "cited_ids": [1, 2] },
+        { "claim_text": "The field is not settled on whether volume or intensity is the bigger driver of mitochondrial adaptations.", "cited_ids": [1, 6] }
+      ]
+    },
+    {
+      "index": 90,
+      "question": "What's the mechanism by which creatine increases strength?",
+      "sidar_final_claims": [
+        { "claim_text": "Creatine's strength benefit comes from multiple likely contributors rather than a single mechanism.", "cited_ids": [1, 2, 4] },
+        { "claim_text": "Creatine improves high-intensity training capacity, allowing more quality training that drives greater strength gains over time.", "cited_ids": [] },
+        { "claim_text": "Creatine is associated with increases in muscle size and, in some studies, changes in muscle fiber characteristics.", "cited_ids": [2, 4] }
+      ]
+    },
+    {
+      "index": 20,
+      "question": "How many sets per muscle group per week for hypertrophy?",
+      "sidar_final_claims": [
+        { "claim_text": "At least 2 hard sessions per muscle group per week is supported over once-weekly training.", "cited_ids": [1, 2] },
+        { "claim_text": "Training volume matters for hypertrophy.", "cited_ids": [1, 2] },
+        { "claim_text": "Multiple-set training generally outperforms single-set training for hypertrophy.", "cited_ids": [1, 2] }
+      ]
+    },
+    {
+      "index": 14,
+      "question": "Is citrulline better than arginine for pump?",
+      "sidar_final_claims": [
+        { "claim_text": "Citrulline is a better choice than arginine for the pump goal.", "cited_ids": [1, 4] },
+        { "claim_text": "Citrulline more reliably raises blood arginine levels than arginine.", "cited_ids": [1, 4] },
+        { "claim_text": "Citrulline supports nitric oxide-related blood flow effects.", "cited_ids": [1, 4] },
+        { "claim_text": "Citrulline has human data showing increased plasma arginine and some performance benefits in trained men.", "cited_ids": [5] },
+        { "claim_text": "The literature has mixed results overall for citrulline's effect on strength and power outcomes.", "cited_ids": [2] },
+        { "claim_text": "Citrulline has a supplementation advantage over arginine due to reduced first-pass metabolism and more efficient conversion to arginine.", "cited_ids": [4] }
+      ]
+    },
+    {
+      "index": 45,
+      "question": "Is active recovery better than rest on off days?",
+      "sidar_final_claims": [
+        { "claim_text": "Active recovery results in better recovery outcomes than passive recovery after strenuous exercise or between bouts.", "cited_ids": [1, 2] },
+        { "claim_text": "Active recovery improves recovery of the corticospinal system but not muscle contractile properties.", "cited_ids": [3] }
+      ]
+    },
+    {
+      "index": 47,
+      "question": "How long does it take to recover from a full-body workout?",
+      "sidar_final_claims": [
+        { "claim_text": "Most people are functionally recovered from a hard full-body workout within 24 to 72 hours.", "cited_ids": [] },
+        { "claim_text": "A 48-hour window can be enough for recovery of some biochemical and performance measures after CrossFit-style workouts.", "cited_ids": [6] }
+      ]
+    },
+    {
+      "index": 19,
+      "question": "Does NAC help recovery after high-volume training?",
+      "sidar_final_claims": [
+        { "claim_text": "A 2024 meta-analysis found NAC significantly reduced muscle soreness and post-exercise lactate, with small effect sizes.", "cited_ids": [1] },
+        { "claim_text": "A 2022 systematic review and meta-analysis on recovery biomarkers found mixed results for NAC.", "cited_ids": [2] },
+        { "claim_text": "NAC did not improve repeated intense endurance performance or short-term recovery in well-trained cyclists.", "cited_ids": [3] },
+        { "claim_text": "NAC influenced immune responses after eccentric exercise in a muscle-damage model.", "cited_ids": [4] }
+      ]
+    },
+    {
+      "index": 77,
+      "question": "Does lifting change fasting glucose levels?",
+      "sidar_final_claims": [
+        { "claim_text": "A single workout can acutely raise or lower blood glucose depending on fasting state, exercise intensity, and timing.", "cited_ids": [3, 5] },
+        { "claim_text": "Repeated exercise may improve fasting glucose regulation over time.", "cited_ids": [3, 5] },
+        { "claim_text": "Fasted exercise can raise glucose from pre- to post-exercise in healthy adults on average.", "cited_ids": [3] },
+        { "claim_text": "Fasted exercise also changes insulin and free fatty acid levels.", "cited_ids": [3] },
+        { "claim_text": "Regular fasted-state exercise may produce more favorable longer-term metabolic adaptations in some situations.", "cited_ids": [5] }
+      ]
+    },
+    {
+      "index": 89,
+      "question": "I'm rehabbing a torn rotator cuff — how do I train around it?",
+      "sidar_final_claims": [
+        { "claim_text": "Therapeutic exercise is supported for rotator cuff problems.", "cited_ids": [1, 2, 4] }
+      ]
+    },
+    {
+      "index": 86,
+      "question": "I'm a masters athlete (50+) — how should my programming change?",
+      "sidar_final_claims": [
+        { "claim_text": "Masters athletes are a distinct group.", "cited_ids": [2, 3] },
+        { "claim_text": "Masters athletes experience age-related performance decline and reduced maximal oxygen uptake.", "cited_ids": [2, 3] },
+        { "claim_text": "Training should be adapted to the athlete's age and event demands.", "cited_ids": [1, 3] }
+      ]
+    }
+  ]
+}
