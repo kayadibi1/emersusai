@@ -59,9 +59,11 @@ function getRedis() {
   }
   try {
     _redis = new Redis(process.env.REDIS_URL, {
-      maxRetriesPerRequest: 1,
-      lazyConnect: false,
-      enableOfflineQueue: false,
+      maxRetriesPerRequest: 2,
+      // enableOfflineQueue: true (default) — short queue while connection
+      // initializes prevents the first dozen calls from failing on cold start.
+      // If Redis is genuinely down, maxRetriesPerRequest=2 caps per-command
+      // wait at ~200ms before falling back to in-memory.
     });
     _redis.on('error', (err) => {
       // Swallow recurring connection errors; the eval call will throw if Redis
