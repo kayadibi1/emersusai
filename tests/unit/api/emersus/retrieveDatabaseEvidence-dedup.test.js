@@ -76,6 +76,40 @@ test("dedupByDoi tiebreaker uses _zerank_score when both rows have it", () => {
   assert.equal(result[0].source, "openalex", "higher _zerank_score wins (despite lower similarity)");
 });
 
+test("dedupByDoi collapses DOIs that differ only by case", () => {
+  // Real-world Willardson 2006: Semantic Scholar stores '10.1519/R-17995.1',
+  // OpenAire stores '10.1519/r-17995.1'. DOIs are case-insensitive per spec.
+  const rows = [
+    { pmid: 10000012023, source: "semantic-scholar", doi: "10.1519/R-17995.1", title: "A brief review", publication_year: 2006, similarity: 0.74 },
+    { pmid: 10000013662, source: "openaire",         doi: "10.1519/r-17995.1", title: "A Brief Review", publication_year: 2006, similarity: 0.71 },
+  ];
+  const result = dedupByDoi(rows);
+  assert.equal(result.length, 1, "case-different DOIs should collapse to one");
+});
+
+test("dedupByDoi collapses cross-source duplicates by title+year when one row lacks DOI", () => {
+  // Real-world Willardson 2006: PubMed has the paper with empty DOI,
+  // Semantic Scholar has it with a DOI. Title+year fallback should merge them.
+  const rows = [
+    { pmid: 17194236,    source: "pubmed",           doi: null,             title: "A brief review: factors affecting the length of the rest interval between resistance exercise sets", publication_year: 2006, similarity: 0.78 },
+    { pmid: 10000012023, source: "semantic-scholar", doi: "10.1519/R-17995.1", title: "A brief review: factors affecting the length of the rest interval between resistance exercise sets.", publication_year: 2006, similarity: 0.74 },
+  ];
+  const result = dedupByDoi(rows);
+  assert.equal(result.length, 1, "title+year fallback should collapse no-DOI + DOI cross-source duplicates");
+  assert.equal(result[0].source, "pubmed", "higher-similarity row wins");
+});
+
+test("dedupByDoi does not collapse different papers with similar short titles", () => {
+  // Title-key only triggers on titles >= 12 chars after normalization, so
+  // generic short titles ("Editorial", "Errata") fall through to unkeyed.
+  const rows = [
+    { pmid: 1, source: "pubmed", doi: null, title: "Editorial", publication_year: 2020, similarity: 0.50 },
+    { pmid: 2, source: "pubmed", doi: null, title: "Editorial", publication_year: 2020, similarity: 0.49 },
+  ];
+  const result = dedupByDoi(rows);
+  assert.equal(result.length, 2, "short titles should not falsely merge");
+});
+
 test("dedupByDoi: _zerank_score takes precedence over _jina_score on the same row", () => {
   // When a row carries both scores, _zerank_score is the one the
   // tiebreaker compares against the other row's score.

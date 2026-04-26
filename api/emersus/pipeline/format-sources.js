@@ -1,8 +1,16 @@
 import { formatCitationUrl, formatCitationLabel } from "../../../shared/citation-format.js";
 
+// Must match VECTOR_LIMIT in retrieve.js — when the model is shown N
+// sources labeled [1]..[N], the right-rail panel must render the same N
+// or `citesrcN` markers in the prose point at sources the user can't see.
+// Bumped 6 → 8 on 2026-04-26 to track VECTOR_LIMIT after a prior bump
+// from 6 → 8 left this slice cap behind, producing phantom citation
+// indices in the chat UI.
+const SOURCES_PANEL_LIMIT = 8;
+
 export function formatSources(evidenceItems) {
   if (!Array.isArray(evidenceItems)) return [];
-  return evidenceItems.slice(0, 6).map((item, index) => ({
+  return evidenceItems.slice(0, SOURCES_PANEL_LIMIT).map((item, index) => ({
     index: index + 1,
     source_id: item.source_id || null,
     source: item.source || "pubmed",

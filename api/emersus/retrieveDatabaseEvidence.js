@@ -20,28 +20,69 @@ import { zerankRerank, isZerankConfigured } from "./pipeline/zerank-rerank.js";
  * @param {Array<object>} rows
  * @returns {Array<object>} deduped rows
  */
+// DOIs are case-insensitive per RFC 3986 + crossref guidance. Different
+// ingestion pipelines record them with inconsistent case (e.g.
+// '10.1519/R-17995.1' from Semantic Scholar vs '10.1519/r-17995.1' from
+// OpenAire), which used to leave duplicate rows on the same paper.
+function normalizeDoi(doi) {
+  if (!doi) return null;
+  const trimmed = String(doi).trim().toLowerCase();
+  return trimmed.length > 0 ? trimmed : null;
+}
+
+// Title+year fallback dedup for cross-source duplicates that DOI dedup
+// can't catch — e.g. PubMed rows with empty DOI alongside Semantic Scholar
+// rows of the same paper, or cases where canonical_dedup_key drifts on
+// author-name normalization. Title+year is highly unique for academic
+// papers so this is safe; we score-tiebreak the same way as DOI dedup.
+function normalizeTitleKey(title, year) {
+  if (!title || !year) return null;
+  const t = String(title)
+    .toLowerCase()
+    .replace(/[^\p{Letter}\p{Number}\s]+/gu, "") // strip punctuation
+    .replace(/\s+/g, " ")
+    .trim();
+  if (t.length < 12) return null; // too short to be a unique title
+  return `${t}|${year}`;
+}
+
+function pickHigherScore(existing, candidate) {
+  const a = candidate._zerank_score ?? candidate._jina_score ?? candidate.rrf_score ?? (candidate.similarity ?? 0);
+  const b = existing._zerank_score ?? existing._jina_score ?? existing.rrf_score ?? (existing.similarity ?? 0);
+  return a > b ? candidate : existing;
+}
+
 export function dedupByDoi(rows) {
   if (!Array.isArray(rows) || rows.length === 0) return [];
+  // Pass 1: collapse by normalized DOI (case-insensitive, trimmed).
   const byDoi = new Map();
   const withoutDoi = [];
   for (const row of rows) {
-    const doi = row?.doi;
-    if (!doi) {
+    const key = normalizeDoi(row?.doi);
+    if (!key) {
       withoutDoi.push(row);
       continue;
     }
-    const existing = byDoi.get(doi);
-    if (!existing) {
-      byDoi.set(doi, row);
+    const existing = byDoi.get(key);
+    byDoi.set(key, existing ? pickHigherScore(existing, row) : row);
+  }
+
+  // Pass 2: title+year fallback — catches cross-source duplicates where
+  // one row is missing a DOI (common with PubMed) or where ingestion
+  // drifted the DOI in some non-case way (rare).
+  const merged = [...byDoi.values(), ...withoutDoi];
+  const byTitle = new Map();
+  const unkeyed = [];
+  for (const row of merged) {
+    const key = normalizeTitleKey(row?.title, row?.publication_year);
+    if (!key) {
+      unkeyed.push(row);
       continue;
     }
-    const rowScore = row._zerank_score ?? row._jina_score ?? row.rrf_score ?? (row.similarity ?? 0);
-    const existingScore = existing._zerank_score ?? existing._jina_score ?? existing.rrf_score ?? (existing.similarity ?? 0);
-    if (rowScore > existingScore) {
-      byDoi.set(doi, row);
-    }
+    const existing = byTitle.get(key);
+    byTitle.set(key, existing ? pickHigherScore(existing, row) : row);
   }
-  return [...byDoi.values(), ...withoutDoi];
+  return [...byTitle.values(), ...unkeyed];
 }
 
 // Reciprocal Rank Fusion constant. k=60 is Cormack et al. SIGIR 2009
