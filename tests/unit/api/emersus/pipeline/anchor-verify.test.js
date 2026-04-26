@@ -1,7 +1,7 @@
 // tests/unit/api/emersus/pipeline/anchor-verify.test.js
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { normalizeForSubstring } from "../../../../../api/emersus/pipeline/anchor-verify.js";
+import { normalizeForSubstring, verifyAnchor } from "../../../../../api/emersus/pipeline/anchor-verify.js";
 
 test("normalize lowercases", () => {
   assert.equal(normalizeForSubstring("Trained Men"), "trained men");
@@ -32,4 +32,69 @@ test("normalize converts number-words up to twenty", () => {
 test("normalize handles null/undefined", () => {
   assert.equal(normalizeForSubstring(null), "");
   assert.equal(normalizeForSubstring(undefined), "");
+});
+
+const SCOPE = {
+  chunk: "Creatine 5g per day for 8 weeks improved 1RM",
+  full_text: "Resistance-trained men aged 20-25 received creatine 5 g per day for 8 weeks. Bench press 1RM rose by 6.8%.",
+  abstract: "RCT in trained men of creatine supplementation",
+};
+
+test("verifyAnchor FAIL when source_quote is null", async () => {
+  const r = await verifyAnchor(
+    { text: "5g/day", source_quote: null, attributed_source_id: 1 },
+    SCOPE,
+    { judge: null },
+  );
+  assert.equal(r.result, "FAIL");
+  assert.equal(r.scope_actually_matched, null);
+});
+
+test("verifyAnchor PASS_VERBATIM via chunk scope", async () => {
+  const r = await verifyAnchor(
+    { text: "5g/day", source_quote: "5g per day", attributed_source_id: 1 },
+    SCOPE,
+    { judge: null },
+  );
+  assert.equal(r.result, "PASS_VERBATIM");
+  assert.equal(r.scope_actually_matched, "chunk");
+});
+
+test("verifyAnchor PASS_VERBATIM via full_text when chunk lacks the anchor", async () => {
+  const r = await verifyAnchor(
+    { text: "trained men", source_quote: "resistance-trained men", attributed_source_id: 1 },
+    SCOPE,
+    { judge: null },
+  );
+  assert.equal(r.result, "PASS_VERBATIM");
+  assert.equal(r.scope_actually_matched, "full_text");
+});
+
+test("verifyAnchor PASS_VERBATIM via abstract when neither chunk nor full_text matches", async () => {
+  const r = await verifyAnchor(
+    { text: "RCT", source_quote: "RCT", attributed_source_id: 1 },
+    { chunk: "no methods info", full_text: "results section only", abstract: "RCT in trained men" },
+    { judge: null },
+  );
+  assert.equal(r.result, "PASS_VERBATIM");
+  assert.equal(r.scope_actually_matched, "abstract");
+});
+
+test("verifyAnchor substring is case + unit normalized", async () => {
+  const r = await verifyAnchor(
+    { text: "8 weeks", source_quote: "EIGHT WEEKS", attributed_source_id: 1 },
+    SCOPE,
+    { judge: null },
+  );
+  assert.equal(r.result, "PASS_VERBATIM");
+});
+
+test("verifyAnchor FAIL when not found anywhere and no judge configured", async () => {
+  const r = await verifyAnchor(
+    { text: "12 weeks", source_quote: "12 weeks", attributed_source_id: 1 },
+    SCOPE,
+    { judge: null },
+  );
+  assert.equal(r.result, "FAIL");
+  assert.equal(r.scope_actually_matched, null);
 });

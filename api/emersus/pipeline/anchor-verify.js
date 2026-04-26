@@ -39,3 +39,59 @@ export function normalizeForSubstring(text) {
   s = s.replace(/\s+/g, " ").trim();
   return s;
 }
+
+let defaultJudge = null;
+export function __setDefaultJudge(fn) {
+  defaultJudge = fn;
+}
+
+const SCOPE_ORDER = ["chunk", "full_text", "abstract"];
+
+/**
+ * Verify a single anchor against a resolved source scope.
+ *
+ * @param {Object} anchor — { text, source_quote, attributed_source_id, kind_hint, ... }
+ * @param {Object} scope — { chunk, full_text, abstract } from anchor-source-scope
+ * @param {Object} [opts]
+ * @param {Function|null} [opts.judge] — async ({anchor, scope}) => {passes, ...}; null disables judge fallback
+ * @returns {Promise<{result: "PASS_VERBATIM"|"PASS_JUDGED"|"FAIL", scope_actually_matched: string|null, judge_response: object|null}>}
+ */
+export async function verifyAnchor(anchor, scope, opts = {}) {
+  if (!anchor || anchor.source_quote == null || anchor.source_quote === "") {
+    return { result: "FAIL", scope_actually_matched: null, judge_response: null };
+  }
+  const needle = normalizeForSubstring(anchor.source_quote);
+  if (!needle) {
+    return { result: "FAIL", scope_actually_matched: null, judge_response: null };
+  }
+  for (const scopeName of SCOPE_ORDER) {
+    const text = scope?.[scopeName];
+    if (!text) continue;
+    if (normalizeForSubstring(text).includes(needle)) {
+      return { result: "PASS_VERBATIM", scope_actually_matched: scopeName, judge_response: null };
+    }
+  }
+  // Substring failed across all scopes — try judge fallback.
+  const judge = opts.judge === undefined ? defaultJudge : opts.judge;
+  if (!judge) {
+    return { result: "FAIL", scope_actually_matched: null, judge_response: null };
+  }
+  let judgeResult;
+  try {
+    judgeResult = await judge({ anchor, scope });
+  } catch (err) {
+    return {
+      result: "FAIL",
+      scope_actually_matched: null,
+      judge_response: { passes: false, error: err.message || String(err) },
+    };
+  }
+  if (judgeResult?.passes) {
+    return {
+      result: "PASS_JUDGED",
+      scope_actually_matched: judgeResult.scope_used || null,
+      judge_response: judgeResult,
+    };
+  }
+  return { result: "FAIL", scope_actually_matched: null, judge_response: judgeResult };
+}
