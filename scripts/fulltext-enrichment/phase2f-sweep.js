@@ -84,15 +84,15 @@ const STRATEGIES = [
 // against significant PDF download + Grobid time on publisher-gated URLs
 // that mostly return anti-bot HTML. Net: ~8% loss of recoveries for ~25%
 // throughput gain.
-// CORE dropped 2026-04-26: empirical run showed 9.1% hit rate but 1640
-// transients on 6384 attempts — its 10-RPS Redis bucket was perpetually
-// saturated, blocking the whole row's processing. Without CORE, openalex
-// (78.6%) and s2 (77.0%) each cover most of the OA-URL space; the CORE
-// hits we're losing are ~9% × overlap-with-others, so net loss is small
-// while wall-clock per row drops substantially.
+// PASS1 strategy decisions (as of 2026-04-26 evening):
+//   - CORE dropped: 9.1% hit / 1640 transients / 6384 attempts; rate limit jam.
+//   - OpenAlex dropped: API returns 429 with retry-after=12688s (3.5 HOURS)
+//     once daily quota / prepaid USD hits 0. fetchWithRetry honored that and
+//     stalled all rows. Quota resets daily but we burn through fast under
+//     concurrent loads.
+// s2 alone has ~77% hit rate (empirical) on arXiv/preprint-heavy corpus.
 const STRATEGIES_PASS1 = [
   { name: 's2',       fn: fetchS2,       needsPdf: true  },
-  { name: 'openalex', fn: fetchOpenAlex, needsPdf: true  },
 ];
 
 // Per-strategy outcome counters for periodic stderr summary.

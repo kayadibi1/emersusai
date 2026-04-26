@@ -49,20 +49,27 @@ export async function fetchWithRetry(url, options = {}, retryConfig = {}) {
       throw e;
     }
 
-    // Honor Retry-After header (seconds, integer or HTTP-date)
+    // Honor Retry-After header (seconds or HTTP-date), but cap at 60s.
+    // Some APIs (OpenAlex when daily quota hit) return Retry-After=12688
+    // (3.5 HOURS) — sleeping for that pegs the whole worker. If the server
+    // really needs hours, we'd rather throw transient and let the caller
+    // back off / move on / drop the row to retry tomorrow.
+    const MAX_RETRY_AFTER_MS = 60_000;
     let waitMs = baseMs * Math.pow(2, attempt);
     const retryAfter = resp.headers.get('retry-after');
     if (retryAfter) {
       const asInt = parseInt(retryAfter, 10);
       if (!isNaN(asInt)) {
-        waitMs = Math.max(waitMs, asInt * 1000);
+        waitMs = Math.max(waitMs, Math.min(asInt * 1000, MAX_RETRY_AFTER_MS));
       } else {
         const asDate = Date.parse(retryAfter);
         if (!isNaN(asDate)) {
-          waitMs = Math.max(waitMs, asDate - Date.now());
+          waitMs = Math.max(waitMs, Math.min(asDate - Date.now(), MAX_RETRY_AFTER_MS));
         }
       }
     }
+    // Final safety belt — never sleep more than the cap regardless of math
+    if (waitMs > MAX_RETRY_AFTER_MS) waitMs = MAX_RETRY_AFTER_MS;
     // Drain body so the connection can be reused
     try { await resp.text(); } catch {}
     await sleep(waitMs);
