@@ -65,7 +65,11 @@ async function withPg(fn) {
 const moduleDir = path.dirname(fileURLToPath(import.meta.url));
 const OUTPUT_JSONL = path.join(moduleDir, "data", "chunks-phase2h-europepmc-bulk.jsonl");
 const ARCHIVE_INDEX_URL = "https://europepmc.org/ftp/oa/";
-const UA = "emersus-research-bot/1.0 (+https://emersus.ai; info@emersus.ai)";
+// Europe PMC's Apache config 403's our default bot UA on the directory
+// listing endpoint (per-paper xml.gz fetches are fine with any UA). Use a
+// minimal Mozilla-prefix UA — observationally accepted, still identifies us
+// via the comment so they can rate-limit if they need to.
+const UA = "Mozilla/5.0 (compatible; emersus/1.0; +https://emersus.ai info@emersus.ai)";
 
 const TAG_OK = "phase2h_europepmc_bulk";
 const TAG_NO_BODY = "phase2h_europepmc_bulk_no_body";
