@@ -30,40 +30,25 @@ import readline from "node:readline";
 import path from "node:path";
 import OpenAI from "openai";
 
-const DEFAULT_MODEL = process.env.OPENAI_FILTER_MODEL || "gpt-5.4-mini";
+const DEFAULT_MODEL = process.env.OPENAI_FILTER_MODEL || "gpt-5-mini";
 const DEFAULT_BATCH = 20;          // chunks per API call
 const DEFAULT_CONCURRENCY = 8;     // parallel API calls in flight
 const TRUNCATE_CONTENT_CHARS = 600; // sent to LLM per chunk
 const RETRY_MAX = 3;
 const RETRY_BACKOFF_MS = 2000;
 
-const SYSTEM_PROMPT = `You classify scientific paper text chunks for an evidence retrieval system focused on fitness, nutrition, and exercise science.
+// Trimmed prompt (~140 tokens vs the original ~1500). Keeps the
+// "when in doubt → EVIDENCE" bias since calibration showed the model
+// over-classifies methods sections as NOISE without that rule.
+const SYSTEM_PROMPT = `Classify each scientific chunk for a fitness/nutrition evidence retrieval system. Output one verdict per chunk: EVIDENCE or NOISE.
 
-For each numbered chunk, output exactly one verdict: EVIDENCE or NOISE.
+EVIDENCE: study-specific methods (reagents, protocols, doses, recruitment, data-processing rules), quantitative findings (effect sizes, p-values, CIs, %), authors' original interpretation/claims/mechanisms, substantive background that contributes analysis.
 
-WHEN IN DOUBT, output EVIDENCE. The cost of dropping useful methodology or background detail is higher than the cost of keeping a borderline chunk. Only mark NOISE when the chunk is clearly non-evidentiary by the strict definition below.
+NOISE: acknowledgments, funding, conflicts, ethics/consent statements, author contributions, data availability, trial-registration prose, statistical-software-only methods (e.g. "SPSS v26 was used"), citation-only paragraphs without authors' contribution, forward references to figures/tables without data, generic future-work hedging, online-content boilerplate, reference-list bleed-through.
 
-EVIDENCE (mark this when the chunk contains ANY of):
-- Study-specific methods that describe HOW the experiment, intervention, or analysis was actually carried out: specific reagents, doses, instruments, cell lines, protocols, antibodies, inclusion/exclusion rules, recruitment criteria with detail, data-processing steps, modeling specifics, imputation rules, software with task-specific configuration.
-- Quantitative findings (effect sizes, p-values, CIs, percentages, group differences, prevalence/incidence rates, mechanism counts).
-- Original interpretation by the authors of THIS paper (their claims, mechanisms, conclusions, recommendations, hypotheses about THEIR data).
-- Substantive scientific background where the authors are contributing analysis or framing, even if citations are present.
-- Specific clinical or experimental observations from this study or a closely related one being reviewed.
+When in doubt, output EVIDENCE.
 
-NOISE (mark this ONLY when the chunk is clearly one of):
-- Acknowledgments, thanks lists, funding statements, conflict declarations, ethics statements, consent language, author contribution lists, data availability statements, trial-registration prose.
-- Pure boilerplate that is generic across papers and contains no study-specific detail. Examples that ARE noise: "Statistical analyses were performed using SPSS v26 (IBM Corp, Armonk NY). p < 0.05 was considered statistically significant." — generic and could appear in any paper. Examples that are NOT noise: "We performed missing-value imputation using median values for variables with <10% missing data" — describes a study-specific decision.
-- Citation-only paragraphs that list references without the authors of THIS paper contributing analysis. NOTE: a paragraph that synthesizes prior work is EVIDENCE, even if heavily cited.
-- Forward references to figures/tables that don't include the data ("As shown in Fig. 3..." with no other content).
-- Limitations / future-work hedging that is purely meta-commentary without naming a specific finding or limitation. NOTE: "A limitation of our use of self-report dietary recall is that..." IS evidence; "Future studies should investigate..." is noise.
-- Online-content boilerplate ("Any methods, additional references, supplementary information..."), abstract repetition, table caption duplicates.
-- Reference-list bleed-through (chains of "Author et al., year" with no prose).
-- Cohort historical preamble that is NOT integrated into the current study's analysis.
-
-Format your response as exactly N lines, one per chunk, in this format:
-<index>: <VERDICT>
-
-Where <index> is the chunk number from the user message and <VERDICT> is exactly EVIDENCE or NOISE. No prose. No explanation. No extra text.`;
+Format: one line per chunk, "<index>: <VERDICT>", VERDICT exactly EVIDENCE or NOISE. No prose.`;
 
 function parseArgs(argv) {
   const a = {
