@@ -147,7 +147,9 @@ async function fetchWithRetry(url) {
 // Try bioRxiv first, then medRxiv. Returns { jatsxml: <url> } | null
 async function fetchPreprintMetadata(doi) {
   for (const server of ["biorxiv", "medrxiv"]) {
-    const url = `${API_BASE}/${server}/${encodeURIComponent(doi)}`;
+    // bioRxiv API expects the raw DOI with literal '/' — encodeURIComponent
+    // turns it into %2F which the server rejects (returns "no posts found").
+    const url = `${API_BASE}/${server}/${doi}`;
     const r = await fetchWithRetry(url);
     if (r.status !== 200 || !r.body) continue;
     let parsed;
