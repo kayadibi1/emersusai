@@ -46,9 +46,21 @@ import { Transform } from "node:stream";
 import zlib from "node:zlib";
 import https from "node:https";
 import { StringDecoder } from "node:string_decoder";
-import { withPg } from "../abstract-enrichment/lib/pg.js";
+import pg from "pg";
 import { parseJatsFullText } from "./lib/jats-parser.js";
 import { buildBodyChunks } from "./lib/fulltext-chunker.js";
+
+// Inline withPg — matches phase2f-sweep.js. Avoids the abstract-enrichment/lib/pg.js
+// re-export which is gitignored and not present on the deploy box.
+const _pool = new pg.Pool({
+  connectionString: process.env.SUPABASE_DB_URL || process.env.DATABASE_URL,
+  max: 10,
+  keepAlive: true,
+});
+async function withPg(fn) {
+  const client = await _pool.connect();
+  try { return await fn(client); } finally { client.release(); }
+}
 
 const moduleDir = path.dirname(fileURLToPath(import.meta.url));
 const OUTPUT_JSONL = path.join(moduleDir, "data", "chunks-phase2h-europepmc-bulk.jsonl");
@@ -392,6 +404,7 @@ async function main() {
   });
 
   await new Promise((r) => jsonlOut.end(r));
+  await _pool.end();
 }
 
 main().catch((err) => { console.error("[phase2h] FAILED:", err); process.exit(1); });
