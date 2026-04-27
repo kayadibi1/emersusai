@@ -204,75 +204,120 @@ async function main() {
   const out = fs.createWriteStream(args.output);
   const client = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-  // Collect inputs first (either reservoir-sampled or sequential).
-  let inputLines;
-  if (args.randomSample && Number.isFinite(args.maxRows)) {
-    console.log(`[grader] reservoir-sampling ${args.maxRows} from ${args.input}`);
-    inputLines = await reservoirSample(args.input, args.maxRows, mulberry32(args.seed));
-  } else {
-    inputLines = [];
-    for await (const line of streamLines(args.input, args.maxRows)) inputLines.push(line);
-  }
-  const total = inputLines.length;
-  console.log(`[grader] queued ${total} chunks for grading`);
-
-  // Build batches
-  const batches = [];
-  for (let i = 0; i < total; i += args.batchSize) {
-    const lines = inputLines.slice(i, i + args.batchSize);
-    const chunks = lines.map((l) => JSON.parse(l));
-    batches.push({ start: i, lines, chunks });
-  }
-  console.log(`[grader] ${batches.length} batches × ${args.batchSize} chunks each`);
-
-  // N-way concurrent worker pool over batches
-  let nextBatch = 0;
-  let completedBatches = 0;
   let counts = { EVIDENCE: 0, NOISE: 0, UNKNOWN: 0 };
   let totalUsageIn = 0, totalUsageOut = 0;
+  let completedBatches = 0;
+  let totalChunks = 0;
   const startedAt = Date.now();
   let lastLog = startedAt;
 
-  async function worker(workerId) {
-    while (true) {
-      const i = nextBatch++;
-      if (i >= batches.length) return;
-      const { lines, chunks } = batches[i];
-      const { decisions, usage } = await gradeBatch(client, args.model, chunks);
-      // Write each chunk with its decision attached
-      for (let j = 0; j < chunks.length; j++) {
-        const decision = decisions[j];
-        counts[decision] = (counts[decision] || 0) + 1;
-        out.write(JSON.stringify({ ...chunks[j], __decision: decision }) + "\n");
+  if (args.randomSample && Number.isFinite(args.maxRows)) {
+    // Random sample fits in memory (max ~tens of MB for typical maxRows)
+    console.log(`[grader] reservoir-sampling ${args.maxRows} from ${args.input}`);
+    const inputLines = await reservoirSample(args.input, args.maxRows, mulberry32(args.seed));
+    totalChunks = inputLines.length;
+    console.log(`[grader] queued ${totalChunks} chunks`);
+
+    // Build batches up front (small, in-memory)
+    const batches = [];
+    for (let i = 0; i < inputLines.length; i += args.batchSize) {
+      batches.push(inputLines.slice(i, i + args.batchSize).map((l) => JSON.parse(l)));
+    }
+    let nextBatch = 0;
+    async function worker() {
+      while (nextBatch < batches.length) {
+        const chunks = batches[nextBatch++];
+        await processBatch(chunks);
       }
-      if (usage) {
-        totalUsageIn += usage.prompt_tokens || 0;
-        totalUsageOut += usage.completion_tokens || 0;
+    }
+    await Promise.all(Array.from({ length: args.concurrency }, () => worker()));
+  } else {
+    // Streaming path — bounded memory regardless of input size.
+    // Producer pushes batches to a bounded queue; N workers consume.
+    const QUEUE_LIMIT = args.concurrency * 3;
+    const queue = [];
+    let inputDone = false;
+    const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+    async function producer() {
+      const rl = readline.createInterface({
+        input: fs.createReadStream(args.input),
+        crlfDelay: Infinity,
+      });
+      let batch = [];
+      let read = 0;
+      for await (const line of rl) {
+        if (read >= args.maxRows) break;
+        if (!line.trim()) continue;
+        read++;
+        try {
+          batch.push(JSON.parse(line));
+        } catch {
+          continue;
+        }
+        if (batch.length >= args.batchSize) {
+          while (queue.length >= QUEUE_LIMIT) await sleep(20);
+          queue.push(batch);
+          batch = [];
+        }
       }
-      completedBatches++;
-      const now = Date.now();
-      if (now - lastLog > 5000) {
-        lastLog = now;
-        const elapsed = Math.round((now - startedAt) / 1000);
-        const ratePerSec = (completedBatches * args.batchSize) / Math.max(elapsed, 1);
-        const remaining = batches.length - completedBatches;
-        const etaSec = Math.round(remaining * args.batchSize / Math.max(ratePerSec, 0.001));
-        console.log(
-          `[grader] batches ${completedBatches}/${batches.length} ` +
-          `evidence=${counts.EVIDENCE} noise=${counts.NOISE} unknown=${counts.UNKNOWN} ` +
-          `tok_in=${totalUsageIn} tok_out=${totalUsageOut} ` +
-          `rate=${ratePerSec.toFixed(0)}/s elapsed=${elapsed}s eta=${etaSec}s`
-        );
+      if (batch.length) {
+        while (queue.length >= QUEUE_LIMIT) await sleep(20);
+        queue.push(batch);
       }
+      inputDone = true;
+    }
+
+    async function worker() {
+      while (true) {
+        if (queue.length === 0) {
+          if (inputDone) return;
+          await sleep(20);
+          continue;
+        }
+        const chunks = queue.shift();
+        if (!chunks) continue;
+        await processBatch(chunks);
+      }
+    }
+
+    const producerP = producer();
+    const workers = Array.from({ length: args.concurrency }, () => worker());
+    await Promise.all([producerP, ...workers]);
+  }
+
+  await new Promise((r) => out.end(r));
+
+  async function processBatch(chunks) {
+    totalChunks += chunks.length;
+    const { decisions, usage } = await gradeBatch(client, args.model, chunks);
+    for (let j = 0; j < chunks.length; j++) {
+      const decision = decisions[j];
+      counts[decision] = (counts[decision] || 0) + 1;
+      out.write(JSON.stringify({ ...chunks[j], __decision: decision }) + "\n");
+    }
+    if (usage) {
+      totalUsageIn += usage.prompt_tokens || 0;
+      totalUsageOut += usage.completion_tokens || 0;
+    }
+    completedBatches++;
+    const now = Date.now();
+    if (now - lastLog > 5000) {
+      lastLog = now;
+      const elapsed = Math.round((now - startedAt) / 1000);
+      const ratePerSec = totalChunks / Math.max(elapsed, 1);
+      console.log(
+        `[grader] chunks=${totalChunks} batches=${completedBatches} ` +
+        `evidence=${counts.EVIDENCE} noise=${counts.NOISE} unknown=${counts.UNKNOWN} ` +
+        `tok_in=${totalUsageIn} tok_out=${totalUsageOut} ` +
+        `rate=${ratePerSec.toFixed(0)}/s elapsed=${elapsed}s`
+      );
     }
   }
 
-  await Promise.all(Array.from({ length: args.concurrency }, (_, i) => worker(i + 1)));
-  await new Promise((r) => out.end(r));
-
   const elapsed = Math.round((Date.now() - startedAt) / 1000);
   console.log(
-    `[grader] DONE total=${total} evidence=${counts.EVIDENCE} noise=${counts.NOISE} unknown=${counts.UNKNOWN} ` +
+    `[grader] DONE total=${totalChunks} evidence=${counts.EVIDENCE} noise=${counts.NOISE} unknown=${counts.UNKNOWN} ` +
     `tokens_in=${totalUsageIn} tokens_out=${totalUsageOut} elapsed=${elapsed}s`
   );
   if (totalUsageIn > 0) {
