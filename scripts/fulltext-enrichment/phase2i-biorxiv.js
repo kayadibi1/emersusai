@@ -82,9 +82,13 @@ function parseArgs(argv) {
 
 async function loadTargets(pg, args) {
   const limit = Number.isFinite(args.maxRows) ? args.maxRows : 100_000;
+  // Only date-pattern DOIs are bioRxiv/medRxiv preprints. The 10.1101/ prefix
+  // is shared with Cold Spring Harbor journals (gr, cshperspect, gad, sqb,
+  // cshlp etc.) — those need a different path. Pre-2019 bioRxiv used numeric
+  // IDs (10.1101/123456) which the API also doesn't accept.
   const { rows } = await pg.query(
     `SELECT pmid, doi FROM research_articles
-       WHERE doi LIKE '10.1101/%'
+       WHERE doi ~ '^10\.1101/[0-9]{4}\.[0-9]{2}\.[0-9]{2}'
          AND content_source IN ('abstract_only', 'phase2h_pmc_s3_notfound')
        ORDER BY pmid
        LIMIT $1`,
