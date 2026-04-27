@@ -883,6 +883,69 @@ function updateStreamingAssistantToolResults(history, threadId, createdAt, nextT
   });
 }
 
+// MQPV (mode-2 qualifier preservation verifier) helpers.
+// The server emits three SSE events between `prose_done` and `done`:
+//   - `verifying`: post-stream qualifier check is running. Show indicator.
+//   - `prose_updated`: a rewrite changed the prose. Replace in place.
+//   - `mqpv_done`: explicit terminator. Clear the verifying indicator.
+// Each helper patches only the trailing assistant placeholder identified by
+// `createdAt`, mirroring updateStreamingAssistantText/ToolResults above.
+function updateStreamingAssistantVerifying(history, threadId, createdAt, verifying) {
+  return patchThreadInHistory(history, threadId, (thread) => {
+    const messages = Array.isArray(thread.messages) ? thread.messages : [];
+    const lastIdx = messages.length - 1;
+    if (lastIdx < 0) return thread;
+    const lastMessage = messages[lastIdx];
+    if (lastMessage.role !== "assistant" || lastMessage.createdAt !== createdAt) {
+      return thread;
+    }
+    if (!!lastMessage.verifying === !!verifying) return thread;
+    const nextMessages = [...messages];
+    nextMessages[lastIdx] = normalizeMessageRecord({
+      ...lastMessage,
+      verifying: !!verifying,
+    });
+    return { ...thread, messages: nextMessages };
+  });
+}
+
+function updateStreamingAssistantProseRewrite(history, threadId, createdAt, nextText) {
+  return patchThreadInHistory(history, threadId, (thread) => {
+    const messages = Array.isArray(thread.messages) ? thread.messages : [];
+    const lastIdx = messages.length - 1;
+    if (lastIdx < 0) return thread;
+    const lastMessage = messages[lastIdx];
+    if (lastMessage.role !== "assistant" || lastMessage.createdAt !== createdAt) {
+      return thread;
+    }
+    const nextMessages = [...messages];
+    nextMessages[lastIdx] = normalizeMessageRecord({
+      ...lastMessage,
+      text: nextText,
+      plainText: nextText,
+      rewrittenByMqpv: true,
+    });
+    return { ...thread, messages: nextMessages };
+  });
+}
+
+function updateStreamingAssistantMqpvDone(history, threadId, createdAt, { error = false } = {}) {
+  return patchThreadInHistory(history, threadId, (thread) => {
+    const messages = Array.isArray(thread.messages) ? thread.messages : [];
+    const lastIdx = messages.length - 1;
+    if (lastIdx < 0) return thread;
+    const lastMessage = messages[lastIdx];
+    if (lastMessage.role !== "assistant" || lastMessage.createdAt !== createdAt) {
+      return thread;
+    }
+    const nextMessages = [...messages];
+    const next = { ...lastMessage, verifying: false };
+    if (error) next.mqpvError = true;
+    nextMessages[lastIdx] = normalizeMessageRecord(next);
+    return { ...thread, messages: nextMessages };
+  });
+}
+
 function normalizeConfidence(confidence) {
   if (typeof confidence === "number") {
     const score = Math.max(0, Math.min(confidence, 1));
@@ -3544,6 +3607,24 @@ const Message = React.memo(function Message({
           : message.html
             ? h("div", { className: "message-html", dangerouslySetInnerHTML: { __html: message.html } })
             : h(TextBlock, { text: readMessageText(message), role: message.role, typewrite, threadId, sources: message.sources }),
+      // MQPV: subtle "checking sources…" indicator while server-side qualifier
+      // verification runs. Cleared by `mqpv_done` (always, even on error).
+      isAssistant && message.verifying
+        ? h(
+            "div",
+            {
+              className: "mqpv-verifying-indicator",
+              "aria-live": "polite",
+              style: {
+                fontSize: "0.85em",
+                color: "#888",
+                fontStyle: "italic",
+                marginTop: "0.25em",
+              },
+            },
+            "checking sources…"
+          )
+        : null,
       trailingOrb),
     showSourcesFooter && message.grounding
       ? h(GroundingBadge, { grounding: message.grounding })
@@ -4664,6 +4745,41 @@ export function ChatApp() {
               );
             } else if (event.type === "tool_error") {
               toolErrors.push({ name: event.name, errors: event.errors });
+            } else if (event.type === "verifying") {
+              // MQPV: server is running post-stream qualifier verification.
+              // Surface a subtle "checking sources" indicator on the just-rendered
+              // assistant placeholder. Cleared by `mqpv_done`.
+              setChatHistory((prev) =>
+                updateStreamingAssistantVerifying(prev, persistedThread.id, streamCreatedAt, true)
+              );
+            } else if (event.type === "prose_updated" && typeof event.content === "string") {
+              // MQPV: server completed a rewrite that changed the prose.
+              // Replace the placeholder's text in place — same createdAt key,
+              // same scroll position, no re-typewrite (typewrite is already off
+              // for SSE turns, see streamingMessageKey logic above).
+              accumulatedProse = event.content;
+              renderedProse = event.content;
+              if (proseFlushTimer != null) {
+                clearTimeout(proseFlushTimer);
+                proseFlushTimer = null;
+              }
+              setChatHistory((prev) =>
+                updateStreamingAssistantProseRewrite(
+                  prev,
+                  persistedThread.id,
+                  streamCreatedAt,
+                  event.content
+                )
+              );
+            } else if (event.type === "mqpv_done") {
+              // MQPV: explicit terminator. Always clears the verifying flag,
+              // regardless of whether a rewrite happened. `error: true` means
+              // MQPV crashed (changed will be false in that case).
+              setChatHistory((prev) =>
+                updateStreamingAssistantMqpvDone(prev, persistedThread.id, streamCreatedAt, {
+                  error: event.error === true,
+                })
+              );
             } else if (event.type === "done") {
               sseSources = Array.isArray(event.sources) ? event.sources : [];
               sseUsage = event.usage || {};
