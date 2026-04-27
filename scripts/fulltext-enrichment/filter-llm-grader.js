@@ -167,21 +167,21 @@ async function gradeBatch(client, model, batch) {
   let lastErr = null;
   for (let attempt = 0; attempt < RETRY_MAX; attempt++) {
     try {
-      const isReasoning = /^(gpt-5|o\d|gpt-5\.1)/i.test(model);
+      const isReasoning = /^(gpt-5|o\d)/i.test(model);
+      // Reasoning models burn hidden chain-of-thought against max_completion_tokens.
+      // Bump headroom rather than trying to suppress thinking — reasoning_effort
+      // schema varies across model families (gpt-5-mini accepts 'minimal',
+      // gpt-5.4-mini wants 'none'/'low'/'medium'/'high'/'xhigh', others differ).
+      // Letting reasoning happen at default with a large completion budget is
+      // model-agnostic and cheap given the small visible output.
       const params = {
         model,
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
           { role: "user", content: userPrompt },
         ],
-        // gpt-5/o-series reasoning models burn tokens on hidden chain-of-thought
-        // that count against max_completion_tokens. Need significant headroom
-        // beyond the visible output, plus reasoning_effort=minimal to suppress
-        // most thinking. Visible output for binary classification is tiny
-        // (~10 tok per chunk); but reasoning can balloon.
         max_completion_tokens: isReasoning ? 4000 : 8 * batch.length + 64,
       };
-      if (isReasoning) params.reasoning_effort = "minimal";
       const res = await client.chat.completions.create(params);
       const text = res.choices?.[0]?.message?.content || "";
       const decisions = parseDecisions(text, batch.length);
