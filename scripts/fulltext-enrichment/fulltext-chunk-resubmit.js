@@ -37,7 +37,10 @@ const DATA_DIR = path.join(moduleDir, "data");
 const STATE_FILE = path.join(DATA_DIR, "fulltext-chunk-batch-state.json");
 
 const POLL_INTERVAL_MS = 30_000;     // poll every 30s
-const MAX_IN_QUEUE = 2;              // max simultaneous in_progress + validating batches
+// Each batch ≈ 12M tokens (50K reqs × ~250 tok for text-embedding-3-small).
+// 100M cap fits ~7 batches; we saw 5 simultaneously without rejection.
+// Use 5 for safety margin (60M enqueued, headroom for new batches to validate).
+const MAX_IN_QUEUE = 5;
 const ACTIVE_STATUSES = new Set(["validating", "in_progress", "finalizing"]);
 const TERMINAL_OK = new Set(["completed"]);
 const TERMINAL_BAD = new Set(["failed", "expired", "cancelled"]);
