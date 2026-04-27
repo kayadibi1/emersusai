@@ -37,7 +37,8 @@ import OpenAI from "openai";
 const DEFAULT_MODEL = process.env.OPENAI_FILTER_MODEL || "gpt-5.4-mini";
 const DEFAULT_BATCH = 20;             // chunks per LLM request
 const TRUNCATE_CONTENT_CHARS = 600;
-const REQUESTS_PER_BATCH_FILE = 45_000; // stay below 50K hard limit
+const REQUESTS_PER_BATCH_FILE = 50_000;     // OpenAI hard limit
+const MAX_BATCH_FILE_BYTES = 180 * 1024 * 1024; // OpenAI hard limit is 200MB
 const POLL_INTERVAL_MS = 60_000;       // 1 min polls
 
 const SYSTEM_PROMPT = `You classify scientific paper text chunks for an evidence retrieval system focused on fitness, nutrition, and exercise science.
@@ -125,14 +126,20 @@ async function buildBatchFiles(args) {
 
   const reqFiles = [];
   const chunkFiles = [];
+  const perFileRequestCount = [];
   let fileIndex = 0;
   let requestCount = 0;
+  let bytesInFile = 0;
   let totalChunks = 0;
+  let totalRequests = 0;
   let currentReqOut = null;
   let currentChunkOut = null;
 
   function openNextFile() {
-    if (currentReqOut) currentReqOut.end();
+    if (currentReqOut) {
+      currentReqOut.end();
+      perFileRequestCount.push(requestCount);
+    }
     if (currentChunkOut) currentChunkOut.end();
     const reqPath = path.join(requestDir, `requests-${fileIndex}.jsonl`);
     const chunkPath = path.join(chunksDir, `chunks-${fileIndex}.jsonl`);
@@ -142,6 +149,7 @@ async function buildBatchFiles(args) {
     chunkFiles.push(chunkPath);
     fileIndex++;
     requestCount = 0;
+    bytesInFile = 0;
   }
 
   openNextFile();
@@ -168,7 +176,6 @@ async function buildBatchFiles(args) {
   if (batch.length) writeBatch(batch);
 
   function writeBatch(chunks) {
-    if (requestCount >= REQUESTS_PER_BATCH_FILE) openNextFile();
     const customId = `batch-${fileIndex - 1}-req-${requestCount}`;
     const userPrompt = buildUserPrompt(chunks);
     const request = {
@@ -184,24 +191,35 @@ async function buildBatchFiles(args) {
         max_completion_tokens: 8 * chunks.length + 64,
       },
     };
-    currentReqOut.write(JSON.stringify(request) + "\n");
-    currentChunkOut.write(JSON.stringify({ custom_id: customId, chunks }) + "\n");
+    const requestLine = JSON.stringify(request) + "\n";
+    const requestBytes = Buffer.byteLength(requestLine, "utf8");
+
+    // Rotate before writing if either limit would be exceeded
+    if (requestCount > 0 && (requestCount >= REQUESTS_PER_BATCH_FILE || bytesInFile + requestBytes > MAX_BATCH_FILE_BYTES)) {
+      openNextFile();
+      // Re-stamp custom_id with new fileIndex
+      request.custom_id = `batch-${fileIndex - 1}-req-${requestCount}`;
+      const newLine = JSON.stringify(request) + "\n";
+      currentReqOut.write(newLine);
+      currentChunkOut.write(JSON.stringify({ custom_id: request.custom_id, chunks }) + "\n");
+      bytesInFile += Buffer.byteLength(newLine, "utf8");
+    } else {
+      currentReqOut.write(requestLine);
+      currentChunkOut.write(JSON.stringify({ custom_id: customId, chunks }) + "\n");
+      bytesInFile += requestBytes;
+    }
     requestCount++;
+    totalRequests++;
     totalChunks += chunks.length;
   }
 
-  if (currentReqOut) await new Promise((r) => currentReqOut.end(r));
+  if (currentReqOut) {
+    perFileRequestCount.push(requestCount);
+    await new Promise((r) => currentReqOut.end(r));
+  }
   if (currentChunkOut) await new Promise((r) => currentChunkOut.end(r));
 
-  return { reqFiles, chunkFiles, totalChunks, totalRequests: reqFiles.reduce((s, f) => s + countLines(f), 0) };
-}
-
-function countLines(filePath) {
-  // Quick line count for reporting.
-  let n = 0;
-  const data = fs.readFileSync(filePath, "utf8");
-  for (let i = 0; i < data.length; i++) if (data.charCodeAt(i) === 10) n++;
-  return n;
+  return { reqFiles, chunkFiles, totalChunks, totalRequests, perFileRequestCount };
 }
 
 async function submitBatches(client, reqFiles) {
