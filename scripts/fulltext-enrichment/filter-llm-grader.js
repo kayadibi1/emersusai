@@ -41,22 +41,24 @@ const SYSTEM_PROMPT = `You classify scientific paper text chunks for an evidence
 
 For each numbered chunk, output exactly one verdict: EVIDENCE or NOISE.
 
-EVIDENCE = the chunk contains at least one of:
-- Study-specific methods (intervention details, recruitment criteria specific to THIS study, study design specifics)
-- Quantitative findings (effect sizes, p-values, CIs, percentages, group differences, rates)
-- Original interpretation by the authors of THIS paper (their claims, mechanisms, conclusions)
-- Substantive scientific background where the authors actually contribute interpretation, not pure citation review
+WHEN IN DOUBT, output EVIDENCE. The cost of dropping useful methodology or background detail is higher than the cost of keeping a borderline chunk. Only mark NOISE when the chunk is clearly non-evidentiary by the strict definition below.
 
-NOISE = the chunk is one of:
-- Acknowledgments, thanks, funding statements, conflict declarations, ethics statements, consent language, author contributions, data availability statements, trial registration prose
-- Pure statistical-software citations (SPSS, Stata, R, GraphPad, MATLAB) without study-specific detail
-- Generic recruitment / power-analysis prose lacking study-specific design choice
-- Citation-only paragraphs listing other papers without the authors of THIS paper contributing interpretation
-- Forward references to figures/tables that don't include the data
-- Limitations / future-work hedging that is meta-commentary without specific finding
-- Cohort historical preamble ("The X cohort was established in 1976...")
-- Reference list bleed-through (chains of "Author et al., year")
-- Boilerplate study-design preamble repeated verbatim across many papers (e.g. "We searched PubMed, Embase, and Cochrane databases using the following terms...")
+EVIDENCE (mark this when the chunk contains ANY of):
+- Study-specific methods that describe HOW the experiment, intervention, or analysis was actually carried out: specific reagents, doses, instruments, cell lines, protocols, antibodies, inclusion/exclusion rules, recruitment criteria with detail, data-processing steps, modeling specifics, imputation rules, software with task-specific configuration.
+- Quantitative findings (effect sizes, p-values, CIs, percentages, group differences, prevalence/incidence rates, mechanism counts).
+- Original interpretation by the authors of THIS paper (their claims, mechanisms, conclusions, recommendations, hypotheses about THEIR data).
+- Substantive scientific background where the authors are contributing analysis or framing, even if citations are present.
+- Specific clinical or experimental observations from this study or a closely related one being reviewed.
+
+NOISE (mark this ONLY when the chunk is clearly one of):
+- Acknowledgments, thanks lists, funding statements, conflict declarations, ethics statements, consent language, author contribution lists, data availability statements, trial-registration prose.
+- Pure boilerplate that is generic across papers and contains no study-specific detail. Examples that ARE noise: "Statistical analyses were performed using SPSS v26 (IBM Corp, Armonk NY). p < 0.05 was considered statistically significant." — generic and could appear in any paper. Examples that are NOT noise: "We performed missing-value imputation using median values for variables with <10% missing data" — describes a study-specific decision.
+- Citation-only paragraphs that list references without the authors of THIS paper contributing analysis. NOTE: a paragraph that synthesizes prior work is EVIDENCE, even if heavily cited.
+- Forward references to figures/tables that don't include the data ("As shown in Fig. 3..." with no other content).
+- Limitations / future-work hedging that is purely meta-commentary without naming a specific finding or limitation. NOTE: "A limitation of our use of self-report dietary recall is that..." IS evidence; "Future studies should investigate..." is noise.
+- Online-content boilerplate ("Any methods, additional references, supplementary information..."), abstract repetition, table caption duplicates.
+- Reference-list bleed-through (chains of "Author et al., year" with no prose).
+- Cohort historical preamble that is NOT integrated into the current study's analysis.
 
 Format your response as exactly N lines, one per chunk, in this format:
 <index>: <VERDICT>
