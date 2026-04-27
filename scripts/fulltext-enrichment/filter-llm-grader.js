@@ -152,18 +152,29 @@ async function gradeBatch(client, model, batch) {
   let lastErr = null;
   for (let attempt = 0; attempt < RETRY_MAX; attempt++) {
     try {
-      const res = await client.chat.completions.create({
+      const isReasoning = /^(gpt-5|o\d|gpt-5\.1)/i.test(model);
+      const params = {
         model,
         messages: [
           { role: "system", content: SYSTEM_PROMPT },
           { role: "user", content: userPrompt },
         ],
-        // gpt-5.4 family rejects `max_tokens`, accepts `max_completion_tokens`.
-        // Fixed temperature support varies by model — omit and let the API default.
-        max_completion_tokens: 8 * batch.length + 64,
-      });
+        // gpt-5/o-series reasoning models burn tokens on hidden chain-of-thought
+        // that count against max_completion_tokens. Need significant headroom
+        // beyond the visible output, plus reasoning_effort=minimal to suppress
+        // most thinking. Visible output for binary classification is tiny
+        // (~10 tok per chunk); but reasoning can balloon.
+        max_completion_tokens: isReasoning ? 4000 : 8 * batch.length + 64,
+      };
+      if (isReasoning) params.reasoning_effort = "minimal";
+      const res = await client.chat.completions.create(params);
       const text = res.choices?.[0]?.message?.content || "";
       const decisions = parseDecisions(text, batch.length);
+      // Debug: log first failed batch so we can see what the model actually returned
+      if (decisions.every((d) => d === "UNKNOWN") && !globalThis.__loggedSampleResponse) {
+        globalThis.__loggedSampleResponse = true;
+        console.error(`[grader] DEBUG sample response for unparseable batch (model=${model}):\n${JSON.stringify(res, null, 2).slice(0, 1500)}`);
+      }
       return { decisions, usage: res.usage };
     } catch (err) {
       lastErr = err;
