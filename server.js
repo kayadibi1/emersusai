@@ -1,4 +1,12 @@
-import "dotenv/config";
+// Load .env with override:true so file values WIN over inherited process.env.
+// Required because pm2's `--update-env` snapshots the spawning shell's env
+// at restart time but doesn't reload the .env file. Without override, vars
+// added to .env after the pm2 daemon was originally started never propagate
+// to emersus-api (silently observed 2026-04-26: GROUNDING_SAMPLE_RATE,
+// CHAT_HYDE_ENABLED, CHAT_ZERANK_RERANK_ENABLED were all in .env but absent
+// from the running process — sampling never wrote rows for weeks).
+import dotenv from "dotenv";
+dotenv.config({ override: true });
 // Initialize Sentry BEFORE any other import so its auto-instrumentation can
 // hook into express/http/etc. No-op when SENTRY_DSN is unset.
 import { initSentry, initPostHog, shutdownAnalytics, Sentry } from "./api/lib/analytics.js";
