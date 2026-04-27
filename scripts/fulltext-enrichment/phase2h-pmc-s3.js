@@ -94,11 +94,11 @@ async function loadTargets(pg, args) {
        LIMIT $1`,
     [limit]
   );
-  // Return [{pmid, pmcid_str}] — pmcid_str like "PMC10000000" (numeric form
-  // built into the URL path).
+  // Return [{pmid, pmcidStr}] — pmcidStr always normalized to "PMC{digits}"
+  // for the S3 URL. DB has two formats: "PMC10000143" and "10000143".
   return rows
     .map((r) => {
-      const m = String(r.pmcid).match(/^PMC(\d+)$/i);
+      const m = String(r.pmcid).match(/^(?:PMC)?(\d+)$/i);
       if (!m) return null;
       return { pmid: Number(r.pmid), pmcidStr: `PMC${m[1]}` };
     })
