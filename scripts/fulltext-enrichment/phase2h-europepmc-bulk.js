@@ -32,10 +32,13 @@
 //     > ~/phase2h-europepmc-bulk.log 2>&1 &
 //
 // Flags:
+//   --concurrency=N    parallel archive workers (default 8). Single-stream from
+//                      Europe PMC is ~1.8 MB/s; 4-stream measured ~10.7 MB/s
+//                      aggregate; 8 streams should approach 20+ MB/s.
 //   --max-archives=N   limit number of archives processed (debug)
 //   --max-rows=N       limit total target PMCIDs (debug)
 //   --dry-run          parse + chunk but skip DB writes + JSONL append
-//   --resume           skip target PMCIDs already promoted past abstract_only
+//   --resume           no-op (idempotent by content_source filter)
 
 import "dotenv/config";
 import fs from "node:fs";
@@ -50,17 +53,14 @@ import pg from "pg";
 import { parseJatsFullText } from "./lib/jats-parser.js";
 import { buildBodyChunks } from "./lib/fulltext-chunker.js";
 
-// Inline withPg — matches phase2f-sweep.js. Avoids the abstract-enrichment/lib/pg.js
-// re-export which is gitignored and not present on the deploy box.
+// Use the pool directly so concurrent workers' query() calls actually parallelize
+// across distinct connections. The matching phase2f-sweep.js wraps a single
+// client because it runs serially; we don't.
 const _pool = new pg.Pool({
   connectionString: process.env.SUPABASE_DB_URL || process.env.DATABASE_URL,
-  max: 10,
+  max: 16,
   keepAlive: true,
 });
-async function withPg(fn) {
-  const client = await _pool.connect();
-  try { return await fn(client); } finally { client.release(); }
-}
 
 const moduleDir = path.dirname(fileURLToPath(import.meta.url));
 const OUTPUT_JSONL = path.join(moduleDir, "data", "chunks-phase2h-europepmc-bulk.jsonl");
@@ -81,10 +81,11 @@ const DB_FLUSH_EVERY = 200;       // batch DB writes per N successes
 const ARTICLE_BUFFER_MAX = 8 * 1024 * 1024;  // 8 MB safety cap for any single article
 
 function parseArgs(argv) {
-  const a = { maxArchives: Infinity, maxRows: Infinity, dryRun: false, resume: false };
+  const a = { concurrency: 8, maxArchives: Infinity, maxRows: Infinity, dryRun: false, resume: false };
   for (const raw of argv) {
     const [k, v] = raw.split("=");
-    if (k === "--max-archives") a.maxArchives = Number(v) || a.maxArchives;
+    if (k === "--concurrency") a.concurrency = Math.max(1, Number(v) || a.concurrency);
+    else if (k === "--max-archives") a.maxArchives = Number(v) || a.maxArchives;
     else if (k === "--max-rows") a.maxRows = Number(v) || a.maxRows;
     else if (k === "--dry-run") a.dryRun = true;
     else if (k === "--resume") a.resume = true;
@@ -339,7 +340,8 @@ async function main() {
   fs.mkdirSync(path.dirname(OUTPUT_JSONL), { recursive: true });
   const jsonlOut = fs.createWriteStream(OUTPUT_JSONL, { flags: "a" });
 
-  await withPg(async (pg) => {
+  const pg = _pool;
+  {
     const targetsByPmcid = await loadTargetPmcids(pg, args);
     console.log(`[phase2h] target_pmcids=${targetsByPmcid.size}`);
     if (!targetsByPmcid.size) {
@@ -369,20 +371,41 @@ async function main() {
     };
 
     const started = Date.now();
-    for (let i = 0; i < truncated.length; i++) {
-      const p = truncated[i];
-      try {
-        await processArchive(p, pg, jsonlOut, stats, args);
-      } catch (err) {
-        console.error(`[phase2h] archive=${p.archive.filename} FAILED: ${err.message}`);
+    const concurrency = Math.min(args.concurrency, truncated.length);
+    console.log(`[phase2h] launching ${concurrency} parallel archive workers`);
+
+    // Shared cursor — workers pull next index. Each archive's full lifecycle
+    // (HTTPS GET → gunzip → split → parse → DB writes) runs inside one worker.
+    // No shared writers across workers besides:
+    //   - jsonlOut: writeStream.write() of <PIPE_BUF=4KB lines is atomic on POSIX
+    //   - stats: integer counter increments are atomic in single-threaded JS
+    //   - pg pool: 10 connections, each archive ends with one batch UPDATE
+    let nextIndex = 0;
+    let completed = 0;
+    async function worker(workerId) {
+      while (true) {
+        const i = nextIndex++;
+        if (i >= truncated.length) return;
+        const p = truncated[i];
+        try {
+          await processArchive(p, pg, jsonlOut, stats, args);
+        } catch (err) {
+          console.error(`[phase2h] worker=${workerId} archive=${p.archive.filename} FAILED: ${err.message}`);
+        }
+        completed++;
+        const elapsed = Math.round((Date.now() - started) / 1000);
+        const rate = completed / Math.max(elapsed, 1);
+        const etaSec = Math.round((truncated.length - completed) / Math.max(rate, 0.001));
+        console.log(
+          `[phase2h] progress ${completed}/${truncated.length} ` +
+          `ok=${stats.totalOk} no_body=${stats.totalNoBody} short=${stats.totalShort} ` +
+          `notfound=${stats.totalNotfound} chunks=${stats.totalChunks} ` +
+          `elapsed=${elapsed}s eta=${etaSec}s`
+        );
       }
-      const elapsed = Math.round((Date.now() - started) / 1000);
-      console.log(
-        `[phase2h] progress ${i + 1}/${truncated.length} ` +
-        `ok=${stats.totalOk} no_body=${stats.totalNoBody} short=${stats.totalShort} ` +
-        `notfound=${stats.totalNotfound} chunks=${stats.totalChunks} elapsed=${elapsed}s`
-      );
     }
+
+    await Promise.all(Array.from({ length: concurrency }, (_, i) => worker(i + 1)));
 
     // PMCIDs that the directory listing simply doesn't cover (e.g. our DB has
     // a PMCID that isn't in the OA subset at all). Tag them as notfound.
@@ -405,7 +428,7 @@ async function main() {
       `no_body=${stats.totalNoBody} short=${stats.totalShort} ` +
       `notfound=${stats.totalNotfound} chunks=${stats.totalChunks}`
     );
-  });
+  }
 
   await new Promise((r) => jsonlOut.end(r));
   await _pool.end();
