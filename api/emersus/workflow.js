@@ -62,7 +62,12 @@ async function maybeSampleGroundingTurn(ctx) {
       mode2_rewrite_latency_ms: ctx.mode2?.rewrite_latency_ms ?? null,
       mode2_total_latency_ms: ctx.mode2?.total_latency_ms ?? null,
       mode2_qualifiers_dropped_breakdown: ctx.mode2?.qualifiers_dropped_breakdown || null,
-      mode2_pre_prose: ctx.mode2_pre_prose ? String(ctx.mode2_pre_prose).slice(0, 16000) : null,
+      // Only store mode2_pre_prose when it differs from post_prose (rewrite happened).
+      // Saves ~16KB per row on the ~30% of MQPV-on chats with no rewrite.
+      mode2_pre_prose:
+        ctx.mode2_pre_prose && ctx.mode2_pre_prose !== ctx.mode2_post_prose
+          ? String(ctx.mode2_pre_prose).slice(0, 16000)
+          : null,
       mode2_post_prose: ctx.mode2_post_prose ? String(ctx.mode2_post_prose).slice(0, 16000) : null,
       mode2_validation_json: ctx.mode2?.validation_json || null,
     });
