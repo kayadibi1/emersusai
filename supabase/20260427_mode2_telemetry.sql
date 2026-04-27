@@ -33,3 +33,10 @@ CREATE INDEX IF NOT EXISTS idx_chat_grounding_samples_mode2_enabled
 COMMENT ON COLUMN chat_grounding_samples.synthetic IS 'true = bench-generated row; false = real-prod sampled row';
 COMMENT ON COLUMN chat_grounding_samples.mode2_enabled IS 'whether the MQPV pipeline ran for this chat';
 COMMENT ON COLUMN chat_grounding_samples.mode2_qualifiers_dropped_breakdown IS '{[qualifier_type]: count} aggregated across all claims this chat';
+COMMENT ON COLUMN chat_grounding_samples.mode2_extraction_cost_usd IS 'USD cost of the qualifier-extraction phase; NULL if MQPV did not run';
+COMMENT ON COLUMN chat_grounding_samples.mode2_validation_cost_usd IS 'USD cost of validation calls (initial + post-rewrite); NULL if MQPV did not run';
+COMMENT ON COLUMN chat_grounding_samples.mode2_rewrite_cost_usd IS 'USD cost summed across rewrite passes; NULL if no rewrite triggered';
+COMMENT ON COLUMN chat_grounding_samples.mode2_extraction_latency_ms IS 'wall-clock milliseconds for the parallel extraction phase; NULL if MQPV did not run';
+COMMENT ON COLUMN chat_grounding_samples.mode2_validation_latency_ms IS 'cumulative wall-clock milliseconds across validation calls; NULL if MQPV did not run';
+COMMENT ON COLUMN chat_grounding_samples.mode2_rewrite_latency_ms IS 'cumulative wall-clock milliseconds across rewrite passes; NULL if no rewrite triggered';
+COMMENT ON COLUMN chat_grounding_samples.mode2_total_latency_ms IS 'total post-stream MQPV latency end-to-end; NULL if MQPV did not run';
