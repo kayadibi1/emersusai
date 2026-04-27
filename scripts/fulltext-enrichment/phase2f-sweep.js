@@ -90,9 +90,10 @@ const STRATEGIES = [
 //     once daily quota / prepaid USD hits 0. fetchWithRetry honored that and
 //     stalled all rows. Quota resets daily but we burn through fast under
 //     concurrent loads.
-// s2 alone has ~77% hit rate (empirical) on arXiv/preprint-heavy corpus.
+// 2026-04-27 00:00 UTC: OpenAlex re-enabled — daily prepaid USD quota reset.
 const STRATEGIES_PASS1 = [
   { name: 's2',       fn: fetchS2,       needsPdf: true  },
+  { name: 'openalex', fn: fetchOpenAlex, needsPdf: true  },
 ];
 
 // Per-strategy outcome counters for periodic stderr summary.
