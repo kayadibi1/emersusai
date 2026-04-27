@@ -171,8 +171,9 @@ async function gradeBatch(client, model, batch) {
           { role: "system", content: SYSTEM_PROMPT },
           { role: "user", content: userPrompt },
         ],
-        temperature: 0,
-        max_tokens: 8 * batch.length + 32,  // ~8 tokens per "<i>: EVIDENCE\n" + slack
+        // gpt-5.4 family rejects `max_tokens`, accepts `max_completion_tokens`.
+        // Fixed temperature support varies by model — omit and let the API default.
+        max_completion_tokens: 8 * batch.length + 64,
       });
       const text = res.choices?.[0]?.message?.content || "";
       const decisions = parseDecisions(text, batch.length);
