@@ -47,6 +47,24 @@ async function maybeSampleGroundingTurn(ctx) {
       answer: String(ctx.prose || "").slice(0, 16000),
       grounding_json: ctx.grounding || null,
       model: ctx._synthesisModel || null,
+      // MQPV telemetry (null when MQPV didn't run)
+      synthetic: false,
+      mode2_enabled: !!ctx.mode2,
+      mode2_rewrites_attempted: ctx.mode2?.rewrites_attempted ?? null,
+      mode2_initial_failures: ctx.mode2?.initial_failures ?? null,
+      mode2_after_r1_failures: ctx.mode2?.after_r1_failures ?? null,
+      mode2_final_failures: ctx.mode2?.final_failures ?? null,
+      mode2_extraction_cost_usd: ctx.mode2?.extraction_cost_usd ?? null,
+      mode2_validation_cost_usd: ctx.mode2?.validation_cost_usd ?? null,
+      mode2_rewrite_cost_usd: ctx.mode2?.rewrite_cost_usd ?? null,
+      mode2_extraction_latency_ms: ctx.mode2?.extraction_latency_ms ?? null,
+      mode2_validation_latency_ms: ctx.mode2?.validation_latency_ms ?? null,
+      mode2_rewrite_latency_ms: ctx.mode2?.rewrite_latency_ms ?? null,
+      mode2_total_latency_ms: ctx.mode2?.total_latency_ms ?? null,
+      mode2_qualifiers_dropped_breakdown: ctx.mode2?.qualifiers_dropped_breakdown || null,
+      mode2_pre_prose: ctx.mode2_pre_prose ? String(ctx.mode2_pre_prose).slice(0, 16000) : null,
+      mode2_post_prose: ctx.mode2_post_prose ? String(ctx.mode2_post_prose).slice(0, 16000) : null,
+      mode2_validation_json: ctx.mode2?.validation_json || null,
     });
   } catch (err) {
     console.warn("[workflow] grounding sample insert failed:", err?.message || err);

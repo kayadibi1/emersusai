@@ -5,6 +5,8 @@ import { isExtractorEnabled } from "./memory-flags.js";
 import { verifyAnswerGrounding } from "./grounding-verifier.js";
 import { groundingEnforcementEnabled } from "./prompt.js";
 import { sanitizeWidgetPayload } from "../../../shared/widget-v2/payload-sanitizer.js";
+import { runMode2Pipeline } from "./mode2-pipeline.js";
+import { mode2VerifierEnabled } from "./mode2-flags.js";
 
 export function parseSSELine(line) {
   const trimmed = String(line).trim();
@@ -510,6 +512,37 @@ export async function stream(ctx, res) {
     mode: groundingEnforcementEnabled() ? "citation" : "legacy",
   });
 
+  // Mode-2 Qualifier-Preservation Verifier (MQPV).
+  // Spec: docs/superpowers/specs/2026-04-26-mode2-qualifier-preservation-design.md
+  // Runs after grounding verifier; rewrites prose if cited claims dropped
+  // source qualifiers. Flag-gated (default off).
+  if (mode2VerifierEnabled() && (ctx.evidence?.items?.length || 0) > 0) {
+    // Tell the client we're verifying so it can show a "checking sources" indicator
+    // on the just-streamed prose.
+    sendSSE(res, { type: "verifying" });
+    try {
+      const mqpv = await runMode2Pipeline(ctx);
+      ctx.mode2 = mqpv.telemetry;
+      ctx.mode2_pre_prose = ctx.prose;
+      if (mqpv.rewritten_prose) {
+        ctx.prose = mqpv.rewritten_prose;
+        ctx.mode2_post_prose = ctx.prose;
+        // Re-run grounding verifier so the badge reflects the rewritten prose.
+        ctx.grounding = verifyAnswerGrounding({
+          answerText: ctx.prose,
+          evidenceItems: ctx.evidence?.items || [],
+          mode: groundingEnforcementEnabled() ? "citation" : "legacy",
+        });
+        sendSSE(res, { type: "prose_updated", content: ctx.prose });
+      } else {
+        ctx.mode2_post_prose = ctx.prose;
+      }
+    } catch (err) {
+      console.warn("[mqpv] pipeline failed:", err?.message || err);
+      ctx.mode2 = { error: err.message || String(err), errors: { pipeline: err.message } };
+    }
+  }
+
   sendSSE(res, {
     type: "done",
     sources: ctx.sources,
@@ -576,6 +609,29 @@ export async function streamToBuffer(ctx) {
     evidenceItems: ctx.evidence?.items || [],
     mode: groundingEnforcementEnabled() ? "citation" : "legacy",
   });
+
+  // MQPV — buffer-mode parallel.
+  if (mode2VerifierEnabled() && (ctx.evidence?.items?.length || 0) > 0) {
+    try {
+      const mqpv = await runMode2Pipeline(ctx);
+      ctx.mode2 = mqpv.telemetry;
+      ctx.mode2_pre_prose = ctx.prose;
+      if (mqpv.rewritten_prose) {
+        ctx.prose = mqpv.rewritten_prose;
+        ctx.mode2_post_prose = ctx.prose;
+        ctx.grounding = verifyAnswerGrounding({
+          answerText: ctx.prose,
+          evidenceItems: ctx.evidence?.items || [],
+          mode: groundingEnforcementEnabled() ? "citation" : "legacy",
+        });
+      } else {
+        ctx.mode2_post_prose = ctx.prose;
+      }
+    } catch (err) {
+      console.warn("[mqpv] pipeline failed:", err?.message || err);
+      ctx.mode2 = { error: err.message || String(err), errors: { pipeline: err.message } };
+    }
+  }
 
   logTokenUsage(ctx).catch((err) => console.error("Token usage log error:", err));
   persistProfileUpdates(ctx).catch((err) => console.error("Profile persist error:", err));
