@@ -5,8 +5,6 @@ import { isExtractorEnabled } from "./memory-flags.js";
 import { verifyAnswerGrounding } from "./grounding-verifier.js";
 import { groundingEnforcementEnabled } from "./prompt.js";
 import { sanitizeWidgetPayload } from "../../../shared/widget-v2/payload-sanitizer.js";
-import { runMode2Pipeline } from "./mode2-pipeline.js";
-import { mode2VerifierEnabled } from "./mode2-flags.js";
 
 export function parseSSELine(line) {
   const trimmed = String(line).trim();
@@ -455,63 +453,6 @@ async function resolveAndContinue(state, ctx) {
   return response.body;
 }
 
-/**
- * Run the MQPV pipeline against ctx and update ctx in place.
- * No SSE side effects — the caller wires those via opts.
- *
- * @param {Object} ctx — chat pipeline context
- * @param {Object} [opts]
- * @param {Function} [opts.onVerifying] — invoked once before MQPV runs (so streaming caller can SSE "verifying")
- * @param {Function} [opts.onProseUpdated] — invoked when prose was rewritten (passed the new prose string)
- * @param {Function} [opts.onMqpvNoChange] — invoked when MQPV ran but produced no rewrite
- * @param {Function} [opts.onMqpvError] — invoked when MQPV pipeline threw (passed the error)
- */
-async function runMqpvAndUpdateCtx(ctx, opts = {}) {
-  if (!mode2VerifierEnabled() || (ctx.evidence?.items?.length || 0) === 0) return;
-  if (opts.onVerifying) opts.onVerifying();
-  try {
-    const mqpv = await runMode2Pipeline(ctx);
-    ctx.mode2 = mqpv.telemetry;
-    ctx.mode2_pre_prose = ctx.prose;
-    if (mqpv.rewritten_prose) {
-      ctx.prose = mqpv.rewritten_prose;
-      ctx.mode2_post_prose = ctx.prose;
-      // Re-run grounding verifier so the badge reflects the rewritten prose.
-      ctx.grounding = verifyAnswerGrounding({
-        answerText: ctx.prose,
-        evidenceItems: ctx.evidence?.items || [],
-        mode: groundingEnforcementEnabled() ? "citation" : "legacy",
-      });
-      if (opts.onProseUpdated) opts.onProseUpdated(ctx.prose);
-    } else {
-      ctx.mode2_post_prose = ctx.prose;
-      if (opts.onMqpvNoChange) opts.onMqpvNoChange();
-    }
-  } catch (err) {
-    console.warn("[mqpv] pipeline failed:", err?.message || err);
-    // Preserve telemetry shape even on error so downstream consumers
-    // (workflow.js insert + mode2-trend.js) see consistent fields.
-    ctx.mode2 = {
-      rewrites_attempted: 0,
-      initial_failures: null,
-      after_r1_failures: null,
-      final_failures: null,
-      extraction_cost_usd: 0,
-      validation_cost_usd: 0,
-      rewrite_cost_usd: 0,
-      extraction_latency_ms: 0,
-      validation_latency_ms: 0,
-      rewrite_latency_ms: 0,
-      total_latency_ms: 0,
-      qualifiers_dropped_breakdown: {},
-      validation_json: null,
-      error: err?.message || String(err),
-      errors: { pipeline: err?.message || String(err) },
-    };
-    if (opts.onMqpvError) opts.onMqpvError(err);
-  }
-}
-
 /** Pipeline stage: stream SSE to the Express response. */
 export async function stream(ctx, res) {
   res.setHeader("Content-Type", "text/event-stream; charset=utf-8");
@@ -567,20 +508,6 @@ export async function stream(ctx, res) {
     answerText: ctx.prose,
     evidenceItems: ctx.evidence?.items || [],
     mode: groundingEnforcementEnabled() ? "citation" : "legacy",
-  });
-
-  // Mode-2 Qualifier-Preservation Verifier (MQPV).
-  // Spec: docs/superpowers/specs/2026-04-26-mode2-qualifier-preservation-design.md
-  // Runs after grounding verifier; rewrites prose if cited claims dropped
-  // source qualifiers. Flag-gated (default off).
-  await runMqpvAndUpdateCtx(ctx, {
-    onVerifying: () => sendSSE(res, { type: "verifying" }),
-    onProseUpdated: (content) => {
-      sendSSE(res, { type: "prose_updated", content });
-      sendSSE(res, { type: "mqpv_done", changed: true });
-    },
-    onMqpvNoChange: () => sendSSE(res, { type: "mqpv_done", changed: false }),
-    onMqpvError: () => sendSSE(res, { type: "mqpv_done", changed: false, error: true }),
   });
 
   sendSSE(res, {
@@ -649,9 +576,6 @@ export async function streamToBuffer(ctx) {
     evidenceItems: ctx.evidence?.items || [],
     mode: groundingEnforcementEnabled() ? "citation" : "legacy",
   });
-
-  // MQPV — buffer-mode parallel. No SSE callbacks — buffer mode has no SSE.
-  await runMqpvAndUpdateCtx(ctx);
 
   logTokenUsage(ctx).catch((err) => console.error("Token usage log error:", err));
   persistProfileUpdates(ctx).catch((err) => console.error("Profile persist error:", err));

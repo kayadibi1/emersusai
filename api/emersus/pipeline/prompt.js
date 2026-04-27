@@ -44,7 +44,6 @@ const GROUNDING_CONTRACT_BLOCK = [
   "   - Effect size: '+5% 1RM' must NOT generalize to 'improves strength'. '−2 mmHg systolic' must NOT collapse to 'lowers blood pressure'.",
   "   - Study design: 'meta-analysis of RCTs' is different from 'one observational cohort'; do not blur them.",
   "   If a specific is not stated in the source you intend to cite, OMIT that specific rather than invent it from pretrained knowledge. A vague claim with a citation is misleading; a specific claim with the source's exact specifics is honest.",
-  "8. Your output will be checked for qualifier preservation by an automated validator. For each cited claim, preserve the source's population, dose, duration, study design, comparator, and effect-size — OR explicitly hedge that generalization is uncertain (e.g., 'the cited source is in trained men, generalization beyond is uncertain'). Dropping a qualifier without hedging will trigger an automatic rewrite that may alter your phrasing.",
   "",
   "GOOD example (three factual claims → three markers; one coaching inference → explicitly labeled):",
   "  'Creatine monohydrate 3–5 g/day produces meaningful strength and lean-mass gains in resistance-trained adults citesrc1citesrc2. The loading phase is optional — steady dosing reaches saturation in about four weeks citesrc1. As a coaching inference, I'd pair it with your pre-workout shake so you don't have to remember a second time of day.'",
