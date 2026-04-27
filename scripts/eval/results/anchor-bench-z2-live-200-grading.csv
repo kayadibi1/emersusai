@@ -1,0 +1,46 @@
+id,mode,verdict,notes
+g1,mode_3_fabrication,wrong,Meta-statement (Proper assessment matters) shouldn't have been extracted as empirical claim. Non-cited source [2] explicitly says importance of thorough assessment.
+g2,mode_3_fabrication,wrong,Source [4] CITED says verbatim: Increased circulating free fatty acid levels...reduced circulating adiponectin levels and enhanced leptin resistance. Should be correct.
+g3,mode_4_contradicted,correct,Cited mouse sources [2] and [4] explicitly state ketogenic diet causes hepatic insulin resistance contradicting improves insulin sensitivity even if mouse vs human cited content does contradict.
+g4,mode_4_contradicted,correct,Cited source [7]: Warm-up exercise can reduce subsequent performance directly contradicts warm-up can improve cycling performance.
+g5,mode_4_contradicted,correct,Cited source [4]: Rats treated with quercetin showed no changes in citrate synthase or cytochrome C oxidase IV - contradicts mitochondrial biogenesis in rats.
+g6,mode_4_contradicted,correct,Cited source [8] title: HRV Reflects Similar Cardiac Autonomic Function in Explosive and Aerobically Trained Athletes - directly contradicts HRV can differ.
+g7,mode_4_contradicted,wrong,Cited [1]: PNF post-exercise stretching not adequately studied SUPPORTS limited-data claim. Cited [7]: Limited data supports SUPPORTS. No source contradicts. Should be correct.
+g8,mode_4_contradicted,correct,Cited [7]: Limited data supports the effectiveness of static and PNF stretching in reducing DOMS contradicts static stretching has no effect.
+g9,mode_4_contradicted,correct,Cited [7]: COM showed no superior effect for any single outcome contradicts especially a combination.
+g10,mode_4_contradicted,correct,Cited [3] specifically Timing of Return to Pre-Pregnancy Training: investigate the optimal duration - contradicts not focused on one universal week number.
+g11,mode_4_contradicted,correct,Cited [6]: no experimental evidence that athletic training delays menarche directly contradicts the claim.
+g12,mode_4_contradicted,wrong,Cited [1] verbatim: exercise group received Kegel training at 6 weeks - directly supports programs have started at 6 weeks postpartum. Source [2] (also cited) starts at 8 weeks but doesn't contradict that 6-week starts have happened. Should be correct.
+g13,mode_4_contradicted,wrong,Cited [2] verbatim: starting 8 weeks after spontaneous uneventful delivery supports the claim. Should be correct.
+g14,mode_4_contradicted,ambiguous,Cited [1] verbatim: experience of severe DOMS can adversely impact various aspects of performance SUPPORTS. Cited [6] is a specific narrow finding (DOMS doesn't alter O2 kinetics during cycling) - technical contradiction of in general but original claim hedges with various aspects. Reasonable to call this ambiguous.
+g15,mode_4_contradicted,wrong,Claim is verbatim from source [1]: During endurance events there may be a decrease. Source [6] (DOMS doesn't alter O2 kinetics) is one specific case doesn't contradict may reduce hedge. Should be correct.
+g16,mode_1_misattribution,wrong,Cited source [5] is literally titled SynTec: A Low-Cost Eye-Tracking and EEG-Based Diagnostic System for Concussion Assessment - verbatim supports claim. Should be correct not misattribution.
+g17,mode_1_misattribution,ambiguous,Cited sources discuss hypoestrogenism mechanism but excerpts don't directly state bone consequences. Non-cited source [4]: hypogonadism->low BMD link. Plausibly mode_1 if read excerpts strictly but cited [3]/[8] cut off - full text might support.
+g18,mode_1_misattribution,wrong,Cited source [6] explicitly: beneficial effects of resistance training on insulin resistance. Plus non-cited [7] also supports. Cited source DOES support; should be correct.
+g19,mode_1_misattribution,wrong,Cited [3]: mothering athletes often encounter significant barriers supports the claim. Cited [7]: work yet to be done supports framing. Multiple cited sources support the broader assertion. Should be correct or mode_2.
+g20,mode_1_misattribution,ambiguous,Cited [4] is qualitative study titled Experiences and perspectives on pregnancy and motherhood in elite athletes - supports framing. Cited [6] supports context. Lean toward correct but can read either way.
+g21,mode_1_misattribution,wrong,All 5 cited sources directly support different aspects: [1] motivational engagement [2] student voice/choice [3] autonomy [5] inclusivity for marginalized students [6] student-centered approach. Should be correct.
+g22,mode_1_misattribution,correct,Cited [6]: about calcaneus angle NOT strike pattern. Cited [7]: about fatigue kinematics NOT strike pattern. Non-cited [2 3 8] all directly support strike pattern affecting calf load. Classic misattribution.
+g23,mode_1_misattribution,correct,Cited [6 7] discuss HDP prevalence (10%) but don't say most common. Non-cited [8] verbatim: Hypertension is the most common medical disorder encountered during pregnancy. Classic misattribution.
+g24,mode_1_misattribution,correct,Cited sources focus on bone consequences; ovarian-function-specific support comes from non-cited [1]: rigorous exercise training adversely affects ovarian hormone levels. Reasonable misattribution.
+g25,mode_1_misattribution,ambiguous,Cited [1] supports timing-varies framing but not specifically 3-5 min. Cited [4] says peak at 6-9 min (different timing). Cited [5] says 2-3 min in children (different population). Non-cited [3] likely has the specific 3-5 min timing. Lean correct.
+g26,mode_2_overgen,correct,Cited [5 6] discuss specific compounds (citrus flavonoids EGCG resveratrol capsaicin curcumin); claim drops to generic polyphenol-based products. Qualifier diff valid.
+g27,mode_2_overgen,correct,Cited [4]: Moderate exercise has positive effects on the health of average athletes. Claim drops moderate and average athletes qualifiers. Valid mode_2.
+g28,mode_2_overgen,correct,Cited [5] is specifically about combination programs with QoL outcomes; claim drops the QoL specificity. Valid mode_2.
+g29,mode_2_overgen,correct,Cited [2] verbatim matches 68 adults / 12 weeks but claim drops 3x/week and group structure. Valid mode_2 (mild).
+g30,mode_2_overgen,correct,Cited [2] verbatim matches multicenter retrospective with cerclage / progestogen vs cerclage alone but claim drops international / 699 / explicit comparison. Valid mode_2.
+g31,mode_2_overgen,correct,Cited [2] is specific 18-session HIIT in overweight women; cited [3] is 2-week training in women. Claim aggregates into general framing dropping protocol/population specifics. Valid mode_2.
+g32,mode_2_overgen,correct,Claim drops the first year postpartum / meta-analysis specifics from cited [7]. Reasonable qualifier drop.
+g33,mode_2_overgen,correct,Cited [7] is specifically about trained distance runners; claim generalizes to after damaging exercise. Valid mode_2.
+g34,mode_2_overgen,correct,Cited sources discuss menstrual irregularities specifically in female athletes / triad context; claim drops female athletes qualifier. Valid mode_2.
+g35,mode_2_overgen,correct,Cited [4] verbatim supports framing but qualifier diff lists specific design / outcomes / methodology dropped. Valid mode_2.
+g36,correct,correct,Cited [2]: 6 and 8 weeks postpartum verbatim. Cited [6]: 3-9 months. Both directly support.
+g37,correct,correct,Cited [5] verbatim: Six weeks of krill oil supplementation can increase PBMC IL-2 production and NK cell cytotoxic activity 3h post-exercise in both healthy young males and females. Krill oil does not modify exercise performance. Perfect match.
+g38,correct,correct,Cited [1] verbatim: variations in study protocols highlight a need for tailored approaches.
+g39,correct,correct,Cited [7] verbatim: These results show that the repeated bout effect for most of the criterion measures lasts at least 6 months but is lost between 9 and 12 months.
+g40,correct,correct,Cited [2]: Postpartum pelvic floor conditioning using vaginal cones + cited [7] vaginal cone study. Direct support.
+g41,correct,correct,Cited [2]: Impact of postpartum exercise on pelvic floor disorders and diastasis recti abdominis: a systematic review and meta-analysis 2024 BJSM. Verbatim match.
+g42,correct,correct,Cited [4] verbatim: Physical activity is a cornerstone of non-pharmacological therapy. Cited [6]: Exercise has emerged as a key non-pharmacological strategy. Direct.
+g43,correct,correct,Cited [4] title verbatim: Online vs. Supervised Training in Relieving Urinary Incontinence and Diastasis Recti Abdominis in Early Postpartum. 2024.
+g44,correct,correct,Cited [1]: CCL2 and CCR2 polymorphisms are associated with markers of exercise-induced skeletal muscle damage. Verbatim title match.
+g45,correct,correct,Cited [2] verbatim: depression anxiety sleep loneliness self-esteem... 1120 college student-athletes.
