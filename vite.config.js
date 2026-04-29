@@ -1,4 +1,3 @@
-import fs from "node:fs";
 import path from "node:path";
 import { execSync } from "node:child_process";
 import { defineConfig, loadEnv } from "vite";
@@ -6,7 +5,6 @@ import { defineConfig, loadEnv } from "vite";
 const rootDir = path.resolve(".");
 const htmlEntries = [
   "index.html",
-  "about/index.html",
   "admin/index.html",
   "admin/alerts/index.html",
   "admin/candidates/index.html",
@@ -33,12 +31,13 @@ const htmlEntries = [
   "auth/signup/index.html",
   "auth/index.html",
   "chat/index.html",
-  "contact/index.html",
-  "consumer-health-data/index.html",
-  "editorial-policy/index.html",
-  "privacy/index.html",
-  "pricing/index.html",
-  "terms/index.html",
+  "pages/about/index.html",
+  "pages/contact/index.html",
+  "pages/consumer-health-data/index.html",
+  "pages/editorial-policy/index.html",
+  "pages/privacy/index.html",
+  "pages/pricing/index.html",
+  "pages/terms/index.html",
 ];
 
 const GA_MEASUREMENT_ID = "G-RVQWW1H0S9";
@@ -115,26 +114,11 @@ function injectAnalytics(env) {
   };
 }
 
-function copyStaticFiles(files) {
-  return {
-    name: "copy-static-files",
-    closeBundle() {
-      const outDir = path.join(rootDir, "dist");
-      for (const relativeFile of files) {
-        const source = path.join(rootDir, relativeFile);
-        if (!fs.existsSync(source)) continue;
-        const target = path.join(outDir, relativeFile);
-        fs.mkdirSync(path.dirname(target), { recursive: true });
-        fs.copyFileSync(source, target);
-      }
-    },
-  };
-}
-
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, rootDir, ["VITE_"]);
   return {
     appType: "mpa",
+    publicDir: "public",
     build: {
       outDir: "dist",
       emptyOutDir: true,
@@ -145,22 +129,6 @@ export default defineConfig(({ mode }) => {
         ),
       },
     },
-    plugins: [
-      injectGtag(),
-      injectAnalytics(env),
-      copyStaticFiles([
-        "emersus-logo.png",
-        "emersus_mark_fibonacci_blue.svg",
-        "robots.txt",
-        "llms.txt",
-        "sitemap.xml",
-        "favicon.ico",
-        "favicon.svg",
-        "apple-touch-icon.png",
-        "manifest.webmanifest",
-        "og-image.png",
-        "BingSiteAuth.xml",
-      ]),
-    ],
+    plugins: [injectGtag(), injectAnalytics(env)],
   };
 });
