@@ -11,7 +11,7 @@
 **Spec:** `docs/superpowers/specs/2026-04-11-meal-planning-journaling-design.md`
 
 **Production context:**
-- Self-hosted Supabase on Hetzner (46.225.58.187). Migrations applied via `infra/apply-migrations.sh` with `-U supabase_admin` (per `memory/project_supabase_admin_role.md`).
+- Self-hosted Supabase on Hetzner. Migrations applied via `infra/apply-migrations.sh` with `-U supabase_admin` (per `memory/project_supabase_admin_role.md`).
 - Local dev points at PRODUCTION Supabase. Treat all data-pipeline commands as touching live data.
 - Production runs `gpt-5.4-mini` via `OPENAI_EMERSUS_MODEL` override. `workflow.js` default is `gpt-4.1-mini`.
 - Hetzner has 242 GB free of 301 GB as of 2026-04-11 — Branded import (~10 GB total) has headroom.

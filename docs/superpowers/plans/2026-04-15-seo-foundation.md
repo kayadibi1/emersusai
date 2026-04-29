@@ -1636,7 +1636,7 @@ Expected: Title, description, and 1200×630 image render correctly. If Facebook 
 
 - [ ] **Step 5: Submit sitemap to Google Search Console**
 
-1. Sign in to https://search.google.com/search-console (user: `sidarvig@gmail.com`).
+1. Sign in to https://search.google.com/search-console with the property owner's Google account.
 2. Add property `https://emersus.ai` if not already added. Verify ownership via DNS TXT record or HTML file upload (the latter requires adding a file to the repo root and redeploying).
 3. Once verified, go to Sitemaps → Add new sitemap → enter `sitemap.xml` → Submit.
 

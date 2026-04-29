@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
 # Bundles the minimal files needed to run all data-pipeline scripts on Hetzner.
 # Usage: bash scripts/deploy-embed-runner.sh [ssh-host]
-#   Default host: emersus@46.225.58.187
+#   Pass the host explicitly or set DEPLOY_HOST in the environment.
 #
 # Auto-copies keys from ~/app/.env on the server and rewrites SUPABASE_URL
 # to http://localhost:8000 (Kong on the same box). No manual editing needed.
 
 set -euo pipefail
 
-HOST="${1:-emersus@46.225.58.187}"
+HOST="${1:-${DEPLOY_HOST:-}}"
+if [[ -z "$HOST" ]]; then
+  echo "Error: no SSH host. Pass it as the first argument or set DEPLOY_HOST." >&2
+  exit 1
+fi
 BUNDLE_DIR="$(mktemp -d)"
 trap 'rm -rf "$BUNDLE_DIR"' EXIT
 

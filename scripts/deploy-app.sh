@@ -4,11 +4,14 @@
 #   bash scripts/deploy-app.sh
 #   bash scripts/deploy-app.sh --branch main
 #   bash scripts/deploy-app.sh --skip-push
-#   bash scripts/deploy-app.sh --host emersus@46.225.58.187 --app-dir ~/app
+#   bash scripts/deploy-app.sh --host emersus@<host-ip> --app-dir ~/app
+#
+# Set DEPLOY_HOST in your environment or pass --host. There is no baked-in
+# default; the script exits if no host is provided.
 
 set -euo pipefail
 
-HOST="emersus@46.225.58.187"
+HOST="${DEPLOY_HOST:-}"
 APP_DIR="~/app"
 REMOTE_NAME="origin"
 BRANCH="main"
@@ -21,7 +24,7 @@ Deploy the app to the Hetzner server.
 
 Options:
   --branch <name>     Git branch to push/pull (default: main)
-  --host <user@host>  SSH host (default: emersus@46.225.58.187)
+  --host <user@host>  SSH host (default: $DEPLOY_HOST env var)
   --app-dir <path>    Remote app directory (default: ~/app)
   --skip-push         Skip local git push and only deploy what's already remote
   --health-url <url>  Health endpoint to verify after restart
@@ -65,6 +68,11 @@ done
 
 CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 STATUS_OUTPUT="$(git status --short)"
+
+if [[ -z "$HOST" ]]; then
+  echo "Error: no SSH host. Set DEPLOY_HOST env var or pass --host <user@host>." >&2
+  exit 1
+fi
 
 echo "Deploy target: $HOST:$APP_DIR"
 echo "Deploy branch: $BRANCH"
