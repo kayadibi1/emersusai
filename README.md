@@ -2,6 +2,8 @@
 
 Evidence-based fitness and nutrition chat. pgvector semantic search over scientific literature, OpenAI synthesis, streamed answers with inline interactive widgets and source-grounded citations.
 
+![Emersus landing](docs/images/landing.png)
+
 ## Status
 
 **Archived.** Built solo from late February to late April 2026 (~6 weeks of focused work). The site (emersus.ai) has been wound down. This repo is published as a portfolio artifact, not a maintained product.
